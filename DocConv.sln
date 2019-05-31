@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DocConv", "DocConv.dtproj", "{3A7F4739-32B7-4F0A-8BDB-EB6FA24A37E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A7F4739-32B7-4F0A-8BDB-EB6FA24A37E6}.Development|Default.ActiveCfg = Development
+		{3A7F4739-32B7-4F0A-8BDB-EB6FA24A37E6}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D55B3414-EB3F-4FA3-AE8D-DEA88DA9C479}
+	EndGlobalSection
+EndGlobal
