@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcA - Import Sonar"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{8E588375-F27A-4A2F-81A0-6E1E173401BF}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{CA0E80DC-599F-48FB-A26B-F05EE6635637}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -12675,6 +12675,10 @@ where [refTable].[ROW_ID] = ?</property>
                       refId="Package\Update Klant BSN\Klanten.Inputs[OLE DB Destination Input].ExternalColumns[ValidBSN]"
                       dataType="bool"
                       name="ValidBSN" />
+                    <externalMetadataColumn
+                      refId="Package\Update Klant BSN\Klanten.Inputs[OLE DB Destination Input].ExternalColumns[LastDoc]"
+                      dataType="dbTimeStamp"
+                      name="LastDoc" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -13953,6 +13957,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Import Sonar Documents"
           TopLeft="80,135" />
         <NodeLayout
+          Size="201,42"
+          Id="Package\Set meest recente datum"
+          TopLeft="654,281" />
+        <NodeLayout
           Size="168,42"
           Id="Package\Update Klant BSN"
           TopLeft="234,24" />
@@ -13978,10 +13986,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="201,42"
-          Id="Package\Set meest recente datum"
-          TopLeft="654,281" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="550,303.5">
@@ -15519,6 +15523,166 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Set meest recente datum">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Set meest recente datum\Multicast"
+          TopLeft="52,269" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Set meest recente datum\Max DocDatum"
+          TopLeft="331,102" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Set meest recente datum\Set Last Doc Date"
+          TopLeft="642,273" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\Set meest recente datum\Klanten"
+          TopLeft="71,100" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Set meest recente datum\Update Needed ?"
+          TopLeft="319,269" />
+        <EdgeLayout
+          Id="Package\Set meest recente datum.Paths[Wat ?]"
+          TopLeft="319,290">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144,0"
+              Start="0,0"
+              End="-136.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-136.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-90.3465625,5,44.193125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Set meest recente datum.Paths[OLE DB Source Output]"
+          TopLeft="187,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="144,0"
+              Start="0,0"
+              End="136.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="136.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Set meest recente datum.Paths[Lookup Match Output]"
+          TopLeft="405,144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,125"
+              Start="0,0"
+              End="0,117.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,117.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Set meest recente datum.Paths[Ja]"
+          TopLeft="484,292">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158,0"
+              Start="0,0"
+              End="150.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="150.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="69.8749609375,5,10.750078125,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelinePath
+    design-time-name="Package\Set meest recente datum.Paths[Lookup Match Output]">
+    <PathAnnotation>Never</PathAnnotation>
+  </PipelinePath>
+  <PipelineComponentMetadata
+    design-time-name="Package\Set meest recente datum\Max DocDatum">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Set meest recente datum\Klanten">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Update Klant BSN">
     <LayoutInfo>
       <GraphLayout
@@ -15666,128 +15830,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\Set meest recente datum">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="116,42"
-          Id="Package\Set meest recente datum\Klanten"
-          TopLeft="71,100" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Set meest recente datum\Set Last Doc Date"
-          TopLeft="642,273" />
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Set meest recente datum\Max DocDatum"
-          TopLeft="331,102" />
-        <EdgeLayout
-          Id="Package\Set meest recente datum.Paths[OLE DB Source Output]"
-          TopLeft="187,122">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="144,0"
-              Start="0,0"
-              End="136.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="136.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="165,42"
-          Id="Package\Set meest recente datum\Update Needed ?"
-          TopLeft="319,269" />
-        <EdgeLayout
-          Id="Package\Set meest recente datum.Paths[Lookup Match Output]"
-          TopLeft="405,144">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,125"
-              Start="0,0"
-              End="0,117.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,117.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Set meest recente datum.Paths[Ja]"
-          TopLeft="484,292">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="158,0"
-              Start="0,0"
-              End="150.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="150.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="69.8749609375,5,10.750078125,9.421875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Set meest recente datum\Multicast"
-          TopLeft="52,269" />
-        <EdgeLayout
-          Id="Package\Set meest recente datum.Paths[Wat ?]"
-          TopLeft="319,290">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-144,0"
-              Start="0,0"
-              End="-136.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-136.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-90.3465625,5,44.193125,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Set meest recente datum\Klanten">
+    design-time-name="Package\Update Klant BSN\Klanten">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15799,32 +15843,5 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Set meest recente datum\Max DocDatum">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelinePath
-    design-time-name="Package\Set meest recente datum.Paths[Lookup Match Output]">
-    <PathAnnotation>Never</PathAnnotation>
-  </PipelinePath>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
