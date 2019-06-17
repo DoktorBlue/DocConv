@@ -5,20 +5,20 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="VMT010140177175"
   DTS:CreatorName="TEST\bla061"
-  DTS:DTSID="{210E66BE-2553-4D8A-9641-EF38D42F2136}"
+  DTS:DTSID="{30F76F85-E6F9-41C9-9422-3EB6107A0D68}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1300.375"
   DTS:LocaleID="1043"
-  DTS:ObjectName="ProcB - Load Werkvoorraad"
+  DTS:ObjectName="ProcB - Doc2"
   DTS:PackageType="5"
-  DTS:VersionBuild="79"
-  DTS:VersionGUID="{4D02ACBD-F0F4-41DB-8DDB-46FB82FE906B}">
+  DTS:VersionBuild="73"
+  DTS:VersionGUID="{14D708EF-DD3D-4A5D-AAE9-BC493430351B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D2ECEEC0-51B9-4A64-B7B0-4196CF655499}"
+      DTS:DTSID="{7BAA8A48-0994-42E1-A97B-57AEB4FBA462}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="MaxFileSize">
@@ -31,7 +31,7 @@
       DTS:refId="Package\Get MaxFileSize"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{BD15647C-B86F-4913-BE6D-6E563ABAF0A5}"
+      DTS:DTSID="{1DB4F133-DEDD-48F1-AE41-A286804C73CF}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get MaxFileSize"
@@ -52,7 +52,7 @@
       DTS:refId="Package\Load Docs"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{3D0E19E0-B1A0-4114-BA7F-3015A23B8BB5}"
+      DTS:DTSID="{40ABC0A0-4BAB-4081-B3FD-A1416B2A3366}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Load Docs"
@@ -322,12 +322,12 @@ where [refTable].[Sonar ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load Docs\Derived Column.Outputs[Derived Column Output].Columns[InsertDate]"
+                      refId="Package\Load Docs\Derived Column.Outputs[Derived Column Output].Columns[Insert]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Load Docs\Derived Column.Outputs[Derived Column Output].Columns[InsertDate]"
-                      name="InsertDate"
+                      lineageId="Package\Load Docs\Derived Column.Outputs[Derived Column Output].Columns[Insert]"
+                      name="Insert"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -501,149 +501,6 @@ where [refTable].[Sonar ID] = ?</property>
                       refId="Package\Load Docs\Doc Dropout.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Load Docs\Doc Dropout.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Load Docs\Doc exists?"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Doc exists?"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        Sonar
-FROM            Documents</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        Sonar
-FROM            Documents) [refTable]
-where [refTable].[Sonar] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Sonar" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load Docs\Sonar.Outputs[OLE DB Source Output].Columns[Sonar ID]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load Docs\Doc exists?.Connections[OleDbConnection]"
-                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Load Docs\Doc exists?.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load Docs\Doc exists?.Inputs[Lookup Input].Columns[Sonar ID]"
-                      cachedDataType="i4"
-                      cachedName="Sonar ID"
-                      lineageId="Package\Load Docs\Sonar.Outputs[OLE DB Source Output].Columns[Sonar ID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Sonar</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load Docs\Doc exists?.Outputs[Ja]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Ja"
-                  synchronousInputId="Package\Load Docs\Doc exists?.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load Docs\Doc exists?.Outputs[No]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="No"
-                  synchronousInputId="Package\Load Docs\Doc exists?.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load Docs\Doc exists?.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Load Docs\Doc exists?.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load Docs\Doc exists?.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load Docs\Doc exists?.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load Docs\Doc exists?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load Docs\Doc exists?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -844,7 +701,7 @@ where [refTable].[Name] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Documents]</property>
+                  name="OpenRowset">[Documents2]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -901,53 +758,17 @@ where [refTable].[Name] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[FileDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FileDate"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[FileDate]"
+                      lineageId="Package\Load Docs\Sonar.Outputs[OLE DB Source Output].Columns[FileDate]" />
+                    <inputColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[ProcStatus]"
                       cachedDataType="i4"
                       cachedName="ProcStatus"
                       externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[ProcStatus]"
                       lineageId="Package\Load Docs\Derived Column.Outputs[Derived Column Output].Columns[ProcStatus]" />
-                    <inputColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[Doc Status]"
-                      cachedDataType="i1"
-                      cachedName="Doc Status"
-                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DocStatus]"
-                      lineageId="Package\Load Docs\Derived Column.Outputs[Derived Column Output].Columns[Doc Status]" />
-                    <inputColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[Step]"
-                      cachedDataType="i4"
-                      cachedName="Step"
-                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[CurrentStep]"
-                      lineageId="Package\Load Docs\Derived Column.Outputs[Derived Column Output].Columns[Step]" />
-                    <inputColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[DocType ID]"
-                      cachedDataType="i2"
-                      cachedName="DocType ID"
-                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DocType]"
-                      lineageId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]" />
-                    <inputColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[Sonar ID]"
-                      cachedDataType="i4"
-                      cachedName="Sonar ID"
-                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Sonar]"
-                      lineageId="Package\Load Docs\Sonar.Outputs[OLE DB Source Output].Columns[Sonar ID]" />
-                    <inputColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[FileType ID]"
-                      cachedDataType="i2"
-                      cachedName="FileType ID"
-                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[FileType]"
-                      lineageId="Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[FileType ID]" />
-                    <inputColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[xFdF Template ID]"
-                      cachedDataType="i2"
-                      cachedName="xFdF Template ID"
-                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[xFdF Template]"
-                      lineageId="Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF Template ID]" />
-                    <inputColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[InsertDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="InsertDate"
-                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Inserted]"
-                      lineageId="Package\Load Docs\Derived Column.Outputs[Derived Column Output].Columns[InsertDate]" />
                     <inputColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[DocName]"
                       cachedCodepage="1252"
@@ -963,75 +784,92 @@ where [refTable].[Name] = ?</property>
                       externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DossierDate]"
                       lineageId="Package\Load Docs\Sonar.Outputs[OLE DB Source Output].Columns[DossierDate]" />
                     <inputColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[FileDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="FileDate"
-                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[FileDate]"
-                      lineageId="Package\Load Docs\Sonar.Outputs[OLE DB Source Output].Columns[FileDate]" />
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[Sonar ID]"
+                      cachedDataType="i4"
+                      cachedName="Sonar ID"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Sonar ID]"
+                      lineageId="Package\Load Docs\Sonar.Outputs[OLE DB Source Output].Columns[Sonar ID]" />
                     <inputColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[SonarSrc]"
                       cachedDataType="ui1"
                       cachedName="SonarSrc"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Source]"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[SonarSrc]"
                       lineageId="Package\Load Docs\Sonar.Outputs[OLE DB Source Output].Columns[SonarSrc]" />
+                    <inputColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[DocSize]"
+                      cachedDataType="i4"
+                      cachedName="DocSize"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DocSize]"
+                      lineageId="Package\Load Docs\Sonar.Outputs[OLE DB Source Output].Columns[DocSize]" />
+                    <inputColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[SAF File]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="22"
+                      cachedName="SAF File"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[SAF File]"
+                      lineageId="Package\Load Docs\Sonar.Outputs[OLE DB Source Output].Columns[SAF File]" />
                     <inputColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[SAF ID]"
                       cachedDataType="i4"
                       cachedName="SAF ID"
-                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[SAF]"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[SAF ID]"
                       lineageId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[SAF ID]" />
+                    <inputColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[FileSize]"
+                      cachedDataType="i4"
+                      cachedName="FileSize"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[FileSize]"
+                      lineageId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[FileSize]" />
+                    <inputColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[DocType ID]"
+                      cachedDataType="i2"
+                      cachedName="DocType ID"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DocType ID]"
+                      lineageId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]" />
+                    <inputColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[AOS]"
+                      cachedDataType="i2"
+                      cachedName="AOS"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[AOS]"
+                      lineageId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[AOS]" />
+                    <inputColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[xFdF Template ID]"
+                      cachedDataType="i2"
+                      cachedName="xFdF Template ID"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[xFdF Template ID]"
+                      lineageId="Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF Template ID]" />
+                    <inputColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[FileType ID]"
+                      cachedDataType="i2"
+                      cachedName="FileType ID"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[FileType ID]"
+                      lineageId="Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[FileType ID]" />
+                    <inputColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[Doc Status]"
+                      cachedDataType="i1"
+                      cachedName="Doc Status"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Doc Status]"
+                      lineageId="Package\Load Docs\Derived Column.Outputs[Derived Column Output].Columns[Doc Status]" />
+                    <inputColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[Step]"
+                      cachedDataType="i4"
+                      cachedName="Step"
+                      externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Step]"
+                      lineageId="Package\Load Docs\Derived Column.Outputs[Derived Column Output].Columns[Step]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      dataType="i4"
-                      name="ID" />
-                    <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DocStatus]"
-                      dataType="ui1"
-                      name="DocStatus" />
-                    <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[CurrentStep]"
-                      dataType="ui1"
-                      name="CurrentStep" />
-                    <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[ProcStatus]"
-                      dataType="ui1"
-                      name="ProcStatus" />
-                    <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DocType]"
-                      dataType="i2"
-                      name="DocType" />
-                    <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Sonar]"
-                      dataType="i4"
-                      name="Sonar" />
-                    <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[FileType]"
-                      dataType="i2"
-                      name="FileType" />
-                    <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[xFdF Template]"
-                      dataType="i2"
-                      name="xFdF Template" />
-                    <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[SAF]"
-                      dataType="i4"
-                      name="SAF" />
-                    <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Source]"
-                      dataType="ui1"
-                      name="Source" />
                     <externalMetadataColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[FileDate]"
                       dataType="dbTimeStamp"
                       name="FileDate" />
                     <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DossierDate]"
-                      dataType="dbTimeStamp"
-                      name="DossierDate" />
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[ProcStatus]"
+                      dataType="i4"
+                      name="ProcStatus" />
                     <externalMetadataColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DocName]"
                       codePage="1252"
@@ -1039,9 +877,59 @@ where [refTable].[Name] = ?</property>
                       length="255"
                       name="DocName" />
                     <externalMetadataColumn
-                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Inserted]"
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DossierDate]"
                       dataType="dbTimeStamp"
-                      name="Inserted" />
+                      name="DossierDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Sonar ID]"
+                      dataType="i4"
+                      name="Sonar ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[SonarSrc]"
+                      dataType="ui1"
+                      name="SonarSrc" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DocSize]"
+                      dataType="i4"
+                      name="DocSize" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[SAF File]"
+                      codePage="1252"
+                      dataType="str"
+                      length="22"
+                      name="SAF File" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[SAF ID]"
+                      dataType="i4"
+                      name="SAF ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[FileSize]"
+                      dataType="i4"
+                      name="FileSize" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DocType ID]"
+                      dataType="i2"
+                      name="DocType ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[AOS]"
+                      dataType="i2"
+                      name="AOS" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[xFdF Template ID]"
+                      dataType="i2"
+                      name="xFdF Template ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[FileType ID]"
+                      dataType="i2"
+                      name="FileType ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Doc Status]"
+                      dataType="i2"
+                      name="Doc Status" />
+                    <externalMetadataColumn
+                      refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Step]"
+                      dataType="i4"
+                      name="Step" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1782,7 +1670,11 @@ FROM            Sonar AS S LEFT OUTER JOIN
                              (SELECT        X.Sonar, X.Source, MIN(X.[BSN Status]) AS Status, MAX(K.LastDoc) AS DossierDate
                                FROM            [Doc per Klant] AS X LEFT OUTER JOIN
                                                          Klanten AS K ON X.Klant = K.ID
-                               GROUP BY X.Sonar, X.Source) AS G ON S.RowID = G.Sonar AND S.SonarSrc = G.Source</property>
+                               GROUP BY X.Sonar, X.Source) AS G ON S.RowID = G.Sonar AND S.SonarSrc = G.Source
+WHERE        (NOT EXISTS
+                             (SELECT        Sonar
+                               FROM            Documents AS D
+                               WHERE        (S.ID = Sonar)))</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2625,44 +2517,34 @@ where [refTable].[Name] = ?</property>
           <paths>
             <path
               refId="Package\Load Docs.Paths[Derived Column Output]"
+              endId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load Docs\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Docs.Paths[Derived Column Output1]"
               endId="Package\Load Docs\U.Inputs[Union All Input 1]"
               name="Derived Column Output"
               startId="Package\Load Docs\Set SAF Reason.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Load Docs.Paths[Derived Column Output1]"
+              refId="Package\Load Docs.Paths[Derived Column Output2]"
               endId="Package\Load Docs\U.Inputs[Union All Input 2]"
               name="Derived Column Output"
               startId="Package\Load Docs\Set FileSize Reason.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Load Docs.Paths[Derived Column Output2]"
+              refId="Package\Load Docs.Paths[Derived Column Output3]"
               endId="Package\Load Docs\U.Inputs[Union All Input 3]"
               name="Derived Column Output"
               startId="Package\Load Docs\Set OudDos Reason.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Load Docs.Paths[Derived Column Output3]"
+              refId="Package\Load Docs.Paths[Derived Column Output4]"
               endId="Package\Load Docs\FileTypes.Inputs[Lookup Input]"
               name="Derived Column Output"
               startId="Package\Load Docs\Improve Input.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Load Docs.Paths[Derived Column Output4]"
-              endId="Package\Load Docs\Doc exists?.Inputs[Lookup Input]"
-              name="Derived Column Output"
-              startId="Package\Load Docs\Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load Docs.Paths[Ja]"
               endId="Package\Load Docs\Set FileSize Reason.Inputs[Derived Column Input]"
               name="Ja"
               startId="Package\Load Docs\Dropout Check.Outputs[FileSize]" />
-            <path
-              refId="Package\Load Docs.Paths[Lookup Match Output2]"
-              endId="Package\Load Docs\Derived Column.Inputs[Derived Column Input]"
-              name="Lookup Match Output"
-              startId="Package\Load Docs\FileTypes.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load Docs.Paths[Lookup Match Output3]"
-              endId="Package\Load Docs\Dropout Check.Inputs[Conditional Split Input]"
-              name="Lookup Match Output"
-              startId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Docs.Paths[Lookup Match Output]"
               endId="Package\Load Docs\Improve Input.Inputs[Derived Column Input]"
@@ -2674,15 +2556,20 @@ where [refTable].[Name] = ?</property>
               name="Lookup Match Output"
               startId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output]" />
             <path
+              refId="Package\Load Docs.Paths[Lookup Match Output2]"
+              endId="Package\Load Docs\Derived Column.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Load Docs\FileTypes.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load Docs.Paths[Lookup Match Output3]"
+              endId="Package\Load Docs\Dropout Check.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output]" />
+            <path
               refId="Package\Load Docs.Paths[No]"
               endId="Package\Load Docs\Doc Dropout.Inputs[OLE DB Destination Input]"
               name="No"
               startId="Package\Load Docs\Al uitgevallen?.Outputs[No]" />
-            <path
-              refId="Package\Load Docs.Paths[No1]"
-              endId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input]"
-              name="No"
-              startId="Package\Load Docs\Doc exists?.Outputs[No]" />
             <path
               refId="Package\Load Docs.Paths[No SAF]"
               endId="Package\Load Docs\Set SAF Reason.Inputs[Derived Column Input]"
@@ -2716,7 +2603,7 @@ where [refTable].[Name] = ?</property>
       DTS:refId="Package\Preparations"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{65653CF5-E7BC-49A3-92A9-F5DBB154DA37}"
+      DTS:DTSID="{C17C4EA2-0009-4CC6-AAC1-3F616990615B}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Preparations">
@@ -2727,7 +2614,7 @@ where [refTable].[Name] = ?</property>
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
           DTS:Disabled="True"
-          DTS:DTSID="{9A5342F9-0328-451A-8353-57E7491424A5}"
+          DTS:DTSID="{F571FD65-9BFE-43D7-A29F-28CA672A5A54}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Purge"
@@ -2743,7 +2630,7 @@ where [refTable].[Name] = ?</property>
           DTS:refId="Package\Preparations\Update File Extensions"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{2300b52b-1f4c-4887-9f49-ad6c74ada4b0}"
+          DTS:DTSID="{A36AEA03-4EF6-45D4-B5D4-EDB901F14E81}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Update File Extensions"
@@ -3498,7 +3385,7 @@ group by Ext</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Preparations.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{3BED7FED-BE87-40D7-AB1C-839611BA9A4D}"
+          DTS:DTSID="{175EBDCC-C565-4CCF-BAAF-500838505F00}"
           DTS:From="Package\Preparations\Purge"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -3510,7 +3397,7 @@ group by Ext</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{1B7B8F8A-8D0E-45AE-8657-58E6DC85B700}"
+      DTS:DTSID="{C5FF8D0A-7B42-4D59-BF83-3E92E0756ED6}"
       DTS:From="Package\Preparations"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -3518,7 +3405,7 @@ group by Ext</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{F6DE31B4-2CCC-424E-B85A-E24C8D919072}"
+      DTS:DTSID="{28767001-D84B-49D4-96A3-EF8A6E467EEC}"
       DTS:From="Package\Get MaxFileSize"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -3632,7 +3519,7 @@ group by Ext</property>
     design-time-name="Package\Load Docs">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="131,42"
           Id="Package\Load Docs\Doc Types"
@@ -3670,9 +3557,13 @@ group by Ext</property>
           Id="Package\Load Docs\FileTypes"
           TopLeft="277,500" />
         <NodeLayout
+          Size="135,42"
+          Id="Package\Load Docs\Documents"
+          TopLeft="754,500" />
+        <NodeLayout
           Size="108,42"
           Id="Package\Load Docs\Sonar"
-          TopLeft="53,28" />
+          TopLeft="59,23" />
         <NodeLayout
           Size="130,42"
           Id="Package\Load Docs\Doc Dropout"
@@ -3690,7 +3581,7 @@ group by Ext</property>
           Id="Package\Load Docs\Al uitgevallen?"
           TopLeft="864,272" />
         <EdgeLayout
-          Id="Package\Load Docs.Paths[Derived Column Output]"
+          Id="Package\Load Docs.Paths[Derived Column Output1]"
           TopLeft="653,174">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3715,6 +3606,28 @@ group by Ext</property>
                     Point3="44.8076311605723,70.75" />
                   <mssgle:LineSegment
                     End="54.5,70.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Docs.Paths[Derived Column Output]"
+          TopLeft="647,520">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="107,0"
+              Start="0,0"
+              End="99.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="99.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3779,6 +3692,28 @@ group by Ext</property>
             <mssgm:EdgeLabel
               BoundingBox="10.3126689489339,-15.7490234375,41.921015625,9.7490234375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Docs.Paths[OLE DB Source Output]"
+          TopLeft="167,46">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117,0"
+              Start="0,0"
+              End="109.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="109.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3978,7 +3913,7 @@ group by Ext</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Docs.Paths[Derived Column Output3]"
+          Id="Package\Load Docs.Paths[Derived Column Output4]"
           TopLeft="174,523">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4000,7 +3935,7 @@ group by Ext</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Docs.Paths[Derived Column Output2]"
+          Id="Package\Load Docs.Paths[Derived Column Output3]"
           TopLeft="643,416">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4034,7 +3969,7 @@ group by Ext</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Docs.Paths[Derived Column Output1]"
+          Id="Package\Load Docs.Paths[Derived Column Output2]"
           TopLeft="645,295.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4053,82 +3988,6 @@ group by Ext</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="135,42"
-          Id="Package\Load Docs\Documents"
-          TopLeft="882,495" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Load Docs\Doc exists?"
-          TopLeft="701,499" />
-        <EdgeLayout
-          Id="Package\Load Docs.Paths[OLE DB Source Output]"
-          TopLeft="161,48.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="123,0"
-              Start="0,0"
-              End="115.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="115.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Docs.Paths[Derived Column Output4]"
-          TopLeft="647,519.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="54,0"
-              Start="0,0"
-              End="46.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="46.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Docs.Paths[No1]"
-          TopLeft="831,518">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="51,0"
-              Start="0,0"
-              End="43.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="43.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="15.20796875,5,13.0840625,9.421875"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4239,6 +4098,19 @@ group by Ext</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Documents">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -4431,42 +4303,6 @@ group by Ext</property>
   <PipelineComponentMetadata
     design-time-name="Package\Preparations\Update File Extensions\File Types">
     <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Documents">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Doc exists?">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>

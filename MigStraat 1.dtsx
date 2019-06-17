@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="MigStraat 1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{EBC4BD5C-90EA-40E3-B2FA-D99615DA1D95}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{DEBDDC9B-0E65-4755-B099-D91A08F2A3B6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -228,6 +228,10 @@
           Id="Package\C - Prepare Batches &amp; D - Read Log\Get Folder"
           TopLeft="202,28" />
         <NodeLayout
+          Size="117,42"
+          Id="Package\C - Prepare Batches &amp; D - Read Log\Step C"
+          TopLeft="23.5,141" />
+        <NodeLayout
           Size="112,42"
           Id="Package\C - Prepare Batches &amp; D - Read Log\Step D"
           TopLeft="212,140" />
@@ -253,10 +257,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="117,42"
-          Id="Package\C - Prepare Batches &amp; D - Read Log\Step C"
-          TopLeft="23.5,141" />
         <EdgeLayout
           Id="Package\C - Prepare Batches &amp; D - Read Log.PrecedenceConstraints[Constraint 1]"
           TopLeft="140.5,161.5">

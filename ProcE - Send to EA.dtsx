@@ -11,22 +11,22 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcE - Send to EA"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{7AA307EB-898B-4469-BCD4-0BC996BF6DFD}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{0CD5A79A-B753-421D-80D1-4D267F2096EF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[IBM MQ Connection Manager]"
+      DTS:refId="Package.ConnectionManagers[IBM MQ Connection]"
       DTS:CreationName="IBM MQ (KingswaySoft)"
       DTS:DTSID="{1C7C1B19-0753-4879-A009-14AC5A0ADFB6}"
-      DTS:ObjectName="IBM MQ Connection Manager">
+      DTS:ObjectName="IBM MQ Connection">
       <DTS:ObjectData>
         <ConnectionManager
           ConnectionString="QueueManager=QMSONARMIG;HostName=10.140.177.125;Port=1434;ChannelName=SYSTEM.ADMIN.SVRCONN;UserID=bla061;AuthenticationMode=Credentials;CertificateLabel=;CertificateKeyRepository=0;SSLCipherSpec=;SSLPeerName=;SSLResetCount=0;SSLRevocationCheck=False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAy97OzsOhSEKypgRGdDL8ZQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAuhnAaAnfV61rgxLzQ/QlMAAAAAASAAACgAAAAEAAAANtat3Yff4MSi1X2T+RdsFMYAAAAw1nubH0nvQG1N3xUfjbc6nBOa8/PYNnbFAAAAPqBWOJrO6C8u62ZwR5JIZJ+kyP6</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAy97OzsOhSEKypgRGdDL8ZQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACOUA+QWkzK9N9SMA7m4xDPAAAAAASAAACgAAAAEAAAACsUK5M28lL5lcldeIQKr8cYAAAAxsbSA+gKcM/7tihD1Ol0QRWSpS5tWVaqFAAAAE4Mf/iO7NWno6ItsAbXMtbPw0M+</Password>
         </ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -102,8 +102,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Put on IBM MQ.Connections[IBM MQ (KingswaySoft)]"
-                  connectionManagerID="Package.ConnectionManagers[IBM MQ Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[IBM MQ Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[IBM MQ Connection]"
+                  connectionManagerRefId="Package.ConnectionManagers[IBM MQ Connection]"
                   description="IBM MQ Connection Manager"
                   name="IBM MQ (KingswaySoft)" />
               </connections>
@@ -1097,15 +1097,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Select 1 as ID, 'E:\LISTINGBURK\WATO\att.log' AS FileName
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Select 1 as ID, 'E:\Data\Import\TemplateVersies on Disk.txt' AS FileName
 UNION ALL
-Select 1 as ID, 'E:\LISTINGBURK\WATO\att.log' AS FileName
-UNION ALL
-Select 1 as ID, 'E:\LISTINGBURK\WATO\att.log' AS FileName
-UNION ALL
-Select 1 as ID, 'E:\LISTINGBURK\WATO\att.log' AS FileName
-UNION ALL
-Select 1 as ID, 'E:\LISTINGBURK\WATO\att.log' AS FileName</property>
+Select 1 as ID, 'E:\Data\Import\TemplateVersies on Disk.txt' AS FileName</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1168,7 +1162,7 @@ Select 1 as ID, 'E:\LISTINGBURK\WATO\att.log' AS FileName</property>
                       refId="Package\Data Flow Task\Select Files.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
                       codePage="1252"
                       dataType="str"
-                      length="27"
+                      length="42"
                       name="FileName" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Select Files.Outputs[OLE DB Source Output].ExternalColumns[ID]"
@@ -1190,7 +1184,7 @@ Select 1 as ID, 'E:\LISTINGBURK\WATO\att.log' AS FileName</property>
                       refId="Package\Data Flow Task\Select Files.Outputs[OLE DB Source Error Output].Columns[FileName]"
                       codePage="1252"
                       dataType="str"
-                      length="27"
+                      length="42"
                       lineageId="Package\Data Flow Task\Select Files.Outputs[OLE DB Source Error Output].Columns[FileName]"
                       name="FileName" />
                     <outputColumn
