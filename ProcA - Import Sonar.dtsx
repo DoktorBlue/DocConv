@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcA - Import Sonar"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{E9B5C1A7-7B79-4355-B264-552D3EA01BD3}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{90F6F426-973E-4A40-A74F-A32806242416}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -174,6 +174,150 @@ ORDER BY ACTIVITY_ID</property>
                           refId="Package\Import Sonar Documents\Load Activity\Act Contact.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\Import Sonar Documents\Load Activity\Act Contact.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Import Sonar Documents\Load Activity\Act Contact ?"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Act Contact ?"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[S_Act_Contact]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[S_Act_Contact]) [refTable]
+where [refTable].[ACTIVITY_ID] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ROW_ID" dataType="DT_STR" length="9" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CREATED" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LAST_UPD" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MODIFICATION_NUM" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CONFLICT_ID" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ACTIVITY_ID" dataType="DT_STR" length="9" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CON_ID" dataType="DT_STR" length="11" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DB_LAST_UPD" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="X_ATTRIB_DT" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="X_ATTRIB_FLG" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="X_UITNODIGING_VERSTUURD" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Import Sonar Documents\Load Activity\Sort.Outputs[Sort Output].Columns[par_row_id]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Connections[OleDbConnection]"
+                      connectionManagerID="{A5EEED69-0923-4E82-9E89-CC99662E7FE4}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Sonar]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Inputs[Lookup Input].Columns[par_row_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="par_row_id"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Import Sonar Documents\Load Activity\Sort.Outputs[Sort Output].Columns[par_row_id]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ACTIVITY_ID</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -2957,150 +3101,6 @@ where [refTable].[ROW_ID] = ?</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Import Sonar Documents\Load Activity\Lookup"
-                  componentClassID="Microsoft.Lookup"
-                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-                  name="Lookup"
-                  usesDispositions="true"
-                  version="6">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the SQL statement that generates the lookup table."
-                      expressionType="Notify"
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[S_Act_Contact]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                      expressionType="Notify"
-                      name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[S_Act_Contact]) [refTable]
-where [refTable].[ACTIVITY_ID] = ?</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the type of connection used to access the reference dataset."
-                      name="ConnectionType"
-                      typeConverter="LookupConnectionType">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the cache type of the lookup table."
-                      name="CacheType"
-                      typeConverter="CacheType">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                      name="NoMatchBehavior"
-                      typeConverter="LookupNoMatchBehavior">1</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                      name="NoMatchCachePercentage">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                      name="MaxMemoryUsage">25</property>
-                    <property
-                      dataType="System.Int64"
-                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                      name="MaxMemoryUsage64">25</property>
-                    <property
-                      dataType="System.String"
-                      description="Indicates whether to reference metadata in an XML format."
-                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ROW_ID" dataType="DT_STR" length="9" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CREATED" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LAST_UPD" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MODIFICATION_NUM" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CONFLICT_ID" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ACTIVITY_ID" dataType="DT_STR" length="9" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CON_ID" dataType="DT_STR" length="11" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DB_LAST_UPD" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="X_ATTRIB_DT" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="X_ATTRIB_FLG" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="X_UITNODIGING_VERSTUURD" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\Import Sonar Documents\Load Activity\Sort.Outputs[Sort Output].Columns[par_row_id]};</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                      name="TreatDuplicateKeysAsError">false</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Import Sonar Documents\Load Activity\Lookup.Connections[OleDbConnection]"
-                      connectionManagerID="{A5EEED69-0923-4E82-9E89-CC99662E7FE4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[Sonar]"
-                      description="Connection manager used to access lookup data."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Import Sonar Documents\Load Activity\Lookup.Inputs[Lookup Input]"
-                      name="Lookup Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Import Sonar Documents\Load Activity\Lookup.Inputs[Lookup Input].Columns[par_row_id]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="15"
-                          cachedName="par_row_id"
-                          cachedSortKeyPosition="1"
-                          lineageId="Package\Import Sonar Documents\Load Activity\Sort.Outputs[Sort Output].Columns[par_row_id]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">ACTIVITY_ID</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Import Sonar Documents\Load Activity\Lookup.Outputs[Lookup Match Output]"
-                      errorOrTruncationOperation="Lookup"
-                      exclusionGroup="1"
-                      name="Lookup Match Output"
-                      synchronousInputId="Package\Import Sonar Documents\Load Activity\Lookup.Inputs[Lookup Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Import Sonar Documents\Load Activity\Lookup.Outputs[Lookup No Match Output]"
-                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                      exclusionGroup="1"
-                      name="Lookup No Match Output"
-                      synchronousInputId="Package\Import Sonar Documents\Load Activity\Lookup.Inputs[Lookup Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Import Sonar Documents\Load Activity\Lookup.Outputs[Lookup Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Lookup Error Output"
-                      synchronousInputId="Package\Import Sonar Documents\Load Activity\Lookup.Inputs[Lookup Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Import Sonar Documents\Load Activity\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Import Sonar Documents\Load Activity\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Import Sonar Documents\Load Activity\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Import Sonar Documents\Load Activity\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
                   refId="Package\Import Sonar Documents\Load Activity\Multicast"
                   componentClassID="Microsoft.Multicast"
                   contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -3157,7 +3157,25 @@ where [refTable].[ACTIVITY_ID] = ?</property>
                           cachedDataType="str"
                           cachedLength="200"
                           cachedName="file_name"
-                          lineageId="Package\Import Sonar Documents\Load Activity\Activity Att.Outputs[OLE DB Source Output].Columns[file_name]" />
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Import Sonar Documents\Load Activity\Activity Att.Outputs[OLE DB Source Output].Columns[file_name]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[TRIM](#{Package\Import Sonar Documents\Load Activity\Activity Att.Outputs[OLE DB Source Output].Columns[file_name]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">TRIM(file_name)</property>
+                          </properties>
+                        </inputColumn>
                         <inputColumn
                           refId="Package\Import Sonar Documents\Load Activity\Set Att Source.Inputs[Derived Column Input].Columns[file_ext]"
                           cachedCodepage="1252"
@@ -3288,13 +3306,13 @@ where [refTable].[ACTIVITY_ID] = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_STR,255,1252)(#{Package\Import Sonar Documents\Load Activity\Activity Att.Outputs[OLE DB Source Output].Columns[file_name]} + "." + [REPLACENULL](#{Package\Import Sonar Documents\Load Activity\Activity Att.Outputs[OLE DB Source Output].Columns[file_ext]},""))</property>
+                              name="Expression">(DT_STR,255,1252)([TRIM](#{Package\Import Sonar Documents\Load Activity\Activity Att.Outputs[OLE DB Source Output].Columns[file_name]}) + "." + [REPLACENULL](#{Package\Import Sonar Documents\Load Activity\Activity Att.Outputs[OLE DB Source Output].Columns[file_ext]},""))</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,255,1252)(file_name + "." + REPLACENULL(file_ext,""))</property>
+                              name="FriendlyExpression">(DT_STR,255,1252)(TRIM(file_name) + "." + REPLACENULL(file_ext,""))</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -4125,12 +4143,12 @@ where [refTable].[ACTIVITY_ID] = ?</property>
                   refId="Package\Import Sonar Documents\Load Activity.Paths[Lookup Match Output2]"
                   endId="Package\Import Sonar Documents\Load Activity\Sonar.Inputs[OLE DB Destination Input]"
                   name="Lookup Match Output"
-                  startId="Package\Import Sonar Documents\Load Activity\Lookup.Outputs[Lookup Match Output]" />
+                  startId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\Import Sonar Documents\Load Activity.Paths[Lookup No Match Output]"
                   endId="Package\Import Sonar Documents\Load Activity\Type ActCon.Inputs[Derived Column Input]"
                   name="Lookup No Match Output"
-                  startId="Package\Import Sonar Documents\Load Activity\Lookup.Outputs[Lookup No Match Output]" />
+                  startId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Outputs[Lookup No Match Output]" />
                 <path
                   refId="Package\Import Sonar Documents\Load Activity.Paths[Merge Join Output]"
                   endId="Package\Import Sonar Documents\Load Activity\Found?.Inputs[Conditional Split Input]"
@@ -4143,7 +4161,7 @@ where [refTable].[ACTIVITY_ID] = ?</property>
                   startId="Package\Import Sonar Documents\Load Activity\Multicast.Outputs[Multicast Output 2]" />
                 <path
                   refId="Package\Import Sonar Documents\Load Activity.Paths[Multicast Output 3]"
-                  endId="Package\Import Sonar Documents\Load Activity\Lookup.Inputs[Lookup Input]"
+                  endId="Package\Import Sonar Documents\Load Activity\Act Contact ?.Inputs[Lookup Input]"
                   name="Multicast Output 3"
                   startId="Package\Import Sonar Documents\Load Activity\Multicast.Outputs[Multicast Output 3]" />
                 <path
@@ -7308,7 +7326,25 @@ where [refTable].[ROW_ID] = ?</property>
                           cachedDataType="str"
                           cachedLength="200"
                           cachedName="file_name"
-                          lineageId="Package\Import Sonar Documents\Load Case\Case Att.Outputs[OLE DB Source Output].Columns[file_name]" />
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Import Sonar Documents\Load Case\Case Att.Outputs[OLE DB Source Output].Columns[file_name]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[TRIM](#{Package\Import Sonar Documents\Load Case\Case Att.Outputs[OLE DB Source Output].Columns[file_name]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">TRIM(file_name)</property>
+                          </properties>
+                        </inputColumn>
                         <inputColumn
                           refId="Package\Import Sonar Documents\Load Case\Set Att Source.Inputs[Derived Column Input].Columns[file_ext]"
                           cachedCodepage="1252"
@@ -7453,13 +7489,13 @@ where [refTable].[ROW_ID] = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_STR,255,1252)(#{Package\Import Sonar Documents\Load Case\Case Att.Outputs[OLE DB Source Output].Columns[file_name]} + "." + [REPLACENULL](#{Package\Import Sonar Documents\Load Case\Case Att.Outputs[OLE DB Source Output].Columns[file_ext]},""))</property>
+                              name="Expression">(DT_STR,255,1252)([TRIM](#{Package\Import Sonar Documents\Load Case\Case Att.Outputs[OLE DB Source Output].Columns[file_name]}) + "." + [REPLACENULL](#{Package\Import Sonar Documents\Load Case\Case Att.Outputs[OLE DB Source Output].Columns[file_ext]},""))</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,255,1252)(file_name + "." + REPLACENULL(file_ext,""))</property>
+                              name="FriendlyExpression">(DT_STR,255,1252)(TRIM(file_name) + "." + REPLACENULL(file_ext,""))</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -11011,7 +11047,25 @@ where [refTable].[ROW_ID] = ?</property>
                           cachedDataType="str"
                           cachedLength="200"
                           cachedName="file_name"
-                          lineageId="Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[file_name]" />
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[file_name]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[TRIM](#{Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[file_name]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">TRIM(file_name)</property>
+                          </properties>
+                        </inputColumn>
                         <inputColumn
                           refId="Package\Import Sonar Documents\Load Contact\Set Att Source.Inputs[Derived Column Input].Columns[file_ext]"
                           cachedCodepage="1252"
@@ -11158,13 +11212,13 @@ where [refTable].[ROW_ID] = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_STR,255,1252)(#{Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[file_name]} + "." + [REPLACENULL](#{Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[file_ext]},""))</property>
+                              name="Expression">(DT_STR,255,1252)([TRIM](#{Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[file_name]}) + "." + [REPLACENULL](#{Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[file_ext]},""))</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,255,1252)(file_name + "." + REPLACENULL(file_ext,""))</property>
+                              name="FriendlyExpression">(DT_STR,255,1252)(TRIM(file_name) + "." + REPLACENULL(file_ext,""))</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -11242,11 +11296,11 @@ where [refTable].[ROW_ID] = ?</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Import Sonar Documents\Load Contact\Sonar"
+                  refId="Package\Import Sonar Documents\Load Contact\Sonar Att"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="Sonar"
+                  name="Sonar Att"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -11299,7 +11353,7 @@ where [refTable].[ROW_ID] = ?</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Import Sonar Documents\Load Contact\Sonar.Connections[OleDbConnection]"
+                      refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Connections[OleDbConnection]"
                       connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
                       connectionManagerRefId="Project.ConnectionManagers[MigLog]"
                       description="The OLE DB runtime connection used to access the database."
@@ -11307,167 +11361,167 @@ where [refTable].[ROW_ID] = ?</property>
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input]"
+                      refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[Sonar Source ID]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[Sonar Source ID]"
                           cachedDataType="ui1"
                           cachedName="Sonar Source ID"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[SonarSrc]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[SonarSrc]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Get Att Source.Outputs[Lookup Match Output].Columns[Sonar Source ID]" />
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[row_id]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[row_id]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="15"
                           cachedName="row_id"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[RowID]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[RowID]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[row_id]" />
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[x_template_id]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[x_template_id]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="15"
                           cachedName="x_template_id"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Template ID]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[Template ID]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[x_template_id]" />
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[x_owner_id]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[x_owner_id]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="15"
                           cachedName="x_owner_id"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Owner]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[Owner]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[x_owner_id]" />
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[file_name]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[file_name]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="200"
                           cachedName="file_name"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[DocName]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[DocName]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[file_name]" />
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[file_ext]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[file_ext]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="10"
                           cachedName="file_ext"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Ext]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[Ext]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[file_ext]" />
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[File Name]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[File Name]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="255"
                           cachedName="File Name"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Set Att Source.Outputs[Derived Column Output].Columns[File Name]" />
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[created]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[created]"
                           cachedDataType="dbTimeStamp"
                           cachedName="created"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[FileDate]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[FileDate]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[created]" />
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[Template Version]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[Template Version]"
                           cachedDataType="wstr"
                           cachedLength="255"
                           cachedName="Template Version"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Template Version]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[Template Version]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Set Att Source.Outputs[Derived Column Output].Columns[Template Version]" />
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[Template Alias]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[Template Alias]"
                           cachedDataType="wstr"
                           cachedLength="200"
                           cachedName="Template Alias"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Template Alias]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[Template Alias]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Set Att Source.Outputs[Derived Column Output].Columns[Template Alias]" />
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[file_size]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[file_size]"
                           cachedDataType="i4"
                           cachedName="file_size"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[FileSize]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[FileSize]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Contact Att.Outputs[OLE DB Source Output].Columns[file_size]" />
                         <inputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].Columns[FileRev]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].Columns[FileRev]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="11"
                           cachedName="FileRev"
-                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[FileRev]"
+                          externalMetadataColumnId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[FileRev]"
                           lineageId="Package\Import Sonar Documents\Load Contact\Set Att Source.Outputs[Derived Column Output].Columns[FileRev]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
                           dataType="i4"
                           name="ID" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[RowID]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[RowID]"
                           codePage="1252"
                           dataType="str"
                           length="11"
                           name="RowID" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[FileName]"
                           codePage="1252"
                           dataType="str"
                           length="255"
                           name="FileName" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Ext]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[Ext]"
                           codePage="1252"
                           dataType="str"
                           length="20"
                           name="Ext" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[SonarSrc]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[SonarSrc]"
                           dataType="ui1"
                           name="SonarSrc" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[FileDate]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[FileDate]"
                           dataType="dbTimeStamp"
                           name="FileDate" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[DocName]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[DocName]"
                           codePage="1252"
                           dataType="str"
                           length="255"
                           name="DocName" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[FileSize]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[FileSize]"
                           dataType="i4"
                           name="FileSize" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Owner]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[Owner]"
                           codePage="1252"
                           dataType="str"
                           length="255"
                           name="Owner" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Template Version]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[Template Version]"
                           dataType="wstr"
                           length="255"
                           name="Template Version" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Template Alias]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[Template Alias]"
                           dataType="wstr"
                           length="255"
                           name="Template Alias" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Template ID]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[Template ID]"
                           codePage="1252"
                           dataType="str"
                           length="20"
                           name="Template ID" />
                         <externalMetadataColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input].ExternalColumns[FileRev]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input].ExternalColumns[FileRev]"
                           codePage="1252"
                           dataType="str"
                           length="11"
@@ -11477,22 +11531,22 @@ where [refTable].[ROW_ID] = ?</property>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Import Sonar Documents\Load Contact\Sonar.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Import Sonar Documents\Load Contact\Sonar.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Import Sonar Documents\Load Contact\Sonar Att.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Import Sonar Documents\Load Contact\Sonar.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Import Sonar Documents\Load Contact\Sonar Att.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Import Sonar Documents\Load Contact\Sonar.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Import Sonar Documents\Load Contact\Sonar Att.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -11620,7 +11674,7 @@ where [refTable].[ROW_ID] = ?</property>
                   startId="Package\Import Sonar Documents\Load Contact\Klanten.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\Import Sonar Documents\Load Contact.Paths[Multicast Output 1]"
-                  endId="Package\Import Sonar Documents\Load Contact\Sonar.Inputs[OLE DB Destination Input]"
+                  endId="Package\Import Sonar Documents\Load Contact\Sonar Att.Inputs[OLE DB Destination Input]"
                   name="Multicast Output 1"
                   startId="Package\Import Sonar Documents\Load Contact\Multicast.Outputs[Multicast Output 1]" />
                 <path
@@ -12214,10 +12268,10 @@ WHERE ID = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Set meest recente datum\Update Needed ?.Outputs[Wat ?]"
+                  refId="Package\Set meest recente datum\Update Needed ?.Outputs[Ouder]"
                   description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
-                  name="Wat ?"
+                  name="Ouder"
                   synchronousInputId="Package\Set meest recente datum\Update Needed ?.Inputs[Conditional Split Input]">
                   <properties>
                     <property
@@ -12272,7 +12326,7 @@ WHERE ID = ?</property>
               refId="Package\Set meest recente datum.Paths[Wat ?]"
               endId="Package\Set meest recente datum\Multicast.Inputs[Multicast Input 1]"
               name="Wat ?"
-              startId="Package\Set meest recente datum\Update Needed ?.Outputs[Wat ?]" />
+              startId="Package\Set meest recente datum\Update Needed ?.Outputs[Ouder]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -14070,65 +14124,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="168,42"
-          Id="Package\Import Sonar Documents\Load Activity\Bestaat al in Doc?"
-          TopLeft="594,165" />
-        <NodeLayout
-          Size="145,42"
-          Id="Package\Import Sonar Documents\Load Activity\Doc per Klant"
-          TopLeft="80,640" />
-        <NodeLayout
-          Size="136,42"
-          Id="Package\Import Sonar Documents\Load Activity\BSN Status"
-          TopLeft="89,525" />
-        <NodeLayout
-          Size="115,42"
-          Id="Package\Import Sonar Documents\Load Activity\Lookup"
-          TopLeft="870,279" />
+          Size="137,42"
+          Id="Package\Import Sonar Documents\Load Activity\Activity Par not found"
+          TopLeft="859,533.111111111111" />
         <NodeLayout
           Size="145,42"
           Id="Package\Import Sonar Documents\Load Activity\Bestaat al No-File uitval"
           TopLeft="349,163" />
         <NodeLayout
-          Size="99,42"
-          Id="Package\Import Sonar Documents\Load Activity\Sort"
-          TopLeft="364,278" />
-        <NodeLayout
-          Size="108,42"
-          Id="Package\Import Sonar Documents\Load Activity\Sonar"
-          TopLeft="878,165" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Import Sonar Documents\Load Activity\Bestaat al No-Contact uitval"
-          TopLeft="80,165" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Import Sonar Documents\Load Activity\Activity Att"
-          TopLeft="95,49" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Import Sonar Documents\Load Activity\Set Att Source"
-          TopLeft="339,47" />
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Import Sonar Documents\Load Activity\Multicast"
-          TopLeft="616,277" />
-        <NodeLayout
-          Size="116,42"
-          Id="Package\Import Sonar Documents\Load Activity\Found?"
-          TopLeft="613,529" />
-        <NodeLayout
-          Size="138,42"
-          Id="Package\Import Sonar Documents\Load Activity\Activity Par not found"
-          TopLeft="859,532" />
-        <NodeLayout
-          Size="151,42"
-          Id="Package\Import Sonar Documents\Load Activity\Get Att Source"
-          TopLeft="597,50" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\Import Sonar Documents\Load Activity\Inner Join"
-          TopLeft="611,407" />
+          Size="145,42"
+          Id="Package\Import Sonar Documents\Load Activity\Doc per Klant"
+          TopLeft="80,640" />
         <NodeLayout
           Size="152,42"
           Id="Package\Import Sonar Documents\Load Activity\Activity No File"
@@ -14142,13 +14148,61 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Import Sonar Documents\Load Activity\Klanten"
           TopLeft="351,522" />
         <NodeLayout
+          Size="130,42"
+          Id="Package\Import Sonar Documents\Load Activity\Act Contact ?"
+          TopLeft="868.888888888889,280.111111111111" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Import Sonar Documents\Load Activity\Bestaat al in Doc?"
+          TopLeft="594,165" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Import Sonar Documents\Load Activity\Get Att Source"
+          TopLeft="597,50" />
+        <NodeLayout
           Size="136,42"
-          Id="Package\Import Sonar Documents\Load Activity\Act Contact"
-          TopLeft="347,402" />
+          Id="Package\Import Sonar Documents\Load Activity\BSN Status"
+          TopLeft="89,525" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\Import Sonar Documents\Load Activity\Found?"
+          TopLeft="613,529" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Import Sonar Documents\Load Activity\Multicast"
+          TopLeft="616,277" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Import Sonar Documents\Load Activity\Inner Join"
+          TopLeft="611,407" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Import Sonar Documents\Load Activity\Sort"
+          TopLeft="364,278" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Import Sonar Documents\Load Activity\Bestaat al No-Contact uitval"
+          TopLeft="80,165" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Import Sonar Documents\Load Activity\Sonar"
+          TopLeft="878,165" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Import Sonar Documents\Load Activity\Activity Att"
+          TopLeft="95,49" />
         <NodeLayout
           Size="139,42"
           Id="Package\Import Sonar Documents\Load Activity\Type FILE ?"
           TopLeft="87,283" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Import Sonar Documents\Load Activity\Act Contact"
+          TopLeft="347,402" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Import Sonar Documents\Load Activity\Set Att Source"
+          TopLeft="339,47" />
         <EdgeLayout
           Id="Package\Import Sonar Documents\Load Activity.Paths[Sort Output]"
           TopLeft="463,298.5">
@@ -14313,18 +14367,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import Sonar Documents\Load Activity.Paths[Multicast Output 3]"
-          TopLeft="739,299">
+          TopLeft="739,299.555555555556">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="131,0"
+              EndConnector="129.888888888889,0"
               Start="0,0"
-              End="123.5,0">
+              End="122.388888888889,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="123.5,0" />
+                    End="122.388888888889,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14379,49 +14433,49 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import Sonar Documents\Load Activity.Paths[Lookup No Match Output]"
-          TopLeft="928.25,321">
+          TopLeft="931.444444444444,322.111111111111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,84"
+              EndConnector="0,82.8888888888889"
               Start="0,0"
-              End="0,76.5">
+              End="0,75.3888888888889">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,76.5" />
+                    End="0,75.3888888888889" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,32.4453125,111.6127734375,11.609375"
+              BoundingBox="-55.80638671875,31.8897569444445,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import Sonar Documents\Load Activity.Paths[Lookup Match Output2]"
-          TopLeft="929.75,279">
+          TopLeft="932.944444444444,280.111111111111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-72"
+              EndConnector="0,-73.1111111111111"
               Start="0,0"
-              End="0,-64.5">
+              End="0,-65.6111111111111">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-64.5" />
+                    End="0,-65.6111111111111" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,-38.0546875,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,-38.6102430555555,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -14521,18 +14575,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import Sonar Documents\Load Activity.Paths[Derived Column Output2]"
-          TopLeft="928.5,447">
+          TopLeft="928.25,447">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,85"
+              EndConnector="0,86.1111111111111"
               Start="0,0"
-              End="0,77.5">
+              End="0,78.6111111111111">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,77.5" />
+                    End="0,78.6111111111111" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14593,7 +14647,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
   <PipelineComponentMetadata
-    design-time-name="Package\Import Sonar Documents\Load Activity\Doc per Klant">
+    design-time-name="Package\Import Sonar Documents\Load Activity\Activity Par not found">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14606,30 +14660,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import Sonar Documents\Load Activity\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[S_Act_Contact]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Import Sonar Documents\Load Activity\Sonar">
+    design-time-name="Package\Import Sonar Documents\Load Activity\Doc per Klant">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14664,6 +14695,42 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Sonar Documents\Load Activity\Act Contact ?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[S_Act_Contact]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Sonar Documents\Load Activity\Sonar">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Import Sonar Documents\Load Case">
     <LayoutInfo>
@@ -14686,17 +14753,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Import Sonar Documents\Load Case\Type FILE ?"
           TopLeft="35,301" />
         <NodeLayout
-          Size="108,42"
-          Id="Package\Import Sonar Documents\Load Case\Sonar"
-          TopLeft="862,419" />
-        <NodeLayout
-          Size="132,42"
-          Id="Package\Import Sonar Documents\Load Case\Type Case"
-          TopLeft="298,417" />
-        <NodeLayout
           Size="116,42"
           Id="Package\Import Sonar Documents\Load Case\Klanten"
           TopLeft="601,541" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Import Sonar Documents\Load Case\Sonar"
+          TopLeft="862,419" />
         <NodeLayout
           Size="142,42"
           Id="Package\Import Sonar Documents\Load Case\Case No File"
@@ -14705,6 +14768,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Size="150,42"
           Id="Package\Import Sonar Documents\Load Case\Set Att Source"
           TopLeft="285,51" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Import Sonar Documents\Load Case\Type Case"
+          TopLeft="298,417" />
         <NodeLayout
           Size="145,42"
           Id="Package\Import Sonar Documents\Load Case\Bestaat al No-File uitval"
@@ -15138,19 +15205,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Import Sonar Documents\Load Case\Sonar">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Import Sonar Documents\Load Case\Klanten">
     <Properties>
       <Property>
@@ -15170,6 +15224,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Sonar Documents\Load Case\Sonar">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -15196,10 +15263,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Import Sonar Documents\Load Contact\Contact Att"
           TopLeft="338,53" />
         <NodeLayout
-          Size="139,42"
-          Id="Package\Import Sonar Documents\Load Contact\Type FILE ?"
-          TopLeft="46,292" />
-        <NodeLayout
           Size="145,42"
           Id="Package\Import Sonar Documents\Load Contact\Bestaat al No-File uitval"
           TopLeft="42,169" />
@@ -15212,13 +15275,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Import Sonar Documents\Load Contact\Con No File"
           TopLeft="47,404" />
         <NodeLayout
+          Size="139,42"
+          Id="Package\Import Sonar Documents\Load Contact\Type FILE ?"
+          TopLeft="46,292" />
+        <NodeLayout
           Size="150,42"
           Id="Package\Import Sonar Documents\Load Contact\Set Att Source"
           TopLeft="582,51" />
         <NodeLayout
-          Size="108,42"
-          Id="Package\Import Sonar Documents\Load Contact\Sonar"
+          Size="125,42"
+          Id="Package\Import Sonar Documents\Load Contact\Sonar Att"
           TopLeft="607,289" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Import Sonar Documents\Load Contact\Multicast"
+          TopLeft="337,290" />
         <NodeLayout
           Size="151,42"
           Id="Package\Import Sonar Documents\Load Contact\Get Att Source"
@@ -15235,10 +15306,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Size="168,42"
           Id="Package\Import Sonar Documents\Load Contact\Bestaat al in Doc?"
           TopLeft="324,170" />
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Import Sonar Documents\Load Contact\Multicast"
-          TopLeft="337,290" />
         <EdgeLayout
           Id="Package\Import Sonar Documents\Load Contact.Paths[OLE DB Source Output]"
           TopLeft="471,73">
@@ -15501,19 +15568,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
   <PipelineComponentMetadata
-    design-time-name="Package\Import Sonar Documents\Load Contact\Sonar">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Import Sonar Documents\Load Contact\Klanten">
     <Properties>
       <Property>
@@ -15538,6 +15592,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Import Sonar Documents\Load Contact\Doc per Klant">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Sonar Documents\Load Contact\Sonar Att">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15594,7 +15661,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-90.3465625,5,44.193125,16"
+              BoundingBox="-91.25234375,5,46.0046875,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15715,6 +15782,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="172,42"
+          Id="Package\Update Klant BSN\Set BSN Validation"
+          TopLeft="684,341" />
+        <NodeLayout
           Size="134,42"
           Id="Package\Update Klant BSN\Bestaat al?"
           TopLeft="391,186" />
@@ -15727,10 +15798,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Update Klant BSN\Klanten"
           TopLeft="707,182" />
         <NodeLayout
-          Size="172,42"
-          Id="Package\Update Klant BSN\Set BSN Validation"
-          TopLeft="684,341" />
-        <NodeLayout
           Size="144,42"
           Id="Package\Update Klant BSN\Al Validated?"
           TopLeft="380,342" />
@@ -15738,28 +15805,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Size="144,42"
           Id="Package\Update Klant BSN\Validate BSN"
           TopLeft="74,187" />
-        <EdgeLayout
-          Id="Package\Update Klant BSN.Paths[OLE DB Source Output]"
-          TopLeft="148,93">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,94"
-              Start="0,0"
-              End="0,86.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,86.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Update Klant BSN.Paths[Lookup No Match Output]"
           TopLeft="525,205">
@@ -15846,6 +15891,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="165.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update Klant BSN.Paths[OLE DB Source Output]"
+          TopLeft="148,93">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,94"
+              Start="0,0"
+              End="0,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,86.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
