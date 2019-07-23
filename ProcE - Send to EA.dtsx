@@ -7,12 +7,12 @@
   DTS:CreatorName="TEST\bla061"
   DTS:DTSID="{36297E9E-11BE-4809-B2D7-FAE936C33C7D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.375"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcE - Send to EA"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{0CD5A79A-B753-421D-80D1-4D267F2096EF}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{DFEFA046-0EDD-4E82-B26A-EFBB8F34A7DF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +26,7 @@
           ConnectionString="QueueManager=QMSONARMIG;HostName=10.140.177.125;Port=1434;ChannelName=SYSTEM.ADMIN.SVRCONN;UserID=bla061;AuthenticationMode=Credentials;CertificateLabel=;CertificateKeyRepository=0;SSLCipherSpec=;SSLPeerName=;SSLResetCount=0;SSLRevocationCheck=False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAy97OzsOhSEKypgRGdDL8ZQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACOUA+QWkzK9N9SMA7m4xDPAAAAAASAAACgAAAAEAAAACsUK5M28lL5lcldeIQKr8cYAAAAxsbSA+gKcM/7tihD1Ol0QRWSpS5tWVaqFAAAAE4Mf/iO7NWno6ItsAbXMtbPw0M+</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABRK+RVlVoXqkouXETYknjkAAAAAASAAACgAAAAEAAAAP4TAMGkCVPKWzU+8U/puWEYAAAAkLDjbThXCUkq0muLXGuLV2fWeBTGAdxTFAAAAGbeEqwZqeXzECzo3EnX8NYjMEQE</Password>
         </ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>

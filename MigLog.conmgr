@@ -3,6 +3,8 @@
   DTS:ObjectName="MigLog"
   DTS:DTSID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
   DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::MigLog_ServerName]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectionString="Data Source=VMT010140177175;Initial Catalog=ConvCtrl;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />

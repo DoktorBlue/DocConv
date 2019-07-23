@@ -7,12 +7,12 @@
   DTS:CreatorName="TEST\bla061"
   DTS:DTSID="{2B9D25C6-8B83-4B60-87F2-568526C1BDF3}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.375"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1043"
   DTS:ObjectName="MigStraat 1"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{05A67A59-3FF6-47A7-8A1F-084252FDC08C}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{08A851F6-A612-4BE6-B4B6-FAF02C696C34}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -148,7 +148,6 @@
       DTS:refId="Package\Prepare Werkvoorraad (Step A &amp; B)"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{226A07C6-08DD-4554-BCD2-5FF0B4DA2E03}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
