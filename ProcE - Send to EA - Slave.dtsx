@@ -1,0 +1,3243 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/7/2019 6:01:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VMT010140177175"
+  DTS:CreatorName="TEST\bla061"
+  DTS:DTSID="{7C44FCEE-40EE-4EB1-96E1-D1FBC857C0DB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1043"
+  DTS:ObjectName="ProcE - Send to EA - Slave"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{CBB0CF32-BB31-4A6C-BB2D-A7841EBA476B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MQ]"
+      DTS:CreationName="IBM MQ (KingswaySoft)"
+      DTS:DTSID="{1C7C1B19-0753-4879-A009-14AC5A0ADFB6}"
+      DTS:ObjectName="MQ">
+      <DTS:PropertyExpression
+        DTS:Name="ChannelName">@[$Package::MQ_ChannelName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="HostName">@[$Package::MQ_HostName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Password">@[$Package::MQ_Password]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Port">@[$Package::MQ_Port]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="QueueManager">@[$Package::MQ_QueueManager]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="UserID">@[$Package::MQ_UserID]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <ConnectionManager
+          ConnectionString="QueueManager=QMSONARMIG;HostName=10.140.177.125;Port=1434;ChannelName=SYSTEM.ADMIN.SVRCONN;UserID=bla061;AuthenticationMode=Credentials;CertificateLabel=;CertificateKeyRepository=0;SSLCipherSpec=;SSLPeerName=;SSLResetCount=0;SSLRevocationCheck=False">
+          <Password
+            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADY52qRC7Qm8RMDjMsscz3eAAAAAASAAACgAAAAEAAAAJhCs9TaWNaw0akZNkCUsUEYAAAAqdg3xvcbPk2zfOcFbvdRDGevRJofrW8hFAAAAKzhupocR1EkqG4/T+PXahV2oeey</Password>
+        </ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Test]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D56E7ABA-E333-4FF9-AD05-8AEE352E9B87}"
+      DTS:ObjectName="Test">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1043"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\Data\XML\Test.XML">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="303"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FileContent"
+              DTS:DTSID="{E2EFF17E-27D0-4466-A393-692E0D071EFE}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{3B477571-88A1-464D-BFED-32580B1F801E}"
+      DTS:ObjectName="BatchID"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">161</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{CA3A6967-B353-48A5-968B-D789C1D79BB3}"
+      DTS:ObjectName="MQ_ChannelName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SYSTEM.ADMIN.SVRCONN</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{389156DE-BFD6-499B-9190-B29332668894}"
+      DTS:ObjectName="MQ_HostName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">10.140.177.125</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{06D4C0ED-0F4A-44B6-96C3-64014B4C1854}"
+      DTS:ObjectName="MQ_Password"
+      DTS:Sensitive="True">
+      <DTS:Property
+        DTS:Name="ParameterValue">
+        <DTS:Property
+          DTS:DataType="8"
+          DTS:Name="ParameterValue"
+          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD9HoznINqwgHRH0VgrGx6eAAAAAASAAACgAAAAEAAAAJUpgG/MVDWt2cqdpdC6aakYAAAAhnpWa5ygfTyfT5l9FplegO03hBl+fVwfFAAAAOCtjRBzXGB/+sta9mZA9l3eHSiD</DTS:Property>
+      </DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{EFC01FF9-D540-4FE0-8C9C-F51CB66947E6}"
+      DTS:ObjectName="MQ_Port">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1434</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{B3884EC4-BE7A-48AB-9820-6D28EEB2B40A}"
+      DTS:ObjectName="MQ_QueueManager">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">QMSONARMIG</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{0FD65153-BB24-4916-BB0B-3B3E495C6016}"
+      DTS:ObjectName="MQ_UserID">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">bla061</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{823558A1-2395-46A2-8F48-F6B0C1D50864}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TestExport">
+      <DTS:VariableValue
+        DTS:DataType="11">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Queue Messages"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9bff8862-8f51-4c0a-979a-b8e5aa1d8614}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Queue Messages"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Queue Messages\End Failed"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="End Failed"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Queue Messages\End Failed.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Queue Messages\End Failed.Inputs[Derived Column Input].Columns[Moment]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Moment"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Moment]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Queue Messages\End Failed.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Queue Messages\End Failed.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Step]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Step]"
+                      name="Step"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_UI1)26</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_UI1)26</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Nu]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Nu]"
+                      name="Nu"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Elapsed]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Elapsed]"
+                      name="Elapsed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEDIFF]("second",#{Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Moment]},[GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEDIFF("second",Moment,GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Batch]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Batch]"
+                      name="Batch"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::BatchID]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::BatchID]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Status]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_UI1)9</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_UI1)9</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Queue Messages\End Failed.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Queue Messages\End Failed.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\End Failed.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Queue Messages\End Failed.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Queue Messages\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Queue Messages\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Queue Messages\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Queue Messages\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Queue Messages\Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Queue Messages\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Queue Messages\Multicast.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\Queue Messages\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Queue Messages\Process Detail"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Process Detail"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ProcessDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Queue Messages\Process Detail.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].Columns[Doc]"
+                      cachedDataType="i4"
+                      cachedName="Doc"
+                      externalMetadataColumnId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Doc]"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Doc]" />
+                    <inputColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].Columns[Doc/Klant]"
+                      cachedDataType="i4"
+                      cachedName="Doc/Klant"
+                      externalMetadataColumnId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Doc/Klant]"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Doc/Klant]" />
+                    <inputColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].Columns[Step]"
+                      cachedDataType="ui1"
+                      cachedName="Step"
+                      externalMetadataColumnId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Step]"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Step]" />
+                    <inputColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].Columns[Elapsed]"
+                      cachedDataType="i4"
+                      cachedName="Elapsed"
+                      externalMetadataColumnId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Elapsed]"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Elapsed]" />
+                    <inputColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].Columns[Batch]"
+                      cachedDataType="i4"
+                      cachedName="Batch"
+                      externalMetadataColumnId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Batch]"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Batch]" />
+                    <inputColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].Columns[Nu]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Nu"
+                      externalMetadataColumnId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Moment]"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Nu]" />
+                    <inputColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].Columns[Status]"
+                      cachedDataType="ui1"
+                      cachedName="Status"
+                      externalMetadataColumnId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Status]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Step]"
+                      dataType="ui1"
+                      name="Step" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      dataType="ui1"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Doc]"
+                      dataType="i4"
+                      name="Doc" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Moment]"
+                      dataType="dbTimeStamp"
+                      name="Moment" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[File]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="File" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[FileSize_KB]"
+                      dataType="i4"
+                      name="FileSize_KB" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Elapsed]"
+                      dataType="i4"
+                      name="Elapsed" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Batch]"
+                      dataType="i4"
+                      name="Batch" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input].ExternalColumns[Doc/Klant]"
+                      dataType="i4"
+                      name="Doc/Klant" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Queue Messages\Process Detail.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\Process Detail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Process Detail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Process Detail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Process Detail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Queue Messages\Put on IBM MQ"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2019 KingswaySoft Inc."
+              description="Populate data into IBM MQ."
+              name="Put on IBM MQ"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the queue to which messages will be sent."
+                  expressionType="Notify"
+                  name="DestinationQueue">PEERCODE.DRL.RESULTATEN.VRAGENLIJST</property>
+                <property
+                  dataType="System.String"
+                  description="The name of the topic to which messages will be sent."
+                  expressionType="Notify"
+                  name="DestinationTopic"></property>
+                <property
+                  dataType="System.String"
+                  description="The topic string used to route messages to topics."
+                  expressionType="Notify"
+                  name="DestinationTopicString"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.IbmMqDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Queue Messages\Put on IBM MQ.Connections[IBM MQ (KingswaySoft)]"
+                  connectionManagerID="Package.ConnectionManagers[MQ]"
+                  connectionManagerRefId="Package.ConnectionManagers[MQ]"
+                  description="IBM MQ Connection Manager"
+                  name="IBM MQ (KingswaySoft)" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Queue Messages\Put on IBM MQ.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Queue Messages\Put on IBM MQ.Inputs[Primary Input].Columns[FileContent]"
+                      cachedDataType="nText"
+                      cachedName="FileContent"
+                      externalMetadataColumnId="Package\Queue Messages\Put on IBM MQ.Inputs[Primary Input].ExternalColumns[MessageBody]"
+                      lineageId="Package\Queue Messages\Read XML File.Outputs[Output 0].Columns[FileContent]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Put on IBM MQ.Inputs[Primary Input].ExternalColumns[MessageBody]"
+                      dataType="nText"
+                      name="MessageBody" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Queue Messages\Put on IBM MQ.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Queue Messages\Put on IBM MQ.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\Put on IBM MQ.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Put on IBM MQ.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Put on IBM MQ.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Put on IBM MQ.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Put on IBM MQ.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Queue Messages\Put on IBM MQ.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Queue Messages\Put on IBM MQ.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Queue Messages\Put on IBM MQ.Inputs[Primary Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Queue Messages\Queued"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Queued"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Queue Messages\Queued.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Queue Messages\Queued.Inputs[Derived Column Input].Columns[Moment]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Moment"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Moment]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Queue Messages\Queued.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Queue Messages\Queued.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Step]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Step]"
+                      name="Step"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_UI1)27</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_UI1)27</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Nu]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Nu]"
+                      name="Nu"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Elapsed]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Elapsed]"
+                      name="Elapsed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEDIFF]("second",#{Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Moment]},[GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEDIFF("second",Moment,GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Batch]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Batch]"
+                      name="Batch"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::BatchID]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::BatchID]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Status]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_UI1)1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_UI1)1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Queue Messages\Queued.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Queue Messages\Queued.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\Queued.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Queued.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Queue Messages\Read XML File"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;11"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Read XML File"
+              version="11">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\AssemblyInfo.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("SC_5fe454f9e9f44ba7a5df9c10e5d495b4")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyProduct("SC_5fe454f9e9f44ba7a5df9c10e5d495b4")> 
+<Assembly: AssemblyCopyright("Copyright @  2019")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("d0ae6900-0a28-42af-b510-37615fc60ce1")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> 
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services component wrapper
+' This module defines the base class for your component
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+
+<CLSCompliant(False)> _
+Public Class UserComponent
+    Inherits ScriptComponent
+
+    Public Connections As New Connections(Me)
+    Public Variables As New Variables(Me)
+
+    Public LinesBuffer As LinesBuffer
+
+    Dim InputsFinished As Integer = 0
+
+    Public Overrides Sub ProcessInput(ByVal InputID As Integer, ByVal InputName As String, ByVal Buffer As PipelineBuffer, ByVal OutputMap As OutputNameMap)
+
+        If InputName.Equals("Input 0", StringComparison.Ordinal) Then
+            Input0_ProcessInput(New Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap))
+        End If
+
+        If Buffer.EndOfRowset Then
+            InputsFinished = InputsFinished + 1
+            If InputsFinished = 1 Then
+                FinishOutputs()
+                MarkOutputsFinished()
+            End If
+        End If
+
+    End Sub
+
+    Public Overridable Sub FinishOutputs()
+    End Sub
+
+    Private Sub MarkOutputsFinished()
+
+        If LinesBuffer IsNot Nothing Then
+            LinesBuffer.SetEndOfRowset
+            LinesBuffer = Nothing
+        End If
+
+    End Sub
+
+    Public Overrides Sub PrimeOutput(ByVal Outputs As Integer, ByVal OutputIDs() As Integer, ByVal Buffers() As PipelineBuffer, ByVal OutputMap As OutputNameMap)
+
+        For I As Integer = 0 To Outputs - 1
+            If OutputIDs(I) = GetOutputID(OutputMap, "Lines") Then
+                LinesBuffer = New LinesBuffer(Buffers(I), GetColumnIndexes(OutputIDs(I)), OutputMap)
+            End If
+        Next
+
+        CreateNewOutputRows()
+
+    End Sub
+
+    Public Overridable Sub CreateNewOutputRows()
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInput(ByVal Buffer As Input0Buffer)
+
+        While Buffer.NextRow()
+            Input0_ProcessInputRow(Buffer)
+        End While
+
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Connections
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Variables
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+    Public ReadOnly Property [TestExport]() As Boolean
+        Get
+            Return CType(ParentComponent.ReadOnlyVariables("TestExport").GetValueWithContext(ScriptComponent.EvaluatorContext), Boolean)
+        End Get
+    End Property
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#Region "Imports"
+Imports System
+Imports System.Data
+Imports System.Math
+Imports System.Xml
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+#End Region
+
+<Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute>
+<CLSCompliant(False)>
+Public Class ScriptMain
+    Inherits UserComponent
+
+    Private Function GetContent(FileName As String, ID As String, BSN As String, EIP As Boolean, AM As Date) As String
+        Dim objReader As New System.IO.StreamReader(FileName), V() As String
+        Dim S As String = vbNullString, Nu As Date = Now()
+        Dim L As String
+
+        While objReader.Peek() <> -1
+            V = Split(objReader.ReadLine(), "@")
+
+            S = S & vbNewLine & V(0)
+            Select Case V.GetUpperBound(0)
+                Case 0
+                    Call LineOut(V(0))
+                Case 1
+                    Select Case Left(V(1), 3)
+                        Case "GID"
+                            L = ID & Mid(V(1), 4)
+                        Case "NUH"
+                            L = DateStr(Now()) & Mid(V(1), 4)
+                        Case "AMD"
+                            L = DateStr(AM) & Mid(V(1), 4)
+                        Case "BSN"
+                            L = BSN & Mid(V(1), 4)
+                        Case "EIP"
+                            L = IIf(EIP, 1, 0).ToString & Mid(V(1), 4)
+                        Case Else
+                            L = V(1)
+                            ComponentMetaData.FireError(1, "@" & Left(V(1), 3), "Variable not recognized", "", 0, True)
+                    End Select
+
+                    S &= L
+                    Call LineOut(V(0) & L)
+
+                Case Else
+                    ComponentMetaData.FireError(1, "# = " & V.GetUpperBound(0).ToString, "Multiple variables in one line not supported", "", 0, True)
+            End Select
+        End While
+        objReader.Close()
+
+        GetContent = Mid(S, Len(vbNewLine) + 1)
+    End Function
+
+    Private Sub LineOut(L As String)
+        If Variables.TestExport Then
+            LinesBuffer.AddRow()
+            LinesBuffer.Line = L
+        End If
+    End Sub
+
+    Private Function DateStr(D As Date) As String
+        DateStr = System.Xml.XmlConvert.ToString(D)
+    End Function
+
+    Public Overrides Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+        Dim S As String
+        '     ComponentMetaData.FireWarning(1, Now.ToLongTimeString, "Start", "", 0)
+        S = GetContent(Row.FileName, Row.BerichtNr.ToString, Row.BSN, Row.EigenPers, Row.Moment)
+        '     ComponentMetaData.FireWarning(1, Now.ToLongTimeString, "File read", "", 0)
+        Row.FileContent.AddBlobData(System.Text.Encoding.Unicode.GetBytes(S))
+        'Row.FileContent.AddBlobData(GetBytes(GetContent(Row.FileName)))
+        '     ComponentMetaData.FireWarning(1, Now.ToLongTimeString, "Blobbed", "", 0)
+    End Sub
+
+    'Private Function GetBytes(S As String) As Byte()
+    '    Dim B(S.Length) As Byte
+    '    Call System.Buffer.BlockCopy(S.ToCharArray, 0, B, 0, S.Length)
+    '    GetBytes = B
+    'End Function
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+
+Partial Friend NotInheritable Class MySettings
+    Inherits System.Configuration.ApplicationSettingsBase
+
+    Private Shared m_Value As MySettings
+
+    Private Shared m_SyncObject As Object = New Object
+
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Public Shared ReadOnly Property Value() As MySettings
+        Get
+            If (MySettings.m_Value Is Nothing) Then
+                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
+                If (MySettings.m_Value Is Nothing) Then
+                    Try
+                        MySettings.m_Value = New MySettings
+                    Finally
+                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
+                    End Try
+                End If
+            End If
+            Return MySettings.m_Value
+        End Get
+    End Property
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services buffer wrappers
+' This module defines classes for accessing data flow buffers
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+
+Option Strict Off   ' This allows usage of PipelineBuffer typed accessors.
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+
+<CLSCompliant(False)> _
+Public Class Input0Buffer
+    Inherits ScriptBuffer
+
+    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
+        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
+    End Sub
+
+    Public ReadOnly Property [FileName]() As String
+        Get
+            Return Buffer.GetString(Me.BufferColumnIndexes(0))
+        End Get
+    End Property
+    Public ReadOnly Property [FileName_IsNull] As Boolean
+        Get
+            Return IsNull(0)
+        End Get
+    End Property
+
+    Public ReadOnly Property [EigenPers]() As Boolean
+        Get
+            Return Buffer.GetBoolean(Me.BufferColumnIndexes(1))
+        End Get
+    End Property
+    Public ReadOnly Property [EigenPers_IsNull] As Boolean
+        Get
+            Return IsNull(1)
+        End Get
+    End Property
+
+    Public ReadOnly Property [BSN]() As String
+        Get
+            Return Buffer.GetString(Me.BufferColumnIndexes(2))
+        End Get
+    End Property
+    Public ReadOnly Property [BSN_IsNull] As Boolean
+        Get
+            Return IsNull(2)
+        End Get
+    End Property
+
+    Public ReadOnly Property [BerichtNr]() As Guid
+        Get
+            Return Buffer.GetGuid(Me.BufferColumnIndexes(3))
+        End Get
+    End Property
+    Public ReadOnly Property [BerichtNr_IsNull] As Boolean
+        Get
+            Return IsNull(3)
+        End Get
+    End Property
+
+    Public ReadOnly Property [Moment]() As DateTime
+        Get
+            Return Buffer.GetDateTime(Me.BufferColumnIndexes(4))
+        End Get
+    End Property
+    Public ReadOnly Property [Moment_IsNull] As Boolean
+        Get
+            Return IsNull(4)
+        End Get
+    End Property
+
+    Public Property [FileContent]() As BlobColumn
+        Get
+            Return CType(Me(5), BlobColumn)
+        End Get
+        Set
+            Me(5) = Value
+        End Set
+    End Property
+    Public Property [FileContent_IsNull] As Boolean
+        Get
+            Return IsNull(5)
+        End Get
+        Set
+            If (value)
+                SetNull(5)
+            Else
+                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
+            End If
+        End Set
+    End Property
+
+    Public Overloads Function NextRow() As Boolean
+        NextRow = MyBase.NextRow()
+    End Function
+
+    Public Overloads Function EndOfRowset() As Boolean
+        EndOfRowset = MyBase.EndOfRowset
+    End Function
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class LinesBuffer
+    Inherits ScriptBuffer
+
+    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
+        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
+    End Sub
+
+    Public WriteOnly Property [Line]() As String
+        Set
+            Me(0) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [Line_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(0)
+            Else
+                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
+            End If
+        End Set
+    End Property
+
+    Public Overloads Sub AddRow()
+        MyBase.AddRow()
+    End Sub
+
+    Public Overloads Sub SetEndOfRowset()
+        MyBase.SetEndOfRowset()
+    End Sub
+
+    Public Overloads Function EndOfRowset() As Boolean
+        EndOfRowset = MyBase.EndOfRowset
+    End Function
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_5fe454f9e9f44ba7a5df9c10e5d495b4</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_5fe454f9e9f44ba7a5df9c10e5d495b4</msb:DisplayName>
+    <msb:ProjectId>{EE90533F-F833-479C-B2E4-64E355A49E85}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_5fe454f9e9f44ba7a5df9c10e5d495b4.vbproj" />
+    <msb:File Include="main.vb" />
+    <msb:File Include="BufferWrapper.vb" />
+    <msb:File Include="My Project\Settings.Designer.vb" />
+    <msb:File Include="My Project\Resources.resx" />
+    <msb:File Include="ComponentWrapper.vb" />
+    <msb:File Include="My Project\AssemblyInfo.vb" />
+    <msb:File Include="My Project\Resources.Designer.vb" />
+    <msb:File Include="My Project\Settings.settings" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_5fe454f9e9f44ba7a5df9c10e5d495b4.vbproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6ac4d6e4-cd2d-40be-a3d4-f10c3f51b1e0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>My Project</AppDesignerFolder>
+    <RootNamespace>SC_5fe454f9e9f44ba7a5df9c10e5d495b4</RootNamespace>
+    <AssemblyName>SC_5fe454f9e9f44ba7a5df9c10e5d495b4</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- This sections specifies references for the project. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.vb" />
+    <Compile Include="BufferWrapper.vb" />
+    <Compile Include="ComponentWrapper.vb" />
+  </ItemGroup>
+  <!-- Visual Basic supports Importing namespaces (equivalent to using statements in C#).-->
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a VB project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="SSIS_SC140" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="SSIS_SC140" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+Namespace My.Resources
+    
+    '''<summary>
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
+    '''</summary>
+    'This class was auto-generated by the Strongly Typed Resource Builder
+    'class via a tool like ResGen or Visual Studio.NET.
+    'To add or remove a member, edit your .ResX file then rerun ResGen
+    'with the /str option, or rebuild your VS project.
+    Class MyResources
+        
+        Private Shared _resMgr As System.Resources.ResourceManager
+        
+        Private Shared _resCulture As System.Globalization.CultureInfo
+        
+        Friend Sub New()
+            MyBase.New
+        End Sub
+        
+        '''<summary>
+        '''   Returns the cached ResourceManager instance used by this class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
+            Get
+                If (_resMgr Is Nothing) Then
+                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
+                    _resMgr = temp
+                End If
+                Return _resMgr
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared Property Culture() As System.Globalization.CultureInfo
+            Get
+                Return _resCulture
+            End Get
+            Set
+                _resCulture = value
+            End Set
+        End Property
+    End Class
+End Namespace
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_5fe454f9e9f44ba7a5df9c10e5d495b4.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAPi2QV0AAAAAAAAAAOAAIiALAVAAACwAAAAIAAAAAAAAdkoA
+AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACgAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAACRKAABPAAAAAGAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAfCoAAAAgAAAALAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAYAAAAAYAAAAuAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAIAAAAACAAAANAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAABY
+SgAAAAAAAEgAAAACAAUASCcAACQiAAABAAAAAAAAAGxJAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBgAAAoqHgIoGQAACiqmcxoAAAqAAQAABHMbAAAKgAIA
+AARzHAAACoADAAAEcx0AAAqABAAABCoufgEAAARvHgAACioufgIAAARvHwAACioufgMAAARvIAAA
+CioufgQAAARvIQAACioeAigiAAAKKq5+BQAABC0ecgEAAHDQBQAAAigjAAAKbyQAAApzJQAACoAF
+AAAEfgUAAAQqGn4GAAAEKh4CgAYAAAQqHgIoKAAABioAAAATMAcA7wEAAAEAABEDcyYAAAoLFA0o
+JwAACiY4tAEAAAdvKAAACnIzAABwFRYoKQAACgwJcjcAAHAIFpooKgAACg0IFm8rAAAKEwURBSwK
+EQUXLhM4RQEAAAIIFpooDgAABjhtAQAACBeaGSgsAAAKEwYRBnI9AABwFigtAAAKLEERBnJFAABw
+FigtAAAKLEgRBnJNAABwFigtAAAKLFkRBnJVAABwFigtAAAKLGQRBnJdAABwFigtAAAKLGg4jQAA
+AAQIF5oaKC4AAAooLwAAChMEOKsAAAACKCcAAAooDwAABggXmhooLgAACigvAAAKEwQ4iwAAAAIO
+BSgPAAAGCBeaGiguAAAKKC8AAAoTBCtxBQgXmhooLgAACigvAAAKEwQrXg4EF4w0AAABFow0AAAB
+KDAAAApvMQAACggXmhooLgAACigvAAAKEwQrNAgXmhMEAigyAAAKF3IzAABwCBeaGSgsAAAKKC8A
+AApyZQAAcHKVAABwFhcTBxIHbzMAAAoJEQQoLwAACg0CCBaaEQQoLwAACigOAAAGKzYCKDIAAAoX
+cpcAAHAIFm8rAAAKEwgSCCg0AAAKKC8AAApyoQAAcHKVAABwFhcTBxIHbzMAAAoHbzUAAAoVQED+
+//8HbzYAAAoJcjcAAHAoNwAAChfWKC4AAAoKBiqWAnsIAAAEbzIAAAYsFwJ7CQAABG8lAAAGAnsJ
+AAAEA28jAAAGKgAAABMwAQAJAAAAAgAAEQMoOAAACgoGKgAAABMwBgBKAAAAAwAAEQIDbxIAAAYD
+bxgAAAYLEgH+FiQAAAFvMQAACgNvFgAABgNvFAAABgNvGgAABigNAAAGCgNvHAAABig5AAAKBm86
+AAAKbzsAAAoqKgIDBAUoPAAACipSAns9AAAKAns+AAAKFpRvPwAACioiAhYoQAAACipSAns9AAAK
+Ans+AAAKF5RvQQAACioiAhcoQAAACipSAns9AAAKAns+AAAKGJRvPwAACioiAhgoQAAACipSAns9
+AAAKAns+AAAKGZRvQgAACioiAhkoQAAACipSAns9AAAKAns+AAAKGpRvQwAACioiAhooQAAACio2
+AhsoRAAACnQoAAABKiYCGwMoRQAACioiAhsoQAAACipaAywIAhsoRgAACipy+wAAcHNHAAAKegAT
+MAEACQAAAAQAABECKEgAAAoKBioAAAATMAEACQAAAAQAABECKEkAAAoKBiomAhYDKEUAAAoqWgMs
+CAIWKEYAAAoqcvsAAHBzRwAACnoeAihKAAAKKh4CKEsAAAoqAAATMAEACQAAAAQAABECKEkAAAoK
+BiqaAihMAAAKAgJzMAAABn0HAAAEAgJzMQAABn0IAAAEAhZ9CgAABCoTMAQATwAAAAAAAAAEcpgB
+AHAab00AAAosFQIFAgMoTgAACg4EcxEAAAZvLgAABgVvTwAACiwjAgJ7CgAABBfWfQoAAAQCewoA
+AAQXMwwCbyoAAAYCKCsAAAYqBipuAnsJAAAELBICewkAAARvJgAABgIUfQkAAAQqAAAAEzAFAEEA
+AAAFAAARAxfaChYLKy4EB5QOBHKoAQBwKFAAAAozGQIFB5oCBAeUKE4AAAoOBHMiAAAGfQkAAAQH
+F9YLBwYxzgJvLQAABipKKwcCA28vAAAGA28gAAAGLfEqOgIoIgAACgIDfQsAAAQqOgIoIgAACgID
+fQwAAAQqlgJ7DAAABG9RAAAKcrQBAHBvUgAACihTAAAKb1QAAAooVQAACipCcyIAAAooVgAACoAO
+AAAEKh4CKFcAAAoqAAAAGzABAD8AAAAAAAAAfg0AAAQtMn4OAAAEKFYAAAooWAAACn4NAAAELRxz
+NAAABoANAAAE3hB+DgAABChWAAAKKFkAAArcfg0AAAQqAAEQAAACAB0ADCkAEAAAAAA2AgMoVgAA
+CihaAAAKKh4CKFsAAAoqLtANAAACKCMAAAoqHgIoMQAACioAABMwAQAUAAAABgAAEQKMBQAAGy0I
+KAEAACsKKwICCgYqIgP+FQUAABsqAAAAEzACACgAAAAHAAARAntdAAAKb14AAAoKBowIAAAbLRIo
+AgAAKwoCe10AAAoGb18AAAoGKkoCKCIAAAoCc2AAAAp9XQAACioAQlNKQgEAAQAAAAAADAAAAHY0
+LjAuMzAzMTkAAAAABQBsAAAASA0AACN+AAC0DQAA4A0AACNTdHJpbmdzAAAAAJQbAADMAQAAI1VT
+AGAdAAAQAAAAI0dVSUQAAABwHQAAtAQAACNCbG9iAAAAAAAAAAIAAAFXFaIJCQ8AAAD6ATMAFgAA
+AQAAAEIAAAAOAAAADwAAAD4AAAAiAAAAYAAAAD4AAAAHAAAABwAAABcAAAAaAAAACAAAAAEAAAAI
+AAAAAQAAAAIAAAADAAAAAgAAAAAA3wUBAAAAAAAGAEkEbgoGAPMEbgoGACADrwkPABQLAAAGAGED
+cAcGACwEcAcGANoEcAcGAGkEcAcGAIIEcAcGAKgDcAcGAJ0EyQYGAE0DKAoGAMkCKAoGAPQDcAcG
+AMMDWgUKAOwC3AgKALQCyQUKADQDyQUOAIYC/gkOAGMJwgkGANwDrwkOAHgDRwoOAJADMwEGAPcL
+yQYOAEkJ/gkOABEEMwEGAF0CyQYOAFMAnwUKANcC6QYGAMwIjgoGAK0HTwcSALMEOQIGAJUFyQYG
+AB4CyQYGACYI0QAGAHMByQYSALsIOQIWAKAIOQISALkHOQIWABEHOQISAGAMOQIKAJYCOgcGAAMD
+rwkGANQByQYGANQNcAcOAA8CMwEOAGcLMwEOAIYBMwEGAI4FyQYGAMoNyQYOAL4LRwoGAH0AyQYO
+AGQHMwEaAAEAHAkeALgMrAYGAFEFGw0GAIIHyQYGAJwHyQYiACoA9AgiABoA9AinAEUNAAAiADsA
+9AgOAIELRwoGAK8LbgoGAJUJQAUGAH4JyQYAAAAApwAAAAAAAQABAAAAAAAsB6MNTQABAAEAAAAA
+AGEJow1RAAEAAgAAARAA/gujDWEAAQADAAAAAADQCp8KYQAFAAgAAQAAAAYHgwAkAAcADAABAAAA
+kwiDAJUABwARAAEAAACvCIMAlQAHACIAAQAAAEIMgwClAAcAKAABAAAAjQuDAGEACwAwAAEAAAAv
+C4MAYQAMADEAAAEQAG8LgwCpAA0AMwAFAQAA8AkAAGEADwA2AAUBAABiAAAAYQAPAD0AMQBcCM0B
+MQAzCNUBMQBHCN0BMQB1COUBEQBsCe0BEQB6AvEBBgCNC/UBBgAvC/kBBgCvCP0BAQBJAQECAQBQ
+DAQCAQBQDAQCEQARBQkCEQDxCw0CIQAnDZUBUCAAAAAABhiICQYAAQBYIAAAAAAGGIgJBgABAGAg
+AAAAABEYjgkQAgEAiiAAAAAAEwhUCRQCAQCWIAAAAAATCBwHGQIBAKIgAAAAABMIRQkeAgEAriAA
+AAAAEwjgCSMCAQC6IAAAAAADGIgJBgABAMIgAAAAABYIyAgoAgEA7iAAAAAAFghiAi0CAQD1IAAA
+AAAWCG4CMgIBAP0gAAAAAAYYiAkGAAIACCEAAAAAAQCQDDgCAgADIwAAAAABAPMMEAAHACwjAAAA
+AAEAnQlDAggARCMAAAAAxgKEDUoCCQCaIwAAAAAGGIgJ7QAKAKUjAAAAAAYI+AF6AA0AuiMAAAAA
+BggWBikBDQDDIwAAAAAGCJkLKQENANgjAAAAAAYITwYpAQ0A4SMAAAAABgjJAHoADQD2IwAAAAAG
+CAcGKQENAP8jAAAAAAYIGAhQAg0AFCQAAAAABgg6BikBDQAdJAAAAAAGCDcMVgINADIkAAAAAAYI
+ZAYpAQ0AOyQAAAAABghwDFwCDQBJJAAAAAAGCIAMYgINAFMkAAAAAAYIdgYpAQ4AXCQAAAAABgiN
+BhUADgB0JAAAAACGAJsNKQEPAIwkAAAAAIYAGwwpAQ8AmiMAAAAABhiICe0ADwChJAAAAAAGCCcC
+EAASAKskAAAAAAYIKgYVABMAwiQAAAAAhgB9DQYAFADKJAAAAACGABgMBgAUANQkAAAAAIYAGwwp
+ARQA6SQAAAAABhiICQYAFAAQJQAAAADGAgINaQIUAGslAAAAAEYDyAsGABgAbSUAAAAAAQBYAQYA
+GACMJQAAAADGAg8NdQIYAGslAAAAAEYD1gsGABwA2SUAAAAARgP7DEoCHABrJQAAAABGA4QNSgId
+AOwlAAAAAAYYiAmDAh4A+yUAAAAABhiICYMCHwAKJgAAAAAGCMMMKQEgADAmAAAAABEYjgkQAiAA
+QSYAAAAABhiICQYAIABMJgAAAAAWCBkFigIgAKgmAAAAAMYCegtxASAAtiYAAAAAxgK8AcAAIQC+
+JgAAAACDAFoCjwIhAMomAAAAAMYCggV6ACEA1CYAAAAAEQD1AJQCIQD0JgAAAAABAOEAnAIiALog
+AAAAAAYYiAkGACMAACcAAAAAAwijAUoAIwA0JwAAAAAGGIgJBgAjAAAAAQA2BQAAAQD8AQAAAgDB
+AAAAAwDNAAAABADbAAAABQDGAAAAAQDEAAAAAQDCAAAAAQCfDQAAAQDBCAAAAgBCCwAAAwDHBwAA
+AQA2BQAAAQA2BQAAAQDBCAAAAgBCCwAAAwDHBwAAAQA2BQAAAQA2BQAAAQCwAAAAAgAFAgAAAwDB
+CAAABADHBwAAAQDOCwAAAgClCQAAAwCnCwAABADHBwAAAQDBCAAAAQCfDQAAAQBmDAAAAQBmDAAA
+AQC3BwAAAQCzAQAAAQCzAQkAiAkBABEAiAkGABkAiAkKACkAiAkQADEAiAkQADkAiAkQAEEAiAkQ
+AEkAiAkQAFEAiAkQAFkAiAkVAGEAiAkVAGkAiAkQAHEAiAkQAHkAiAkQAIEAiAkaAJEAiAkgAKkA
+iAkGALEAiAkGALkAiAkGANEAiAkmAOkAiAkQAAEBiAkGAFkBiAkGAJkAiAkGAKEAiAkGAAwAiAkG
+ABQAiAkGABwAiAkGACQAiAkGAAwAowFKABQAowFKABwAowFKACQAowFKAMEAiAkGANkA5gFPANkA
+0A1XAPEAiAldABkBiAkQAHEBdQ10ABkBMAJ6AHkBLAx+AIkB6guJAJEBeAGQAHkBJwyVAJkBdAWb
+AHkBbAGVAIkB6guiAKkBPAWoAMEAggV6AEkBCAGvALEBdAm1AKEBggV6ABkBmgXAABkBrgIGAHkB
+5QbEALkBggXNAMEByAHbAMEBOQvhAEEBHgHnACkBiAntACkBwQj5ACkBQgv+ADEBiwUCASkBnQYH
+ATEB2gYHATEBcAEMATEBGwITASkBtwYaASkBwAYfASkBpAYBAMkBiAkQACkBmw0pASkBGwwpASkB
+fQ0GACkBGAwGAEkBiAkGAIkBegstAUkBVgs1ATEBCAwpAUkBuABAAUkBIwtIAdkBtwZOAUkBYA1V
+AeEBMQ1bAfkB0AZiAQECLQVnAVEBiAkGAAkCTglsAQkCMgxsAcEAegtxAcEAvAHAABEClAF+ATQA
+Jw2VATwAGQVKADwAIwWsATwAiAkGACkAqwBtBC4ACwDmAi4AEwDvAi4AGwAOAy4AIwAXAy4AKwBA
+Ay4AMwBAAy4AOwAXAy4AQwBGAy4ASwBAAy4AUwBdAy4AWwBAAy4AYwBjAy4AawCNAy4AcwCaA0AA
+iwDkA0AAgwDpA0MAewDyA0MAgwDpA0kAqwB+BGMAewDyA2MAgwDpA2kAqwCSBIAAiwDkA4MAkwDk
+A4MAmwDkA4MAewDyA4kAqwCfBKAAiwDkA6kAgwAOA8AAiwDkA8MAswDkA8MAUwBAA8kAgwAOA+AA
+iwDkA+MAUwBAAwMBUwBAAyMBUwBAA0MBUwBAA2MBUwBAA6MBgwDpA6MBowALBMMBgwDpA8MBWwBA
+A8kCuwDkAwAGUwBAAyAGUwBAA8AGgwDpA8AGiwDkA+AGgwDpA+AGiwDkAwAHgwDpAwAHiwDkAyAH
+gwDpAyAHiwDkA0AHiwDkA2AHiwDkA4AHiwDkA4AHgwDpA6AHiwDkA8AHiwDkA8AHgwDpA2UAyQDU
+ACUBOwF2AYkBBAABAAUABQAHAAcACAATAAsAFQAMABYADgAXAAAAYwmkAgAALgepAgAASQmuAgAA
+8gmzAgAAzAi4AgAAfgK9AgAA/AHCAgAAGgbGAgAAnQvGAgAAUwbGAgAAzQDCAgAACwbGAgAAHAjK
+AgAAPgbGAgAAOwzQAgAAaAbGAgAAhAzWAgAAkQbGAgAANALCAgAALgbGAgAAxwzGAgAANgXcAgAA
+pwHhAgIABAADAAIABQAFAAIABgAHAAIABwAJAAIACQALAAIACgANAAEACwANAAIAEgAPAAIAEwAR
+AAIAFAATAAIAFQAVAAIAFgAXAAIAFwAZAAIAGAAbAAIAGQAdAAIAGgAfAAIAGwAhAAIAHAAjAAEA
+HQAjAAIAHgAlAAEAHwAlAAEAIwAnAAEAJAApAAIAMgArAAIANQAtAAIAPQAvAC4ANQA8AEMAewGO
+AZ0BpAEEgAAAAQAAAAAAAAAAAAAAAACDAAAABAAAAAAAAAAAAAAAsgEqAQAAAAAEAAAAAAAAAAAA
+AACyAckGAAAAAAoAAAAAAAAAAAAAALsBMwEAAAAADgAAAAAAAAAAAAAAxAGbDAAAAAAOAAAAAAAA
+AAAAAADEAdIMAAAAAA4AAAAAAAAAAAAAAMQB9AcAAAAABAAAAAAAAAAAAAAAsgGsBgAAAAAOAAAA
+AAAAAAAAAADEAdEHAAAAAAAAAAABAAAA3AoAAA0ABAAOAAQAAAAQABwA3wAAABAAdQDfAAAAAAB3
+AN8AuQCEAbkApwEAAABJRFRTQ29tcG9uZW50TWV0YURhdGExMDAASURUU1ZhcmlhYmxlMTAwAElE
+VFNWYXJpYWJsZXMxMDAASURUU0V2YWx1YXRvckNvbnRleHQxMDAAQ29udGV4dFZhbHVlYDEAVGhy
+ZWFkU2FmZU9iamVjdFByb3ZpZGVyYDEASW50MzIAU0NfNWZlNDU0ZjllOWY0NGJhN2E1ZGY5YzEw
+ZTVkNDk1YjQAPE1vZHVsZT4ASW5wdXRJRABHZXRPdXRwdXRJRABMAEFNAGdldF9CU04AU3lzdGVt
+LklPAEVJUABUAERpc3Bvc2VfX0luc3RhbmNlX18AQ3JlYXRlX19JbnN0YW5jZV9fAGdldF9Db21w
+b25lbnRNZXRhRGF0YQBBZGRCbG9iRGF0YQBtc2NvcmxpYgBNaWNyb3NvZnQuVmlzdWFsQmFzaWMA
+SW5wdXRzRmluaXNoZWQATWFya091dHB1dHNGaW5pc2hlZABNaWQAR2V0R3VpZABHZXRVcHBlckJv
+dW5kAENvbXBhcmVNZXRob2QAQ3JlYXRlSW5zdGFuY2UAZ2V0X0dldEluc3RhbmNlAGluc3RhbmNl
+AEdldEhhc2hDb2RlAGdldF9Vbmljb2RlAFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFu
+ZGxlAGdldF9GaWxlTmFtZQBJbnB1dE5hbWUARGF0ZUFuZFRpbWUAR2V0RGF0ZVRpbWUAc2V0X0xp
+bmUAUmVhZExpbmUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUAR2V0VHlwZQBnZXRf
+Q3VsdHVyZQBzZXRfQ3VsdHVyZQBfcmVzQ3VsdHVyZQBBcHBsaWNhdGlvbkJhc2UAQXBwbGljYXRp
+b25TZXR0aW5nc0Jhc2UAQ2xvc2UARWRpdG9yQnJvd3NhYmxlU3RhdGUAR3VpZEF0dHJpYnV0ZQBI
+ZWxwS2V5d29yZEF0dHJpYnV0ZQBHZW5lcmF0ZWRDb2RlQXR0cmlidXRlAERlYnVnZ2VyTm9uVXNl
+ckNvZGVBdHRyaWJ1dGUARGVidWdnYWJsZUF0dHJpYnV0ZQBFZGl0b3JCcm93c2FibGVBdHRyaWJ1
+dGUAQ29tVmlzaWJsZUF0dHJpYnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAFN0YW5kYXJkTW9k
+dWxlQXR0cmlidXRlAEhpZGVNb2R1bGVOYW1lQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0
+cmlidXRlAFRhcmdldEZyYW1ld29ya0F0dHJpYnV0ZQBEZWJ1Z2dlckhpZGRlbkF0dHJpYnV0ZQBB
+c3NlbWJseUZpbGVWZXJzaW9uQXR0cmlidXRlAE15R3JvdXBDb2xsZWN0aW9uQXR0cmlidXRlAEFz
+c2VtYmx5RGVzY3JpcHRpb25BdHRyaWJ1dGUAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0
+ZQBBc3NlbWJseVByb2R1Y3RBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUAQ0xT
+Q29tcGxpYW50QXR0cmlidXRlAFNTSVNTY3JpcHRDb21wb25lbnRFbnRyeVBvaW50QXR0cmlidXRl
+AEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBt
+X1ZhbHVlAGdldF9WYWx1ZQBzZXRfVmFsdWUAR2V0T2JqZWN0VmFsdWUASUlmAFN5c3RlbS5UaHJl
+YWRpbmcARW5jb2RpbmcAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBDb21wYXJlU3RyaW5nAFRv
+U3RyaW5nAEdldFN0cmluZwBNYXRoAFBlZWsATWljcm9zb2Z0LlZpc3VhbEJhc2ljLk15U2Vydmlj
+ZXMuSW50ZXJuYWwAU3lzdGVtLkNvbXBvbmVudE1vZGVsAFNDXzVmZTQ1NGY5ZTlmNDRiYTdhNWRm
+OWMxMGU1ZDQ5NWI0LmRsbABnZXRfQlNOX0lzTnVsbABnZXRfRmlsZU5hbWVfSXNOdWxsAHNldF9M
+aW5lX0lzTnVsbABnZXRfQmVyaWNodE5yX0lzTnVsbABnZXRfRWlnZW5QZXJzX0lzTnVsbABnZXRf
+TW9tZW50X0lzTnVsbABnZXRfRmlsZUNvbnRlbnRfSXNOdWxsAHNldF9GaWxlQ29udGVudF9Jc051
+bGwAU2V0TnVsbABTeXN0ZW0uWG1sAGdldF9JdGVtAHNldF9JdGVtAFN5c3RlbQBUb0Jvb2xlYW4A
+R2V0Qm9vbGVhbgBMZW4AU3lzdGVtLkNvbXBvbmVudE1vZGVsLkRlc2lnbgBTY3JpcHRNYWluAEJs
+b2JDb2x1bW4AZ2V0X0FwcGxpY2F0aW9uAE15QXBwbGljYXRpb24AU3lzdGVtLkNvbmZpZ3VyYXRp
+b24AU3lzdGVtLkdsb2JhbGl6YXRpb24ASW50ZXJhY3Rpb24AU3lzdGVtLlJlZmxlY3Rpb24ASW52
+YWxpZE9wZXJhdGlvbkV4Y2VwdGlvbgBTdHJpbmdDb21wYXJpc29uAEN1bHR1cmVJbmZvAE91dHB1
+dE5hbWVNYXAAT3V0cHV0TWFwAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRFRTUnVudGltZVdyYXAATWlj
+cm9zb2Z0LlNxbFNlcnZlci5EVFNQaXBlbGluZVdyYXAAZ2V0X0JlcmljaHROcgBTdHJlYW1SZWFk
+ZXIAbV9BcHBPYmplY3RQcm92aWRlcgBtX1VzZXJPYmplY3RQcm92aWRlcgBtX0NvbXB1dGVyT2Jq
+ZWN0UHJvdmlkZXIAbV9NeVdlYlNlcnZpY2VzT2JqZWN0UHJvdmlkZXIASW5wdXQwQnVmZmVyAFBp
+cGVsaW5lQnVmZmVyAExpbmVzQnVmZmVyAFNjcmlwdEJ1ZmZlcgBnZXRfUmVzb3VyY2VNYW5hZ2Vy
+AFN5c3RlbS5Db2RlRG9tLkNvbXBpbGVyAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlJ1bnRpbWUu
+V3JhcHBlcgBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5QaXBlbGluZS5XcmFwcGVyAGdldF9Vc2Vy
+AEVudGVyAGdldF9Db21wdXRlcgBNeUNvbXB1dGVyAF9yZXNNZ3IARmlyZUVycm9yAEFjdGl2YXRv
+cgAuY3RvcgAuY2N0b3IATW9uaXRvcgBEYXRlU3RyAE91dHB1dElEcwBTeXN0ZW0uRGlhZ25vc3Rp
+Y3MATWljcm9zb2Z0LlZpc3VhbEJhc2ljLkRldmljZXMAZ2V0X1dlYlNlcnZpY2VzAE15V2ViU2Vy
+dmljZXMATWljcm9zb2Z0LlZpc3VhbEJhc2ljLkFwcGxpY2F0aW9uU2VydmljZXMAU3lzdGVtLlJ1
+bnRpbWUuSW50ZXJvcFNlcnZpY2VzAE1pY3Jvc29mdC5WaXN1YWxCYXNpYy5Db21waWxlclNlcnZp
+Y2VzAFN5c3RlbS5SdW50aW1lLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJlc291cmNlcwBTQ181
+ZmU0NTRmOWU5ZjQ0YmE3YTVkZjljMTBlNWQ0OTViNC5NeS5SZXNvdXJjZXMATXlSZXNvdXJjZXMA
+U0NfNWZlNDU0ZjllOWY0NGJhN2E1ZGY5YzEwZTVkNDk1YjQuUmVzb3VyY2VzLnJlc291cmNlcwBE
+ZWJ1Z2dpbmdNb2RlcwBnZXRfUmVhZE9ubHlWYXJpYWJsZXMAR2V0Qnl0ZXMAQnVmZmVyQ29sdW1u
+SW5kZXhlcwBHZXRDb2x1bW5JbmRleGVzAFN0cmluZ3MATXlTZXR0aW5ncwBFcXVhbHMAQ29udmVy
+c2lvbnMAQ29ubmVjdGlvbnMAZ2V0X0VpZ2VuUGVycwBCdWZmZXJzAFJ1bnRpbWVIZWxwZXJzAE9w
+ZXJhdG9ycwBGaW5pc2hPdXRwdXRzAENyZWF0ZU5ld091dHB1dFJvd3MAQ29uY2F0AG1fU3luY09i
+amVjdABNeVByb2plY3QAZ2V0X0VuZE9mUm93c2V0AFNldEVuZE9mUm93c2V0AExlZnQAU3BsaXQA
+RXhpdABnZXRfTW9tZW50AFVzZXJDb21wb25lbnQAUGFyZW50Q29tcG9uZW50AFNjcmlwdENvbXBv
+bmVudABnZXRfRmlsZUNvbnRlbnQAc2V0X0ZpbGVDb250ZW50AEdldENvbnRlbnQATWljcm9zb2Z0
+LlNxbFNlcnZlci5UeFNjcmlwdABYbWxDb252ZXJ0AGdldF9UZXN0RXhwb3J0AE1pY3Jvc29mdC5T
+cWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AExpbmVPdXQASW5wdXQwX1Byb2Nlc3NJbnB1dABQcmltZU91
+dHB1dABTeXN0ZW0uVGV4dABtX0NvbnRleHQAR2V0VmFsdWVXaXRoQ29udGV4dABTY3JpcHRDb21w
+b25lbnRFdmFsQ29udGV4dABnZXRfRXZhbHVhdG9yQ29udGV4dABnZXRfTm93AEFkZFJvdwBJbnB1
+dDBfUHJvY2Vzc0lucHV0Um93AE5leHRSb3cAU0NfNWZlNDU0ZjllOWY0NGJhN2E1ZGY5YzEwZTVk
+NDk1YjQuTXkAQXJyYXkAZ2V0X0Fzc2VtYmx5AAAAAAAxTQB5AC4AUgBlAHMAbwB1AHIAYwBlAHMA
+LgBNAHkAUgBlAHMAbwB1AHIAYwBlAHMAAANAAAAFDQAKAAAHRwBJAEQAAAdOAFUASAAAB0EATQBE
+AAAHQgBTAE4AAAdFAEkAUAAAL1YAYQByAGkAYQBiAGwAZQAgAG4AbwB0ACAAcgBlAGMAbwBnAG4A
+aQB6AGUAZAAAAQAJIwAgAD0AIAAAWU0AdQBsAHQAaQBwAGwAZQAgAHYAYQByAGkAYQBiAGwAZQBz
+ACAAaQBuACAAbwBuAGUAIABsAGkAbgBlACAAbgBvAHQAIABzAHUAcABwAG8AcgB0AGUAZAAAgJtJ
+AHMATgB1AGwAbAAgAHAAcgBvAHAAZQByAHQAeQAgAGMAYQBuAG4AbwB0ACAAYgBlACAAcwBlAHQA
+IAB0AG8AIABGAGEAbABzAGUALgAgAEEAcwBzAGkAZwBuACAAYQAgAHYAYQBsAHUAZQAgAHQAbwAg
+AHQAaABlACAAYwBvAGwAdQBtAG4AIABpAG4AcwB0AGUAYQBkAC4AAA9JAG4AcAB1AHQAIAAwAAAL
+TABpAG4AZQBzAAAVVABlAHMAdABFAHgAcABvAHIAdAAAAABPJMkZzALjTq2eixS9WZiEAAQgAQEI
+AyAAAQUgAQEREQQgAQEOBCABAQIFIAIBDg4FIAEBEUUHIAQBDg4ODgYVEjgBEgwGFRI4ARIIBhUS
+OAESZQYVEjgBEjQEIAATAAcAARJtEYCxBSAAEoC1ByACAQ4SgLUOBwkOEoCNHQ4ODggOAggFAAAR
+gIkDIAAOCgAEHQ4ODggRgMEGAAMODg4OBCABCAgFAAIODggGAAMIDg4CBQACDg4OBgADHAIcHAUg
+ABKA2QogBgEIDg4OCBACAyAACAQAAQgOAwcBDgYAAQ4RgIkGBwIOEYCRBQAAEoDhBSABHQUOBSAB
+AR0FCyADARKAmR0IEoCdBAYSgJkDBh0IBCABDggEIAECCAYgARGAkQgGIAERgIkIBCABHAgFIAIB
+CBwDBwECAyAAAgcgAgIOEYDpBSABHQgIBAcCCAgHAAIIEoCdDgUgABKA7QYgARKA8RwFAAASgPUG
+IAEcEoD5BAABAhwEAAEcHAQAAQEcBCABAhwEBwEeAAIeAAUQAQAeAAQKAR4ABAcBEwAGFRI4ARMA
+BwYVEnEBEwAGFRJxARMAAhMABAoBEwAFIAEBEwAIt3pcVhk04IkIsD9ffxHVCjoIiYRdzYCAzJEH
+BhUSOAESDAcGFRI4ARIIBwYVEjgBEmUHBhUSOAESNAMGEnkDBhJ9AwYSKAMGEiwDBhIgAgYIBAYS
+gKUDBhIwAgYcAwAAAQQAABIMBAAAEggEAAASZQQAABI0BAAAEnkEAAASfQUAAQESfQogBQ4ODg4C
+EYCJBiABDhGAiQUgAQESHAUgABGAkQUgABGAiQUgABKAoQYgAQESgKELIAQBCA4SgJkSgJ0NIAQB
+CB0IHRKAmRKAnQYgAQESgKUEAAASMAQgABJtBxABAR4AHgAHMAEBARAeAAQIABIMBAgAEggECAAS
+ZQQIABI0BAgAEnkECAASfQMoAA4DKAACBSgAEYCRBSgAEYCJBSgAEoChBAgAEjAEKAATAAgBAAgA
+AAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU0NfNWZlNDU0
+ZjllOWY0NGJhN2E1ZGY5YzEwZTVkNDk1YjQAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAxOQAA
+BQEAAQAAKQEAJGQwYWU2OTAwLTBhMjgtNDJhZi1iNTEwLTM3NjE1ZmM2MGNlMQAADAEABzEuMC4w
+LjAAAEkBABouTkVURnJhbWV3b3JrLFZlcnNpb249djQuNQEAVA4URnJhbWV3b3JrRGlzcGxheU5h
+bWUSLk5FVCBGcmFtZXdvcmsgNC41BAEAAAAIAQABAAAAAAAYAQAKTXlUZW1wbGF0ZQgxMS4wLjAu
+MAAAYQEANFN5c3RlbS5XZWIuU2VydmljZXMuUHJvdG9jb2xzLlNvYXBIdHRwQ2xpZW50UHJvdG9j
+b2wSQ3JlYXRlX19JbnN0YW5jZV9fE0Rpc3Bvc2VfX0luc3RhbmNlX18AAAAQAQALTXkuQ29tcHV0
+ZXIAABMBAA5NeS5BcHBsaWNhdGlvbgAADAEAB015LlVzZXIAABMBAA5NeS5XZWJTZXJ2aWNlcwAA
+ALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3Js
+aWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdh
+NWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAA
+AAAAUEFEUEFEULQAAABMSgAAAAAAAAAAAABmSgAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWEoA
+AAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAAGAAA
+gAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAAAFhgAADsAwAA
+AAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAAvQTv/gAAAQAA
+AAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAABAFYAYQByAEYA
+aQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAAAAAAALAETAMA
+AAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAKAMAAAEAMAAwADAAMAAwADQAYgAwAAAA
+GgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBuAHkATgBhAG0AZQAA
+AAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABTAEMAXwA1AGYA
+ZQA0ADUANABmADkAZQA5AGYANAA0AGIAYQA3AGEANQBkAGYAOQBjADEAMABlADUAZAA0ADkANQBi
+ADQAAAAwAAgAAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4AMAAuADAAAABwACgA
+AQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfADUAZgBlADQANQA0AGYAOQBlADkAZgA0
+ADQAYgBhADcAYQA1AGQAZgA5AGMAMQAwAGUANQBkADQAOQA1AGIANAAuAGQAbABsAAAASAASAAEA
+TABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAy
+ADAAMQA5AAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4ACgA
+AQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8ANQBmAGUANAA1ADQAZgA5
+AGUAOQBmADQANABiAGEANwBhADUAZABmADkAYwAxADAAZQA1AGQANAA5ADUAYgA0AC4AZABsAGwA
+AABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfADUAZgBlADQANQA0AGYAOQBl
+ADkAZgA0ADQAYgBhADcAYQA1AGQAZgA5AGMAMQAwAGUANQBkADQAOQA1AGIANAAAADQACAABAFAA
+cgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4AAgAAQBBAHMAcwBl
+AG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAMAAAAeDoAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_5fe454f9e9f44ba7a5df9c10e5d495b4</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">VisualBasic</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg">User::TestExport</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">7F</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Queue Messages\Read XML File.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Queue Messages\Read XML File.Inputs[Input 0].Columns[FileName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="FileName"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[FileName]" />
+                    <inputColumn
+                      refId="Package\Queue Messages\Read XML File.Inputs[Input 0].Columns[EigenPers]"
+                      cachedDataType="bool"
+                      cachedName="EigenPers"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[EigenPers]" />
+                    <inputColumn
+                      refId="Package\Queue Messages\Read XML File.Inputs[Input 0].Columns[BSN]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="BSN"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[BSN]" />
+                    <inputColumn
+                      refId="Package\Queue Messages\Read XML File.Inputs[Input 0].Columns[BerichtNr]"
+                      cachedDataType="guid"
+                      cachedName="BerichtNr"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[BerichtNr]" />
+                    <inputColumn
+                      refId="Package\Queue Messages\Read XML File.Inputs[Input 0].Columns[Moment]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Moment"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Moment]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Queue Messages\Read XML File.Outputs[Output 0]"
+                  name="Output 0"
+                  synchronousInputId="Package\Queue Messages\Read XML File.Inputs[Input 0]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\Read XML File.Outputs[Output 0].Columns[FileContent]"
+                      dataType="nText"
+                      lineageId="Package\Queue Messages\Read XML File.Outputs[Output 0].Columns[FileContent]"
+                      name="FileContent" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Queue Messages\Read XML File.Outputs[Lines]"
+                  hasSideEffects="true"
+                  name="Lines">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\Read XML File.Outputs[Lines].Columns[Line]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Queue Messages\Read XML File.Outputs[Lines].Columns[Line]"
+                      name="Line" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Queue Messages\Select Files"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Select Files"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        P.[File] AS FileName, K.EigenPers, K.SOC_SECURITY_NUM AS BSN, X.BerichtNr, P.Moment, P.Doc, P.[Doc/Klant]
+FROM            ProcessDetails AS P INNER JOIN
+                         [Doc per Klant] AS X ON P.[Doc/Klant] = X.ID INNER JOIN
+                         Klanten AS K ON X.Klant = K.ID
+WHERE  P.Step = 19   AND    (P.Batch = ?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{3B477571-775E-464D-BFED-32580B1F801E};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Queue Messages\Select Files.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[EigenPers]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[EigenPers]"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[EigenPers]"
+                      name="EigenPers"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[BSN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[BSN]"
+                      length="20"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[BSN]"
+                      name="BSN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[BerichtNr]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[BerichtNr]"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[BerichtNr]"
+                      name="BerichtNr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Moment]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[Moment]"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Moment]"
+                      name="Moment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[FileName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
+                      length="255"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[FileName]"
+                      name="FileName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Doc]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[Doc]"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Doc]"
+                      name="Doc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Doc/Klant]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[Doc/Klant]"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Doc/Klant]"
+                      name="Doc/Klant"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="FileName" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[EigenPers]"
+                      dataType="bool"
+                      name="EigenPers" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[BSN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="BSN" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[BerichtNr]"
+                      dataType="guid"
+                      name="BerichtNr" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[Moment]"
+                      dataType="dbTimeStamp"
+                      name="Moment" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[Doc]"
+                      dataType="i4"
+                      name="Doc" />
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].ExternalColumns[Doc/Klant]"
+                      dataType="i4"
+                      name="Doc/Klant" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[EigenPers]"
+                      dataType="bool"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[EigenPers]"
+                      name="EigenPers" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[BSN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[BSN]"
+                      name="BSN" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[BerichtNr]"
+                      dataType="guid"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[BerichtNr]"
+                      name="BerichtNr" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[Moment]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[Moment]"
+                      name="Moment" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[Doc]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[Doc]"
+                      name="Doc" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[Doc/Klant]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[Doc/Klant]"
+                      name="Doc/Klant" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[FileName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Error Output].Columns[FileName]"
+                      name="FileName" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Queue Messages\Test Export"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1043"
+              name="Test Export">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Queue Messages\Test Export.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Test]"
+                  connectionManagerRefId="Package.ConnectionManagers[Test]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Queue Messages\Test Export.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Queue Messages\Test Export.Inputs[Flat File Destination Input].Columns[Line]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Line"
+                      externalMetadataColumnId="Package\Queue Messages\Test Export.Inputs[Flat File Destination Input].ExternalColumns[FileContent]"
+                      lineageId="Package\Queue Messages\Read XML File.Outputs[Lines].Columns[Line]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Test Export.Inputs[Flat File Destination Input].ExternalColumns[FileContent]"
+                      dataType="nText"
+                      name="FileContent" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Queue Messages\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Queue Messages\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[EigenPers]"
+                      cachedDataType="bool"
+                      cachedName="EigenPers"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[EigenPers]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[EigenPers]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[BSN]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="BSN"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[BSN]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[BSN]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[BerichtNr]"
+                      cachedDataType="guid"
+                      cachedName="BerichtNr"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[BerichtNr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[BerichtNr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[Moment]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Moment"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Moment]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Moment]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[FileName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="FileName"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[FileName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[FileName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[Doc]"
+                      cachedDataType="i4"
+                      cachedName="Doc"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Doc]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Doc]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[Doc/Klant]"
+                      cachedDataType="i4"
+                      cachedName="Doc/Klant"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Doc/Klant]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Doc/Klant]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[FileContent]"
+                      cachedDataType="nText"
+                      cachedName="FileContent"
+                      lineageId="Package\Queue Messages\Read XML File.Outputs[Output 0].Columns[FileContent]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[FileContent]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Queue Messages\Put on IBM MQ.Outputs[Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Queue Messages\Put on IBM MQ.Outputs[Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[ErrorMessage]"
+                      cachedDataType="wstr"
+                      cachedLength="2048"
+                      cachedName="ErrorMessage"
+                      lineageId="Package\Queue Messages\Put on IBM MQ.Outputs[Error Output].Columns[ErrorMessage]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[ErrorMessage]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[Step]"
+                      cachedDataType="ui1"
+                      cachedName="Step"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Step]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Step]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[Nu]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Nu"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Nu]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Nu]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[Elapsed]"
+                      cachedDataType="i4"
+                      cachedName="Elapsed"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Elapsed]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Elapsed]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[Batch]"
+                      cachedDataType="i4"
+                      cachedName="Batch"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Batch]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Batch]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 1].Columns[Status]"
+                      cachedDataType="ui1"
+                      cachedName="Status"
+                      lineageId="Package\Queue Messages\End Failed.Outputs[Derived Column Output].Columns[Status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Status]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Queue Messages\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[EigenPers]"
+                      cachedDataType="bool"
+                      cachedName="EigenPers"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[EigenPers]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[EigenPers]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[BSN]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="BSN"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[BSN]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[BSN]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[BerichtNr]"
+                      cachedDataType="guid"
+                      cachedName="BerichtNr"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[BerichtNr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[BerichtNr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[Moment]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Moment"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Moment]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Moment]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[FileName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="FileName"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[FileName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[FileName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[Doc]"
+                      cachedDataType="i4"
+                      cachedName="Doc"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Doc]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Doc]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[Doc/Klant]"
+                      cachedDataType="i4"
+                      cachedName="Doc/Klant"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Doc/Klant]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Doc/Klant]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[FileContent]"
+                      cachedDataType="nText"
+                      cachedName="FileContent"
+                      lineageId="Package\Queue Messages\Read XML File.Outputs[Output 0].Columns[FileContent]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[FileContent]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[Step]"
+                      cachedDataType="ui1"
+                      cachedName="Step"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Step]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Step]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[Nu]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Nu"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Nu]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Nu]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[Elapsed]"
+                      cachedDataType="i4"
+                      cachedName="Elapsed"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Elapsed]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Elapsed]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[Batch]"
+                      cachedDataType="i4"
+                      cachedName="Batch"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Batch]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Batch]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Queue Messages\Union All.Inputs[Union All Input 2].Columns[Status]"
+                      cachedDataType="ui1"
+                      cachedName="Status"
+                      lineageId="Package\Queue Messages\Queued.Outputs[Derived Column Output].Columns[Status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Status]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Queue Messages\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Queue Messages\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[EigenPers]"
+                      dataType="bool"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[EigenPers]"
+                      name="EigenPers" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[BSN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[BSN]"
+                      name="BSN" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[BerichtNr]"
+                      dataType="guid"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[BerichtNr]"
+                      name="BerichtNr" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Moment]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Moment]"
+                      name="Moment" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[FileName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[FileName]"
+                      name="FileName" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Doc]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Doc]"
+                      name="Doc" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Doc/Klant]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Doc/Klant]"
+                      name="Doc/Klant" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[FileContent]"
+                      dataType="nText"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[FileContent]"
+                      name="FileContent" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Step]"
+                      dataType="ui1"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Step]"
+                      name="Step" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Nu]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Nu]"
+                      name="Nu" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Elapsed]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Elapsed]"
+                      name="Elapsed" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Batch]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Batch]"
+                      name="Batch" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Status]"
+                      dataType="ui1"
+                      lineageId="Package\Queue Messages\Union All.Outputs[Union All Output 1].Columns[Status]"
+                      name="Status" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Queue Messages\Upd Doc"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Upd Doc"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE Documents Set ProcStatus = 4 Where ID = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Queue Messages\Upd Doc.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Queue Messages\Upd Doc.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Queue Messages\Upd Doc.Inputs[OLE DB Command Input].Columns[Doc]"
+                      cachedDataType="i4"
+                      cachedName="Doc"
+                      externalMetadataColumnId="Package\Queue Messages\Upd Doc.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output].Columns[Doc]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Queue Messages\Upd Doc.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Queue Messages\Upd Doc.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Queue Messages\Upd Doc.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Queue Messages\Upd Doc.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Queue Messages\Upd Doc.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Queue Messages\Upd Doc.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Upd Doc.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Queue Messages\Upd Doc.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Queue Messages\Upd Doc.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Queue Messages.Paths[Default Output]"
+              endId="Package\Queue Messages\Queued.Inputs[Derived Column Input]"
+              name="Default Output"
+              startId="Package\Queue Messages\Put on IBM MQ.Outputs[Default Output]" />
+            <path
+              refId="Package\Queue Messages.Paths[Derived Column Output]"
+              endId="Package\Queue Messages\Union All.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\Queue Messages\End Failed.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Queue Messages.Paths[Derived Column Output1]"
+              endId="Package\Queue Messages\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\Queue Messages\Queued.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Queue Messages.Paths[Error Output]"
+              endId="Package\Queue Messages\Multicast.Inputs[Multicast Input 1]"
+              name="Error Output"
+              startId="Package\Queue Messages\Put on IBM MQ.Outputs[Error Output]" />
+            <path
+              refId="Package\Queue Messages.Paths[Lines]"
+              endId="Package\Queue Messages\Test Export.Inputs[Flat File Destination Input]"
+              name="Lines"
+              startId="Package\Queue Messages\Read XML File.Outputs[Lines]" />
+            <path
+              refId="Package\Queue Messages.Paths[Multicast Output 1]"
+              endId="Package\Queue Messages\Upd Doc.Inputs[OLE DB Command Input]"
+              name="Multicast Output 1"
+              startId="Package\Queue Messages\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\Queue Messages.Paths[Multicast Output 2]"
+              endId="Package\Queue Messages\End Failed.Inputs[Derived Column Input]"
+              name="Multicast Output 2"
+              startId="Package\Queue Messages\Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\Queue Messages.Paths[OLE DB Source Output]"
+              endId="Package\Queue Messages\Read XML File.Inputs[Input 0]"
+              name="OLE DB Source Output"
+              startId="Package\Queue Messages\Select Files.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Queue Messages.Paths[Output 0]"
+              endId="Package\Queue Messages\Put on IBM MQ.Inputs[Primary Input]"
+              name="Output 0"
+              startId="Package\Queue Messages\Read XML File.Outputs[Output 0]" />
+            <path
+              refId="Package\Queue Messages.Paths[Union All Output 1]"
+              endId="Package\Queue Messages\Process Detail.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Queue Messages\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Queue Messages"
+          TopLeft="305,258" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Queue Messages">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Queue Messages\Process Detail"
+          TopLeft="930,532" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Queue Messages\Read XML File"
+          TopLeft="351,104" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Queue Messages\Put on IBM MQ"
+          TopLeft="345,261" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Queue Messages\Test Export"
+          TopLeft="646,97" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Queue Messages\Queued"
+          TopLeft="640,260" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Queue Messages\Union All"
+          TopLeft="637,533" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Queue Messages\Multicast"
+          TopLeft="364,402" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Queue Messages\Upd Doc"
+          TopLeft="75,403" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Queue Messages\End Failed"
+          TopLeft="361,536" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Queue Messages\Select Files"
+          TopLeft="54,107" />
+        <EdgeLayout
+          Id="Package\Queue Messages.Paths[Union All Output 1]"
+          TopLeft="760,553.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="170,0"
+              Start="0,0"
+              End="162.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="162.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Queue Messages.Paths[Output 0]"
+          TopLeft="424.5,146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,115"
+              Start="0,0"
+              End="0,107.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-20.15572265625,48.033203125,40.3114453125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Queue Messages.Paths[OLE DB Source Output]"
+          TopLeft="190,126.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="161,0"
+              Start="0,0"
+              End="153.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="153.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Queue Messages.Paths[Multicast Output 2]"
+          TopLeft="426.25,444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,92"
+              Start="0,0"
+              End="0,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Queue Messages.Paths[Multicast Output 1]"
+          TopLeft="364,423.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-167,0"
+              Start="0,0"
+              End="-159.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-159.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Queue Messages.Paths[Lines]"
+          TopLeft="503,121.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143,0"
+              Start="0,0"
+              End="135.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="135.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="55.927421875,5,23.64515625,9.451171875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Queue Messages.Paths[Error Output]"
+          TopLeft="423.75,303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,99"
+              Start="0,0"
+              End="0,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.2050390625,37.75,74.410078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Queue Messages.Paths[Derived Column Output1]"
+          TopLeft="698.75,302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,231"
+              Start="0,0"
+              End="0,223.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,223.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Queue Messages.Paths[Derived Column Output]"
+          TopLeft="493,555.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="144,0"
+              Start="0,0"
+              End="136.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="136.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Queue Messages.Paths[Default Output]"
+          TopLeft="499,281.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="141,0"
+              Start="0,0"
+              End="133.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="133.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Queue Messages\Process Detail">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Queue Messages\Select Files">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

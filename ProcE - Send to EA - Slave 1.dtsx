@@ -1,0 +1,167 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/7/2019 6:01:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VMT010140177175"
+  DTS:CreatorName="TEST\bla061"
+  DTS:DTSID="{10782653-E0E8-4131-89E8-30979344E648}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1043"
+  DTS:ObjectName="ProcE - Send to EA - Slave"
+  DTS:PackageType="5"
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{A5205761-745B-4842-899E-D813BE58570C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Test]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C6CB2F27-446E-46DA-A6FA-5589EFF81784}"
+      DTS:ObjectName="Test">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1043"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\Data\XML\Test.XML">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="303"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FileContent"
+              DTS:DTSID="{1DEC17E4-1D0A-4930-BF71-E8DF9088931E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{77E319F8-BD22-4052-A5D9-D748E3AA737C}"
+      DTS:ObjectName="BatchID"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">161</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{449DEFB7-EA28-4D9B-A97B-EEA177BD6226}"
+      DTS:ObjectName="MQ_ChannelName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SYSTEM.ADMIN.SVRCONN</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{CDA5083E-58C8-4E3B-86A5-076B1B64F20A}"
+      DTS:ObjectName="MQ_HostName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">10.140.177.125</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{FDB97317-697C-43BF-AF26-5C12F55BC8E2}"
+      DTS:ObjectName="MQ_Password"
+      DTS:Sensitive="True">
+      <DTS:Property
+        DTS:Name="ParameterValue">
+        <DTS:Property
+          DTS:DataType="8"
+          DTS:Name="ParameterValue"
+          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAVHFiRkuxaE210vxjA64NJAAAAAASAAACgAAAAEAAAAIBqpKQF14DOFOMLWTFyDmgYAAAA6O+UeUNlFVkQs21Bah55vHC4WwIwP7KQFAAAAObqmU24YxDTyWVBsMmjcxMwo6fY</DTS:Property>
+      </DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{6A867A44-3965-447B-B6A6-AB7568BC08FE}"
+      DTS:ObjectName="MQ_Port">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1434</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4D9EC6AF-676B-49B6-B182-BF7859D22107}"
+      DTS:ObjectName="MQ_QueueManager">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">QMSONARMIG</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{54FF7677-55BE-4D85-92A4-6CAF109F434E}"
+      DTS:ObjectName="MQ_UserID">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">bla061</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{72C87682-C0E1-4B9D-8D90-AF19F2A5F7B5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TestExport">
+      <DTS:VariableValue
+        DTS:DataType="11">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7C046284-8208-4773-8D80-FC9E46576A22}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="select 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="234,170" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

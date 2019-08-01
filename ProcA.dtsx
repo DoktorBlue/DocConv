@@ -1,0 +1,161 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/31/2019 1:55:33 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VMT010140177175"
+  DTS:CreatorName="TEST\bla061"
+  DTS:DTSID="{E77D5D8F-CAFF-43BB-9465-C35F187A2AFB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1043"
+  DTS:ObjectName="ProcA"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{BB282AFD-04FF-4F2D-BB65-76D1F2F849AD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CFA7F180-F799-42DB-9913-7C527BD67EC8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PWD">
+      <DTS:VariableValue
+        DTS:DataType="8">welkom1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0516271C-F348-410B-A87C-932A7E0FC193}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Server">
+      <DTS:VariableValue
+        DTS:DataType="8">SONAR_T01</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D38E1390-CD33-4DFB-803E-ACF47E31D760}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="User">
+      <DTS:VariableValue
+        DTS:DataType="8">BLA061</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute Package Task"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{1E890708-7456-44CE-8FE5-575C3B0E6B0D}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Package Task"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>ProcA - Import Sonar.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>OraSonar_Password</ParameterName>
+            <BindedVariableOrParameterName>User::PWD</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>OraSonar_ServerName</ParameterName>
+            <BindedVariableOrParameterName>User::Server</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>OraSonar_UserName</ParameterName>
+            <BindedVariableOrParameterName>User::User</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Read Parameters"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1dac7672-c041-403d-bf3e-c8caac0efbf8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Read Parameters"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="SELECT * FROM&#xA;(SELECT ValStr AS HostName FROM [Control Params] WHERE Param = 10 AND Step = 16) AS B Cross JOIN&#xA;(SELECT ValStr AS UserID FROM [Control Params] WHERE Param = 13 AND Step = 16) AS E Cross JOIN&#xA;(SELECT ValStr AS Password FROM [Control Params] WHERE Param = 14 AND Step = 16) AS F"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::Server" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="1"
+            SQLTask:DtsVariableName="User::User" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="2"
+            SQLTask:DtsVariableName="User::PWD" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{260394E9-65BD-4694-859C-6F67A939294B}"
+      DTS:From="Package\Read Parameters"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute Package Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Execute Package Task"
+          TopLeft="382,317" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Read Parameters"
+          TopLeft="393,206" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="476.5,248">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

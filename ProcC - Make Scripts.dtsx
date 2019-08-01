@@ -7,12 +7,12 @@
   DTS:CreatorName="TEST\bla061"
   DTS:DTSID="{DE09130C-5F74-4BC3-B19B-33A031239C14}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.375"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcC - Make Scripts"
   DTS:PackageType="5"
-  DTS:VersionBuild="60"
-  DTS:VersionGUID="{B42F672A-3CD2-4A73-ACE9-78377FC6F35A}">
+  DTS:VersionBuild="66"
+  DTS:VersionGUID="{1FDF0D20-FC15-4CC6-BDEE-9E2512620A87}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,7 +31,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="E:\Scripts\Unzip\01-Workload\B000046.bat">
+          DTS:ConnectionString="E:\Scripts\Unzip\01-Workload\B000125.bat">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -114,7 +114,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="E:\Scripts\Unzip\01-Workload\B000046.bat">
+          DTS:ConnectionString="E:\Scripts\Unzip\01-Workload\B000125.bat">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -144,7 +144,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="E:\Scripts\Unzip\01-Workload\B000046.bat">
+          DTS:ConnectionString="E:\Scripts\Unzip\01-Workload\B000125.bat">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -153,7 +153,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ID"
-              DTS:DTSID="{1E2F108F-0DB0-4CE5-A45D-A1B87A6C8A43}"
+              DTS:DTSID="{112384FE-F2B2-403B-9AB6-98D3CCFADD75}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -162,7 +162,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="In"
-              DTS:DTSID="{F04D721C-5F42-41F3-A087-5F17A142F7A4}"
+              DTS:DTSID="{E767D030-FA12-4A90-B6F5-C010E86C03FC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -171,16 +171,52 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Out"
-              DTS:DTSID="{F276373B-BBF5-4234-BA80-B974C592BF3C}"
+              DTS:DTSID="{1DD97E8C-07F8-4E5E-84B8-AFE608CC9C53}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:MaximumWidth="257"
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="01"
-              DTS:DTSID="{1CD03ED9-6DB4-4B4F-BFFA-4D95403A7BEE}"
+              DTS:DTSID="{1F6F8CEF-47B0-44CC-8D07-C7C2275BB511}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="02"
+              DTS:DTSID="{B6C1003D-FD47-41AB-9FBE-8B2ACE729E94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="03"
+              DTS:DTSID="{392D5C9A-5523-4FE5-B553-927AE617C9E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="04"
+              DTS:DTSID="{E09DA405-B53B-44E4-8DD8-70D6F94C0549}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="05"
+              DTS:DTSID="{94463156-36CB-4C08-B358-FC5C7D66D638}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -196,7 +232,7 @@
       DTS:Required="True">
       <DTS:Property
         DTS:DataType="17"
-        DTS:Name="ParameterValue">17</DTS:Property>
+        DTS:Name="ParameterValue">16</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
@@ -216,7 +252,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="BatchID">
       <DTS:VariableValue
-        DTS:DataType="3">46</DTS:VariableValue>
+        DTS:DataType="3">125</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -227,7 +263,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="BatchOK">
       <DTS:VariableValue
-        DTS:DataType="8">E:\Scripts\Unzip\01-Workload\B000046.bok</DTS:VariableValue>
+        DTS:DataType="8">E:\Scripts\Unzip\01-Workload\B000125.bok</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -247,13 +283,13 @@
       DTS:Namespace="User"
       DTS:ObjectName="DocSQL">
       <DTS:VariableValue
-        DTS:DataType="8">Select Top 10 D.ID, SAF, D.CurrentStep 
+        DTS:DataType="8">Select Top 10000 D.ID, SAF, D.CurrentStep 
 From Documents D
 Inner Join FileTypes FT ON D.FileType = FT.ID
 Inner Join [xFdF Templates] AS X
 ON D.[xFdF Template] = X.ID
 Where DocStatus = 1
-AND CurrentStep = 16
+AND CurrentStep = 15
 AND ProcStatus &lt; 3 
 Order By FT.Sort ASC, X.[Doc Count] DESC, DossierDate ASC</DTS:VariableValue>
     </DTS:Variable>
@@ -275,7 +311,7 @@ Order By FT.Sort ASC, X.[Doc Count] DESC, DossierDate ASC</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="Extent">
       <DTS:VariableValue
-        DTS:DataType="3">10</DTS:VariableValue>
+        DTS:DataType="3">10000</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1034,6 +1070,10 @@ where [refTable].[Doc] = ? and [refTable].[Main] = ?</property>
                           refId="Package\Create Batches\B - Link Documents\Process Details.Inputs[OLE DB Destination Input].ExternalColumns[Batch]"
                           dataType="i4"
                           name="Batch" />
+                        <externalMetadataColumn
+                          refId="Package\Create Batches\B - Link Documents\Process Details.Inputs[OLE DB Destination Input].ExternalColumns[Doc/Klant]"
+                          dataType="i4"
+                          name="Doc/Klant" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2104,7 +2144,7 @@ where [refTable].[ID] = ?</property>
           DTS:ExecutableType="Microsoft.FileSystemTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Batch BOK"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -3791,7 +3831,7 @@ End Class
     <msb:CodeName>SC_5f38e7770e7e48b98fbe584e9670cd64</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_5f38e7770e7e48b98fbe584e9670cd64</msb:DisplayName>
-    <msb:ProjectId>{AE7F2140-6EF4-480D-9B06-0BD16E2AA237}</msb:ProjectId>
+    <msb:ProjectId>{8E37DBD8-1FC1-4662-8CC9-508006813BC9}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_5f38e7770e7e48b98fbe584e9670cd64.vbproj" />
@@ -4117,7 +4157,7 @@ End Namespace
                             <arrayElement
                               dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAAMGIl0AAAAAAAAAAOAAIiALAVAAACwAAAAIAAAAAAAArksA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAKX/Nl0AAAAAAAAAAOAAIiALAVAAACwAAAAIAAAAAAAArksA
 AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACgAAAAAgAAAAAAAAMAYIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAFxLAABPAAAAAGAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -4296,7 +4336,7 @@ AG4AdgBJAEQAXgA9AAAdIAA+AD4AIAAlAH4AZABwAG4AMAAuAGUAcgByAACAm0kAcwBOAHUAbABs
 ACAAcAByAG8AcABlAHIAdAB5ACAAYwBhAG4AbgBvAHQAIABiAGUAIABzAGUAdAAgAHQAbwAgAEYA
 YQBsAHMAZQAuACAAQQBzAHMAaQBnAG4AIABhACAAdgBhAGwAdQBlACAAdABvACAAdABoAGUAIABj
 AG8AbAB1AG0AbgAgAGkAbgBzAHQAZQBhAGQALgAAD0kAbgBwAHUAdAAgADAAAA9DAG0AZABGAGkA
-bABlAAARRABvAGMAQwBvAHUAbgB0AADob82xxlkYRIvxEHsExdY8AAQgAQEIAyAAAQUgAQEREQQg
+bABlAAARRABvAGMAQwBvAHUAbgB0AACt5DlCA87yT4ba6zOoHBK3AAQgAQEIAyAAAQUgAQEREQQg
 AQEOBCABAQIFIAIBDg4FIAEBEUUHIAQBDg4ODgYVEjgBEgwGFRI4ARIIBhUSOAESZQYVEjgBEjQE
 IAATAAcAARJtEYChBSAAEoClByACAQ4SgKUDBwEOBQABDh0OBgADDg4ODgQAAQ4IBwAEDg4ODg4E
 BwIICAMAAAEFIAASgLUFAAASgL0DIAAOCCAFAQgODg4IBgABARKAwQYAARKAwQgLIAMBEoCNHQgS
@@ -4828,14 +4868,14 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                             <inputColumn
                               refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].Columns[In]"
                               cachedDataType="wstr"
-                              cachedLength="259"
+                              cachedLength="540"
                               cachedName="In"
                               externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[In]"
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[In]" />
                             <inputColumn
                               refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].Columns[Out]"
                               cachedDataType="wstr"
-                              cachedLength="536"
+                              cachedLength="540"
                               cachedName="Out"
                               externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[Out]"
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[Out]" />
@@ -4847,12 +4887,40 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                               externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[ID]"
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[ID]" />
                             <inputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].Columns[01]"
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].Columns[02]"
                               cachedDataType="wstr"
                               cachedLength="257"
+                              cachedName="02"
+                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[02]"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[02]" />
+                            <inputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].Columns[03]"
+                              cachedDataType="wstr"
+                              cachedLength="257"
+                              cachedName="03"
+                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[03]"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[03]" />
+                            <inputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].Columns[05]"
+                              cachedDataType="wstr"
+                              cachedLength="52"
+                              cachedName="05"
+                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[05]"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[05]" />
+                            <inputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].Columns[01]"
+                              cachedDataType="wstr"
+                              cachedLength="52"
                               cachedName="01"
                               externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[01]"
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[01]" />
+                            <inputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].Columns[04]"
+                              cachedDataType="wstr"
+                              cachedLength="257"
+                              cachedName="04"
+                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[04]"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[04]" />
                           </inputColumns>
                           <externalMetadataColumns
                             isUsed="True">
@@ -4876,6 +4944,26 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                               dataType="wstr"
                               length="257"
                               name="01" />
+                            <externalMetadataColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[02]"
+                              dataType="wstr"
+                              length="255"
+                              name="02" />
+                            <externalMetadataColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[03]"
+                              dataType="wstr"
+                              length="255"
+                              name="03" />
+                            <externalMetadataColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[04]"
+                              dataType="wstr"
+                              length="255"
+                              name="04" />
+                            <externalMetadataColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[05]"
+                              dataType="wstr"
+                              length="255"
+                              name="05" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -4894,13 +4982,6 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                           name="Derived Column Input">
                           <inputColumns>
                             <inputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Inputs[Derived Column Input].Columns[FileName]"
-                              cachedCodepage="1252"
-                              cachedDataType="str"
-                              cachedLength="255"
-                              cachedName="FileName"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[FileName]" />
-                            <inputColumn
                               refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Inputs[Derived Column Input].Columns[XML Destination]"
                               cachedCodepage="1252"
                               cachedDataType="str"
@@ -4913,19 +4994,37 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                               cachedName="Doc ID"
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Doc ID]" />
                             <inputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Inputs[Derived Column Input].Columns[PDF File]"
-                              cachedCodepage="1252"
-                              cachedDataType="str"
-                              cachedLength="255"
-                              cachedName="PDF File"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[PDF File]" />
-                            <inputColumn
                               refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Inputs[Derived Column Input].Columns[DocName]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="255"
                               cachedName="DocName"
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[DocName]" />
+                            <inputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Inputs[Derived Column Input].Columns[LogIn]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="LogIn"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[LogIn]" />
+                            <inputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Inputs[Derived Column Input].Columns[Onderwerp]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="Onderwerp"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Onderwerp]" />
+                            <inputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Inputs[Derived Column Input].Columns[SubOnderwerp]"
+                              cachedDataType="wstr"
+                              cachedLength="255"
+                              cachedName="SubOnderwerp"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[SubOnderwerp]" />
+                            <inputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Inputs[Derived Column Input].Columns[ISO]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="ISO"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\ISO.Outputs[Output 0].Columns[ISO]" />
                           </inputColumns>
                           <externalMetadataColumns />
                         </input>
@@ -4943,7 +5042,7 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                               dataType="wstr"
                               errorOrTruncationOperation="Computation"
                               errorRowDisposition="FailComponent"
-                              length="515"
+                              length="540"
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[Out]"
                               name="Out"
                               truncationRowDisposition="FailComponent">
@@ -4952,13 +5051,13 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                                   containsID="true"
                                   dataType="System.String"
                                   description="Derived Column Expression"
-                                  name="Expression">"XML=" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[XML Destination]} + "\\" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[FileName]}</property>
+                                  name="Expression">"XML=" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[XML Destination]} + "\\" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[DocName]} + ".xml"</property>
                                 <property
                                   containsID="true"
                                   dataType="System.String"
                                   description="Derived Column Friendly Expression"
                                   expressionType="Notify"
-                                  name="FriendlyExpression">"XML=" + [XML Destination] + "\\" + FileName</property>
+                                  name="FriendlyExpression">"XML=" + [XML Destination] + "\\" + DocName + ".xml"</property>
                               </properties>
                             </outputColumn>
                             <outputColumn
@@ -4989,7 +5088,7 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                               dataType="wstr"
                               errorOrTruncationOperation="Computation"
                               errorRowDisposition="FailComponent"
-                              length="259"
+                              length="540"
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[In]"
                               name="In"
                               truncationRowDisposition="FailComponent">
@@ -4998,13 +5097,36 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                                   containsID="true"
                                   dataType="System.String"
                                   description="Derived Column Expression"
-                                  name="Expression">"PDF=" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[PDF File]}</property>
+                                  name="Expression">"PDF=" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[XML Destination]} + "\\" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[DocName]} + ".pdf"</property>
                                 <property
                                   containsID="true"
                                   dataType="System.String"
                                   description="Derived Column Friendly Expression"
                                   expressionType="Notify"
-                                  name="FriendlyExpression">"PDF=" + [PDF File]</property>
+                                  name="FriendlyExpression">"PDF=" + [XML Destination] + "\\" + DocName + ".pdf"</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[04]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="257"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[04]"
+                              name="04"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">"4=" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[DocName]}</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">"4=" + DocName</property>
                               </properties>
                             </outputColumn>
                             <outputColumn
@@ -5012,7 +5134,7 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                               dataType="wstr"
                               errorOrTruncationOperation="Computation"
                               errorRowDisposition="FailComponent"
-                              length="257"
+                              length="52"
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[01]"
                               name="01"
                               truncationRowDisposition="FailComponent">
@@ -5021,13 +5143,82 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                                   containsID="true"
                                   dataType="System.String"
                                   description="Derived Column Expression"
-                                  name="Expression">"1=" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[DocName]}</property>
+                                  name="Expression">"1=" + #{Package\Create Batches\C - Generate Scripts\XML\ISO.Outputs[Output 0].Columns[ISO]}</property>
                                 <property
                                   containsID="true"
                                   dataType="System.String"
                                   description="Derived Column Friendly Expression"
                                   expressionType="Notify"
-                                  name="FriendlyExpression">"1=" + DocName</property>
+                                  name="FriendlyExpression">"1=" + ISO</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[02]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="257"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[02]"
+                              name="02"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">"2=" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Onderwerp]}</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">"2=" + Onderwerp</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[03]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="257"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[03]"
+                              name="03"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">"3=" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[SubOnderwerp]}</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">"3=" + SubOnderwerp</property>
+                              </properties>
+                            </outputColumn>
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[05]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Computation"
+                              errorRowDisposition="FailComponent"
+                              length="52"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output].Columns[05]"
+                              name="05"
+                              truncationRowDisposition="FailComponent">
+                              <properties>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Expression"
+                                  name="Expression">"5=" + #{Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[LogIn]}</property>
+                                <property
+                                  containsID="true"
+                                  dataType="System.String"
+                                  description="Derived Column Friendly Expression"
+                                  expressionType="Notify"
+                                  name="FriendlyExpression">"5=" + LogIn</property>
                               </properties>
                             </outputColumn>
                           </outputColumns>
@@ -5083,21 +5274,16 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
                           dataType="System.String"
                           description="The SQL command to be executed."
                           name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        P.Doc, P.[File] AS [Unzipped File], D.DocName, DT.Name AS [Doc Ext], TT.Name as [Template Ext], left(S.DocName + '.pdf', 255) AS FileName, X.Name,
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        P.Doc, D.DocName,
                              (SELECT        ValStr
                                FROM            [Control Params] AS V
-                               WHERE        (Param = 5) AND (Step = 15)) + Path AS [XML Destination]
-
-FROM          ProcessDetails AS P INNER JOIN
-                         Documents AS D ON P.Doc = D.ID 
-inner join DocPath as H on H.ID = D.ID
-inner join Sonar as S on D.Sonar = S.ID
-INNER JOIN
-                         FileTypes AS DT ON D.FileType = DT.ID 
-left outer join  [xFdF Templates] AS X  ON X.ID = D.[xFdF Template]
-left outer join
-                         FileTypes AS TT ON X.FileType = TT.ID 
-                        
+                               WHERE        (Param = 5) AND (Step = 15)) + H.Path AS [XML Destination], U.LogIn, D.Created, C.Onderwerp, C.SubOnderwerp
+FROM            ProcessDetails AS P INNER JOIN
+                         Documents AS D ON P.Doc = D.ID INNER JOIN
+                         DocPath AS H ON H.ID = D.ID INNER JOIN
+                         [Document Types] AS T ON D.DocType = T.ID INNER JOIN
+                         Users AS U ON D.[User] = U.ID INNER JOIN
+                         AOS_Codes AS C ON T.AOS = C.ID
 WHERE        (P.Batch = ?)</property>
                         <property
                           dataType="System.String"
@@ -5144,17 +5330,6 @@ WHERE        (P.Batch = ?)</property>
                               name="Doc ID"
                               truncationRowDisposition="FailComponent" />
                             <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[PDF File]"
-                              codePage="1252"
-                              dataType="str"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Unzipped File]"
-                              length="255"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[PDF File]"
-                              name="PDF File"
-                              truncationRowDisposition="FailComponent" />
-                            <outputColumn
                               refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[DocName]"
                               codePage="1252"
                               dataType="str"
@@ -5164,49 +5339,6 @@ WHERE        (P.Batch = ?)</property>
                               length="255"
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[DocName]"
                               name="DocName"
-                              truncationRowDisposition="FailComponent" />
-                            <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Doc Ext]"
-                              codePage="1252"
-                              dataType="str"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Doc Ext]"
-                              length="255"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Doc Ext]"
-                              name="Doc Ext"
-                              truncationRowDisposition="FailComponent" />
-                            <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Template Ext]"
-                              codePage="1252"
-                              dataType="str"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Template Ext]"
-                              length="255"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Template Ext]"
-                              name="Template Ext"
-                              truncationRowDisposition="FailComponent" />
-                            <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[FileName]"
-                              codePage="1252"
-                              dataType="str"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
-                              length="255"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[FileName]"
-                              name="FileName"
-                              truncationRowDisposition="FailComponent" />
-                            <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Name]"
-                              dataType="wstr"
-                              errorOrTruncationOperation="Conversion"
-                              errorRowDisposition="FailComponent"
-                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Name]"
-                              length="255"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Name]"
-                              name="Name"
                               truncationRowDisposition="FailComponent" />
                             <outputColumn
                               refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[XML Destination]"
@@ -5219,6 +5351,46 @@ WHERE        (P.Batch = ?)</property>
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[XML Destination]"
                               name="XML Destination"
                               truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[LogIn]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[LogIn]"
+                              length="50"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[LogIn]"
+                              name="LogIn"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Created]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Created]"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Created]"
+                              name="Created"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Onderwerp]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Onderwerp]"
+                              length="255"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Onderwerp]"
+                              name="Onderwerp"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[SubOnderwerp]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[SubOnderwerp]"
+                              length="255"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[SubOnderwerp]"
+                              name="SubOnderwerp"
+                              truncationRowDisposition="FailComponent" />
                           </outputColumns>
                           <externalMetadataColumns
                             isUsed="True">
@@ -5227,46 +5399,37 @@ WHERE        (P.Batch = ?)</property>
                               dataType="i4"
                               name="Doc" />
                             <externalMetadataColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Unzipped File]"
-                              codePage="1252"
-                              dataType="str"
-                              length="255"
-                              name="Unzipped File" />
-                            <externalMetadataColumn
                               refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[DocName]"
                               codePage="1252"
                               dataType="str"
                               length="255"
                               name="DocName" />
                             <externalMetadataColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Doc Ext]"
-                              codePage="1252"
-                              dataType="str"
-                              length="255"
-                              name="Doc Ext" />
-                            <externalMetadataColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Template Ext]"
-                              codePage="1252"
-                              dataType="str"
-                              length="255"
-                              name="Template Ext" />
-                            <externalMetadataColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[FileName]"
-                              codePage="1252"
-                              dataType="str"
-                              length="255"
-                              name="FileName" />
-                            <externalMetadataColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Name]"
-                              dataType="wstr"
-                              length="255"
-                              name="Name" />
-                            <externalMetadataColumn
                               refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[XML Destination]"
                               codePage="1252"
                               dataType="str"
                               length="276"
                               name="XML Destination" />
+                            <externalMetadataColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[LogIn]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="LogIn" />
+                            <externalMetadataColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Created]"
+                              dataType="dbTimeStamp"
+                              name="Created" />
+                            <externalMetadataColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[Onderwerp]"
+                              dataType="wstr"
+                              length="255"
+                              name="Onderwerp" />
+                            <externalMetadataColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].ExternalColumns[SubOnderwerp]"
+                              dataType="wstr"
+                              length="255"
+                              name="SubOnderwerp" />
                           </externalMetadataColumns>
                         </output>
                         <output
@@ -5280,13 +5443,6 @@ WHERE        (P.Batch = ?)</property>
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Doc]"
                               name="Doc" />
                             <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Unzipped File]"
-                              codePage="1252"
-                              dataType="str"
-                              length="255"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Unzipped File]"
-                              name="Unzipped File" />
-                            <outputColumn
                               refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[DocName]"
                               codePage="1252"
                               dataType="str"
@@ -5294,39 +5450,36 @@ WHERE        (P.Batch = ?)</property>
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[DocName]"
                               name="DocName" />
                             <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Doc Ext]"
-                              codePage="1252"
-                              dataType="str"
-                              length="255"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Doc Ext]"
-                              name="Doc Ext" />
-                            <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Template Ext]"
-                              codePage="1252"
-                              dataType="str"
-                              length="255"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Template Ext]"
-                              name="Template Ext" />
-                            <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[FileName]"
-                              codePage="1252"
-                              dataType="str"
-                              length="255"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[FileName]"
-                              name="FileName" />
-                            <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Name]"
-                              dataType="wstr"
-                              length="255"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Name]"
-                              name="Name" />
-                            <outputColumn
                               refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[XML Destination]"
                               codePage="1252"
                               dataType="str"
                               length="276"
                               lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[XML Destination]"
                               name="XML Destination" />
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[LogIn]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[LogIn]"
+                              name="LogIn" />
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Created]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Created]"
+                              name="Created" />
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Onderwerp]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[Onderwerp]"
+                              name="Onderwerp" />
+                            <outputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[SubOnderwerp]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[SubOnderwerp]"
+                              name="SubOnderwerp" />
                             <outputColumn
                               refId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                               dataType="i4"
@@ -5345,73 +5498,858 @@ WHERE        (P.Batch = ?)</property>
                       </outputs>
                     </component>
                     <component
-                      refId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults"
-                      componentClassID="Microsoft.DerivedColumn"
-                      contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                      description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-                      name="Set Defaults"
-                      usesDispositions="true">
+                      refId="Package\Create Batches\C - Generate Scripts\XML\ISO"
+                      componentClassID="Microsoft.ManagedComponentHost"
+                      contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;11"
+                      description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+                      name="ISO"
+                      version="11">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Stores the source code of the component"
+                          isArray="true"
+                          name="SourceCode"
+                          state="cdata">
+                          <arrayElements
+                            arrayElementCount="30">
+                            <arrayElement
+                              dataType="System.String"><![CDATA[My Project\AssemblyInfo.vb]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("SC_ad7951c0d81c48bda497079e3aceba62")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyProduct("SC_ad7951c0d81c48bda497079e3aceba62")> 
+<Assembly: AssemblyCopyright("Copyright @  2019")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("ea5bc95a-87d8-413b-aa50-ffc7ffbb0ca1")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> 
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[ComponentWrapper.vb]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services component wrapper
+' This module defines the base class for your component
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+
+<CLSCompliant(False)> _
+Public Class UserComponent
+    Inherits ScriptComponent
+
+    Public Connections As New Connections(Me)
+    Public Variables As New Variables(Me)
+
+    Public Overrides Sub ProcessInput(ByVal InputID As Integer, ByVal InputName As String, ByVal Buffer As PipelineBuffer, ByVal OutputMap As OutputNameMap)
+
+        If InputName.Equals("Input 0", StringComparison.Ordinal) Then
+            Input0_ProcessInput(New Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap))
+        End If
+
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInput(ByVal Buffer As Input0Buffer)
+
+        While Buffer.NextRow()
+            Input0_ProcessInputRow(Buffer)
+        End While
+
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Connections
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Variables
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[main.vb]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[#Region "Imports"
+Imports System
+Imports System.Data
+Imports System.Xml
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+#End Region
+
+' This is the class to which to add your code.  Do not change the name, attributes, or parent
+' of this class.
+<Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute> _
+<CLSCompliant(False)> _
+Public Class ScriptMain
+    Inherits UserComponent
+
+
+    Public Overrides Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+        Row.ISO = XmlConvert.ToString(Row.Created)
+    End Sub
+
+End Class
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[My Project\Settings.settings]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[My Project\Settings.Designer.vb]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+
+Partial Friend NotInheritable Class MySettings
+    Inherits System.Configuration.ApplicationSettingsBase
+
+    Private Shared m_Value As MySettings
+
+    Private Shared m_SyncObject As Object = New Object
+
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Public Shared ReadOnly Property Value() As MySettings
+        Get
+            If (MySettings.m_Value Is Nothing) Then
+                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
+                If (MySettings.m_Value Is Nothing) Then
+                    Try
+                        MySettings.m_Value = New MySettings
+                    Finally
+                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
+                    End Try
+                End If
+            End If
+            Return MySettings.m_Value
+        End Get
+    End Property
+End Class
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[BufferWrapper.vb]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services buffer wrappers
+' This module defines classes for accessing data flow buffers
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+
+Option Strict Off   ' This allows usage of PipelineBuffer typed accessors.
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+
+<CLSCompliant(False)> _
+Public Class Input0Buffer
+    Inherits ScriptBuffer
+
+    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
+        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
+    End Sub
+
+    Public ReadOnly Property [Created]() As DateTime
+        Get
+            Return Buffer.GetDateTime(Me.BufferColumnIndexes(0))
+        End Get
+    End Property
+    Public ReadOnly Property [Created_IsNull] As Boolean
+        Get
+            Return IsNull(0)
+        End Get
+    End Property
+
+    Public WriteOnly Property [ISO]() As String
+        Set
+            Me(1) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [ISO_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(1)
+            Else
+                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
+            End If
+        End Set
+    End Property
+
+    Public Overloads Function NextRow() As Boolean
+        NextRow = MyBase.NextRow()
+    End Function
+
+    Public Overloads Function EndOfRowset() As Boolean
+        EndOfRowset = MyBase.EndOfRowset
+    End Function
+
+End Class
+]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[Project]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:Language>msBuild</msb:Language>
+    <msb:CodeName>SC_ad7951c0d81c48bda497079e3aceba62</msb:CodeName>
+    <msb:DisplayName>SC_ad7951c0d81c48bda497079e3aceba62</msb:DisplayName>
+    <msb:ProjectId>{A8BB644B-DDAA-49D5-8FE4-8358B7E3D32C}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_ad7951c0d81c48bda497079e3aceba62.vbproj" />
+    <msb:File Include="ComponentWrapper.vb" />
+    <msb:File Include="My Project\Resources.resx" />
+    <msb:File Include="My Project\AssemblyInfo.vb" />
+    <msb:File Include="My Project\Resources.Designer.vb" />
+    <msb:File Include="My Project\Settings.settings" />
+    <msb:File Include="My Project\Settings.Designer.vb" />
+    <msb:File Include="main.vb" />
+    <msb:File Include="BufferWrapper.vb" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[SC_ad7951c0d81c48bda497079e3aceba62.vbproj]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0d5c023f-4575-43de-8dc9-43d2cf6661be}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>My Project</AppDesignerFolder>
+    <RootNamespace>SC_ad7951c0d81c48bda497079e3aceba62</RootNamespace>
+    <AssemblyName>SC_ad7951c0d81c48bda497079e3aceba62</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- This sections specifies references for the project. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.vb" />
+    <Compile Include="BufferWrapper.vb" />
+    <Compile Include="ComponentWrapper.vb" />
+  </ItemGroup>
+  <!-- Visual Basic supports Importing namespaces (equivalent to using statements in C#).-->
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a VB project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="SSIS_SC140" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="SSIS_SC140" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[My Project\Resources.resx]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[My Project\Resources.Designer.vb]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+Namespace My.Resources
+    
+    '''<summary>
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
+    '''</summary>
+    'This class was auto-generated by the Strongly Typed Resource Builder
+    'class via a tool like ResGen or Visual Studio.NET.
+    'To add or remove a member, edit your .ResX file then rerun ResGen
+    'with the /str option, or rebuild your VS project.
+    Class MyResources
+        
+        Private Shared _resMgr As System.Resources.ResourceManager
+        
+        Private Shared _resCulture As System.Globalization.CultureInfo
+        
+        Friend Sub New()
+            MyBase.New
+        End Sub
+        
+        '''<summary>
+        '''   Returns the cached ResourceManager instance used by this class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
+            Get
+                If (_resMgr Is Nothing) Then
+                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
+                    _resMgr = temp
+                End If
+                Return _resMgr
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared Property Culture() As System.Globalization.CultureInfo
+            Get
+                Return _resCulture
+            End Get
+            Set
+                _resCulture = value
+            End Set
+        End Property
+    End Class
+End Namespace
+]]></arrayElement>
+                          </arrayElements>
+                        </property>
+                        <property
+                          dataType="System.String"
+                          description="Stores the binary representation of the component"
+                          isArray="true"
+                          name="BinaryCode"
+                          state="cdata">
+                          <arrayElements
+                            arrayElementCount="2">
+                            <arrayElement
+                              dataType="System.String"><![CDATA[SC_ad7951c0d81c48bda497079e3aceba62.dll]]></arrayElement>
+                            <arrayElement
+                              dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAD5eQV0AAAAAAAAAAOAAIiALAVAAAB4AAAAIAAAAAAAAejwA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAACg8AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAgBwAAAAgAAAAHgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAgAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAJgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAABc
+PAAAAAAAAEgAAAACAAUAICMAAFAYAAABAAAAAAAAAHA7AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBgAAAoqHgIoGQAACiqmcxoAAAqAAQAABHMbAAAKgAIA
+AARzHAAACoADAAAEcx0AAAqABAAABCoufgEAAARvHgAACioufgIAAARvHwAACioufgMAAARvIAAA
+CioufgQAAARvIQAACioeAigiAAAKKq5+BQAABC0ecgEAAHDQBQAAAigjAAAKbyQAAApzJQAACoAF
+AAAEfgUAAAQqGn4GAAAEKh4CgAYAAAQqHgIoFQAABipKAwNvDwAABigmAAAKbxEAAAYqKgIDBAUo
+JwAACipSAnsoAAAKAnspAAAKFpRvKgAACioiAhYoKwAACiomAhcDKCwAAAoqWgMsCAIXKC0AAAoq
+cjMAAHBzLgAACnoAABMwAQAJAAAAAQAAEQIoLwAACgoGKgAAABMwAQAJAAAAAQAAEQIoMAAACgoG
+Kn4CKDEAAAoCAnMZAAAGfQcAAAQCAnMaAAAGfQgAAAQqkgRy0AAAcBpvMgAACiwVAgUCAygzAAAK
+DgRzDgAABm8XAAAGKkorBwIDbxgAAAYDbxMAAAYt8SoGKjoCKCIAAAoCA30JAAAEKjoCKCIAAAoC
+A30KAAAEKkJzIgAACig0AAAKgAwAAAQqHgIoNQAACioAABswAQA/AAAAAAAAAH4LAAAELTJ+DAAA
+BCg0AAAKKDYAAAp+CwAABC0ccxwAAAaACwAABN4QfgwAAAQoNAAACig3AAAK3H4LAAAEKgABEAAA
+AgAdAAwpABAAAAAANgIDKDQAAAooOAAACioeAig5AAAKKi7QDAAAAigjAAAKKh4CKDoAAAoqAAAT
+MAEAFAAAAAIAABECjAUAABstCCgBAAArCisCAgoGKiID/hUFAAAbKgAAABMwAgAoAAAAAwAAEQJ7
+PAAACm89AAAKCgaMCAAAGy0SKAIAACsKAns8AAAKBm8+AAAKBipKAigiAAAKAnM/AAAKfTwAAAoq
+AEJTSkIBAAEAAAAAAAwAAAB2NC4wLjMwMzE5AAAAAAUAbAAAAIAJAAAjfgAA7AkAALwJAAAjU3Ry
+aW5ncwAAAACoEwAA4AAAACNVUwCIFAAAEAAAACNHVUlEAAAAmBQAALgDAAAjQmxvYgAAAAAAAAAC
+AAABVxWiCQkPAAAA+gEzABYAAAEAAAAwAAAADQAAAA0AAAAmAAAAEgAAAD8AAAA9AAAAAwAAAAUA
+AAAMAAAADQAAAAgAAAABAAAABgAAAAEAAAACAAAAAwAAAAIAAAAAAJsEAQAAAAAABgA0A5sHBgDe
+A5sHBgALAtwGDwBBCAAABgBMAngFBgAXA3gFBgDFA3gFBgBUA3gFBgBtA3gFBgCTAngFBgCIAwEF
+BgA4AlUHBgC0AVUHBgDfAngFBgCuAjgECgDXAXYGCgCfAYUECgAfAoUEDgB3ASsHDgCsBu8GBgDH
+AtwGDgBjAnQHDgB7ApoABgCyCAEFDgCSBisHDgD8ApoABgBOAQEFDgABAFsECgDCAQgFBgBmBrsH
+BgC1BWMFEgCeAyoBEgBVBioBFgBGBioBEgDBBSoBBgAhAQEFEgDyCCoBCgCHAU4FBgDuAdwGBgDw
+AAEFBgCzCXgFGgAfCe0EBgCKBQEFBgBUBAEFBgCkBQEFBgCdCJsHBgDUBicEBgC9BgEFAAAAAE8A
+AAAAAAEAAQAAAAAAQAWICU0AAQABAAAAAACqBogJUQABAAIAAAEQALkIiAlhAAEAAwAAAAAA/QfM
+B2EABQAIAAEAAAAlBSsAIAAHAAwAAQAAADkGKwCFAAcADgABAAAA1AgrAJUABwAVAAEAAACRCCsA
+YQAJABkAAQAAAFAIKwBhAAoAGgAAARAAfwgrAJkACwAbAAUBAAAdBwAAYQANAB4ABQEAABAAAABh
+AA0AJQAxAAIGFwExANkFHwExAO0FJwExABsGLwERALUGNwERAGsBOwEGAJEIPwEGAFAIQwEBAOII
+RwEBAOIIRwERAPwDTAERAKwIUAEhAF8J3wBQIAAAAAAGGMcGBgABAFggAAAAAAYYxwYGAAEAYCAA
+AAAAERjNBlMBAQCKIAAAAAATCJ0GVwEBAJYgAAAAABMIMAVcAQEAoiAAAAAAEwiOBmEBAQCuIAAA
+AAATCA0HZgEBALogAAAAAAMYxwYGAAEAwiAAAAAAFghiBmsBAQDuIAAAAAAWCFMBcAEBAPUgAAAA
+ABYIXwF1AQEA/SAAAAAABhjHBgYAAgAFIQAAAADGAmkJewECABghAAAAAAYYxwZsAAMAIyEAAAAA
+BgiwAIEBBgA4IQAAAAAGCNIElwAGAEEhAAAAAAYIYAAQAAYASyEAAAAABgjDBBUABwBkIQAAAACG
+AIAJlwAIAHwhAAAAAIYAwwiXAAgAkSEAAAAABhjHBgYACACxIQAAAADGAlIJhwEIANYhAAAAAEYD
+Swl7AQwA6SEAAAAARgNpCXsBDQDrIQAAAAAGGMcGkwEOAPohAAAAAAYYxwaTAQ8ACSIAAAAAERjN
+BlMBEAAaIgAAAAAGGMcGBgAQACQiAAAAABYIBASaARAAgCIAAAAAxgKKCLMAEACOIgAAAADGAuQA
+uAARAJYiAAAAAIMASwGfAREAoiIAAAAAxgJSBLwAEQCsIgAAAAARAH4ApAERAMwiAAAAAAEAagCs
+ARIAuiAAAAAABhjHBgYAEwDYIgAAAAADCMsASgATAAwjAAAAAAYYxwYGABMAAAABACEEAAABAIQJ
+AAABAFsGAAACAFoIAAADAM8FAAABACEEAAABACEEAAABAFgAAAACABQBAAADAFsGAAAEAM8FAAAB
+AFsGAAABAIQJAAABAPgIAAABAPgIAAABAL8FAAABANsAAAABANsACQDHBgEAEQDHBgYAGQDHBgoA
+KQDHBhAAMQDHBhAAOQDHBhAAQQDHBhAASQDHBhAAUQDHBhAAWQDHBhUAYQDHBhUAaQDHBhAAcQDH
+BhAAeQDHBhAAgQDHBhoAkQDHBiAAqQDHBgYAsQDHBgYAuQDHBgYA0QDHBiYA6QDHBhAAAQHHBgYA
+OQHHBgYAmQDHBgYAoQDHBgYADADHBgYAFADHBgYAHADHBgYAJADHBgYADADLAEoAFADLAEoAHADL
+AEoAJADLAEoAwQDHBgYA2QACAU8A2QCvCVcA8QDHBl0AUQFSBGUACQHHBmwACQFbBngACQFaCH0A
+EQEeAYEACQHeBIgACQH4BI0ACQHlBAEAWQHHBhAACQGACZcACQHDCJcAKQHHBgYAYQGKCJsAKQFu
+CKMAcQEYBKkAMQHHBgYAeQGXBq4AeQHPCK4AwQCKCLMAwQDkALgAwQBSBLwAgQG8AMgANABfCd8A
+PAAEBEoAPAAOBPYAPADHBgYAKQCrAHEDLgALAOoBLgATAPMBLgAbABICLgAjABsCLgArAEQCLgAz
+AEQCLgA7ABsCLgBDAEoCLgBLAEQCLgBTAGECLgBbAEQCLgBjAGcCLgBrAJECLgBzAJ4CQACLAOgC
+QACDAO0CQwB7APYCQwCDAO0CSQCrAIIDYwB7APYCYwCDAO0CaQCrAJYDgACLAOgCgwCTAOgCgwCb
+AOgCgwB7APYCiQCrAKMDoACLAOgCqQCDABICwACLAOgCwwCzAOgCwwBTAEQCyQCDABIC4ACLAOgC
+4wBTAEQCAwFTAEQCIwFTAEQCQwFTAEQCaQG7AOgCgwGDAO0CgwGjAA8DowGDAO0CowFbAEQCIANT
+AEQCQANTAEQCwAODAO0CwAOLAOgC4AODAO0C4AOLAOgCAASDAO0CAASLAOgCIASDAO0CIASLAOgC
+QASLAOgCYASLAOgCgASLAOgCgASDAO0CoASLAOgCwASLAOgCwASDAO0CkwDAANMABAABAAUABQAH
+AAcACwALAA0ADAAAAKwGtAEAAEIFuQEAAJIGvgEAAB8HwwEAAGYGyAEAAG8BzQEAALQA0gEAANYE
+2AEAAGQA3AEAAMcE2AEAACEE4AEAAM8A5QECAAQAAwACAAUABQACAAYABwACAAcACQACAAkACwAC
+AAoADQABAAsADQACAA8ADwACABAAEQABABEAEwABABIAFQACAB0AFwACACUAGQAuADUAPABDAMUA
+2ADnAO4ABIAAAAEAAAAAAAAAAAAAAAAAKwAAAAQAAAAAAAAAAAAAAPwAkQAAAAAABAAAAAAAAAAA
+AAAA/AABBQAAAAAKAAAAAAAAAAAAAAAFAZoAAAAAAA4AAAAAAAAAAAAAAA4BAgkAAAAADgAAAAAA
+AAAAAAAADgEqCQAAAAAEAAAAAAAAAAAAAAD8AO0EAAAAAAAAAAABAAAACQgAAAwABAANAAQAAAAQ
+ABoAaAAAABAARQBoAAAAAABHAGgAdwDOAHcA8QAAAAAAAENvbnRleHRWYWx1ZWAxAFRocmVhZFNh
+ZmVPYmplY3RQcm92aWRlcmAxAFNDX2FkNzk1MWMwZDgxYzQ4YmRhNDk3MDc5ZTNhY2ViYTYyADxN
+b2R1bGU+AElucHV0SUQAc2V0X0lTTwBUAERpc3Bvc2VfX0luc3RhbmNlX18AQ3JlYXRlX19JbnN0
+YW5jZV9fAG1zY29ybGliAE1pY3Jvc29mdC5WaXN1YWxCYXNpYwBnZXRfQ3JlYXRlZABDcmVhdGVJ
+bnN0YW5jZQBnZXRfR2V0SW5zdGFuY2UAaW5zdGFuY2UAR2V0SGFzaENvZGUAUnVudGltZVR5cGVI
+YW5kbGUAR2V0VHlwZUZyb21IYW5kbGUASW5wdXROYW1lAEdldERhdGVUaW1lAE1pY3Jvc29mdC5T
+cWxTZXJ2ZXIuRHRzLlBpcGVsaW5lAEdldFR5cGUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAX3Jl
+c0N1bHR1cmUAQXBwbGljYXRpb25CYXNlAEFwcGxpY2F0aW9uU2V0dGluZ3NCYXNlAEVkaXRvckJy
+b3dzYWJsZVN0YXRlAEd1aWRBdHRyaWJ1dGUASGVscEtleXdvcmRBdHRyaWJ1dGUAR2VuZXJhdGVk
+Q29kZUF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRy
+aWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAENvbVZpc2libGVBdHRyaWJ1dGUAQXNzZW1i
+bHlUaXRsZUF0dHJpYnV0ZQBTdGFuZGFyZE1vZHVsZUF0dHJpYnV0ZQBIaWRlTW9kdWxlTmFtZUF0
+dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJpYnV0ZQBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1
+dGUARGVidWdnZXJIaWRkZW5BdHRyaWJ1dGUAQXNzZW1ibHlGaWxlVmVyc2lvbkF0dHJpYnV0ZQBN
+eUdyb3VwQ29sbGVjdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENv
+bXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFz
+c2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAENMU0NvbXBsaWFudEF0dHJpYnV0ZQBTU0lTU2NyaXB0
+Q29tcG9uZW50RW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVu
+dGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAbV9WYWx1ZQBnZXRfVmFsdWUAc2V0X1ZhbHVlAEdl
+dE9iamVjdFZhbHVlAFN5c3RlbS5UaHJlYWRpbmcAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBU
+b1N0cmluZwBNaWNyb3NvZnQuVmlzdWFsQmFzaWMuTXlTZXJ2aWNlcy5JbnRlcm5hbABTeXN0ZW0u
+Q29tcG9uZW50TW9kZWwAU0NfYWQ3OTUxYzBkODFjNDhiZGE0OTcwNzllM2FjZWJhNjIuZGxsAHNl
+dF9JU09fSXNOdWxsAGdldF9DcmVhdGVkX0lzTnVsbABTZXROdWxsAFN5c3RlbS5YbWwAc2V0X0l0
+ZW0AU3lzdGVtAFN5c3RlbS5Db21wb25lbnRNb2RlbC5EZXNpZ24AU2NyaXB0TWFpbgBnZXRfQXBw
+bGljYXRpb24ATXlBcHBsaWNhdGlvbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFs
+aXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBJbnZhbGlkT3BlcmF0aW9uRXhjZXB0aW9uAFN0cmlu
+Z0NvbXBhcmlzb24AQ3VsdHVyZUluZm8AT3V0cHV0TmFtZU1hcABPdXRwdXRNYXAAbV9BcHBPYmpl
+Y3RQcm92aWRlcgBtX1VzZXJPYmplY3RQcm92aWRlcgBtX0NvbXB1dGVyT2JqZWN0UHJvdmlkZXIA
+bV9NeVdlYlNlcnZpY2VzT2JqZWN0UHJvdmlkZXIASW5wdXQwQnVmZmVyAFBpcGVsaW5lQnVmZmVy
+AFNjcmlwdEJ1ZmZlcgBnZXRfUmVzb3VyY2VNYW5hZ2VyAFN5c3RlbS5Db2RlRG9tLkNvbXBpbGVy
+AGdldF9Vc2VyAEVudGVyAGdldF9Db21wdXRlcgBNeUNvbXB1dGVyAF9yZXNNZ3IAQWN0aXZhdG9y
+AC5jdG9yAC5jY3RvcgBNb25pdG9yAFN5c3RlbS5EaWFnbm9zdGljcwBNaWNyb3NvZnQuVmlzdWFs
+QmFzaWMuRGV2aWNlcwBnZXRfV2ViU2VydmljZXMATXlXZWJTZXJ2aWNlcwBNaWNyb3NvZnQuVmlz
+dWFsQmFzaWMuQXBwbGljYXRpb25TZXJ2aWNlcwBTeXN0ZW0uUnVudGltZS5JbnRlcm9wU2Vydmlj
+ZXMATWljcm9zb2Z0LlZpc3VhbEJhc2ljLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJ1bnRpbWUu
+Q29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNDX2FkNzk1MWMwZDgxYzQ4YmRhNDk3
+MDc5ZTNhY2ViYTYyLk15LlJlc291cmNlcwBNeVJlc291cmNlcwBTQ19hZDc5NTFjMGQ4MWM0OGJk
+YTQ5NzA3OWUzYWNlYmE2Mi5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFZhcmlh
+YmxlcwBCdWZmZXJDb2x1bW5JbmRleGVzAEdldENvbHVtbkluZGV4ZXMATXlTZXR0aW5ncwBFcXVh
+bHMAQ29ubmVjdGlvbnMAUnVudGltZUhlbHBlcnMAbV9TeW5jT2JqZWN0AE15UHJvamVjdABFbmRP
+ZlJvd3NldABFeGl0AFVzZXJDb21wb25lbnQAUGFyZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVu
+dABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AFhtbENvbnZlcnQATWljcm9zb2Z0LlNxbFNl
+cnZlci5QaXBlbGluZUhvc3QASW5wdXQwX1Byb2Nlc3NJbnB1dABtX0NvbnRleHQASW5wdXQwX1By
+b2Nlc3NJbnB1dFJvdwBOZXh0Um93AFNDX2FkNzk1MWMwZDgxYzQ4YmRhNDk3MDc5ZTNhY2ViYTYy
+Lk15AGdldF9Bc3NlbWJseQAAMU0AeQAuAFIAZQBzAG8AdQByAGMAZQBzAC4ATQB5AFIAZQBzAG8A
+dQByAGMAZQBzAACAm0kAcwBOAHUAbABsACAAcAByAG8AcABlAHIAdAB5ACAAYwBhAG4AbgBvAHQA
+IABiAGUAIABzAGUAdAAgAHQAbwAgAEYAYQBsAHMAZQAuACAAQQBzAHMAaQBnAG4AIABhACAAdgBh
+AGwAdQBlACAAdABvACAAdABoAGUAIABjAG8AbAB1AG0AbgAgAGkAbgBzAHQAZQBhAGQALgAAD0kA
+bgBwAHUAdAAgADAAAAn+HvNDH3BKrYmjdr2qtKcABCABAQgDIAABBSABARERBCABAQ4EIAEBAgUg
+AgEODgUgAQERRQcgBAEODg4OBhUSNAESDAYVEjQBEggGFRI0ARJlBhUSNAESMAQgABMABwABEm0R
+gKEFIAASgKUHIAIBDhKApQYAAQ4RgJELIAMBEoCJHQgSgI0EBhKAiQMGHQgGIAERgJEIBCABAggF
+IAIBCBwDBwECAyAAAgcgAgIOEYC1BSABHQgIBAABHBwEAAEBHAQgAQIcAyAACAMgAA4EBwEeAAIe
+AAUQAQAeAAQKAR4ABAcBEwAGFRI0ARMABwYVEnEBEwAGFRJxARMAAhMABAoBEwAFIAEBEwAIt3pc
+Vhk04IkIsD9ffxHVCjoIiYRdzYCAzJEHBhUSNAESDAcGFRI0ARIIBwYVEjQBEmUHBhUSNAESMAMG
+EnkDBhJ9AwYSJAMGEigEBhKAlQMGEiwCBhwDAAABBAAAEgwEAAASCAQAABJlBAAAEjAEAAASeQQA
+ABJ9BQABARJ9BSABARIcBSAAEYCRCyAEAQgOEoCJEoCNBiABARKAlQQAABIsBCAAEm0HEAEBHgAe
+AAcwAQEBEB4ABAgAEgwECAASCAQIABJlBAgAEjAECAASeQQIABJ9BSgAEYCRAygAAgMoAA4ECAAS
+LAQoABMACAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgB
+ACNTQ19hZDc5NTFjMGQ4MWM0OGJkYTQ5NzA3OWUzYWNlYmE2MgAABQEAAAAAFgEAEUNvcHlyaWdo
+dCBAICAyMDE5AAAFAQABAAApAQAkZWE1YmM5NWEtODdkOC00MTNiLWFhNTAtZmZjN2ZmYmIwY2Ex
+AAAMAQAHMS4wLjAuMAAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC41AQBUDhRGcmFtZXdv
+cmtEaXNwbGF5TmFtZRIuTkVUIEZyYW1ld29yayA0LjUEAQAAAAgBAAEAAAAAABgBAApNeVRlbXBs
+YXRlCDExLjAuMC4wAABhAQA0U3lzdGVtLldlYi5TZXJ2aWNlcy5Qcm90b2NvbHMuU29hcEh0dHBD
+bGllbnRQcm90b2NvbBJDcmVhdGVfX0luc3RhbmNlX18TRGlzcG9zZV9fSW5zdGFuY2VfXwAAABAB
+AAtNeS5Db21wdXRlcgAAEwEADk15LkFwcGxpY2F0aW9uAAAMAQAHTXkuVXNlcgAAEwEADk15Lldl
+YlNlcnZpY2VzAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVh
+ZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tl
+eVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VT
+ZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAFA8AAAAAAAAAAAAAGo8AAAAIAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAABcPAAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA
+EAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgAAABY
+QAAA7AMAAAAAAAAAAAAA7AM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAAAL0E
+7/4AAAEAAAABAAAAAAAAAAEAAAAAAD8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAAAQBW
+AGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAAAAAA
+AACwBEwDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAACgDAAABADAAMAAwADAAMAA0
+AGIAMAAAABoAAQABAEMAbwBtAG0AZQBuAHQAcwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEAbgB5AE4A
+YQBtAGUAAAAAAAAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAAAAAAUwBD
+AF8AYQBkADcAOQA1ADEAYwAwAGQAOAAxAGMANAA4AGIAZABhADQAOQA3ADAANwA5AGUAMwBhAGMA
+ZQBiAGEANgAyAAAAMAAIAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAuADAALgAw
+AAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAEMAXwBhAGQANwA5ADUAMQBjADAA
+ZAA4ADEAYwA0ADgAYgBkAGEANAA5ADcAMAA3ADkAZQAzAGEAYwBlAGIAYQA2ADIALgBkAGwAbAAA
+AEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAA
+QAAgACAAMgAwADEAOQAAACoAAQABAEwAZQBnAGEAbABUAHIAYQBkAGUAbQBhAHIAawBzAAAAAAAA
+AAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBhAG0AZQAAAFMAQwBfAGEAZAA3ADkA
+NQAxAGMAMABkADgAMQBjADQAOABiAGQAYQA0ADkANwAwADcAOQBlADMAYQBjAGUAYgBhADYAMgAu
+AGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBlAAAAAABTAEMAXwBhAGQANwA5ADUA
+MQBjADAAZAA4ADEAYwA0ADgAYgBkAGEANAA5ADcAMAA3ADkAZQAzAGEAYwBlAGIAYQA2ADIAAAA0
+AAgAAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAOAAIAAEA
+QQBzAHMAZQBtAGIAbAB5ACAAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAAHw8AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
+                          </arrayElements>
+                        </property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                          name="VSTAProjectName"
+                          typeConverter="NOTBROWSABLE">SC_ad7951c0d81c48bda497079e3aceba62</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the programming language used by the script."
+                          name="ScriptLanguage"
+                          typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">VisualBasic</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a comma-separated list of read-only variables."
+                          name="ReadOnlyVariables"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a comma-separated list of read/write variables."
+                          name="ReadWriteVariables"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                        <property
+                          dataType="System.String"
+                          description="List of breakpoints present on the script."
+                          isArray="true"
+                          name="BreakpointCollection"
+                          typeConverter="NOTBROWSABLE">
+                          <arrayElements
+                            arrayElementCount="0" />
+                        </property>
+                        <property
+                          dataType="System.String"
+                          description="Checksum to match component metedata against compiled codes."
+                          name="MetadataChecksum140"
+                          typeConverter="NOTBROWSABLE">96</property>
+                        <property
+                          dataType="System.String"
+                          name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+                      </properties>
                       <inputs>
                         <input
-                          refId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Inputs[Derived Column Input]"
-                          description="Input to the Derived Column Transformation"
-                          name="Derived Column Input">
+                          refId="Package\Create Batches\C - Generate Scripts\XML\ISO.Inputs[Input 0]"
+                          hasSideEffects="true"
+                          name="Input 0">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Create Batches\C - Generate Scripts\XML\ISO.Inputs[Input 0].Columns[Created]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="Created"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output].Columns[Created]" />
+                          </inputColumns>
                           <externalMetadataColumns />
                         </input>
                       </inputs>
                       <outputs>
                         <output
-                          refId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Outputs[Derived Column Output]"
-                          description="Default Output of the Derived Column Transformation"
-                          exclusionGroup="1"
-                          name="Derived Column Output"
-                          synchronousInputId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Inputs[Derived Column Input]">
+                          refId="Package\Create Batches\C - Generate Scripts\XML\ISO.Outputs[Output 0]"
+                          name="Output 0"
+                          synchronousInputId="Package\Create Batches\C - Generate Scripts\XML\ISO.Inputs[Input 0]">
                           <outputColumns>
                             <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Outputs[Derived Column Output].Columns[Step]"
-                              dataType="ui1"
-                              errorOrTruncationOperation="Computation"
-                              errorRowDisposition="FailComponent"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Outputs[Derived Column Output].Columns[Step]"
-                              name="Step"
-                              truncationRowDisposition="FailComponent">
-                              <properties>
-                                <property
-                                  containsID="true"
-                                  dataType="System.String"
-                                  description="Derived Column Expression"
-                                  name="Expression">(DT_UI1)@[$Package::MainStep]</property>
-                                <property
-                                  containsID="true"
-                                  dataType="System.String"
-                                  description="Derived Column Friendly Expression"
-                                  expressionType="Notify"
-                                  name="FriendlyExpression">(DT_UI1)@[$Package::MainStep]</property>
-                              </properties>
-                            </outputColumn>
-                          </outputColumns>
-                          <externalMetadataColumns />
-                        </output>
-                        <output
-                          refId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Outputs[Derived Column Error Output]"
-                          description="Error Output of the Derived Column Transformation"
-                          exclusionGroup="1"
-                          isErrorOut="true"
-                          name="Derived Column Error Output"
-                          synchronousInputId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Inputs[Derived Column Input]">
-                          <outputColumns>
-                            <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                              dataType="i4"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                              name="ErrorCode"
-                              specialFlags="1" />
-                            <outputColumn
-                              refId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                              dataType="i4"
-                              lineageId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                              name="ErrorColumn"
-                              specialFlags="2" />
+                              refId="Package\Create Batches\C - Generate Scripts\XML\ISO.Outputs[Output 0].Columns[ISO]"
+                              dataType="wstr"
+                              length="50"
+                              lineageId="Package\Create Batches\C - Generate Scripts\XML\ISO.Outputs[Output 0].Columns[ISO]"
+                              name="ISO" />
                           </outputColumns>
                           <externalMetadataColumns />
                         </output>
@@ -5425,15 +6363,15 @@ WHERE        (P.Batch = ?)</property>
                       name="Derived Column Output"
                       startId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Outputs[Derived Column Output]" />
                     <path
-                      refId="Package\Create Batches\C - Generate Scripts\XML.Paths[Derived Column Output1]"
-                      endId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Inputs[Derived Column Input]"
-                      name="Derived Column Output"
-                      startId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Outputs[Derived Column Output]" />
-                    <path
                       refId="Package\Create Batches\C - Generate Scripts\XML.Paths[OLE DB Source Output]"
-                      endId="Package\Create Batches\C - Generate Scripts\XML\Set Defaults.Inputs[Derived Column Input]"
+                      endId="Package\Create Batches\C - Generate Scripts\XML\ISO.Inputs[Input 0]"
                       name="OLE DB Source Output"
                       startId="Package\Create Batches\C - Generate Scripts\XML\Doc IDs.Outputs[OLE DB Source Output]" />
+                    <path
+                      refId="Package\Create Batches\C - Generate Scripts\XML.Paths[Output 0]"
+                      endId="Package\Create Batches\C - Generate Scripts\XML\Derived Column.Inputs[Derived Column Input]"
+                      name="Output 0"
+                      startId="Package\Create Batches\C - Generate Scripts\XML\ISO.Outputs[Output 0]" />
                   </paths>
                 </pipeline>
               </DTS:ObjectData>
@@ -5503,7 +6441,7 @@ WHERE        (P.Batch = ?)</property>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Set Batch State"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -7385,21 +8323,29 @@ where [refTable].[Step] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="135,42"
-          Id="Package\Create Batches\B - Link Documents\Union All"
-          TopLeft="825,278" />
+          Size="131,42"
+          Id="Package\Create Batches\B - Link Documents\Doc Count"
+          TopLeft="825,391" />
         <NodeLayout
           Size="130,42"
           Id="Package\Create Batches\B - Link Documents\Process Details"
           TopLeft="558,391" />
         <NodeLayout
-          Size="131,42"
-          Id="Package\Create Batches\B - Link Documents\Doc Count"
-          TopLeft="825,391" />
-        <NodeLayout
           Size="121,42"
           Id="Package\Create Batches\B - Link Documents\SAF File"
           TopLeft="585,170" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Create Batches\B - Link Documents\Start Conv ?"
+          TopLeft="571,57" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Create Batches\B - Link Documents\Union All"
+          TopLeft="825,278" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Create Batches\B - Link Documents\Doc"
+          TopLeft="122,62" />
         <NodeLayout
           Size="149,42"
           Id="Package\Create Batches\B - Link Documents\SAF Filename"
@@ -7409,21 +8355,13 @@ where [refTable].[Step] = ?</property>
           Id="Package\Create Batches\B - Link Documents\SAF Source"
           TopLeft="314,280" />
         <NodeLayout
-          Size="140,42"
-          Id="Package\Create Batches\B - Link Documents\Start Conv ?"
-          TopLeft="571,57" />
+          Size="119,42"
+          Id="Package\Create Batches\B - Link Documents\Defaults"
+          TopLeft="336,58" />
         <NodeLayout
           Size="126,42"
           Id="Package\Create Batches\B - Link Documents\SAF Path"
           TopLeft="320,163" />
-        <NodeLayout
-          Size="99,42"
-          Id="Package\Create Batches\B - Link Documents\Doc"
-          TopLeft="122,62" />
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Create Batches\B - Link Documents\Defaults"
-          TopLeft="336,58" />
         <NodeLayout
           Size="146,42"
           Id="Package\Create Batches\B - Link Documents\Get previous Output"
@@ -7694,6 +8632,19 @@ where [refTable].[Step] = ?</property>
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
   <PipelineComponentMetadata
+    design-time-name="Package\Create Batches\B - Link Documents\Process Details">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Create Batches\B - Link Documents\SAF File">
     <Properties>
       <Property>
@@ -7711,6 +8662,14 @@ where [refTable].[Step] = ?</property>
         <Value
           type="q4:string">0</Value>
       </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Create Batches\B - Link Documents\Doc">
+    <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -7740,20 +8699,12 @@ where [refTable].[Step] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Create Batches\B - Link Documents\Doc">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Create Batches\B - Link Documents\Get previous Output">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7763,7 +8714,7 @@ where [refTable].[Step] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7774,7 +8725,7 @@ where [refTable].[Step] = ?</property>
     design-time-name="Package\Create Batches\C - Generate Scripts\PDF">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="118,42"
           Id="Package\Create Batches\C - Generate Scripts\PDF\Doc IDs"
@@ -7814,7 +8765,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7836,7 +8789,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7858,7 +8813,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7892,7 +8849,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7954,7 +8913,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7976,7 +8937,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7998,7 +8961,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8048,89 +9013,77 @@ where [refTable].[Step] = ?</property>
         <NodeLayout
           Size="118,42"
           Id="Package\Create Batches\C - Generate Scripts\XML\Doc IDs"
-          TopLeft="37,68" />
+          TopLeft="292,57" />
         <NodeLayout
-          Size="130,42"
+          Size="158,42"
           Id="Package\Create Batches\C - Generate Scripts\XML\Derived Column"
-          TopLeft="573,212" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Create Batches\C - Generate Scripts\XML\Set Defaults"
-          TopLeft="275,67" />
+          TopLeft="558,212" />
         <NodeLayout
           Size="123,42"
           Id="Package\Create Batches\C - Generate Scripts\XML\Cmd File"
           TopLeft="290,207" />
         <EdgeLayout
-          Id="Package\Create Batches\C - Generate Scripts\XML.Paths[OLE DB Source Output]"
-          TopLeft="155,88.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="120,0"
-              Start="0,0"
-              End="112.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="112.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Create Batches\C - Generate Scripts\XML.Paths[Derived Column Output1]"
-          TopLeft="344.5,109">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="293.5,103"
-              Start="0,0"
-              End="293.5,95.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47.5"
-                    Point2="0,51.5"
-                    Point3="4,51.5" />
-                  <mssgle:LineSegment
-                    End="289.5,51.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="289.5,51.5"
-                    Point2="293.5,51.5"
-                    Point3="293.5,55.5" />
-                  <mssgle:LineSegment
-                    End="293.5,95.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Create Batches\C - Generate Scripts\XML.Paths[Derived Column Output]"
-          TopLeft="573,230.5">
+          TopLeft="558,230.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-160,0"
+              EndConnector="-145,0"
               Start="0,0"
-              End="-152.5,0">
+              End="-137.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-152.5,0" />
+                    End="-137.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="98,42"
+          Id="Package\Create Batches\C - Generate Scripts\XML\ISO"
+          TopLeft="589,59" />
+        <EdgeLayout
+          Id="Package\Create Batches\C - Generate Scripts\XML.Paths[OLE DB Source Output]"
+          TopLeft="410,79">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="179,0"
+              Start="0,0"
+              End="171.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="171.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Create Batches\C - Generate Scripts\XML.Paths[Output 0]"
+          TopLeft="637.5,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,111"
+              Start="0,0"
+              End="0,103.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,103.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

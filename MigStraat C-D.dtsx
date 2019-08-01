@@ -5,20 +5,20 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="VMT010140177175"
   DTS:CreatorName="TEST\bla061"
-  DTS:DTSID="{2B9D25C6-8B83-4B60-87F2-568526C1BDF3}"
+  DTS:DTSID="{948CA317-3153-4FD6-9121-B8DCAB122A81}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1043"
-  DTS:ObjectName="MigStraat 1"
+  DTS:ObjectName="MigStraat C-D"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{08A851F6-A612-4BE6-B4B6-FAF02C696C34}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{DDBAA4C7-1392-4C96-A5C5-608EC06A73F6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FF43BC6D-2B9C-4B06-9AAD-F95CAACBE453}"
+      DTS:DTSID="{F511A10F-DB6F-43F9-9E2C-E17A6B57605E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Folder">
@@ -28,7 +28,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1EC7E222-432C-4541-8000-060096EF6FAC}"
+      DTS:DTSID="{18E5B982-1BDF-42F7-A4D5-2327CFF62DEC}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="MainStep">
@@ -42,7 +42,7 @@
       DTS:AssignExpression="@[User::MainStep]=@[User::MainStep]+1"
       DTS:CreationName="STOCK:FORLOOP"
       DTS:Description="For Loop Container"
-      DTS:DTSID="{37A4078A-9CF8-4907-92F1-DE992093A5C9}"
+      DTS:DTSID="{B20280F8-F203-4A21-A76F-ADC4F49FC89D}"
       DTS:EvalExpression="@[User::MainStep]&lt;19"
       DTS:ExecutableType="STOCK:FORLOOP"
       DTS:InitExpression="@[User::MainStep]=16"
@@ -55,7 +55,7 @@
           DTS:refId="Package\C - Prepare Batches &amp; D - Read Log\Get Folder"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{32163B77-0FB4-4C71-9A7C-18E3FFA1ACA5}"
+          DTS:DTSID="{89F679B3-E068-4FB9-B37A-ECAACE476471}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Get Folder"
@@ -82,7 +82,7 @@
           DTS:refId="Package\C - Prepare Batches &amp; D - Read Log\Step C"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{a46b3296-7915-4264-9cbf-a1c9e8fc9de4}"
+          DTS:DTSID="{D0564C9E-2B32-4FAC-9C86-03943C556969}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Step C"
@@ -103,7 +103,7 @@
           DTS:refId="Package\C - Prepare Batches &amp; D - Read Log\Step D"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{9A81579C-E17C-4A6D-A39C-0AC1F7C295E5}"
+          DTS:DTSID="{EC6D90CF-3076-4BF0-B647-35BD0C7F2FB8}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Step D"
@@ -129,7 +129,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\C - Prepare Batches &amp; D - Read Log.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{E095F939-0253-4138-95A9-2A618949C437}"
+          DTS:DTSID="{453D0EC2-9F75-4BF3-A511-F5F1595A8B8A}"
           DTS:From="Package\C - Prepare Batches &amp; D - Read Log\Get Folder"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -137,80 +137,14 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\C - Prepare Batches &amp; D - Read Log.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{5B44AABC-A1B2-4594-B792-7C805B0B893E}"
+          DTS:DTSID="{C323F046-77F0-4AE5-AC33-40DF471578A0}"
           DTS:From="Package\C - Prepare Batches &amp; D - Read Log\Step C"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\C - Prepare Batches &amp; D - Read Log\Step D" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Prepare Werkvoorraad (Step A &amp; B)"
-      DTS:CreationName="STOCK:SEQUENCE"
-      DTS:Description="Sequence Container"
-      DTS:DTSID="{226A07C6-08DD-4554-BCD2-5FF0B4DA2E03}"
-      DTS:ExecutableType="STOCK:SEQUENCE"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Prepare Werkvoorraad (Step A &amp; B)">
-      <DTS:Variables />
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\Prepare Werkvoorraad (Step A &amp; B)\A - Refresh Sonar"
-          DTS:CreationName="Microsoft.ExecutePackageTask"
-          DTS:Description="Execute Package Task"
-          DTS:DTSID="{395db267-630f-4166-b229-357ece3075f7}"
-          DTS:ExecutableType="Microsoft.ExecutePackageTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="A - Refresh Sonar"
-          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <ExecutePackageTask>
-              <UseProjectReference>True</UseProjectReference>
-              <PackageName>ProcA - Import Sonar.dtsx</PackageName>
-            </ExecutePackageTask>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Prepare Werkvoorraad (Step A &amp; B)\B - Refresh Docs"
-          DTS:CreationName="Microsoft.ExecutePackageTask"
-          DTS:Description="Execute Package Task"
-          DTS:DTSID="{bbcdbb9a-6d0a-46e1-9631-b6f9f5b6f27f}"
-          DTS:ExecutableType="Microsoft.ExecutePackageTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="B - Refresh Docs"
-          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <ExecutePackageTask>
-              <UseProjectReference>True</UseProjectReference>
-              <PackageName>ProcB - Load Werkvoorraad.dtsx</PackageName>
-            </ExecutePackageTask>
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Prepare Werkvoorraad (Step A &amp; B).PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{0935EFB3-72E3-4ABE-84F4-77B41705ED96}"
-          DTS:From="Package\Prepare Werkvoorraad (Step A &amp; B)\A - Refresh Sonar"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package\Prepare Werkvoorraad (Step A &amp; B)\B - Refresh Docs" />
-      </DTS:PrecedenceConstraints>
-    </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint]"
-      DTS:CreationName=""
-      DTS:DTSID="{C91C4CAE-746F-431B-8B21-FACB97FC7014}"
-      DTS:From="Package\Prepare Werkvoorraad (Step A &amp; B)"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint"
-      DTS:To="Package\C - Prepare Batches &amp; D - Read Log" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -222,7 +156,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="130,42"
           Id="Package\C - Prepare Batches &amp; D - Read Log\Get Folder"
@@ -285,66 +219,7 @@
           PanelSize="381,226"
           Size="381,269"
           Id="Package\C - Prepare Batches &amp; D - Read Log"
-          TopLeft="450,32" />
-        <NodeLayout
-          Size="167,42"
-          Id="Package\Prepare Werkvoorraad (Step A &amp; B)\A - Refresh Sonar"
-          TopLeft="49,31" />
-        <NodeLayout
-          Size="162,42"
-          Id="Package\Prepare Werkvoorraad (Step A &amp; B)\B - Refresh Docs"
-          TopLeft="51,117" />
-        <EdgeLayout
-          Id="Package\Prepare Werkvoorraad (Step A &amp; B).PrecedenceConstraints[Constraint]"
-          TopLeft="132.25,73">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44"
-              Start="0,0"
-              End="0,36.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="262,214"
-          Size="262,257"
-          Id="Package\Prepare Werkvoorraad (Step A &amp; B)"
-          TopLeft="63,38" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="325,166.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="125,0"
-              Start="0,0"
-              End="117.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="117.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="53,40" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

@@ -7,12 +7,12 @@
   DTS:CreatorName="TEST\bla061"
   DTS:DTSID="{3B36DE92-5C92-4594-8088-A2843D7AD393}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.375"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1043"
   DTS:ObjectName="Import SiebelFS"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{CA48C4F2-3517-4805-AE23-C7FF1EE2E4A7}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{2082D16F-4CFB-4201-9BF2-F299D16FD9D1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1147,7 +1147,7 @@ where [refTable].[SafFile] = ? and [refTable].[Source] = ? and [refTable].[Path]
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[Sonar Files2]</property>
+                      name="OpenRowset">[dbo].[Sonar Files]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2312,7 +2312,7 @@ where [refTable].[SafFile] = ? and [refTable].[Source] = ? and [refTable].[Path]
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Sonar Files2]</property>
+                  name="OpenRowset">[dbo].[Sonar Files]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
