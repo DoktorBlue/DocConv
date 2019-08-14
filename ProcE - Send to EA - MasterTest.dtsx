@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcE - Send to EA - MasterTest"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{1CBF9917-8865-4836-A156-95D53E3A0F67}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{1A05A2F8-5B7A-4856-8933-59902731289F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -168,7 +168,7 @@
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
               <ExecuteOutOfProcess>True</ExecuteOutOfProcess>
-              <PackageName>ProcE - Send to EA - Slave.dtsx</PackageName>
+              <PackageName>ProcE - Send to EA - Slave 1.dtsx</PackageName>
               <ParameterAssignment>
                 <ParameterName>BatchID</ParameterName>
                 <BindedVariableOrParameterName>User::BatchID</BindedVariableOrParameterName>
@@ -197,6 +197,10 @@
                 <ParameterName>MQ_HostName</ParameterName>
                 <BindedVariableOrParameterName>User::H</BindedVariableOrParameterName>
               </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>DB_ServerName</ParameterName>
+                <BindedVariableOrParameterName>$Project::MigLog_ServerName</BindedVariableOrParameterName>
+              </ParameterAssignment>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -218,7 +222,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get Batches"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -245,7 +249,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Read Parameters"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData

@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="VMT010140177175"
   DTS:CreatorName="TEST\bla061"
-  DTS:DTSID="{E77D5D8F-CAFF-43BB-9465-C35F187A2AFB}"
+  DTS:DTSID="{6D24DEC1-B4CB-4A19-9429-E035863B71BC}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1043"
-  DTS:ObjectName="ProcA"
+  DTS:ObjectName="ProcA - Import Sonar - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{BB282AFD-04FF-4F2D-BB65-76D1F2F849AD}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{6054323B-BF8D-4B83-85EF-A25B6C78B204}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -58,7 +58,7 @@
       <DTS:ObjectData>
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
-          <PackageName>ProcA - Import Sonar.dtsx</PackageName>
+          <PackageName>ProcA - Import Sonar - Slave.dtsx</PackageName>
           <ParameterAssignment>
             <ParameterName>OraSonar_Password</ParameterName>
             <BindedVariableOrParameterName>User::PWD</BindedVariableOrParameterName>

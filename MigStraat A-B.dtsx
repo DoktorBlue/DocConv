@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="MigStraat A-B"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{B902DCE1-EBA3-4F76-AAAA-BBEC6C0D1539}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{04C5D4C0-B330-4E79-A95E-AB2C13ACEE93}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -40,7 +40,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>ProcA - Import Sonar.dtsx</PackageName>
+              <PackageName>ProcA - Import Sonar - Master.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
