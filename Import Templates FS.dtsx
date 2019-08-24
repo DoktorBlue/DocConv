@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="Import Templates FS"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{2D15FCD9-40D5-45FF-907E-ECFAA2FBDB4B}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{719EE8C1-BA77-40BE-91B1-70C806D8C2A8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -477,6 +477,10 @@
                       refId="Package\Add Extra xFdF Templates\New XfDF Templates.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
                       dataType="ui1"
                       name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Add Extra xFdF Templates\New XfDF Templates.Inputs[OLE DB Destination Input].ExternalColumns[Inserted]"
+                      dataType="dbTimeStamp"
+                      name="Inserted" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -811,7 +815,7 @@ End Class
     <msb:CodeName>SC_d14c9d33b45c4c7bb1952d13c5d27233</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_d14c9d33b45c4c7bb1952d13c5d27233</msb:DisplayName>
-    <msb:ProjectId>{AA4187F4-8565-454B-96D1-FCB8025D21A1}</msb:ProjectId>
+    <msb:ProjectId>{ED1E73E8-7661-47E5-9166-89C232727196}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_d14c9d33b45c4c7bb1952d13c5d27233.vbproj" />
@@ -1137,7 +1141,7 @@ End Namespace
                     <arrayElement
                       dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDACnlJl0AAAAAAAAAAOAAIiALAVAAAB4AAAAIAAAAAAAAaj0A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAAc3YV0AAAAAAAAAAOAAIiALAVAAAB4AAAAIAAAAAAAAaj0A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAABg9AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1254,7 +1258,7 @@ AHkALgBSAGUAcwBvAHUAcgBjAGUAcwAuAE0AeQBSAGUAcwBvAHUAcgBjAGUAcwAAJUUAOgBcAEQA
 YQB0AGEAXABBAEwATABQAEQARgBcAFAARABGAACAm0kAcwBOAHUAbABsACAAcAByAG8AcABlAHIA
 dAB5ACAAYwBhAG4AbgBvAHQAIABiAGUAIABzAGUAdAAgAHQAbwAgAEYAYQBsAHMAZQAuACAAQQBz
 AHMAaQBnAG4AIABhACAAdgBhAGwAdQBlACAAdABvACAAdABoAGUAIABjAG8AbAB1AG0AbgAgAGkA
-bgBzAHQAZQBhAGQALgAAEU8AdQB0AHAAdQB0ACAAMAAAHZwzeHU+4Eqe8KqEm1t/wwAEIAEBCAMg
+bgBzAHQAZQBhAGQALgAAEU8AdQB0AHAAdQB0ACAAMAAAhSSnuZCSekmedaOfbGcu3QAEIAEBCAMg
 AAEFIAEBEREEIAEBDgQgAQECBSACAQ4OBSABARFFByAEAQ4ODg4GFRI0ARIMBhUSNAESCAYVEjQB
 EmUGFRI0ARIwBCAAEwAHAAESbRGAoQUgABKApQcgAgEOEoClCgcDHRKAhQgSgIUGIAAdEoCFAyAA
 DgMgAAoLIAMBEoCNHQgSgJEFIAIBCBwDBwECAyAAAgQHAggIBwACCBKAkQ4FIAEdCAgEAAEcHAQA
