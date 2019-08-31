@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcD - Load Log"
   DTS:PackageType="5"
-  DTS:VersionBuild="69"
-  DTS:VersionGUID="{7FC75DBE-AE40-4380-8B5D-0E315E4E961A}">
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{A3FD6B92-F718-44D4-BE8F-791E964BB665}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -8669,6 +8669,34 @@ where [refTable].[Name] = ?</property>
                           <externalMetadataColumns />
                         </output>
                         <output
+                          refId="Package\For each finished batch\Load Log\SAF\Filter Onzin.Outputs[One File]"
+                          description="Output 2 of the Conditional Split Transformation"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          exclusionGroup="1"
+                          name="One File"
+                          synchronousInputId="Package\For each finished batch\Load Log\SAF\Filter Onzin.Inputs[Conditional Split Input]"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                              name="Expression">#{Package\For each finished batch\Load Log\SAF\Read Err.Outputs[Flat File Source Output].Columns[Line]} == "Unzipped 1 files."</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Specifies the friendly version of the expression. This expression version uses column names."
+                              expressionType="Notify"
+                              name="FriendlyExpression">Line == "Unzipped 1 files."</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                              name="EvaluationOrder">1</property>
+                          </properties>
+                          <externalMetadataColumns />
+                        </output>
+                        <output
                           refId="Package\For each finished batch\Load Log\SAF\Filter Onzin.Outputs[Zinvol]"
                           description="Default Output of the Conditional Split Transformation"
                           exclusionGroup="1"
@@ -10887,14 +10915,14 @@ WHERE ID = ?</property>
                       startId="Package\For each finished batch\Load Log\SAF\Error Status.Outputs[Insert]" />
                     <path
                       refId="Package\For each finished batch\Load Log\SAF.Paths[Ja1]"
-                      endId="Package\For each finished batch\Load Log\SAF\Step.Inputs[Lookup Input]"
-                      name="Ja"
-                      startId="Package\For each finished batch\Load Log\SAF\Doc Logging?.Outputs[Ja]" />
-                    <path
-                      refId="Package\For each finished batch\Load Log\SAF.Paths[Ja]"
                       endId="Package\For each finished batch\Load Log\SAF\Union All.Inputs[Union All Input 1]"
                       name="Ja"
                       startId="Package\For each finished batch\Load Log\SAF\Known Error?.Outputs[Ja]" />
+                    <path
+                      refId="Package\For each finished batch\Load Log\SAF.Paths[Ja]"
+                      endId="Package\For each finished batch\Load Log\SAF\Step.Inputs[Lookup Input]"
+                      name="Ja"
+                      startId="Package\For each finished batch\Load Log\SAF\Doc Logging?.Outputs[Ja]" />
                     <path
                       refId="Package\For each finished batch\Load Log\SAF.Paths[Lookup Match Output]"
                       endId="Package\For each finished batch\Load Log\SAF\Sort Log.Inputs[Sort Input]"
@@ -16738,11 +16766,12 @@ WHERE ID = ?</property>
               DTS:ExecutableType="Microsoft.FileSystemTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Move File"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <FileSystemData
                   TaskOperationType="MoveFile"
+                  TaskOverwriteDestFile="True"
                   TaskSourcePath="User::VanFile"
                   TaskIsSourceVariable="True"
                   TaskDestinationPath="User::NaarFile"
@@ -16767,7 +16796,7 @@ WHERE ID = ?</property>
           DTS:ExecutableType="Microsoft.FileSystemTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Purge OK File"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -16784,7 +16813,7 @@ WHERE ID = ?</property>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Update Documents"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -17939,25 +17968,25 @@ WHERE ID = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="120,42"
+          Id="Package\For each finished batch\Load Log\SAF\Sort Log"
+          TopLeft="62,180" />
+        <NodeLayout
           Size="138,42"
           Id="Package\For each finished batch\Load Log\SAF\Error Status"
           TopLeft="509,300" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\For each finished batch\Load Log\SAF\Update Batch"
-          TopLeft="759,64" />
         <NodeLayout
           Size="138,42"
           Id="Package\For each finished batch\Load Log\SAF\Sort ErrMsg"
           TopLeft="51,418" />
         <NodeLayout
+          Size="130,42"
+          Id="Package\For each finished batch\Load Log\SAF\Update Batch"
+          TopLeft="759,64" />
+        <NodeLayout
           Size="123,42"
           Id="Package\For each finished batch\Load Log\SAF\Union All"
           TopLeft="789,430" />
-        <NodeLayout
-          Size="138,42"
-          Id="Package\For each finished batch\Load Log\SAF\Unexpected Errors"
-          TopLeft="1031,186" />
         <NodeLayout
           Size="135,42"
           Id="Package\For each finished batch\Load Log\SAF\Filter Onzin"
@@ -17966,6 +17995,10 @@ WHERE ID = ?</property>
           Size="127,42"
           Id="Package\For each finished batch\Load Log\SAF\Read Log"
           TopLeft="56,69" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\For each finished batch\Load Log\SAF\Unexpected Errors"
+          TopLeft="1031,186" />
         <NodeLayout
           Size="147,42"
           Id="Package\For each finished batch\Load Log\SAF\Doc Logging?"
@@ -17983,10 +18016,6 @@ WHERE ID = ?</property>
           Id="Package\For each finished batch\Load Log\SAF\ProcessDetail"
           TopLeft="779,542" />
         <NodeLayout
-          Size="102,42"
-          Id="Package\For each finished batch\Load Log\SAF\Step"
-          TopLeft="285,179" />
-        <NodeLayout
           Size="147,42"
           Id="Package\For each finished batch\Load Log\SAF\Set ErrCode Unexpected"
           TopLeft="1033,431" />
@@ -17999,13 +18028,13 @@ WHERE ID = ?</property>
           Id="Package\For each finished batch\Load Log\SAF\Merge Join"
           TopLeft="48,300" />
         <NodeLayout
+          Size="102,42"
+          Id="Package\For each finished batch\Load Log\SAF\Step"
+          TopLeft="285,179" />
+        <NodeLayout
           Size="123,42"
           Id="Package\For each finished batch\Load Log\SAF\Multicast"
           TopLeft="1045,305" />
-        <NodeLayout
-          Size="120,42"
-          Id="Package\For each finished batch\Load Log\SAF\Sort Log"
-          TopLeft="62,180" />
         <NodeLayout
           Size="146,42"
           Id="Package\For each finished batch\Load Log\SAF\Known Error?"
@@ -18018,28 +18047,6 @@ WHERE ID = ?</property>
           Size="114,42"
           Id="Package\For each finished batch\Load Log\SAF\Concat"
           TopLeft="66,540" />
-        <EdgeLayout
-          Id="Package\For each finished batch\Load Log\SAF.Paths[Multicast Output 2]"
-          TopLeft="1103.25,305">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,-77"
-              Start="0,0"
-              End="0,-69.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-69.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\For each finished batch\Load Log\SAF.Paths[Multicast Output 1]"
           TopLeft="1106.5,347">
@@ -18108,30 +18115,6 @@ WHERE ID = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\For each finished batch\Load Log\SAF.Paths[Ja1]"
-          TopLeft="504,201.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-117,0"
-              Start="0,0"
-              End="-109.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-109.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-60.1250390625,5,10.750078125,9.421875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\For each finished batch\Load Log\SAF.Paths[Ja]"
           TopLeft="851.25,346">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -18151,6 +18134,30 @@ WHERE ID = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-5.3750390625,33.5390625,10.750078125,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\For each finished batch\Load Log\SAF.Paths[Ja]"
+          TopLeft="504,201.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-117,0"
+              Start="0,0"
+              End="-109.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-109.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-60.1250390625,5,10.750078125,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -18470,6 +18477,28 @@ WHERE ID = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="49.70796875,5,13.0840625,9.421875"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\For each finished batch\Load Log\SAF.Paths[Multicast Output 2]"
+          TopLeft="1103.25,305">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-77"
+              Start="0,0"
+              End="0,-69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

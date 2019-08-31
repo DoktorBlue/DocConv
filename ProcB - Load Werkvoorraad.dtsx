@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcB - Load Werkvoorraad"
   DTS:PackageType="5"
-  DTS:VersionBuild="102"
-  DTS:VersionGUID="{D5F29669-4547-4272-805F-D3980CF0987E}">
+  DTS:VersionBuild="103"
+  DTS:VersionGUID="{4E8BAD96-090E-4AEC-BEA7-1162896CCE65}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -4825,6 +4825,19 @@ where [refTable].[Source] = ? and [refTable].[Name] = ?</property>
                           name="OutputColumnLineageID">#{Package\Load Docs\U.Outputs[Union All Output 1].Columns[Status]}</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\U.Inputs[Union All Input 7].Columns[Sonar ID]"
+                      cachedDataType="i4"
+                      cachedName="Sonar ID"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Sonar ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\U.Outputs[Union All Output 1].Columns[ID]}</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5391,29 +5404,29 @@ where [refTable].[Name] = ?</property>
               startId="Package\Load Docs\Dropout Check.Outputs[FileSize]" />
             <path
               refId="Package\Load Docs.Paths[Lookup Match Output4]"
-              endId="Package\Load Docs\Derived Column.Inputs[Derived Column Input]"
+              endId="Package\Load Docs\xFdF Templates.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load Docs\Users.Outputs[Lookup Match Output]" />
+              startId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Docs.Paths[Lookup Match Output3]"
-              endId="Package\Load Docs\Users.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load Docs\FileTypes.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load Docs.Paths[Lookup Match Output1]"
-              endId="Package\Load Docs\FileTypes.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Load Docs.Paths[Lookup Match Output]"
               endId="Package\Load Docs\Dropout Check.Inputs[Conditional Split Input]"
               name="Lookup Match Output"
               startId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Docs.Paths[Lookup Match Output2]"
-              endId="Package\Load Docs\xFdF Templates.Inputs[Lookup Input]"
+              endId="Package\Load Docs\FileTypes.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output]" />
+              startId="Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load Docs.Paths[Lookup Match Output1]"
+              endId="Package\Load Docs\Users.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Load Docs\FileTypes.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load Docs.Paths[Lookup Match Output]"
+              endId="Package\Load Docs\Derived Column.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Load Docs\Users.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Docs.Paths[Merge Join Output]"
               endId="Package\Load Docs\Ext.Inputs[Derived Column Input]"
@@ -5545,61 +5558,17 @@ where [refTable].[Name] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="125,42"
-          Id="Package\Load Docs\Sonar FS"
-          TopLeft="279,48" />
-        <NodeLayout
-          Size="95,42"
-          Id="Package\Load Docs\Ext"
-          TopLeft="522,47" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Load Docs\Set Inval Con Reason"
-          TopLeft="504,452" />
-        <NodeLayout
           Size="135,42"
-          Id="Package\Load Docs\xFdF Templates"
-          TopLeft="34,385" />
+          Id="Package\Load Docs\Status Changed ?"
+          TopLeft="659,522" />
         <NodeLayout
-          Size="142,42"
-          Id="Package\Load Docs\Set FileSize Reason"
-          TopLeft="502,229" />
-        <NodeLayout
-          Size="130,308"
-          Id="Package\Load Docs\Dropout Check"
-          TopLeft="282,155" />
-        <NodeLayout
-          Size="131,42"
-          Id="Package\Load Docs\Doc Types"
-          TopLeft="34,283" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Load Docs\Set SAF Reason"
-          TopLeft="508,283" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Load Docs\Derived Column"
-          TopLeft="256,613" />
+          Size="108,42"
+          Id="Package\Load Docs\Sonar"
+          TopLeft="881,13" />
         <NodeLayout
           Size="130,42"
           Id="Package\Load Docs\Doc Dropout"
           TopLeft="873,397" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\Load Docs\Upd Docs"
-          TopLeft="908,518" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Load Docs\Set Dub Reason"
-          TopLeft="505,337" />
-        <NodeLayout
-          Size="135,42"
-          Id="Package\Load Docs\Documents"
-          TopLeft="902,610" />
-        <NodeLayout
-          Size="87,260"
-          Id="Package\Load Docs\U"
-          TopLeft="715,185" />
         <NodeLayout
           Size="108,42"
           Id="Package\Load Docs\Users"
@@ -5610,40 +5579,88 @@ where [refTable].[Name] = ?</property>
           TopLeft="509,398" />
         <NodeLayout
           Size="130,42"
-          Id="Package\Load Docs\Doc exists?"
-          TopLeft="656,612" />
+          Id="Package\Load Docs\Set SAF Reason"
+          TopLeft="508,283" />
         <NodeLayout
-          Size="127,42"
-          Id="Package\Load Docs\FileTypes"
-          TopLeft="41,494" />
+          Size="131,42"
+          Id="Package\Load Docs\Doc Types"
+          TopLeft="34,283" />
         <NodeLayout
           Size="139,42"
           Id="Package\Load Docs\Set OudDos Reason"
           TopLeft="496,180" />
         <NodeLayout
-          Size="108,42"
-          Id="Package\Load Docs\Sonar"
-          TopLeft="881,13" />
+          Size="127,42"
+          Id="Package\Load Docs\Upd Docs"
+          TopLeft="908,518" />
         <NodeLayout
-          Size="135,42"
-          Id="Package\Load Docs\Status Changed ?"
-          TopLeft="659,522" />
+          Size="130,308"
+          Id="Package\Load Docs\Dropout Check"
+          TopLeft="282,155" />
         <NodeLayout
           Size="134,42"
           Id="Package\Load Docs\Set NoDoc Reason"
           TopLeft="500,131" />
         <NodeLayout
-          Size="140,42"
-          Id="Package\Load Docs\Al uitgevallen?"
-          TopLeft="874,287" />
+          Size="125,42"
+          Id="Package\Load Docs\Sonar FS"
+          TopLeft="279,48" />
         <NodeLayout
           Size="121,42"
           Id="Package\Load Docs\Left Join"
           TopLeft="696,49" />
         <NodeLayout
+          Size="130,42"
+          Id="Package\Load Docs\Derived Column"
+          TopLeft="256,613" />
+        <NodeLayout
           Size="123,42"
           Id="Package\Load Docs\Doc p Klt"
           TopLeft="877,84" />
+        <NodeLayout
+          Size="87,260"
+          Id="Package\Load Docs\U"
+          TopLeft="715,185" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Load Docs\Set Inval Con Reason"
+          TopLeft="504,452" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Docs\Conv DocName"
+          TopLeft="467,608" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Load Docs\Set FileSize Reason"
+          TopLeft="502,229" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Load Docs\FileTypes"
+          TopLeft="41,494" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Docs\Set Dub Reason"
+          TopLeft="505,337" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Docs\Doc exists?"
+          TopLeft="656,612" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Load Docs\xFdF Templates"
+          TopLeft="34,385" />
+        <NodeLayout
+          Size="95,42"
+          Id="Package\Load Docs\Ext"
+          TopLeft="522,47" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Load Docs\Al uitgevallen?"
+          TopLeft="874,287" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Load Docs\Documents"
+          TopLeft="902,610" />
         <EdgeLayout
           Id="Package\Load Docs.Paths[Update]"
           TopLeft="794,541">
@@ -5682,6 +5699,28 @@ where [refTable].[Name] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="64.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Docs.Paths[Output 0]"
+          TopLeft="597,631">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59,0"
+              Start="0,0"
+              End="51.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="51.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5986,50 +6025,6 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Lookup Match Output4]"
-          TopLeft="152,634">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="104,0"
-              Start="0,0"
-              End="96.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="96.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Docs.Paths[Lookup Match Output3]"
-          TopLeft="101.25,536">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,77"
-              Start="0,0"
-              End="0,69.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,69.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Docs.Paths[Lookup Match Output2]"
           TopLeft="100.5,325">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6051,7 +6046,29 @@ where [refTable].[Name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Docs.Paths[Lookup Match Output1]"
+          Id="Package\Load Docs.Paths[Lookup Match Output3]"
+          TopLeft="344.25,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Docs.Paths[Lookup Match Output2]"
           TopLeft="103,427">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6073,19 +6090,41 @@ where [refTable].[Name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Docs.Paths[Lookup Match Output]"
-          TopLeft="344.25,90">
+          Id="Package\Load Docs.Paths[Lookup Match Output1]"
+          TopLeft="101.25,536">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,65"
+              EndConnector="0,77"
               Start="0,0"
-              End="0,57.5">
+              End="0,69.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.5" />
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Docs.Paths[Lookup Match Output]"
+          TopLeft="152,634">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="104,0"
+              Start="0,0"
+              End="96.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="96.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6227,6 +6266,28 @@ where [refTable].[Name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Load Docs.Paths[Derived Column Output8]"
+          TopLeft="386,631.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="81,0"
+              Start="0,0"
+              End="73.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="73.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Load Docs.Paths[Derived Column Output7]"
           TopLeft="643,419">
           <EdgeLayout.Curve>
@@ -6352,30 +6413,30 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Derived Column Output3]"
-          TopLeft="664,358">
+          TopLeft="635,358">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="51,-11.5"
+              EndConnector="80,-11.5"
               Start="0,0"
-              End="43.5,-11.5">
+              End="72.5,-11.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="25.0153172866521,0" />
+                    End="41.5142231947484,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="25.0153172866521,0"
-                    Point2="29.0153172866521,0"
-                    Point3="29.0153172866521,-4" />
+                    Point1="41.5142231947484,0"
+                    Point2="45.5142231947484,0"
+                    Point3="45.5142231947484,-4" />
                   <mssgle:LineSegment
-                    End="29.0153172866521,-7.5" />
+                    End="45.5142231947484,-7.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="29.0153172866521,-7.5"
-                    Point2="29.0153172866521,-11.5"
-                    Point3="33.0153172866521,-11.5" />
+                    Point1="45.5142231947484,-7.5"
+                    Point2="45.5142231947484,-11.5"
+                    Point3="49.5142231947484,-11.5" />
                   <mssgle:LineSegment
-                    End="43.5,-11.5" />
+                    End="72.5,-11.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6486,54 +6547,6 @@ where [refTable].[Name] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Load Docs\Conv DocName"
-          TopLeft="467,608" />
-        <EdgeLayout
-          Id="Package\Load Docs.Paths[Derived Column Output8]"
-          TopLeft="386,631.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="81,0"
-              Start="0,0"
-              End="73.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="73.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Docs.Paths[Output 0]"
-          TopLeft="597,631">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="59,0"
-              Start="0,0"
-              End="51.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="51.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -6558,25 +6571,15 @@ where [refTable].[Name] = ?</property>
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Sonar FS">
+    design-time-name="Package\Load Docs\Documents">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -6592,78 +6595,6 @@ where [refTable].[Name] = ?</property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[xFdF Templates]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Doc Types">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Doc Dropout">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Documents">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Users">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Users]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -6722,6 +6653,83 @@ where [refTable].[Name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Doc p Klt">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Users">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Users]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Sonar FS">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Doc Types">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load Docs\Sonar">
     <Properties>
       <Property>
@@ -6758,10 +6766,15 @@ where [refTable].[Name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Doc p Klt">
+    design-time-name="Package\Load Docs\Doc Dropout">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
