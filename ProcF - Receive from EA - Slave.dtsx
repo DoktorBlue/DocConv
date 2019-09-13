@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcF - Receive from EA - Slave"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{8D50E481-3369-4C49-A4CF-CA35284F3B80}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{D857232D-AA44-478D-B200-2935AA6786CA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -78,7 +78,7 @@
           ConnectionString="QueueManager=QMSONARMIG;HostName=10.140.177.125;Port=1434;ChannelName=SYSTEM.ADMIN.SVRCONN;UserID=bla061;AuthenticationMode=Credentials;CertificateLabel=;CertificateKeyRepository=0;SSLCipherSpec=;SSLPeerName=;SSLResetCount=0;SSLRevocationCheck=False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB64QyBUIV64axQg9AaMYtJAAAAAASAAACgAAAAEAAAAHU7JegeZQMvUI3e6eTW99IYAAAAgIgcj8OAT3kjsl+YnC3yAE3zaSl6WMDRFAAAAKraAQp/qXeQ7Po6Ix1vrpVExss+</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACJfuAQm6ko1Vtgmqqp7+AaAAAAAASAAACgAAAAEAAAALTo0LgMnGnO5YFGNqtVvmMYAAAAcjAZj+QT4vVPQvAAcn9jqGEGgcXgc5O2FAAAAA2Fi+c8VPstJEzHpy7HKoROoVrH</Password>
         </ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -138,7 +138,7 @@
         <DTS:Property
           DTS:DataType="8"
           DTS:Name="ParameterValue"
-          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAIBtU35RqK8OnZ/V8rLrMlAAAAAASAAACgAAAAEAAAADfnV5cRpxGNqznHVC6+SfIYAAAAz3hfbkxGUrhDdkdQgqq37qfrhhI6vmrJFAAAAF82X5SyTefSbWDh/NRp5cfztk/o</DTS:Property>
+          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABfyzqin3afd8NdDo62n8C7AAAAAASAAACgAAAAEAAAAK4bMAgCqMw2aKwIFCgY9XoYAAAAPmh8XxCZzbL0LCQP9kyJ4dkV1jjHwGKmFAAAAPAv6x9Bcw0Gf6uCxGPpKEV9bXSA</DTS:Property>
       </DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
@@ -318,7 +318,7 @@
                   description="Determines whether to retrieve messages without deleting them from the topic/queue or not."
                   expressionType="Notify"
                   name="ReceiveMode"
-                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.MessageReceiveMode">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.ProductivityPack.MessageReceiveMode">1</property>
                 <property
                   dataType="System.String"
                   description="The name of the queue from which messages will be received."
@@ -1746,39 +1746,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="157,42"
-          Id="Package\Receive Messages\IBM MQ Source"
-          TopLeft="54,81" />
-        <NodeLayout
           Size="167,42"
           Id="Package\Receive Messages\Script Component"
           TopLeft="328,77" />
-        <EdgeLayout
-          Id="Package\Receive Messages.Paths[Default Output]"
-          TopLeft="211,100">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="117,0"
-              Start="0,0"
-              End="109.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="109.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="149,42"
           Id="Package\Receive Messages\MQ Response"
           TopLeft="643,75" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Receive Messages\IBM MQ Source"
+          TopLeft="54,81" />
         <EdgeLayout
           Id="Package\Receive Messages.Paths[Output 0]"
           TopLeft="495,97">
@@ -1793,6 +1771,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="140.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Receive Messages.Paths[Default Output]"
+          TopLeft="211,100">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117,0"
+              Start="0,0"
+              End="109.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="109.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

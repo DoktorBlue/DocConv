@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcE - Send to EA - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{3C0293BC-C3DC-4738-B28E-BC13F5D7F798}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{1B71850D-80C8-4E62-A264-4475C884F15B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -68,6 +68,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="MigLog"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{5277A14E-C537-4FE3-AA15-48E0960AC492}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -132,7 +144,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="P">
       <DTS:VariableValue
-        DTS:DataType="3">0</DTS:VariableValue>
+        DTS:DataType="3">1</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -150,6 +162,16 @@
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Q">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{55B753C2-BF9D-4CEC-A4DD-F37248342B72}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Queue">
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
@@ -202,6 +224,139 @@
         xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">7,7,OnError,19,OnExecStatusChanged,13,OnInformation,13,OnQueryCancel,12,OnTaskFailed,9,OnWarning,12,DiagnosticEx</DTS:Property>
+    <DTS:Property
+      DTS:EventName="DiagnosticEx"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnExecStatusChanged"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnInformation"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnQueryCancel"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\A - Create Run"
@@ -212,6 +367,8 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="A - Create Run">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:Executables>
         <DTS:Executable
           DTS:refId="Package\A - Create Run\Create Run"
@@ -223,6 +380,8 @@
           DTS:ObjectName="Create Run"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <pipeline
               version="1">
@@ -412,8 +571,14 @@ where [refTable].[Parameter] = ?</property>
                       description="The SQL command to be executed."
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        GETDATE() AS Nu, Dosering, cast(15 as TinyInt) as FreqID, cast(19 as TinyInt) as NoBatchesID, N'CurDepth' AS Parameter
-FROM            [Dosering Schema]
-WHERE        (GETDATE() BETWEEN DATEADD([hour], Van, Datum) AND DATEADD([millisecond], - 1, DATEADD([hour], Tot, Datum)))</property>
+FROM     (
+Select Dosering from       [Dosering Schema]
+WHERE        (GETDATE() BETWEEN DATEADD([hour], Van, Datum) AND DATEADD([millisecond], - 1, DATEADD([hour], Tot, Datum)))
+union
+Select 0 from       [Dosering Schema]
+WHERE        (GETDATE() BETWEEN DATEADD([hour], Van, Datum) AND DATEADD([millisecond], - 1, DATEADD([hour], Tot, Datum)))
+Having count(*) = 0
+) V</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -504,7 +669,7 @@ WHERE        (GETDATE() BETWEEN DATEADD([hour], Van, Datum) AND DATEADD([millise
                           name="Nu" />
                         <externalMetadataColumn
                           refId="Package\A - Create Run\Create Run\Dosering.Outputs[OLE DB Source Output].ExternalColumns[Dosering]"
-                          dataType="i2"
+                          dataType="i4"
                           name="Dosering" />
                         <externalMetadataColumn
                           refId="Package\A - Create Run\Create Run\Dosering.Outputs[OLE DB Source Output].ExternalColumns[FreqID]"
@@ -533,7 +698,7 @@ WHERE        (GETDATE() BETWEEN DATEADD([hour], Van, Datum) AND DATEADD([millise
                           name="Nu" />
                         <outputColumn
                           refId="Package\A - Create Run\Create Run\Dosering.Outputs[OLE DB Source Error Output].Columns[Dosering]"
-                          dataType="i2"
+                          dataType="i4"
                           lineageId="Package\A - Create Run\Create Run\Dosering.Outputs[OLE DB Source Error Output].Columns[Dosering]"
                           name="Dosering" />
                         <outputColumn
@@ -895,6 +1060,35 @@ where [refTable].[Step] = ?</property>
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\A - Create Run\Create Run\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::P</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\A - Create Run\Create Run\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\A - Create Run\Create Run\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\A - Create Run\Create Run\Row Count.Inputs[Row Count Input 1]">
                       <externalMetadataColumns />
                     </output>
                   </outputs>
@@ -1304,13 +1498,13 @@ where [refTable].[Step] = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_I2)#{Package\A - Create Run\Create Run\NoBatches.Outputs[Lookup Match Output].Columns[NoBatches]}</property>
+                              name="Expression">(DT_I2)(#{Package\A - Create Run\Create Run\Dosering.Outputs[OLE DB Source Output].Columns[Dosering]} == 0 ? 0 : #{Package\A - Create Run\Create Run\NoBatches.Outputs[Lookup Match Output].Columns[NoBatches]})</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_I2)NoBatches</property>
+                              name="FriendlyExpression">(DT_I2)(Dosering == 0 ? 0 : NoBatches)</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -1372,29 +1566,34 @@ where [refTable].[Step] = ?</property>
                   startId="Package\A - Create Run\Create Run\Step ID.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\A - Create Run\Create Run.Paths[Lookup Match Output]"
-                  endId="Package\A - Create Run\Create Run\Runs.Inputs[OLE DB Destination Input]"
-                  name="Lookup Match Output"
-                  startId="Package\A - Create Run\Create Run\Software.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\A - Create Run\Create Run.Paths[Lookup Match Output1]"
                   endId="Package\A - Create Run\Create Run\NoBatches.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\A - Create Run\Create Run\Frequentie.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\A - Create Run\Create Run.Paths[Lookup Match Output2]"
+                  refId="Package\A - Create Run\Create Run.Paths[Lookup Match Output1]"
                   endId="Package\A - Create Run\Create Run\CurDepth.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\A - Create Run\Create Run\NoBatches.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\A - Create Run\Create Run.Paths[Lookup Match Output3]"
+                  refId="Package\A - Create Run\Create Run.Paths[Lookup Match Output2]"
                   endId="Package\A - Create Run\Create Run\Step ID.Inputs[Derived Column Input]"
                   name="Lookup Match Output"
                   startId="Package\A - Create Run\Create Run\CurDepth.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\A - Create Run\Create Run.Paths[Lookup Match Output3]"
+                  endId="Package\A - Create Run\Create Run\Row Count.Inputs[Row Count Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\A - Create Run\Create Run\Software.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\A - Create Run\Create Run.Paths[OLE DB Source Output]"
                   endId="Package\A - Create Run\Create Run\Frequentie.Inputs[Lookup Input]"
                   name="OLE DB Source Output"
                   startId="Package\A - Create Run\Create Run\Dosering.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\A - Create Run\Create Run.Paths[Row Count Output 1]"
+                  endId="Package\A - Create Run\Create Run\Runs.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\A - Create Run\Create Run\Row Count.Outputs[Row Count Output 1]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -1410,6 +1609,8 @@ where [refTable].[Step] = ?</property>
           DTS:ObjectName="Exec MQ Cmd"
           DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData />
         </DTS:Executable>
         <DTS:Executable
@@ -1422,6 +1623,8 @@ where [refTable].[Step] = ?</property>
           DTS:ObjectName="Get RunID"
           DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
@@ -1449,6 +1652,8 @@ where [refTable].[Step] = ?</property>
           DTS:ObjectName="Import DosSchema"
           DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
@@ -1466,6 +1671,8 @@ where [refTable].[Step] = ?</property>
           DTS:ObjectName="Read CurDepth"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <pipeline
               version="1">
@@ -1988,6 +2195,8 @@ where [refTable].[Step] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="B - Link Documents">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:Executables>
         <DTS:Executable
           DTS:refId="Package\B - Link Documents\Create Batches"
@@ -1999,6 +2208,8 @@ where [refTable].[Step] = ?</property>
           DTS:ObjectName="Create Batches"
           DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:PropertyExpression
             DTS:Name="SqlStatementSource">"INSERT INTO [dbo].[Batches]( [Run], [Status], [Created]) VALUES " + substring( @[User::Vals], 2, 9999)</DTS:PropertyExpression>
           <DTS:ObjectData>
@@ -2020,6 +2231,8 @@ where [refTable].[Step] = ?</property>
           DTS:MaxConcurrent="1"
           DTS:ObjectName="For each Batch">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:Executables>
             <DTS:Executable
               DTS:refId="Package\B - Link Documents\For each Batch\Set ValString"
@@ -2031,6 +2244,8 @@ where [refTable].[Step] = ?</property>
               DTS:ObjectName="Set ValString"
               DTS:ThreadHint="0">
               <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
               <DTS:ObjectData>
                 <ExpressionTask
                   Expression="@[User::Vals]= @[User::Vals]+&quot;,(&quot; +  (DT_WSTR, 9)@[User::RunID] + &quot;, 1, GetDate())&quot;" />
@@ -2048,6 +2263,8 @@ where [refTable].[Step] = ?</property>
           DTS:ObjectName="Link"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <pipeline
               version="1">
@@ -3698,6 +3915,8 @@ where [refTable].[ID] = ?</property>
           DTS:ObjectName="Set Batch + Doc State"
           DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
@@ -3754,6 +3973,8 @@ where [refTable].[ID] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="C - Process Batches">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:Executables>
         <DTS:Executable
           DTS:refId="Package\C - Process Batches\Foreach Batch"
@@ -3774,6 +3995,8 @@ where [refTable].[ID] = ?</property>
             </DTS:ObjectData>
           </DTS:ForEachEnumerator>
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:Executables>
             <DTS:Executable
               DTS:refId="Package\C - Process Batches\Foreach Batch\Slave"
@@ -3785,6 +4008,8 @@ where [refTable].[ID] = ?</property>
               DTS:ObjectName="Slave"
               DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
               <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
               <DTS:PropertyExpression
                 DTS:Name="PackageName">"ProcE - Send to EA - Slave.dtsx"</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -3823,6 +4048,10 @@ where [refTable].[ID] = ?</property>
                     <ParameterName>DB_ServerName</ParameterName>
                     <BindedVariableOrParameterName>$Project::MigLog_ServerName</BindedVariableOrParameterName>
                   </ParameterAssignment>
+                  <ParameterAssignment>
+                    <ParameterName>Queue</ParameterName>
+                    <BindedVariableOrParameterName>User::Queue</BindedVariableOrParameterName>
+                  </ParameterAssignment>
                 </ExecutePackageTask>
               </DTS:ObjectData>
             </DTS:Executable>
@@ -3852,6 +4081,8 @@ where [refTable].[ID] = ?</property>
           DTS:ObjectName="Get Batches"
           DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
@@ -3879,10 +4110,12 @@ where [refTable].[ID] = ?</property>
           DTS:ObjectName="Read MQ Out Parameters"
           DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
-              SQLTask:SqlStatementSource="SELECT * FROM&#xA;(SELECT ValStr AS QueueManager FROM [Control Params] WHERE Param = 9 AND Step = 19) AS A Cross JOIN&#xA;(SELECT ValStr AS HostName FROM [Control Params] WHERE Param = 10 AND Step = 19) AS B Cross JOIN&#xA;(SELECT ValNum AS Port FROM [Control Params] WHERE Param = 11 AND Step = 19) AS C Cross JOIN&#xA;(SELECT ValStr AS ChannelName FROM [Control Params] WHERE Param = 12 AND Step = 19) AS D Cross JOIN&#xA;(SELECT ValStr AS UserID FROM [Control Params] WHERE Param = 13 AND Step = 19) AS E Cross JOIN&#xA;(SELECT ValStr AS Password FROM [Control Params] WHERE Param = 14 AND Step = 19) AS F"
+              SQLTask:SqlStatementSource="SELECT * FROM&#xA;(SELECT ValStr AS QueueManager FROM [Control Params] WHERE Param = 9 AND Step = 19) AS A Cross JOIN&#xA;(SELECT ValStr AS HostName FROM [Control Params] WHERE Param = 10 AND Step = 19) AS B Cross JOIN&#xA;(SELECT ValNum AS Port FROM [Control Params] WHERE Param = 11 AND Step = 19) AS C Cross JOIN&#xA;(SELECT ValStr AS ChannelName FROM [Control Params] WHERE Param = 12 AND Step = 19) AS D Cross JOIN&#xA;(SELECT ValStr AS UserID FROM [Control Params] WHERE Param = 13 AND Step = 19) AS E Cross JOIN&#xA;(SELECT ValStr AS Password FROM [Control Params] WHERE Param = 14 AND Step = 19) AS F Cross JOIN&#xA;(SELECT ValStr AS Queue FROM [Control Params] WHERE Param = 16 AND Step = 19) AS G"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="0"
@@ -3902,6 +4135,9 @@ where [refTable].[ID] = ?</property>
               <SQLTask:ResultBinding
                 SQLTask:ResultName="5"
                 SQLTask:DtsVariableName="User::PWD" />
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="6"
+                SQLTask:DtsVariableName="User::Queue" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -4082,40 +4318,40 @@ where [refTable].[ID] = ?</property>
         <NodeLayout
           Size="155,42"
           Id="Package\B - Link Documents\Create Batches"
-          TopLeft="109,240" />
+          TopLeft="35,214" />
         <NodeLayout
-          Size="143,42"
+          Size="130,42"
           Id="Package\B - Link Documents\For each Batch\Set ValString"
-          TopLeft="39,24" />
+          TopLeft="26,20" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="231,117"
-          Size="231,160"
+          PanelSize="173,86"
+          Size="173,129"
           Id="Package\B - Link Documents\For each Batch"
-          TopLeft="73,28" />
+          TopLeft="24,15" />
         <NodeLayout
           Size="99,42"
           Id="Package\B - Link Documents\Link"
-          TopLeft="137,339" />
+          TopLeft="63,313" />
         <NodeLayout
           Size="139,42"
           Id="Package\B - Link Documents\Set Batch + Doc State"
-          TopLeft="114,436" />
+          TopLeft="40,410" />
         <EdgeLayout
           Id="Package\B - Link Documents.PrecedenceConstraints[Constraint]"
-          TopLeft="187.5,188">
+          TopLeft="111.5,144">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52"
+              EndConnector="0,70"
               Start="0,0"
-              End="0,44.5">
+              End="0,62.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.5" />
+                    End="0,62.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4126,7 +4362,7 @@ where [refTable].[ID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\B - Link Documents.PrecedenceConstraints[Constraint 1]"
-          TopLeft="186.5,282">
+          TopLeft="112.5,256">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4148,7 +4384,7 @@ where [refTable].[ID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\B - Link Documents.PrecedenceConstraints[Constraint 2]"
-          TopLeft="185,381">
+          TopLeft="111,355">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4171,10 +4407,10 @@ where [refTable].[ID] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="355,537"
-          Size="355,580"
+          PanelSize="222,479"
+          Size="222,522"
           Id="Package\B - Link Documents"
-          TopLeft="641,56" />
+          TopLeft="639,79" />
         <NodeLayout
           Size="107,42"
           Id="Package\C - Process Batches\Foreach Batch\Slave"
@@ -4293,30 +4529,18 @@ where [refTable].[ID] = ?</property>
           TopLeft="64,398" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="481,211.5">
+          TopLeft="481,257.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="160,39.1666666666667"
+              EndConnector="158,0"
               Start="0,0"
-              End="152.5,39.1666666666667">
+              End="150.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="91.7359009628611,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="91.7359009628611,0"
-                    Point2="95.7359009628611,0"
-                    Point3="95.7359009628611,4" />
-                  <mssgle:LineSegment
-                    End="95.7359009628611,35.1666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="95.7359009628611,35.1666666666667"
-                    Point2="95.7359009628611,39.1666666666667"
-                    Point3="99.7359009628611,39.1666666666667" />
-                  <mssgle:LineSegment
-                    End="152.5,39.1666666666667" />
+                    End="150.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4327,30 +4551,30 @@ where [refTable].[ID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="641,441.333333333333">
+          TopLeft="639,425.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-128,77.1666666666667"
+              EndConnector="-126,92.8333333333334"
               Start="0,0"
-              End="-120.5,77.1666666666667">
+              End="-118.5,92.8333333333334">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-47.4112792297111,0" />
+                    End="-46.6310160427808,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-47.4112792297111,0"
-                    Point2="-51.4112792297111,0"
-                    Point3="-51.4112792297111,4" />
+                    Point1="-46.6310160427808,0"
+                    Point2="-50.6310160427808,0"
+                    Point3="-50.6310160427808,4" />
                   <mssgle:LineSegment
-                    End="-51.4112792297111,73.1666666666667" />
+                    End="-50.6310160427808,88.8333333333334" />
                   <mssgle:CubicBezierSegment
-                    Point1="-51.4112792297111,73.1666666666667"
-                    Point2="-51.4112792297111,77.1666666666667"
-                    Point3="-55.4112792297111,77.1666666666667" />
+                    Point1="-50.6310160427808,88.8333333333334"
+                    Point2="-50.6310160427808,92.8333333333334"
+                    Point3="-54.6310160427808,92.8333333333334" />
                   <mssgle:LineSegment
-                    End="-120.5,77.1666666666667" />
+                    End="-118.5,92.8333333333334" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4366,7 +4590,7 @@ where [refTable].[ID] = ?</property>
     design-time-name="Package\A - Create Run\Create Run">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="133,42"
           Id="Package\A - Create Run\Create Run\NoBatches"
@@ -4386,7 +4610,7 @@ where [refTable].[ID] = ?</property>
         <NodeLayout
           Size="105,42"
           Id="Package\A - Create Run\Create Run\Runs"
-          TopLeft="68,330" />
+          TopLeft="295,329" />
         <NodeLayout
           Size="126,42"
           Id="Package\A - Create Run\Create Run\CurDepth"
@@ -4418,7 +4642,7 @@ where [refTable].[ID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output3]"
+          Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output2]"
           TopLeft="534,211.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4436,13 +4660,11 @@ where [refTable].[ID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-110.94138671875,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output2]"
+          Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output1]"
           TopLeft="597.25,91">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4460,13 +4682,11 @@ where [refTable].[ID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,39.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output1]"
+          Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output]"
           TopLeft="411,71">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4484,33 +4704,7 @@ where [refTable].[ID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="8.05861328125,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output]"
-          TopLeft="122.75,234">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,96"
-              Start="0,0"
-              End="0,88.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,88.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,38.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4535,9 +4729,69 @@ where [refTable].[ID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="133,42"
+          Id="Package\A - Create Run\Create Run\Row Count"
+          TopLeft="59,328" />
+        <EdgeLayout
+          Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output3]"
+          TopLeft="125.25,234">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,94"
+              Start="0,0"
+              End="0,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,86.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\A - Create Run\Create Run.Paths[Row Count Output 1]"
+          TopLeft="192,349.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103,0"
+              Start="0,0"
+              End="95.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="95.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelinePath
+    design-time-name="Package\A - Create Run\Create Run.Paths[Lookup Match Output2]">
+    <PathAnnotation>Never</PathAnnotation>
+  </PipelinePath>
+  <PipelinePath
+    design-time-name="Package\A - Create Run\Create Run.Paths[Lookup Match Output1]">
+    <PathAnnotation>Never</PathAnnotation>
+  </PipelinePath>
+  <PipelinePath
+    design-time-name="Package\A - Create Run\Create Run.Paths[Lookup Match Output]">
+    <PathAnnotation>Never</PathAnnotation>
+  </PipelinePath>
   <PipelineComponentMetadata
     design-time-name="Package\A - Create Run\Create Run\NoBatches">
     <Properties>
@@ -4898,5 +5152,9 @@ where [refTable].[ID] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelinePath
+    design-time-name="Package\A - Create Run\Create Run.Paths[Lookup Match Output3]">
+    <PathAnnotation>Never</PathAnnotation>
+  </PipelinePath>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

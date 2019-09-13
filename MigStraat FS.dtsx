@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="MigStraat FS"
   DTS:PackageType="5"
-  DTS:VersionBuild="73"
-  DTS:VersionGUID="{E534FEDC-F69E-46C7-9D6B-D7DE43207B7B}">
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{4C562216-DB57-4AC9-AA3E-DDC69379BCA6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -243,7 +243,43 @@
     DTS:LoggingMode="1">
     <DTS:Property
       DTS:DataType="8"
-      DTS:Name="EventFilter">3,7,OnError,13,OnQueryCancel,9,OnWarning</DTS:Property>
+      DTS:Name="EventFilter">10,7,OnError,19,OnExecStatusChanged,13,OnInformation,10,OnProgress,13,OnQueryCancel,12,OnTaskFailed,22,OnVariableValueChanged,9,OnWarning,10,Diagnostic,12,DiagnosticEx</DTS:Property>
+    <DTS:Property
+      DTS:EventName="Diagnostic"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="DiagnosticEx"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
     <DTS:Property
       DTS:EventName="OnError"
       DTS:Name="ColumnFilter">
@@ -263,7 +299,97 @@
         DTS:Name="DataBytes">-1</DTS:Property>
     </DTS:Property>
     <DTS:Property
+      DTS:EventName="OnExecStatusChanged"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnInformation"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnProgress"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
       DTS:EventName="OnQueryCancel"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnVariableValueChanged"
       DTS:Name="ColumnFilter">
       <DTS:Property
         DTS:Name="Computer">-1</DTS:Property>
@@ -312,8 +438,10 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear Log"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
@@ -328,7 +456,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Create Temp"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -379,2515 +507,18 @@
         DTS:FilterKind="0" />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Foreach SiebelFS Folder\Data Flow Task"
-          DTS:CreationName="Microsoft.Pipeline"
-          DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{9967BEFD-054F-4AE1-BF18-029B0A26C1B5}"
-          DTS:ExecutableType="Microsoft.Pipeline"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Data Flow Task"
-          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <pipeline
-              version="1">
-              <components>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files"
-                  componentClassID="Microsoft.OLEDBSource"
-                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-                  description="OLE DB Source"
-                  name="All Files"
-                  usesDispositions="true"
-                  version="7">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset"></property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        ID, Name, FileSize as Size
-FROM            [Sonar Files]
-WHERE        (Path = ?)
-ORDER BY Name</property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">2</property>
-                    <property
-                      dataType="System.String"
-                      description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"0:Input",{31F82053-7512-451B-B120-EA35D405ED3F};</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Connections[OleDbConnection]"
-                      connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[MigLog]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output]"
-                      isSorted="true"
-                      name="OLE DB Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].Columns[ID]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].ExternalColumns[ID]"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].Columns[ID]"
-                          name="ID"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].Columns[Name]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].ExternalColumns[Name]"
-                          length="21"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].Columns[Name]"
-                          name="Name"
-                          sortKeyPosition="1"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].Columns[Size]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].ExternalColumns[Size]"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].Columns[Size]"
-                          name="Size"
-                          truncationRowDisposition="FailComponent" />
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].ExternalColumns[Name]"
-                          codePage="1252"
-                          dataType="str"
-                          length="21"
-                          name="Name" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].ExternalColumns[ID]"
-                          dataType="i4"
-                          name="ID" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].ExternalColumns[Size]"
-                          dataType="i4"
-                          name="Size" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Error Output]"
-                      isErrorOut="true"
-                      name="OLE DB Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Error Output].Columns[ID]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Error Output].Columns[ID]"
-                          name="ID" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Error Output].Columns[Size]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Error Output].Columns[Size]"
-                          name="Size" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Error Output].Columns[Name]"
-                          codePage="1252"
-                          dataType="str"
-                          length="21"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Error Output].Columns[Name]"
-                          name="Name" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt DB"
-                  componentClassID="Microsoft.RowCount"
-                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-                  name="Cnt DB">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable to hold the row count."
-                      name="VariableName">User::CntDB</property>
-                  </properties>
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt DB.Inputs[Row Count Input 1]"
-                      hasSideEffects="true"
-                      name="Row Count Input 1">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt DB.Outputs[Row Count Output 1]"
-                      name="Row Count Output 1"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt DB.Inputs[Row Count Input 1]">
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt FS"
-                  componentClassID="Microsoft.RowCount"
-                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-                  name="Cnt FS">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable to hold the row count."
-                      name="VariableName">User::CntFS</property>
-                  </properties>
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt FS.Inputs[Row Count Input 1]"
-                      hasSideEffects="true"
-                      name="Row Count Input 1">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt FS.Outputs[Row Count Output 1]"
-                      name="Row Count Output 1"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt FS.Inputs[Row Count Input 1]">
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split"
-                  componentClassID="Microsoft.ConditionalSplit"
-                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-                  name="Conditional Split"
-                  usesDispositions="true">
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
-                      description="Input to the Conditional Split Transformation"
-                      name="Conditional Split Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[Line]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="Line"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Line]" />
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Outputs[Geen SAF]"
-                      description="Output 1 of the Conditional Split Transformation"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      exclusionGroup="1"
-                      name="Geen SAF"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                          name="Expression">[RIGHT](#{Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Line]},4) != ".saf"</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Specifies the friendly version of the expression. This expression version uses column names."
-                          expressionType="Notify"
-                          name="FriendlyExpression">RIGHT(Line,4) != ".saf"</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                          name="EvaluationOrder">0</property>
-                      </properties>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Outputs[Conditional Split Default Output]"
-                      description="Default Output of the Conditional Split Transformation"
-                      exclusionGroup="1"
-                      name="Conditional Split Default Output"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          name="IsDefaultOut">true</property>
-                      </properties>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output]"
-                      description="Error Output of the Conditional Split Transformation"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Conditional Split Error Output"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\Del"
-                  componentClassID="Microsoft.RowCount"
-                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-                  name="Del">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable to hold the row count."
-                      name="VariableName">User::CntDel</property>
-                  </properties>
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Del.Inputs[Row Count Input 1]"
-                      hasSideEffects="true"
-                      name="Row Count Input 1">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Del.Outputs[Row Count Output 1]"
-                      name="Row Count Output 1"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\Del.Inputs[Row Count Input 1]">
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit"
-                  componentClassID="Microsoft.ConditionalSplit"
-                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-                  name="DML Exit"
-                  usesDispositions="true">
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Inputs[Conditional Split Input]"
-                      description="Input to the Conditional Split Transformation"
-                      name="Conditional Split Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Inputs[Conditional Split Input].Columns[FileSize]"
-                          cachedDataType="i4"
-                          cachedName="FileSize"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FileSize]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Inputs[Conditional Split Input].Columns[Size]"
-                          cachedDataType="i4"
-                          cachedName="Size"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Size]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Inputs[Conditional Split Input].Columns[Name]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="21"
-                          cachedName="Name"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Name]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Inputs[Conditional Split Input].Columns[FileName]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="21"
-                          cachedName="FileName"
-                          cachedSortKeyPosition="1"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FileName]" />
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[gelijk]"
-                      description="Output 1 of the Conditional Split Transformation"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      exclusionGroup="1"
-                      name="gelijk"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Inputs[Conditional Split Input]"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                          name="Expression">[REPLACENULL](#{Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FileSize]},0) == [REPLACENULL](#{Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Size]},-1)</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Specifies the friendly version of the expression. This expression version uses column names."
-                          expressionType="Notify"
-                          name="FriendlyExpression">REPLACENULL(FileSize,0) == REPLACENULL(Size,-1)</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                          name="EvaluationOrder">0</property>
-                      </properties>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[Insert]"
-                      description="Output 2 of the Conditional Split Transformation"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      exclusionGroup="1"
-                      name="Insert"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Inputs[Conditional Split Input]"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                          name="Expression">[ISNULL](#{Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Name]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Specifies the friendly version of the expression. This expression version uses column names."
-                          expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(Name)</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                          name="EvaluationOrder">1</property>
-                      </properties>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[Delete]"
-                      description="Output 4 of the Conditional Split Transformation"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      exclusionGroup="1"
-                      name="Delete"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Inputs[Conditional Split Input]"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                          name="Expression">[ISNULL](#{Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FileName]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Specifies the friendly version of the expression. This expression version uses column names."
-                          expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(FileName)</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                          name="EvaluationOrder">2</property>
-                      </properties>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[Update]"
-                      description="Default Output of the Conditional Split Transformation"
-                      exclusionGroup="1"
-                      name="Update"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Inputs[Conditional Split Input]">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          name="IsDefaultOut">true</property>
-                      </properties>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[Conditional Split Error Output]"
-                      description="Error Output of the Conditional Split Transformation"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Conditional Split Error Output"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Inputs[Conditional Split Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source"
-                  componentClassID="Microsoft.FlatFileSource"
-                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Flat File Source"
-                  localeId="1043"
-                  name="Flat File Source"
-                  usesDispositions="true"
-                  version="1">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      description="Specifies whether zero-length columns are treated as null."
-                      name="RetainNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
-                      name="FileNameColumnName"></property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Dir]"
-                      connectionManagerRefId="Package.ConnectionManagers[Dir]"
-                      name="FlatFileConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
-                      name="Flat File Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Line]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Line]"
-                          length="255"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Line]"
-                          name="Line"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Line]"
-                          dataType="wstr"
-                          length="255"
-                          name="Line" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
-                      isErrorOut="true"
-                      name="Flat File Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                          codePage="1252"
-                          dataType="text"
-                          description="Flat File Source Error Output Column"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                          name="Flat File Source Error Output Column" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\FS"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="FS"
-                  usesDispositions="true"
-                  validateExternalMetadata="False"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[FS]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Connections[OleDbConnection]"
-                      connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[MigLog]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Inputs[OLE DB Destination Input].Columns[FileSize]"
-                          cachedDataType="i4"
-                          cachedName="FileSize"
-                          externalMetadataColumnId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Inputs[OLE DB Destination Input].ExternalColumns[FileSize]"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Outputs[Union All Output 1].Columns[FileSize]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Inputs[OLE DB Destination Input].Columns[ID]"
-                          cachedDataType="i4"
-                          cachedName="ID"
-                          externalMetadataColumnId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Outputs[Union All Output 1].Columns[ID]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Inputs[OLE DB Destination Input].ExternalColumns[FileSize]"
-                          dataType="i4"
-                          name="FileSize" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                          dataType="i4"
-                          name="ID" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins"
-                  componentClassID="Microsoft.RowCount"
-                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-                  name="Ins">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable to hold the row count."
-                      name="VariableName">User::CntIns</property>
-                  </properties>
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins.Inputs[Row Count Input 1]"
-                      hasSideEffects="true"
-                      name="Row Count Input 1">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins.Outputs[Row Count Output 1]"
-                      name="Row Count Output 1"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins.Inputs[Row Count Input 1]">
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props"
-                  componentClassID="Microsoft.DerivedColumn"
-                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-                  name="Ins Props"
-                  usesDispositions="true">
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Inputs[Derived Column Input]"
-                      description="Input to the Derived Column Transformation"
-                      name="Derived Column Input">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Output]"
-                      description="Default Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      name="Derived Column Output"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Output].Columns[Actief]"
-                          dataType="bool"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Output].Columns[Actief]"
-                          name="Actief"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression"> TRUE </property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression"> TRUE </property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Output].Columns[Path]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Output].Columns[Path]"
-                          name="Path"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">@[User::PathID]</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">@[User::PathID]</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Error Output]"
-                      description="Error Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Derived Column Error Output"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join"
-                  componentClassID="Microsoft.MergeJoin"
-                  contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
-                  name="Merge Join"
-                  version="1">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the type of join to perform."
-                      name="JoinType"
-                      typeConverter="JoinType">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the number of columns in the ordering key."
-                      name="NumKeyColumns">1</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the null values are treated as equal values."
-                      name="TreatNullsAsEqual">true</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Indicates the requested maximum buffers per input before blocking."
-                      name="MaxBuffersPerInput">5</property>
-                  </properties>
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
-                      hasSideEffects="true"
-                      name="Merge Join Left Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[FileName]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="21"
-                          cachedName="FileName"
-                          cachedSortKeyPosition="1"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Outputs[Sort Output].Columns[FileName]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[FileSize]"
-                          cachedDataType="i4"
-                          cachedName="FileSize"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Outputs[Sort Output].Columns[FileSize]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Source]"
-                          cachedDataType="ui1"
-                          cachedName="Source"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Outputs[Sort Output].Columns[Source]" />
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
-                      hasSideEffects="true"
-                      name="Merge Join Right Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Name]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="21"
-                          cachedName="Name"
-                          cachedSortKeyPosition="1"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].Columns[Name]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Size]"
-                          cachedDataType="i4"
-                          cachedName="Size"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].Columns[Size]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[ID]"
-                          cachedDataType="i4"
-                          cachedName="ID"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output].Columns[ID]" />
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output]"
-                      isSorted="true"
-                      name="Merge Join Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FileSize]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FileSize]"
-                          name="FileSize">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="The input column associated with this output column"
-                              name="InputColumnID">#{Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[FileSize]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Name]"
-                          codePage="1252"
-                          dataType="str"
-                          length="21"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Name]"
-                          name="Name">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="The input column associated with this output column"
-                              name="InputColumnID">#{Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Name]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Size]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Size]"
-                          name="Size">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="The input column associated with this output column"
-                              name="InputColumnID">#{Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Size]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[ID]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[ID]"
-                          name="ID">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="The input column associated with this output column"
-                              name="InputColumnID">#{Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[ID]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Source]"
-                          dataType="ui1"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Source]"
-                          name="Source">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="The input column associated with this output column"
-                              name="InputColumnID">#{Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[Source]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FileName]"
-                          codePage="1252"
-                          dataType="str"
-                          length="21"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FileName]"
-                          name="FileName"
-                          sortKeyPosition="1">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="The input column associated with this output column"
-                              name="InputColumnID">#{Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[FileName]}</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="New Files"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[Sonar Files]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Connections[OleDbConnection]"
-                      connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[MigLog]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].Columns[FileSize]"
-                          cachedDataType="i4"
-                          cachedName="FileSize"
-                          externalMetadataColumnId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].ExternalColumns[FileSize]"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FileSize]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].Columns[FileName]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="21"
-                          cachedName="FileName"
-                          cachedSortKeyPosition="1"
-                          externalMetadataColumnId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FileName]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].Columns[Actief]"
-                          cachedDataType="bool"
-                          cachedName="Actief"
-                          externalMetadataColumnId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].ExternalColumns[Actief]"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Output].Columns[Actief]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].Columns[Source]"
-                          cachedDataType="ui1"
-                          cachedName="Source"
-                          externalMetadataColumnId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].ExternalColumns[Source]"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Source]" />
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].Columns[Path]"
-                          cachedDataType="i4"
-                          cachedName="Path"
-                          externalMetadataColumnId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].ExternalColumns[Path]"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Output].Columns[Path]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                          dataType="i4"
-                          name="ID" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
-                          codePage="1252"
-                          dataType="str"
-                          length="21"
-                          name="Name" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].ExternalColumns[FileSize]"
-                          dataType="i4"
-                          name="FileSize" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].ExternalColumns[Path]"
-                          dataType="ui1"
-                          name="Path" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].ExternalColumns[Source]"
-                          dataType="ui1"
-                          name="Source" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input].ExternalColumns[Actief]"
-                          dataType="bool"
-                          name="Actief" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS"
-                  componentClassID="Microsoft.ManagedComponentHost"
-                  contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;11"
-                  description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
-                  name="Scan SiebelFS"
-                  version="11">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Stores the source code of the component"
-                      isArray="true"
-                      name="SourceCode"
-                      state="cdata">
-                      <arrayElements
-                        arrayElementCount="30">
-                        <arrayElement
-                          dataType="System.String"><![CDATA[My Project\AssemblyInfo.vb]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[Imports System
-Imports System.Reflection
-Imports System.Runtime.InteropServices
-
-' General Information about an assembly is controlled through the following 
-' set of attributes. Change these attribute values to modify the information
-' associated with an assembly.
-
-' Review the values of the assembly attributes
-
-<Assembly: AssemblyTitle("SC_d14c9d33b45c4c7bb1952d13c5d27233")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("SC_d14c9d33b45c4c7bb1952d13c5d27233")> 
-<Assembly: AssemblyCopyright("Copyright @  2019")> 
-<Assembly: AssemblyTrademark("")> 
-<Assembly: CLSCompliant(True)> 
-
-<Assembly: ComVisible(False)> 
-
-'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("5ded6b79-d37d-4cca-8ee0-6d01f6011a64")> 
-
-' Version information for an assembly consists of the following four values:
-'
-'      Major Version
-'      Minor Version 
-'      Build Number
-'      Revision
-'
-' You can specify all the values or you can default the Build and Revision Numbers 
-' by using the '*' as shown below:
-' <Assembly: AssemblyVersion("1.0.*")>
-
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
-]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[ComponentWrapper.vb]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
-' Microsoft SQL Server Integration Services component wrapper
-' This module defines the base class for your component
-' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
-
-Imports System
-Imports System.Data
-Imports Microsoft.SqlServer.Dts.Pipeline
-Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
-Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
-
-<CLSCompliant(False)> _
-Public Class UserComponent
-    Inherits ScriptComponent
-
-    Public Connections As New Connections(Me)
-    Public Variables As New Variables(Me)
-
-    Public Output0Buffer As Output0Buffer
-
-    Public Overridable Sub FinishOutputs()
-    End Sub
-
-    Private Sub MarkOutputsFinished()
-
-        If Output0Buffer IsNot Nothing Then
-            Output0Buffer.SetEndOfRowset
-            Output0Buffer = Nothing
-        End If
-
-    End Sub
-
-    Public Overrides Sub PrimeOutput(ByVal Outputs As Integer, ByVal OutputIDs() As Integer, ByVal Buffers() As PipelineBuffer, ByVal OutputMap As OutputNameMap)
-
-        For I As Integer = 0 To Outputs - 1
-            If OutputIDs(I) = GetOutputID(OutputMap, "Output 0") Then
-                Output0Buffer = New Output0Buffer(Buffers(I), GetColumnIndexes(OutputIDs(I)), OutputMap)
-            End If
-        Next
-
-        CreateNewOutputRows()
-
-        FinishOutputs()
-        MarkOutputsFinished()
-
-    End Sub
-
-    Public Overridable Sub CreateNewOutputRows()
-    End Sub
-
-End Class
-
-<CLSCompliant(False)> _
-Public Class Connections
-
-    Dim ParentComponent As ScriptComponent
-
-    <CLSCompliant(False)> _
-    Public Sub New(ByVal Component As ScriptComponent)
-        ParentComponent = Component
-    End Sub
-
-End Class
-
-<CLSCompliant(False)> _
-Public Class Variables
-
-    Dim ParentComponent As ScriptComponent
-
-    <CLSCompliant(False)> _
-    Public Sub New(ByVal Component As ScriptComponent)
-        ParentComponent = Component
-    End Sub
-
-    Public ReadOnly Property [CurrentYear]() As Boolean
-        Get
-            Return CType(ParentComponent.ReadOnlyVariables("CurrentYear").GetValueWithContext(ScriptComponent.EvaluatorContext), Boolean)
-        End Get
-    End Property
-
-    Public ReadOnly Property [Path]() As String
-        Get
-            Return CType(ParentComponent.ReadOnlyVariables("Path").GetValueWithContext(ScriptComponent.EvaluatorContext), String)
-        End Get
-    End Property
-
-End Class
-]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[main.vb]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[#Region "Imports"
-Imports System
-Imports System.IO
-Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
-Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
-#End Region
-
-<Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute>
-<CLSCompliant(False)>
-Public Class ScriptMain
-    Inherits UserComponent
-    Dim VolgNr As Int32 = 0, P As String
-
-    Public Overrides Sub CreateNewOutputRows()
-        Dim dir As DirectoryInfo
-
-        P = Variables.Path
-        If Right(P, 1) <> "\" Then P &= "\"
-        dir = New DirectoryInfo(P)
-
-        For Each file As FileInfo In dir.GetFiles()
-            Call MyAddRow(file)
-        Next file
-
-        If Variables.CurrentYear Then
-            dir = New DirectoryInfo(Left(P, Len(P) - 1) + "2\")
-
-            For Each file As FileInfo In dir.GetFiles()
-                Call MyAddRow(file)
-            Next file
-        End If
-    End Sub
-
-    Private Sub MyAddRow(F As FileInfo)
-        If F.Extension.ToLower = ".saf" Then
-            Select Case Mid(F.Name, 3, 3)
-                Case "ACT"
-                    'S_ACTIVITY_ATT_1-ZIBZ7M_1-4770OU.SAF
-                    '12345678901234567890
-                    Output0Buffer.AddRow()
-                    Output0Buffer.FileName = Mid(F.Name, 18, Len(F.Name) - 21)
-                    Output0Buffer.FileSize = CInt(F.Length)
-                    Output0Buffer.Source = 3
-                Case "CAS"
-                    'S_CASE_ATT_1-ZIBZ7M_1-4770OU.SAF
-                    '12345678901234567890
-                    Output0Buffer.AddRow()
-                    Output0Buffer.FileName = Mid(F.Name, 14, Len(F.Name) - 17)
-                    Output0Buffer.FileSize = CInt(F.Length)
-                    Output0Buffer.Source = 2
-                Case "CON"
-                    'S_CONTACT_ATT_1-ZIBZ7M_1-4770OU.SAF
-                    '12345678901234567890
-                    Output0Buffer.AddRow()
-                    Output0Buffer.FileName = Mid(F.Name, 17, Len(F.Name) - 20)
-                    Output0Buffer.FileSize = CInt(F.Length)
-                    Output0Buffer.Source = 1
-            End Select
-        End If
-
-        If VolgNr Mod 1000 = 0 Then
-            ComponentMetaData.FireWarning(1, "File Scan", P & ": " & VolgNr.ToString, "", 0)
-        End If
-        VolgNr += 1
-    End Sub
-
-End Class
-]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[My Project\Settings.settings]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[My Project\Settings.Designer.vb]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA['------------------------------------------------------------------------------
-' <autogenerated>
-'     This code was generated by a tool.
-'
-'     Changes to this file may cause incorrect behavior and will be lost if
-'     the code is regenerated.
-' </autogenerated>
-'------------------------------------------------------------------------------
-
-Option Strict Off
-Option Explicit On
-
-
-
-Partial Friend NotInheritable Class MySettings
-    Inherits System.Configuration.ApplicationSettingsBase
-
-    Private Shared m_Value As MySettings
-
-    Private Shared m_SyncObject As Object = New Object
-
-    <System.Diagnostics.DebuggerNonUserCode()> _
-    Public Shared ReadOnly Property Value() As MySettings
-        Get
-            If (MySettings.m_Value Is Nothing) Then
-                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
-                If (MySettings.m_Value Is Nothing) Then
-                    Try
-                        MySettings.m_Value = New MySettings
-                    Finally
-                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
-                    End Try
-                End If
-            End If
-            Return MySettings.m_Value
-        End Get
-    End Property
-End Class
-]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[BufferWrapper.vb]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
-' Microsoft SQL Server Integration Services buffer wrappers
-' This module defines classes for accessing data flow buffers
-' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
-
-
-Option Strict Off   ' This allows usage of PipelineBuffer typed accessors.
-
-Imports System
-Imports System.Data
-Imports Microsoft.SqlServer.Dts.Pipeline
-Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
-
-<CLSCompliant(False)> _
-Public Class Output0Buffer
-    Inherits ScriptBuffer
-
-    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
-        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
-    End Sub
-
-    Public WriteOnly Property [FileSize]() As Int32
-        Set
-            Me(0) = Value
-        End Set
-    End Property
-    Public WriteOnly Property [FileSize_IsNull] As Boolean
-        Set
-            If (value)
-                SetNull(0)
-            Else
-                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
-            End If
-        End Set
-    End Property
-
-    Public WriteOnly Property [Source]() As Byte
-        Set
-            Me(1) = Value
-        End Set
-    End Property
-    Public WriteOnly Property [Source_IsNull] As Boolean
-        Set
-            If (value)
-                SetNull(1)
-            Else
-                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
-            End If
-        End Set
-    End Property
-
-    Public WriteOnly Property [FileName]() As String
-        Set
-            Me(2) = Value
-        End Set
-    End Property
-    Public WriteOnly Property [FileName_IsNull] As Boolean
-        Set
-            If (value)
-                SetNull(2)
-            Else
-                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
-            End If
-        End Set
-    End Property
-
-    Public Overloads Sub AddRow()
-        MyBase.AddRow()
-    End Sub
-
-    Public Overloads Sub SetEndOfRowset()
-        MyBase.SetEndOfRowset()
-    End Sub
-
-    Public Overloads Function EndOfRowset() As Boolean
-        EndOfRowset = MyBase.EndOfRowset
-    End Function
-
-End Class
-]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[Project]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-  <msb:PropertyGroup>
-    <msb:CodeName>SC_d14c9d33b45c4c7bb1952d13c5d27233</msb:CodeName>
-    <msb:Language>msBuild</msb:Language>
-    <msb:DisplayName>SC_d14c9d33b45c4c7bb1952d13c5d27233</msb:DisplayName>
-    <msb:ProjectId>{068C3D3D-9F20-41CA-AB2A-41374A5DFAFB}</msb:ProjectId>
-  </msb:PropertyGroup>
-  <msb:ItemGroup>
-    <msb:Project Include="SC_d14c9d33b45c4c7bb1952d13c5d27233.vbproj" />
-    <msb:File Include="My Project\Resources.resx" />
-    <msb:File Include="ComponentWrapper.vb" />
-    <msb:File Include="main.vb" />
-    <msb:File Include="BufferWrapper.vb" />
-    <msb:File Include="My Project\Settings.Designer.vb" />
-    <msb:File Include="My Project\AssemblyInfo.vb" />
-    <msb:File Include="My Project\Resources.Designer.vb" />
-    <msb:File Include="My Project\Settings.settings" />
-  </msb:ItemGroup>
-</c:Project>]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[SC_d14c9d33b45c4c7bb1952d13c5d27233.vbproj]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{bfd2ba30-224d-4caf-a1c2-bfa65c7fe7e1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>My Project</AppDesignerFolder>
-    <RootNamespace>SC_d14c9d33b45c4c7bb1952d13c5d27233</RootNamespace>
-    <AssemblyName>SC_d14c9d33b45c4c7bb1952d13c5d27233</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>false</DebugSymbols>
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineDebug>false</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <!-- This sections specifies references for the project. -->
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.SqlServer.TxScript, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Compile Include="main.vb" />
-    <Compile Include="BufferWrapper.vb" />
-    <Compile Include="ComponentWrapper.vb" />
-  </ItemGroup>
-  <!-- Visual Basic supports Importing namespaces (equivalent to using statements in C#).-->
-  <ItemGroup>
-    <Import Include="Microsoft.VisualBasic" />
-    <Import Include="System" />
-    <Import Include="System.Collections" />
-    <Import Include="System.Data" />
-    <Import Include="System.Diagnostics" />
-    <Import Include="System.Windows.Forms" />
-  </ItemGroup>
-  <ItemGroup>
-    <AppDesigner Include="My Project\" />
-    <Compile Include="My Project\AssemblyInfo.vb">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-    </EmbeddedResource>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <None Include="My Project\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
-    </None>
-    <Compile Include="My Project\Settings.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <!-- Include the build rules for a VB project.-->
-  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
-  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="SSIS_SC140" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
-        <Host Name="SSIS_SC140" IconIndex=""></Host>
-        <ProjectClient>
-          <HostIdentifier>SSIS_SC140</HostIdentifier>
-        </ProjectClient>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-</Project>]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[My Project\Resources.resx]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-</root>]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[My Project\Resources.Designer.vb]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA['------------------------------------------------------------------------------
-' <autogenerated>
-'     This code was generated by a tool.
-'
-'     Changes to this file may cause incorrect behavior and will be lost if
-'     the code is regenerated.
-' </autogenerated>
-'------------------------------------------------------------------------------
-
-Option Strict Off
-Option Explicit On
-
-
-Namespace My.Resources
-    
-    '''<summary>
-    '''   A strongly-typed resource class, for looking up localized strings, etc.
-    '''</summary>
-    'This class was auto-generated by the Strongly Typed Resource Builder
-    'class via a tool like ResGen or Visual Studio.NET.
-    'To add or remove a member, edit your .ResX file then rerun ResGen
-    'with the /str option, or rebuild your VS project.
-    Class MyResources
-        
-        Private Shared _resMgr As System.Resources.ResourceManager
-        
-        Private Shared _resCulture As System.Globalization.CultureInfo
-        
-        Friend Sub New()
-            MyBase.New
-        End Sub
-        
-        '''<summary>
-        '''   Returns the cached ResourceManager instance used by this class.
-        '''</summary>
-        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
-        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
-            Get
-                If (_resMgr Is Nothing) Then
-                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
-                    _resMgr = temp
-                End If
-                Return _resMgr
-            End Get
-        End Property
-        
-        '''<summary>
-        '''   Overrides the current thread's CurrentUICulture property for all
-        '''   resource lookups using this strongly typed resource class.
-        '''</summary>
-        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
-        Public Shared Property Culture() As System.Globalization.CultureInfo
-            Get
-                Return _resCulture
-            End Get
-            Set
-                _resCulture = value
-            End Set
-        End Property
-    End Class
-End Namespace
-]]></arrayElement>
-                      </arrayElements>
-                    </property>
-                    <property
-                      dataType="System.String"
-                      description="Stores the binary representation of the component"
-                      isArray="true"
-                      name="BinaryCode"
-                      state="cdata">
-                      <arrayElements
-                        arrayElementCount="2">
-                        <arrayElement
-                          dataType="System.String"><![CDATA[SC_d14c9d33b45c4c7bb1952d13c5d27233.dll]]></arrayElement>
-                        <arrayElement
-                          dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAJy/d10AAAAAAAAAAOAAIiALAVAAACYAAAAIAAAAAAAAWkQA
-AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACgAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAAhEAABPAAAAAGAAAEgEAAAAAAAAAAAAAAAAAAAA
-AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAYCQAAAAgAAAAJgAAAAIA
-AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAYAAAAAYAAAAoAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAIAAAAACAAAALgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAA8
-RAAAAAAAAEgAAAACAAUAQCYAABAdAAABAAAAAAAAAFBDAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBgAAAoqHgIoGQAACiqmcxoAAAqAAQAABHMbAAAKgAIA
-AARzHAAACoADAAAEcx0AAAqABAAABCoufgEAAARvHgAACioufgIAAARvHwAACioufgMAAARvIAAA
-CioufgQAAARvIQAACioeAigiAAAKKq5+BQAABC0ecgEAAHDQBQAAAigjAAAKbyQAAApzJQAACoAF
-AAAEfgUAAAQqGn4GAAAEKh4CgAYAAAQqOgIoGQAABgIWfQcAAAQqEzADAMcAAAABAAARAgJ7CgAA
-BG8hAAAGfQgAAAQCewgAAAQXKCYAAApyMwAAcBYoJwAACiwVAnwIAAAEJQoGUHIzAABwKCgAAApR
-AnsIAAAEcykAAApvKgAACgsWDCsPBwiaDQIJKA4AAAYIF9YMCAeOaTLrAnsKAAAEbyAAAAYsUAJ7
-CAAABAJ7CAAABCgrAAAKF9ooLAAACnI3AABwKCgAAApzKQAACm8qAAAKEwQWEwUrFREEEQWaEwYC
-EQYoDgAABhEFF9YTBREFEQSOaTLjKgATMAYAnQEAAAIAABEDby0AAApvLgAACnI9AABwFignAAAK
-OjQBAAADby8AAAoZGSgwAAAKCgZyRwAAcBYoJwAACiwkBnJPAABwFignAAAKLGoGclcAAHAWKCcA
-AAo5qgAAADj0AAAAAnsLAAAEbxYAAAYCewsAAAQDby8AAAofEgNvLwAACigrAAAKHxXaKDAAAApv
-FAAABgJ7CwAABANvMQAACrdvEAAABgJ7CwAABBlvEgAABjigAAAAAnsLAAAEbxYAAAYCewsAAAQD
-by8AAAofDgNvLwAACigrAAAKHxHaKDAAAApvFAAABgJ7CwAABANvMQAACrdvEAAABgJ7CwAABBhv
-EgAABitPAnsLAAAEbxYAAAYCewsAAAQDby8AAAofEQNvLwAACigrAAAKHxTaKDAAAApvFAAABgJ7
-CwAABANvMQAACrdvEAAABgJ7CwAABBdvEgAABgJ7BwAABCDoAwAAXS0yAigyAAAKF3JfAABwAnsI
-AAAEcnMAAHACfAcAAAQoMwAACig0AAAKcnkAAHAWbzUAAAoCfAcAAAQlCwdKF9ZUKioCAwQFKDYA
-AAoqOgIWA4wwAAABKDcAAAoqWgMsCAIWKDgAAAoqcnsAAHBzOQAACno6AhcDjDIAAAEoNwAACipa
-AywIAhcoOAAACipyewAAcHM5AAAKeiYCGAMoNwAACipaAywIAhgoOAAACipyewAAcHM5AAAKeh4C
-KDoAAAoqHgIoOwAACioAAAATMAEACQAAAAMAABECKDwAAAoKBip+Aig9AAAKAgJzHgAABn0JAAAE
-AgJzHwAABn0KAAAEKgYqbgJ7CwAABCwSAnsLAAAEbxcAAAYCFH0LAAAEKgATMAUATQAAAAQAABED
-F9oKFgsrLgQHlA4EchgBAHAoPgAACjMZAgUHmgIEB5QoPwAACg4Ecw8AAAZ9CwAABAcX1gsHBjHO
-Am8dAAAGAm8aAAAGAigbAAAGKjoCKCIAAAoCA30MAAAEKjoCKCIAAAoCA30NAAAEKpYCew0AAARv
-QAAACnIqAQBwb0EAAAooQgAACm9DAAAKKEQAAAoqlgJ7DQAABG9AAAAKckIBAHBvQQAACihCAAAK
-b0MAAAooRQAACipCcyIAAAooRgAACoAPAAAEKh4CKEcAAAoqGzABAD8AAAAAAAAAfg4AAAQtMn4P
-AAAEKEYAAAooSAAACn4OAAAELRxzIwAABoAOAAAE3hB+DwAABChGAAAKKEkAAArcfg4AAAQqAAEQ
-AAACAB0ADCkAEAAAAAA2AgMoRgAACihKAAAKKh4CKEsAAAoqLtAMAAACKCMAAAoqHgIoTAAACioA
-ABMwAQAUAAAABQAAEQKMBQAAGy0IKAEAACsKKwICCgYqIgP+FQUAABsqAAAAEzACACgAAAAGAAAR
-AntOAAAKb08AAAoKBowIAAAbLRIoAgAAKwoCe04AAAoGb1AAAAoGKkoCKCIAAAoCc1EAAAp9TgAA
-CioAQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA9AoAACN+AABgCwAAJAwAACNT
-dHJpbmdzAAAAAIQXAABMAQAAI1VTANAYAAAQAAAAI0dVSUQAAADgGAAAMAQAACNCbG9iAAAAAAAA
-AAIAAAFXFaIJCQ8AAAD6ATMAFgAAAQAAADoAAAANAAAAEAAAAC0AAAAUAAAAUQAAAD0AAAAGAAAA
-BgAAABAAAAARAAAACAAAAAEAAAAHAAAAAQAAAAIAAAADAAAAAgAAAAAAagUBAAAAAAAGAMMDcwkG
-AG0EcwkGAJoCtAgPABkKAAAGANsCeQYGAKYDeQYGAFQEeQYGAOMDeQYGAPwDeQYGACIDeQYGABcE
-5gUGAMcCLQkGAEMCLQkGAG4DeQYGAD0D2QQKAGYC6wcKAC4CVAUKAK4CVAUOAAYCAwkOAHIIxwgG
-AFYDtAgOAPICTAkOAAoDEgEGAO4K5gUOAFgIAwkOAIsDEgEGAN0B5gUOAFMAKgUKAFEC+wUGANsH
-kwkGAK4GZAYSAC0EuQEGAKUGvgASAMoHuQEWALsHuQESANcGuQESADwLuQEKABYCTwYGAH0CtAgG
-AH8B5gUGABgMeQYOAGwKEgEOALUKTAkGAA8F5gUGAMkGvgAGALoGvgAaAAEAKwgGAH0A5gUGAIsG
-5gUGAIsE5gUeACoAAwgeABoAAwiXALQLAAAeADsAAwgOAIYKTAkGAKYKcwkGAKIIyAQGAIsI5gUA
-AAAApwAAAAAAAQABAAAAAABBBu0LTQABAAEAAAAAAHAI7QtRAAEAAgAAARAA9QrtC2EAAQADAAAA
-AADVCaQJYQAFAAgAAQAAABgGgwAgAAcADAABAAAArQeDAIkACQAPAAEAAAAeC4MAlQAJABkAAQAA
-AJIKgwBhAAwAHgABAAAANAqDAGEADQAfAAABEAB0CoMAmQAOACIABQEAAPUIAABhABAAJQAFAQAA
-YgAAAGEAEAAsADEAdgd/ATEATQeHATEAYQePATEAjweXAREAgwifAREA+gGjAQEANgenAQEAyACq
-AQYAkgqtAQYANAqxAQYArQe1AQEALAu5AQEALAu5AREAkAS+AREA6ArCASEAlgtHAVAgAAAAAAYY
-lQgGAAEAWCAAAAAABhiVCAYAAQBgIAAAAAARGJsIxQEBAIogAAAAABMIYwjJAQEAliAAAAAAEwgx
-Bs4BAQCiIAAAAAATCFQI0wEBAK4gAAAAABMI5QjYAQEAuiAAAAAAAxiVCAYAAQDCIAAAAAAWCNcH
-3QEBAO4gAAAAABYI4gHiAQEA9SAAAAAAFgjuAecBAQD9IAAAAAAGGJUIBgACAAwhAAAAAMYCzQoG
-AAIA4CEAAAAAAQDkC+0BAgCJIwAAAAAGGJUIxAADAJQjAAAAAAYIuwQBAAYAoyMAAAAABgi4BRUA
-BwC6IwAAAAAGCGgB9AEIAMkjAAAAAAYIkgUVAAkA4CMAAAAABgisARAACgDqIwAAAAAGCKQFFQAL
-AAEkAAAAAIYA5gsGAAwACSQAAAAAhgD/CgYADAAUJAAAAACGAAIL2gAMACkkAAAAAAYYlQgGAAwA
-SSQAAAAARgO/CgYADABLJAAAAAABACgBBgAMAGgkAAAAAMYCigv5AQwASSQAAAAARgPNCgYAEADB
-JAAAAAAGGJUIBwIQANAkAAAAAAYYlQgHAhEA3yQAAAAABgg9B9oAEgAFJQAAAAAGCBYFnwASACsl
-AAAAABEYmwjFARIAPCUAAAAABhiVCAYAEgBEJQAAAAAWCJgEDgISAKAlAAAAAMYCfwofARIAriUA
-AAAAxgJzASQBEwC2JQAAAACDANoBEwITAMIlAAAAAMYCDQWfABMAzCUAAAAAEQDgABgCEwDsJQAA
-AAABAMwAIAIUALogAAAAAAYYlQgGABUA+CUAAAAAAwhPAUoAFQAsJgAAAAAGGJUIBgAVAAAAAQC1
-BAAAAQC8AAAAAQDQBwAAAgBHCgAAAwDlBgAAAQC1BAAAAQC1BAAAAQC1BAAAAQC1BAAAAQC1BAAA
-AQC1BAAAAQDFCgAAAgCqCAAAAwCeCgAABADlBgAAAQBCCwAAAQBCCwAAAQDVBgAAAQBfAQAAAQBf
-AQkAlQgBABEAlQgGABkAlQgKACkAlQgQADEAlQgQADkAlQgQAEEAlQgQAEkAlQgQAFEAlQgQAFkA
-lQgVAGEAlQgVAGkAlQgQAHEAlQgQAHkAlQgQAIEAlQgaAJEAlQggAKkAlQgGALEAlQgGALkAlQgG
-ANEAlQgmAOkAlQgQAAEBlQgGADkBlQgGAJkAlQgGAKEAlQgGAAwAlQgGABQAlQgGABwAlQgGACQA
-lQgGAAwATwFKABQATwFKABwATwFKACQATwFKAMEAlQgGANkAkQFPANkAFAxXAPEAlQhdAFEBEwt6
-AFkB/wSAAGEB4QqHAGkBlQgQAGkBPgqNAFEB9wWUAFEBDgt6AHEBIwafAGEBewifAAkBowGfAFEB
-PAGjAAkBHwWqACkB8wCuAIEBDQWfAGEB4Qq0AHkB8wS7ABEBlQjEABEB3QXQABEBzAUBAIkBlQgQ
-ABEB5gsGABEB/woGABEBAgvaACkBlQgGACkBsADjACkBWwrrACkBKArxAJkB1AX3ACkBzwv+AKEB
-oAsEAbkB7QULAbkBDQUQAcEBrAQVATEBlQgGAMkBXQgaAckBGQsaAcEAfwofAcEAcwEkAcEADQWf
-ANEBQAEwATQAlgtHATwAmARKADwAogReATwAlQgGACkAqwDnAy4ACwBgAi4AEwBpAi4AGwCIAi4A
-IwCRAi4AKwC6Ai4AMwC6Ai4AOwCRAi4AQwDAAi4ASwC6Ai4AUwDXAi4AWwC6Ai4AYwDdAi4AawAH
-Ay4AcwAUA0AAiwBeA0AAgwBjA0MAewBsA0MAgwBjA0kAqwD4A2MAewBsA2MAgwBjA2kAqwAMBIAA
-iwBeA4MAkwBeA4MAmwBeA4MAewBsA4kAqwAZBKAAiwBeA6kAgwCIAsAAiwBeA8MAswBeA8MAUwC6
-AskAgwCIAuAAiwBeA+MAUwC6AgMBUwC6AiMBUwC6AkMBUwC6AoMBgwBjA4MBowCFA6MBgwBjA6MB
-WwC6AukBuwBeA8ADUwC6AuADUwC6AqAEgwBjA6AEiwBeA8AEgwBjA8AEiwBeA+AEgwBjA+AEiwBe
-AwAFgwBjAwAFiwBeAyAFiwBeA0AFiwBeA2AFiwBeA2AFgwBjA4AFiwBeA6AFiwBeA6AFgwBjA2UA
-mQDWAN4AKAE7AQQAAQAFAAUABwAHAAoADQALAA8ADQAQAAAAcggoAgAAQwYtAgAAWAgyAgAA9wg3
-AgAA2wc8AgAA/gFBAgAAvwRGAgAAvAVKAgAAbAFOAgAAlgVKAgAAsAFSAgAAqAVKAgAAQQdKAgAA
-GgVSAgAAtQRWAgAAUwFbAgIABAADAAIABQAFAAIABgAHAAIABwAJAAIACQALAAIACgANAAEACwAN
-AAEAEAAPAAEAEQARAAEAEgATAAEAEwAVAAEAFAAXAAEAFQAZAAIAIAAbAAIAIQAdAAIAJAAfAAIA
-LAAhAC4ANQA8AEMALQFAAU8BVgEEgAAAAQAAAAAAAAAAAAAAAACDAAAABAAAAAAAAAAAAAAAZAEJ
-AQAAAAAEAAAAAAAAAAAAAABkAeYFAAAAAAoAAAAAAAAAAAAAAG0BEgEAAAAADgAAAAAAAAAAAAAA
-dgFMCwAAAAAOAAAAAAAAAAAAAAB2AWkLAAAAAA4AAAAAAAAAAAAAAHYBEgcAAAAADgAAAAAAAAAA
-AAAAdgHvBgAAAAAAAAAAAQAAAOEJAAAMAAQADQAEAAAAEAAaAMoAAAAQAFMAygAAAAAAVQDKAJsA
-NgGbAFkBAAAASURUU0NvbXBvbmVudE1ldGFEYXRhMTAwAElEVFNWYXJpYWJsZTEwMABJRFRTVmFy
-aWFibGVzMTAwAElEVFNFdmFsdWF0b3JDb250ZXh0MTAwAENvbnRleHRWYWx1ZWAxAFRocmVhZFNh
-ZmVPYmplY3RQcm92aWRlcmAxAEludDMyAFNDX2QxNGM5ZDMzYjQ1YzRjN2JiMTk1MmQxM2M1ZDI3
-MjMzADxNb2R1bGU+AEdldE91dHB1dElEAEYAU3lzdGVtLklPAFAAVABEaXNwb3NlX19JbnN0YW5j
-ZV9fAENyZWF0ZV9fSW5zdGFuY2VfXwBnZXRfQ29tcG9uZW50TWV0YURhdGEAbXNjb3JsaWIATWlj
-cm9zb2Z0LlZpc3VhbEJhc2ljAE1hcmtPdXRwdXRzRmluaXNoZWQATWlkAENyZWF0ZUluc3RhbmNl
-AGdldF9HZXRJbnN0YW5jZQBpbnN0YW5jZQBzZXRfU291cmNlAEdldEhhc2hDb2RlAFJ1bnRpbWVU
-eXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAGdldF9OYW1lAHNldF9GaWxlTmFtZQBNaWNyb3Nv
-ZnQuU3FsU2VydmVyLkR0cy5QaXBlbGluZQBHZXRUeXBlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJl
-AF9yZXNDdWx0dXJlAEFwcGxpY2F0aW9uQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0
-b3JCcm93c2FibGVTdGF0ZQBHdWlkQXR0cmlidXRlAEhlbHBLZXl3b3JkQXR0cmlidXRlAEdlbmVy
-YXRlZENvZGVBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxl
-QXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBDb21WaXNpYmxlQXR0cmlidXRlAEFz
-c2VtYmx5VGl0bGVBdHRyaWJ1dGUAU3RhbmRhcmRNb2R1bGVBdHRyaWJ1dGUASGlkZU1vZHVsZU5h
-bWVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0
-cmlidXRlAERlYnVnZ2VySGlkZGVuQXR0cmlidXRlAEFzc2VtYmx5RmlsZVZlcnNpb25BdHRyaWJ1
-dGUATXlHcm91cENvbGxlY3Rpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0
-ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0
-ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBDTFNDb21wbGlhbnRBdHRyaWJ1dGUAU1NJU1Nj
-cmlwdENvbXBvbmVudEVudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRl
-AFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAEJ5dGUAbV9WYWx1ZQBnZXRfVmFsdWUAc2V0
-X1ZhbHVlAEdldE9iamVjdFZhbHVlAHNldF9GaWxlU2l6ZQBTeXN0ZW0uVGhyZWFkaW5nAFN5c3Rl
-bS5SdW50aW1lLlZlcnNpb25pbmcARmlyZVdhcm5pbmcAQ29tcGFyZVN0cmluZwBUb1N0cmluZwBn
-ZXRfUGF0aABnZXRfTGVuZ3RoAE1pY3Jvc29mdC5WaXN1YWxCYXNpYy5NeVNlcnZpY2VzLkludGVy
-bmFsAFN5c3RlbS5Db21wb25lbnRNb2RlbABTQ19kMTRjOWQzM2I0NWM0YzdiYjE5NTJkMTNjNWQy
-NzIzMy5kbGwAc2V0X1NvdXJjZV9Jc051bGwAc2V0X0ZpbGVOYW1lX0lzTnVsbABzZXRfRmlsZVNp
-emVfSXNOdWxsAFNldE51bGwAZ2V0X0l0ZW0Ac2V0X0l0ZW0AU3lzdGVtAFRvQm9vbGVhbgBMZW4A
-U3lzdGVtLkNvbXBvbmVudE1vZGVsLkRlc2lnbgBTY3JpcHRNYWluAGdldF9FeHRlbnNpb24AZ2V0
-X0FwcGxpY2F0aW9uAE15QXBwbGljYXRpb24AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkds
-b2JhbGl6YXRpb24AU3lzdGVtLlJlZmxlY3Rpb24ASW52YWxpZE9wZXJhdGlvbkV4Y2VwdGlvbgBG
-aWxlSW5mbwBDdWx0dXJlSW5mbwBGaWxlU3lzdGVtSW5mbwBEaXJlY3RvcnlJbmZvAE91dHB1dE5h
-bWVNYXAAT3V0cHV0TWFwAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRFRTUnVudGltZVdyYXAATWljcm9z
-b2Z0LlNxbFNlcnZlci5EVFNQaXBlbGluZVdyYXAAVm9sZ05yAGdldF9DdXJyZW50WWVhcgBtX0Fw
-cE9iamVjdFByb3ZpZGVyAG1fVXNlck9iamVjdFByb3ZpZGVyAG1fQ29tcHV0ZXJPYmplY3RQcm92
-aWRlcgBtX015V2ViU2VydmljZXNPYmplY3RQcm92aWRlcgBPdXRwdXQwQnVmZmVyAFBpcGVsaW5l
-QnVmZmVyAFNjcmlwdEJ1ZmZlcgBnZXRfUmVzb3VyY2VNYW5hZ2VyAFN5c3RlbS5Db2RlRG9tLkNv
-bXBpbGVyAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlJ1bnRpbWUuV3JhcHBlcgBNaWNyb3NvZnQu
-U3FsU2VydmVyLkR0cy5QaXBlbGluZS5XcmFwcGVyAGdldF9Vc2VyAEVudGVyAGdldF9Db21wdXRl
-cgBNeUNvbXB1dGVyAFRvTG93ZXIAX3Jlc01ncgBBY3RpdmF0b3IALmN0b3IALmNjdG9yAE1vbml0
-b3IAT3V0cHV0SURzAFN5c3RlbS5EaWFnbm9zdGljcwBNaWNyb3NvZnQuVmlzdWFsQmFzaWMuRGV2
-aWNlcwBnZXRfV2ViU2VydmljZXMATXlXZWJTZXJ2aWNlcwBNaWNyb3NvZnQuVmlzdWFsQmFzaWMu
-QXBwbGljYXRpb25TZXJ2aWNlcwBTeXN0ZW0uUnVudGltZS5JbnRlcm9wU2VydmljZXMATWljcm9z
-b2Z0LlZpc3VhbEJhc2ljLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJT
-ZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNDX2QxNGM5ZDMzYjQ1YzRjN2JiMTk1MmQxM2M1ZDI3
-MjMzLk15LlJlc291cmNlcwBNeVJlc291cmNlcwBTQ19kMTRjOWQzM2I0NWM0YzdiYjE5NTJkMTNj
-NWQyNzIzMy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAGdldF9SZWFkT25seVZh
-cmlhYmxlcwBHZXRGaWxlcwBCdWZmZXJDb2x1bW5JbmRleGVzAEdldENvbHVtbkluZGV4ZXMAU3Ry
-aW5ncwBNeVNldHRpbmdzAEVxdWFscwBDb252ZXJzaW9ucwBDb25uZWN0aW9ucwBCdWZmZXJzAFJ1
-bnRpbWVIZWxwZXJzAE9wZXJhdG9ycwBGaW5pc2hPdXRwdXRzAENyZWF0ZU5ld091dHB1dFJvd3MA
-Q29uY2F0AG1fU3luY09iamVjdABNeVByb2plY3QAU2V0RW5kT2ZSb3dzZXQATGVmdABSaWdodABF
-eGl0AFVzZXJDb21wb25lbnQAUGFyZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVudABNaWNyb3Nv
-ZnQuU3FsU2VydmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AFBy
-aW1lT3V0cHV0AG1fQ29udGV4dABHZXRWYWx1ZVdpdGhDb250ZXh0AFNjcmlwdENvbXBvbmVudEV2
-YWxDb250ZXh0AGdldF9FdmFsdWF0b3JDb250ZXh0AE15QWRkUm93AFNDX2QxNGM5ZDMzYjQ1YzRj
-N2JiMTk1MmQxM2M1ZDI3MjMzLk15AGdldF9Bc3NlbWJseQAAAAAAMU0AeQAuAFIAZQBzAG8AdQBy
-AGMAZQBzAC4ATQB5AFIAZQBzAG8AdQByAGMAZQBzAAADXAAABTIAXAAACS4AcwBhAGYAAAdBAEMA
-VAAAB0MAQQBTAAAHQwBPAE4AABNGAGkAbABlACAAUwBjAGEAbgAABToAIAAAAQCAm0kAcwBOAHUA
-bABsACAAcAByAG8AcABlAHIAdAB5ACAAYwBhAG4AbgBvAHQAIABiAGUAIABzAGUAdAAgAHQAbwAg
-AEYAYQBsAHMAZQAuACAAQQBzAHMAaQBnAG4AIABhACAAdgBhAGwAdQBlACAAdABvACAAdABoAGUA
-IABjAG8AbAB1AG0AbgAgAGkAbgBzAHQAZQBhAGQALgAAEU8AdQB0AHAAdQB0ACAAMAAAF0MAdQBy
-AHIAZQBuAHQAWQBlAGEAcgAACVAAYQB0AGgAADy9bKK8q8BJrRTyr11E9yoABCABAQgDIAABBSAB
-ARERBCABAQ4EIAEBAgUgAgEODgUgAQERRQcgBAEODg4OBhUSNAESDAYVEjQBEggGFRI0ARJlBhUS
-NAESMAQgABMABwABEm0RgKEFIAASgKUHIAIBDhKApRQHBxAOHRKAhQgSgIUdEoCFCBKAhQUAAg4O
-CAYAAwgODgIFAAIODg4GIAAdEoCFBAABCA4FBwIOEAgDIAAOBgADDg4ICAMgAAoFIAASgL0GAAMO
-Dg4OCCAFAQgODg4ICyADARKAjR0IEoCRBSACAQgcAwcBAgMgAAIEBwIICAcAAggSgJEOBSABHQgI
-BSAAEoDNBiABEoDRHAUAABKA1QYgARwSgNkEAAECHAQAAQ4cBAABHBwEAAEBHAQgAQIcAyAACAQH
-AR4AAh4ABRABAB4ABAoBHgAEBwETAAYVEjQBEwAHBhUScQETAAYVEnEBEwACEwAECgETAAUgAQET
-AAi3elxWGTTgiQiwP19/EdUKOgiJhF3NgIDMkQcGFRI0ARIMBwYVEjQBEggHBhUSNAESZQcGFRI0
-ARIwAwYSeQMGEn0CBggCBg4DBhIkAwYSKAMGEhwEBhKAlQMGEiwCBhwDAAABBAAAEgwEAAASCAQA
-ABJlBAAAEjAEAAASeQQAABJ9BQABARJ9BiABARKAhQQgAQEFDSAEAQgdCB0SgI0SgJEGIAEBEoCV
-BAAAEiwEIAASbQcQAQEeAB4ABzABAQEQHgAECAASDAQIABIIBAgAEmUECAASMAQIABJ5BAgAEn0D
-KAAIAygAAgMoAAUDKAAOBAgAEiwEKAATAAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlv
-blRocm93cwEIAQACAAAAAAAoAQAjU0NfZDE0YzlkMzNiNDVjNGM3YmIxOTUyZDEzYzVkMjcyMzMA
-AAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAxOQAABQEAAQAAKQEAJDVkZWQ2Yjc5LWQzN2QtNGNj
-YS04ZWUwLTZkMDFmNjAxMWE2NAAADAEABzEuMC4wLjAAAEkBABouTkVURnJhbWV3b3JrLFZlcnNp
-b249djQuNQEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFtZXdvcmsgNC41BAEAAAAI
-AQABAAAAAAAYAQAKTXlUZW1wbGF0ZQgxMS4wLjAuMAAAYQEANFN5c3RlbS5XZWIuU2VydmljZXMu
-UHJvdG9jb2xzLlNvYXBIdHRwQ2xpZW50UHJvdG9jb2wSQ3JlYXRlX19JbnN0YW5jZV9fE0Rpc3Bv
-c2VfX0luc3RhbmNlX18AAAAQAQALTXkuQ29tcHV0ZXIAABMBAA5NeS5BcHBsaWNhdGlvbgAADAEA
-B015LlVzZXIAABMBAA5NeS5XZWJTZXJ2aWNlcwAAAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0u
-UmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0
-dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291
-cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAADBEAAAAAAAAAAAA
-AEpEAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8RAAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1z
-Y29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAA
-GAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAAAFhgAADs
-AwAAAAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAAvQTv/gAA
-AQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAABAFYAYQBy
-AEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAAAAAAALAE
-TAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAKAMAAAEAMAAwADAAMAAwADQAYgAw
-AAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBuAHkATgBhAG0A
-ZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABTAEMAXwBk
-ADEANABjADkAZAAzADMAYgA0ADUAYwA0AGMANwBiAGIAMQA5ADUAMgBkADEAMwBjADUAZAAyADcA
-MgAzADMAAAAwAAgAAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4AMAAuADAAAABw
-ACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfAGQAMQA0AGMAOQBkADMAMwBiADQA
-NQBjADQAYwA3AGIAYgAxADkANQAyAGQAMQAzAGMANQBkADIANwAyADMAMwAuAGQAbABsAAAASAAS
-AAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAA
-IAAyADAAMQA5AAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4
-ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8AZAAxADQAYwA5AGQA
-MwAzAGIANAA1AGMANABjADcAYgBiADEAOQA1ADIAZAAxADMAYwA1AGQAMgA3ADIAMwAzAC4AZABs
-AGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfAGQAMQA0AGMAOQBkADMA
-MwBiADQANQBjADQAYwA3AGIAYgAxADkANQAyAGQAMQAzAGMANQBkADIANwAyADMAMwAAADQACAAB
-AFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4AAgAAQBBAHMA
-cwBlAG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAMAAAAXDQAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
-                      </arrayElements>
-                    </property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
-                      name="VSTAProjectName"
-                      typeConverter="NOTBROWSABLE">SC_d14c9d33b45c4c7bb1952d13c5d27233</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the programming language used by the script."
-                      name="ScriptLanguage"
-                      typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">VisualBasic</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies a comma-separated list of read-only variables."
-                      name="ReadOnlyVariables"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg">User::CurrentYear,User::Path</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies a comma-separated list of read/write variables."
-                      name="ReadWriteVariables"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
-                    <property
-                      dataType="System.String"
-                      description="List of breakpoints present on the script."
-                      isArray="true"
-                      name="BreakpointCollection"
-                      typeConverter="NOTBROWSABLE">
-                      <arrayElements
-                        arrayElementCount="0" />
-                    </property>
-                    <property
-                      dataType="System.String"
-                      description="Checksum to match component metedata against compiled codes."
-                      name="MetadataChecksum140"
-                      typeConverter="NOTBROWSABLE">34</property>
-                    <property
-                      dataType="System.String"
-                      name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
-                  </properties>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0]"
-                      hasSideEffects="true"
-                      name="Output 0">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[FileSize]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[FileSize]"
-                          name="FileSize" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[Source]"
-                          dataType="ui1"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[Source]"
-                          name="Source" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[FileName]"
-                          codePage="1252"
-                          dataType="str"
-                          length="21"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[FileName]"
-                          name="FileName" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort"
-                  componentClassID="Microsoft.Sort"
-                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-                  name="Sort"
-                  version="1">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                      name="EliminateDuplicates">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the maximum number of threads to use for sorting."
-                      expressionType="Notify"
-                      name="MaximumThreads">-1</property>
-                  </properties>
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Inputs[Sort Input]"
-                      name="Sort Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Inputs[Sort Input].Columns[FileSize]"
-                          cachedDataType="i4"
-                          cachedName="FileSize"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[FileSize]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the comparison options for character data."
-                              name="NewComparisonFlags">0</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the sort order of the column."
-                              name="NewSortKeyPosition">0</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Inputs[Sort Input].Columns[FileName]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="21"
-                          cachedName="FileName"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[FileName]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the comparison options for character data."
-                              name="NewComparisonFlags">0</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the sort order of the column."
-                              name="NewSortKeyPosition">1</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Inputs[Sort Input].Columns[Source]"
-                          cachedDataType="ui1"
-                          cachedName="Source"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[Source]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the comparison options for character data."
-                              name="NewComparisonFlags">0</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the sort order of the column."
-                              name="NewSortKeyPosition">0</property>
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Outputs[Sort Output]"
-                      isSorted="true"
-                      name="Sort Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Outputs[Sort Output].Columns[FileSize]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Outputs[Sort Output].Columns[FileSize]"
-                          name="FileSize">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Specifies the lineage identifier of the input column that is associated with this output column."
-                              name="SortColumnId">#{Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[FileSize]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Outputs[Sort Output].Columns[FileName]"
-                          codePage="1252"
-                          dataType="str"
-                          length="21"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Outputs[Sort Output].Columns[FileName]"
-                          name="FileName"
-                          sortKeyPosition="1">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Specifies the lineage identifier of the input column that is associated with this output column."
-                              name="SortColumnId">#{Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[FileName]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Outputs[Sort Output].Columns[Source]"
-                          dataType="ui1"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Outputs[Sort Output].Columns[Source]"
-                          name="Source">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Specifies the lineage identifier of the input column that is associated with this output column."
-                              name="SortColumnId">#{Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0].Columns[Source]}</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\U"
-                  componentClassID="Microsoft.UnionAll"
-                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-                  name="U"
-                  version="1">
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Inputs[Union All Input 3]"
-                      hasSideEffects="true"
-                      name="Union All Input 3">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Inputs[Union All Input 3].Columns[ID]"
-                          cachedDataType="i4"
-                          cachedName="ID"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[ID]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Foreach SiebelFS Folder\Data Flow Task\U.Outputs[Union All Output 1].Columns[ID]}</property>
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Inputs[Union All Input 1]"
-                      hasSideEffects="true"
-                      name="Union All Input 1">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Inputs[Union All Input 1].Columns[FileSize]"
-                          cachedDataType="i4"
-                          cachedName="FileSize"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FileSize]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Foreach SiebelFS Folder\Data Flow Task\U.Outputs[Union All Output 1].Columns[FileSize]}</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Inputs[Union All Input 1].Columns[ID]"
-                          cachedDataType="i4"
-                          cachedName="ID"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[ID]">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Output column lineage ID"
-                              name="OutputColumnLineageID">#{Package\Foreach SiebelFS Folder\Data Flow Task\U.Outputs[Union All Output 1].Columns[ID]}</property>
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Inputs[Union All Input 2]"
-                      dangling="true"
-                      hasSideEffects="true"
-                      name="Union All Input 2">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Outputs[Union All Output 1]"
-                      name="Union All Output 1">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Outputs[Union All Output 1].Columns[FileSize]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Outputs[Union All Output 1].Columns[FileSize]"
-                          name="FileSize" />
-                        <outputColumn
-                          refId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Outputs[Union All Output 1].Columns[ID]"
-                          dataType="i4"
-                          lineageId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Outputs[Union All Output 1].Columns[ID]"
-                          name="ID" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task\Upd"
-                  componentClassID="Microsoft.RowCount"
-                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-                  name="Upd">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable to hold the row count."
-                      name="VariableName">User::CntUpd</property>
-                  </properties>
-                  <inputs>
-                    <input
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Upd.Inputs[Row Count Input 1]"
-                      hasSideEffects="true"
-                      name="Row Count Input 1">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach SiebelFS Folder\Data Flow Task\Upd.Outputs[Row Count Output 1]"
-                      name="Row Count Output 1"
-                      synchronousInputId="Package\Foreach SiebelFS Folder\Data Flow Task\Upd.Inputs[Row Count Input 1]">
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-              </components>
-              <paths>
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Delete]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\Del.Inputs[Row Count Input 1]"
-                  name="Delete"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[Delete]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Derived Column Output]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\New Files.Inputs[OLE DB Destination Input]"
-                  name="Derived Column Output"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Flat File Source Output]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
-                  name="Flat File Source Output"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Insert]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins.Inputs[Row Count Input 1]"
-                  name="Insert"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[Insert]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Merge Join Output]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Inputs[Conditional Split Input]"
-                  name="Merge Join Output"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Outputs[Merge Join Output]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[OLE DB Source Output]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt DB.Inputs[Row Count Input 1]"
-                  name="OLE DB Source Output"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\All Files.Outputs[OLE DB Source Output]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Output 0]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt FS.Inputs[Row Count Input 1]"
-                  name="Output 0"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS.Outputs[Output 0]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Row Count Output 1]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Inputs[Union All Input 1]"
-                  name="Row Count Output 1"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\Upd.Outputs[Row Count Output 1]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Row Count Output 11]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Inputs[Union All Input 3]"
-                  name="Row Count Output 1"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\Del.Outputs[Row Count Output 1]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Row Count Output 12]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props.Inputs[Derived Column Input]"
-                  name="Row Count Output 1"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\Ins.Outputs[Row Count Output 1]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Row Count Output 13]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
-                  name="Row Count Output 1"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt DB.Outputs[Row Count Output 1]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Row Count Output 14]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Inputs[Sort Input]"
-                  name="Row Count Output 1"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt FS.Outputs[Row Count Output 1]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Sort Output]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
-                  name="Sort Output"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\Sort.Outputs[Sort Output]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Union All Output 1]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\FS.Inputs[OLE DB Destination Input]"
-                  name="Union All Output 1"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\U.Outputs[Union All Output 1]" />
-                <path
-                  refId="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Update]"
-                  endId="Package\Foreach SiebelFS Folder\Data Flow Task\Upd.Inputs[Row Count Input 1]"
-                  name="Update"
-                  startId="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit.Outputs[Update]" />
-              </paths>
-            </pipeline>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
           DTS:refId="Package\Foreach SiebelFS Folder\Dir"
           DTS:CreationName="Microsoft.ExecuteProcess"
           DTS:Description="Execute Process Task"
+          DTS:Disabled="True"
           DTS:DTSID="{5FD1D05D-2A67-469C-8644-79E26BAF3319}"
           DTS:ExecutableType="Microsoft.ExecuteProcess"
           DTS:LocaleID="-1"
           DTS:ObjectName="Dir"
           DTS:ThreadHint="1">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:PropertyExpression
             DTS:Name="Arguments">"/c Dir " + @[User::Path] + " &gt; " +  @[User::Dir]</DTS:PropertyExpression>
           <DTS:ObjectData>
@@ -2967,7 +598,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\Foreach SiebelFS Folder\SAF Files"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
           DTS:DTSID="{8addb17d-0d95-4f45-a64a-d4d530794513}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -4139,7 +1769,7 @@ Public Class ScriptMain
     Dim VolgNr As Int32 = 0, P As String
 
     Public Overrides Sub CreateNewOutputRows()
-        Dim dir As DirectoryInfo
+        Dim dir As DirectoryInfo, dir2 As DirectoryInfo
 
         P = Variables.Path
         If Right(P, 1) <> "\" Then P &= "\"
@@ -4150,9 +1780,9 @@ Public Class ScriptMain
         Next file
 
         If Variables.CurrentYear Then
-            dir = New DirectoryInfo(Left(P, Len(P) - 1) + "2\")
+            dir2 = New DirectoryInfo(Left(P, Len(P) - 1) + "2\")
 
-            For Each file As FileInfo In dir.GetFiles()
+            For Each file As FileInfo In dir2.GetFiles()
                 Call MyAddRow(file)
             Next file
         End If
@@ -4185,7 +1815,7 @@ Public Class ScriptMain
             End Select
         End If
 
-        If VolgNr Mod 1000 = 0 Then
+        If VolgNr Mod 50000 = 0 Then
             ComponentMetaData.FireWarning(1, "File Scan", P & ": " & VolgNr.ToString, "", 0)
         End If
         VolgNr += 1
@@ -4345,7 +1975,7 @@ End Class
     <msb:CodeName>SC_d14c9d33b45c4c7bb1952d13c5d27233</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_d14c9d33b45c4c7bb1952d13c5d27233</msb:DisplayName>
-    <msb:ProjectId>{068C3D3D-9F20-41CA-AB2A-41374A5DFAFB}</msb:ProjectId>
+    <msb:ProjectId>{02F43DBA-A7DC-46B3-81ED-F41EA607A5F6}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_d14c9d33b45c4c7bb1952d13c5d27233.vbproj" />
@@ -4671,7 +2301,7 @@ End Namespace
                         <arrayElement
                           dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAJy/d10AAAAAAAAAAOAAIiALAVAAACYAAAAIAAAAAAAAWkQA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAImRe10AAAAAAAAAAOAAIiALAVAAACYAAAAIAAAAAAAAWkQA
 AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACgAAAAAgAAAAAAAAMAYIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAAhEAABPAAAAAGAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -4692,7 +2322,7 @@ AAo5qgAAADj0AAAAAnsLAAAEbxYAAAYCewsAAAQDby8AAAofEgNvLwAACigrAAAKHxXaKDAAAApv
 FAAABgJ7CwAABANvMQAACrdvEAAABgJ7CwAABBlvEgAABjigAAAAAnsLAAAEbxYAAAYCewsAAAQD
 by8AAAofDgNvLwAACigrAAAKHxHaKDAAAApvFAAABgJ7CwAABANvMQAACrdvEAAABgJ7CwAABBhv
 EgAABitPAnsLAAAEbxYAAAYCewsAAAQDby8AAAofEQNvLwAACigrAAAKHxTaKDAAAApvFAAABgJ7
-CwAABANvMQAACrdvEAAABgJ7CwAABBdvEgAABgJ7BwAABCDoAwAAXS0yAigyAAAKF3JfAABwAnsI
+CwAABANvMQAACrdvEAAABgJ7CwAABBdvEgAABgJ7BwAABCBQwwAAXS0yAigyAAAKF3JfAABwAnsI
 AAAEcnMAAHACfAcAAAQoMwAACig0AAAKcnkAAHAWbzUAAAoCfAcAAAQlCwdKF9ZUKioCAwQFKDYA
 AAoqOgIWA4wwAAABKDcAAAoqWgMsCAIWKDgAAAoqcnsAAHBzOQAACno6AhcDjDIAAAEoNwAACipa
 AywIAhcoOAAACipyewAAcHM5AAAKeiYCGAMoNwAACipaAywIAhgoOAAACipyewAAcHM5AAAKeh4C
@@ -4817,7 +2447,7 @@ VAAAB0MAQQBTAAAHQwBPAE4AABNGAGkAbABlACAAUwBjAGEAbgAABToAIAAAAQCAm0kAcwBOAHUA
 bABsACAAcAByAG8AcABlAHIAdAB5ACAAYwBhAG4AbgBvAHQAIABiAGUAIABzAGUAdAAgAHQAbwAg
 AEYAYQBsAHMAZQAuACAAQQBzAHMAaQBnAG4AIABhACAAdgBhAGwAdQBlACAAdABvACAAdABoAGUA
 IABjAG8AbAB1AG0AbgAgAGkAbgBzAHQAZQBhAGQALgAAEU8AdQB0AHAAdQB0ACAAMAAAF0MAdQBy
-AHIAZQBuAHQAWQBlAGEAcgAACVAAYQB0AGgAADy9bKK8q8BJrRTyr11E9yoABCABAQgDIAABBSAB
+AHIAZQBuAHQAWQBlAGEAcgAACVAAYQB0AGgAAOZVn0E2vgdMqnexrfLh9MEABCABAQgDIAABBSAB
 ARERBCABAQ4EIAEBAgUgAgEODgUgAQERRQcgBAEODg4OBhUSNAESDAYVEjQBEggGFRI0ARJlBhUS
 NAESMAQgABMABwABEm0RgKEFIAASgKUHIAIBDhKApRQHBxAOHRKAhQgSgIUdEoCFCBKAhQUAAg4O
 CAYAAwgODgIFAAIODg4GIAAdEoCFBAABCA4FBwIOEAgDIAAOBgADDg4ICAMgAAoFIAASgL0GAAMO
@@ -5333,14 +2963,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\Foreach SiebelFS Folder\Dir" />
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 3]"
-          DTS:CreationName=""
-          DTS:DTSID="{43474911-5707-4EBF-B82C-7C60228DAC89}"
-          DTS:From="Package\Foreach SiebelFS Folder\Dir"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 3"
-          DTS:To="Package\Foreach SiebelFS Folder\Data Flow Task" />
-        <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 4]"
           DTS:CreationName=""
           DTS:DTSID="{3E8084F0-B664-4C37-86F9-6B4AC8820905}"
@@ -5413,7 +3035,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Get Template Path"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -7619,10 +5241,6 @@ WHERE Name = ?</property>
           Id="Package\Drop Temp"
           TopLeft="376,309" />
         <NodeLayout
-          Size="155,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task"
-          TopLeft="220,199" />
-        <NodeLayout
           Size="93,42"
           Id="Package\Foreach SiebelFS Folder\Dir"
           TopLeft="247,99" />
@@ -7637,7 +5255,7 @@ WHERE Name = ?</property>
         <NodeLayout
           Size="124,42"
           Id="Package\Foreach SiebelFS Folder\Start Log"
-          TopLeft="48,11" />
+          TopLeft="76,11" />
         <EdgeLayout
           Id="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint]"
           TopLeft="112.25,141">
@@ -7662,30 +5280,18 @@ WHERE Name = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 1]"
-          TopLeft="90.6666666666667,53">
+          TopLeft="116.083333333333,53">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="22.8333333333333,46"
+              EndConnector="0,46"
               Start="0,0"
-              End="22.8333333333333,38.5">
+              End="0,38.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.7515923566879" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.7515923566879"
-                    Point2="0,18.7515923566879"
-                    Point3="4,18.7515923566879" />
-                  <mssgle:LineSegment
-                    End="18.8333333333333,18.7515923566879" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.8333333333333,18.7515923566879"
-                    Point2="22.8333333333333,18.7515923566879"
-                    Point3="22.8333333333333,22.7515923566879" />
-                  <mssgle:LineSegment
-                    End="22.8333333333333,38.5" />
+                    End="0,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7696,13 +5302,13 @@ WHERE Name = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 2]"
-          TopLeft="129.333333333333,53">
+          TopLeft="157.333333333333,53">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="164.166666666667,46"
+              EndConnector="136.166666666667,46"
               Start="0,0"
-              End="164.166666666667,38.5">
+              End="136.166666666667,38.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -7713,43 +5319,21 @@ WHERE Name = ?</property>
                     Point2="0,18.7515923566879"
                     Point3="4,18.7515923566879" />
                   <mssgle:LineSegment
-                    End="160.166666666667,18.7515923566879" />
+                    End="132.166666666667,18.7515923566879" />
                   <mssgle:CubicBezierSegment
-                    Point1="160.166666666667,18.7515923566879"
-                    Point2="164.166666666667,18.7515923566879"
-                    Point3="164.166666666667,22.7515923566879" />
+                    Point1="132.166666666667,18.7515923566879"
+                    Point2="136.166666666667,18.7515923566879"
+                    Point3="136.166666666667,22.7515923566879" />
                   <mssgle:LineSegment
-                    End="164.166666666667,38.5" />
+                    End="136.166666666667,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="74.0833333333333,23.7515923566879,16,16"
+              BoundingBox="60.0833333333333,23.7515923566879,16,16"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 3]"
-          TopLeft="295.5,141">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7792,7 +5376,7 @@ WHERE Name = ?</property>
           PanelSize="440,297"
           Size="440,340"
           Id="Package\Foreach SiebelFS Folder"
-          TopLeft="635,33" />
+          TopLeft="635,58" />
         <NodeLayout
           Size="130,42"
           Id="Package\Select Folders"
@@ -7914,30 +5498,18 @@ WHERE Name = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="508,235">
+          TopLeft="508,231.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="127,-32"
+              EndConnector="127,0"
               Start="0,0"
-              End="119.5,-32">
+              End="119.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="59.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="59.5,0"
-                    Point2="63.5,0"
-                    Point3="63.5,-4" />
-                  <mssgle:LineSegment
-                    End="63.5,-28" />
-                  <mssgle:CubicBezierSegment
-                    Point1="63.5,-28"
-                    Point2="63.5,-32"
-                    Point3="67.5,-32" />
-                  <mssgle:LineSegment
-                    End="119.5,-32" />
+                    End="119.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7948,13 +5520,13 @@ WHERE Name = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="635,286">
+          TopLeft="635,311">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-129,44"
+              EndConnector="-129,19"
               Start="0,0"
-              End="-121.5,44">
+              End="-121.5,19">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -7965,13 +5537,13 @@ WHERE Name = ?</property>
                     Point2="-43.6692607003891,0"
                     Point3="-43.6692607003891,4" />
                   <mssgle:LineSegment
-                    End="-43.6692607003891,40" />
+                    End="-43.6692607003891,15" />
                   <mssgle:CubicBezierSegment
-                    Point1="-43.6692607003891,40"
-                    Point2="-43.6692607003891,44"
-                    Point3="-47.6692607003891,44" />
+                    Point1="-43.6692607003891,15"
+                    Point2="-43.6692607003891,19"
+                    Point3="-47.6692607003891,19" />
                   <mssgle:LineSegment
-                    End="-121.5,44" />
+                    End="-121.5,19" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7986,9 +5558,9 @@ WHERE Name = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="122,-12"
+              EndConnector="122,13"
               Start="0,0"
-              End="114.5,-12">
+              End="114.5,13">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -7997,15 +5569,15 @@ WHERE Name = ?</property>
                   <mssgle:CubicBezierSegment
                     Point1="76.7003891050584,0"
                     Point2="80.7003891050584,0"
-                    Point3="80.7003891050584,-4" />
+                    Point3="80.7003891050584,4" />
                   <mssgle:LineSegment
-                    End="80.7003891050584,-8" />
+                    End="80.7003891050584,9" />
                   <mssgle:CubicBezierSegment
-                    Point1="80.7003891050584,-8"
-                    Point2="80.7003891050584,-12"
-                    Point3="84.7003891050584,-12" />
+                    Point1="80.7003891050584,9"
+                    Point2="80.7003891050584,13"
+                    Point3="84.7003891050584,13" />
                   <mssgle:LineSegment
-                    End="114.5,-12" />
+                    End="114.5,13" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8039,462 +5611,6 @@ WHERE Name = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\Foreach SiebelFS Folder\Data Flow Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\Flat File Source"
-          TopLeft="71,99" />
-        <NodeLayout
-          Size="96,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\Del"
-          TopLeft="569.45,563" />
-        <NodeLayout
-          Size="87,117"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\U"
-          TopLeft="772.7,479" />
-        <NodeLayout
-          Size="93,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\FS"
-          TopLeft="767.7,658" />
-        <NodeLayout
-          Size="114,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt DB"
-          TopLeft="330.2,296" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\Merge Join"
-          TopLeft="322.2,385" />
-        <NodeLayout
-          Size="99,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\Sort"
-          TopLeft="74,386" />
-        <NodeLayout
-          Size="99,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\Upd"
-          TopLeft="567.95,470" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\New Files"
-          TopLeft="323.7,657" />
-        <NodeLayout
-          Size="125,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\Ins Props"
-          TopLeft="61,657" />
-        <NodeLayout
-          Size="94,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\Ins"
-          TopLeft="76.5,522" />
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\Scan SiebelFS"
-          TopLeft="55,208" />
-        <NodeLayout
-          Size="118,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\All Files"
-          TopLeft="328.2,207" />
-        <NodeLayout
-          Size="124,132"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\DML Exit"
-          TopLeft="325.2,474" />
-        <NodeLayout
-          Size="113,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\Cnt FS"
-          TopLeft="67,295" />
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Update]"
-          TopLeft="449.2,519.333333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="118.75,-28.3333333333333"
-              Start="0,0"
-              End="111.25,-28.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="44.3532934131736,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="44.3532934131736,0"
-                    Point2="48.3532934131736,0"
-                    Point3="48.3532934131736,-4" />
-                  <mssgle:LineSegment
-                    End="48.3532934131736,-24.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="48.3532934131736,-24.3333333333333"
-                    Point2="48.3532934131736,-28.3333333333333"
-                    Point3="52.3532934131736,-28.3333333333333" />
-                  <mssgle:LineSegment
-                    End="111.25,-28.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="32.0730004444236,1,32.5605859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Union All Output 1]"
-          TopLeft="815.2,596">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62"
-              Start="0,0"
-              End="0,54.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Sort Output]"
-          TopLeft="173,406.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="149.2,0"
-              Start="0,0"
-              End="141.7,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="141.7,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Row Count Output 1]"
-          TopLeft="666.95,491">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="105.75,28.3333333333333"
-              Start="0,0"
-              End="98.25,28.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="58.594013490725,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="58.594013490725,0"
-                    Point2="62.594013490725,0"
-                    Point3="62.594013490725,4" />
-                  <mssgle:LineSegment
-                    End="62.594013490725,24.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="62.594013490725,24.3333333333333"
-                    Point2="62.594013490725,28.3333333333333"
-                    Point3="66.594013490725,28.3333333333333" />
-                  <mssgle:LineSegment
-                    End="98.25,28.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Row Count Output 11]"
-          TopLeft="665.45,584">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="107.25,-28.3333333333334"
-              Start="0,0"
-              End="99.75,-28.3333333333334">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="59.4818718381114,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="59.4818718381114,0"
-                    Point2="63.4818718381114,0"
-                    Point3="63.4818718381114,-4" />
-                  <mssgle:LineSegment
-                    End="63.4818718381114,-24.3333333333334" />
-                  <mssgle:CubicBezierSegment
-                    Point1="63.4818718381114,-24.3333333333334"
-                    Point2="63.4818718381114,-28.3333333333334"
-                    Point3="67.4818718381114,-28.3333333333334" />
-                  <mssgle:LineSegment
-                    End="99.75,-28.3333333333334" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Row Count Output 12]"
-          TopLeft="123.5,564">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,93"
-              Start="0,0"
-              End="0,85.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,85.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Row Count Output 13]"
-          TopLeft="387.2,338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47"
-              Start="0,0"
-              End="0,39.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Row Count Output 14]"
-          TopLeft="123.5,337">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49"
-              Start="0,0"
-              End="0,41.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Output 0]"
-          TopLeft="127.25,250">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45"
-              Start="0,0"
-              End="0,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="387.2,249">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47"
-              Start="0,0"
-              End="0,39.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Merge Join Output]"
-          TopLeft="387.2,427">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47"
-              Start="0,0"
-              End="0,39.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Insert]"
-          TopLeft="325.2,541.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-154.7,0"
-              Start="0,0"
-              End="-147.2,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-147.2,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-87.35298828125,5,27.5059765625,9.40234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="186,678">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="137.7,0"
-              Start="0,0"
-              End="130.2,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="130.2,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Delete]"
-          TopLeft="449.2,560.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="120.25,23.3333333333334"
-              Start="0,0"
-              End="112.75,23.3333333333334">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="44.9640718562874,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="44.9640718562874,0"
-                    Point2="48.9640718562874,0"
-                    Point3="48.9640718562874,4" />
-                  <mssgle:LineSegment
-                    End="48.9640718562874,19.3333333333334" />
-                  <mssgle:CubicBezierSegment
-                    Point1="48.9640718562874,19.3333333333334"
-                    Point2="48.9640718562874,23.3333333333334"
-                    Point3="52.9640718562874,23.3333333333334" />
-                  <mssgle:LineSegment
-                    End="112.75,23.3333333333334" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="34.3677242000374,-15.724609375,29.1926953125,9.724609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task\Conditional Split"
-          TopLeft="356,100" />
-        <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="227,120.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="129,0"
-              Start="0,0"
-              End="121.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="121.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <TaskHost
     design-time-name="Package\Foreach SiebelFS Folder\SAF Files">
     <LayoutInfo>

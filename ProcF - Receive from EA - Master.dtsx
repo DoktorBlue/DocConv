@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcF - Receive from EA - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{05B17CE3-012D-45C8-AC18-CE2E213A493C}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{EDBB1F93-26D8-4B04-A0E3-98287407F637}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -226,7 +226,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
-          SQLTask:SqlStatementSource="SELECT * FROM&#xA;(SELECT ValStr AS QueueManager FROM [Control Params] WHERE Param = 9 AND Step = 20) AS A Cross JOIN&#xA;(SELECT ValStr AS HostName FROM [Control Params] WHERE Param = 10 AND Step = 20) AS B Cross JOIN&#xA;(SELECT ValNum AS Port FROM [Control Params] WHERE Param = 11 AND Step = 20) AS C Cross JOIN&#xA;(SELECT ValStr AS ChannelName FROM [Control Params] WHERE Param = 12 AND Step = 20) AS D Cross JOIN&#xA;(SELECT ValStr AS UserID FROM [Control Params] WHERE Param = 13 AND Step = 20) AS E Cross JOIN&#xA;(SELECT ValStr AS Password FROM [Control Params] WHERE Param = 14 AND Step = 20) AS F Cross JOIN&#xA;(SELECT ValStr AS Password FROM [Control Params] WHERE Param = 16 AND Step = 20) AS G"
+          SQLTask:SqlStatementSource="SELECT * FROM&#xA;(SELECT ValStr AS QueueManager FROM [Control Params] WHERE Param = 9 AND Step = 20) AS A Cross JOIN&#xA;(SELECT ValStr AS HostName FROM [Control Params] WHERE Param = 10 AND Step = 20) AS B Cross JOIN&#xA;(SELECT ValNum AS Port FROM [Control Params] WHERE Param = 11 AND Step = 20) AS C Cross JOIN&#xA;(SELECT ValStr AS ChannelName FROM [Control Params] WHERE Param = 12 AND Step = 20) AS D Cross JOIN&#xA;(SELECT ValStr AS UserID FROM [Control Params] WHERE Param = 13 AND Step = 20) AS E Cross JOIN&#xA;(SELECT ValStr AS Password FROM [Control Params] WHERE Param = 14 AND Step = 20) AS F Cross JOIN&#xA;(SELECT ValStr AS Queue FROM [Control Params] WHERE Param = 16 AND Step = 20) AS G"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
