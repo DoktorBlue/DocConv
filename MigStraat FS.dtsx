@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="MigStraat FS"
   DTS:PackageType="5"
-  DTS:VersionBuild="75"
-  DTS:VersionGUID="{4C562216-DB57-4AC9-AA3E-DDC69379BCA6}">
+  DTS:VersionBuild="81"
+  DTS:VersionGUID="{943F9AAD-DE94-4C3A-80B5-A229585E8304}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -481,7 +481,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
-          SQLTask:SqlStatementSource="DROP TABLE If Exists [FS];&#xA;&#xA;UPDATE [Sonar Paths] Set Refresh = 0;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE [Sonar Paths] Set Refresh = 0&#xA;Where Refresh = 1;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -507,31 +507,28 @@
         DTS:FilterKind="0" />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Foreach SiebelFS Folder\Dir"
-          DTS:CreationName="Microsoft.ExecuteProcess"
-          DTS:Description="Execute Process Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{5FD1D05D-2A67-469C-8644-79E26BAF3319}"
-          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:refId="Package\Foreach SiebelFS Folder\Clear FS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5b434b61-659a-4fa3-98a3-d31b5e667bf5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Dir"
+          DTS:ObjectName="Clear FS"
           DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
-          <DTS:PropertyExpression
-            DTS:Name="Arguments">"/c Dir " + @[User::Path] + " &gt; " +  @[User::Dir]</DTS:PropertyExpression>
           <DTS:ObjectData>
-            <ExecuteProcessData
-              Executable="%windir%\system32\cmd.exe"
-              Arguments="/c Dir E:\SiebelFS\attyear\att2006 &gt; E:\Scripts\05-FS\att2006.txt" />
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+              SQLTask:SqlStatementSource="Truncate Table FS;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Foreach SiebelFS Folder\DML Siebel Files"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{98DAEFEF-9A96-40FB-89B0-B725834CF0A1}"
+          DTS:DTSID="{e7c170a7-2bac-4786-8609-0df388cce329}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="DML Siebel Files"
@@ -542,7 +539,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
-              SQLTask:SqlStatementSource="DELETE FROM F&#xA;FROM            FS INNER JOIN&#xA;                         [Sonar Files] AS F ON FS.ID = F.ID AND FS.FileSize IS NULL&#xA;WHERE        (F.Path = ?)&#xA;;&#xA;&#xA;UPDATE       [Sonar Files]&#xA;SET                FileSize = FS.FileSize&#xA;FROM            FS INNER JOIN&#xA;                         [Sonar Files] ON FS.ID = [Sonar Files].ID AND FS.FileSize IS NOT NULL&#xA;WHERE        ([Sonar Files].Path = ?)&#xA;;&#xA;&#xA;Truncate Table FS;&#xA;&#xA;UPDATE [dbo].[FS Update] SET&#xA; [Path]=?&#xA;, [FS]=?&#xA;, [DB]=?&#xA;, [Ins]=?&#xA;, [Upd]=?&#xA;, [Del]=?&#xA;, Finished = GetDate()&#xA;WHERE ID = (SElect max(ID) FROM [FS Update])" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="DELETE FROM F&#xA;FROM            FS INNER JOIN&#xA;                         [Sonar Files] AS F ON FS.ID = F.ID AND FS.FileSize IS NULL&#xA;WHERE        (F.Path = ?)&#xA;;&#xA;&#xA;UPDATE       [Sonar Files]&#xA;SET                FileSize = FS.FileSize&#xA;FROM            FS INNER JOIN&#xA;                         [Sonar Files] ON FS.ID = [Sonar Files].ID AND FS.FileSize IS NOT NULL&#xA;WHERE        ([Sonar Files].Path = ?)&#xA;;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::PathID"
@@ -555,38 +552,57 @@
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="3"
                 SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach SiebelFS Folder\End Log"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{98DAEFEF-9A96-40FB-89B0-B725834CF0A1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="End Log"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+              SQLTask:SqlStatementSource="UPDATE [dbo].[FS Update] SET&#xA; [Path]=?&#xA;, [FS]=?&#xA;, [DB]=?&#xA;, [Ins]=?&#xA;, [Upd]=?&#xA;, [Del]=?&#xA;, Finished = GetDate()&#xA;WHERE ID = (SElect max(ID) FROM [FS Update])" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="2"
+                SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::PathID"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="3"
                 SQLTask:ParameterSize="-1" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="3"
+                SQLTask:ParameterName="1"
                 SQLTask:DtsVariableName="User::CntFS"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="3"
                 SQLTask:ParameterSize="-1" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="4"
+                SQLTask:ParameterName="2"
                 SQLTask:DtsVariableName="User::CntDB"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="3"
                 SQLTask:ParameterSize="-1" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="5"
+                SQLTask:ParameterName="3"
                 SQLTask:DtsVariableName="User::CntIns"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="3"
                 SQLTask:ParameterSize="-1" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="6"
+                SQLTask:ParameterName="4"
                 SQLTask:DtsVariableName="User::CntUpd"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="3"
                 SQLTask:ParameterSize="-1" />
               <SQLTask:ParameterBinding
-                SQLTask:ParameterName="7"
+                SQLTask:ParameterName="5"
                 SQLTask:DtsVariableName="User::CntDel"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="3"
@@ -1487,7 +1503,7 @@ ORDER BY Name</property>
                     <property
                       dataType="System.String"
                       description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                      name="FastLoadOptions">CHECK_CONSTRAINTS</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -2934,6 +2950,24 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach SiebelFS Folder\Update Docs"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{fafd026b-14f1-4326-a9e7-256d79b18f2b}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Docs"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+              SQLTask:SqlStatementSource="DELETE FROM ProcessErrors&#xA;FROM            FS INNER JOIN&#xA;                         Documents ON FS.ID = Documents.SAF INNER JOIN&#xA;                         ProcessErrors ON Documents.ID = ProcessErrors.Doc&#xA;WHERE        (FS.FileSize IS NULL)&#xA;;&#xA;DELETE FROM ProcessDetails&#xA;FROM            FS INNER JOIN&#xA;                         Documents ON FS.ID = Documents.SAF INNER JOIN&#xA;                         ProcessDetails ON Documents.ID = ProcessDetails.Doc&#xA;WHERE        (FS.FileSize IS NULL)&#xA;;&#xA;DELETE FROM Documents&#xA;FROM            FS INNER JOIN&#xA;                         Documents ON FS.ID = Documents.SAF&#xA;WHERE        (FS.FileSize IS NULL)&#xA;;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
@@ -2943,7 +2977,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:From="Package\Foreach SiebelFS Folder\SAF Files"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Foreach SiebelFS Folder\DML Siebel Files" />
+          DTS:To="Package\Foreach SiebelFS Folder\End Log" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
@@ -2953,23 +2987,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Foreach SiebelFS Folder\SAF Files" />
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 2]"
+          DTS:refId="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 3]"
           DTS:CreationName=""
-          DTS:DTSID="{8BDB0316-81B7-43A0-8E6E-7BBFE9E6FB8A}"
-          DTS:EvalOp="3"
-          DTS:Expression="!@[User::CurrentYear]"
-          DTS:From="Package\Foreach SiebelFS Folder\Start Log"
+          DTS:DTSID="{A676C90F-BE41-445E-9268-F5DC710124A1}"
+          DTS:From="Package\Foreach SiebelFS Folder\End Log"
           DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 2"
-          DTS:To="Package\Foreach SiebelFS Folder\Dir" />
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Foreach SiebelFS Folder\Update Docs" />
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 4]"
+          DTS:refId="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 5]"
           DTS:CreationName=""
-          DTS:DTSID="{3E8084F0-B664-4C37-86F9-6B4AC8820905}"
-          DTS:From="Package\Foreach SiebelFS Folder\Dir"
+          DTS:DTSID="{15FFF787-E101-4DFC-AB00-C5C3B0087DD3}"
+          DTS:From="Package\Foreach SiebelFS Folder\Update Docs"
           DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 4"
+          DTS:ObjectName="Constraint 5"
           DTS:To="Package\Foreach SiebelFS Folder\DML Siebel Files" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{9E777DC3-8134-4863-85B7-A4FE2E0EB549}"
+          DTS:From="Package\Foreach SiebelFS Folder\Clear FS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\Foreach SiebelFS Folder\Start Log" />
       </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
@@ -5227,27 +5267,31 @@ WHERE Name = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="127,42"
           Id="Package\Clear Log"
-          TopLeft="92,32" />
+          TopLeft="92,80" />
         <NodeLayout
           Size="130,42"
           Id="Package\Create Temp"
-          TopLeft="378,214" />
+          TopLeft="378,262" />
         <NodeLayout
           Size="130,42"
           Id="Package\Drop Temp"
-          TopLeft="376,309" />
+          TopLeft="376,357" />
         <NodeLayout
-          Size="93,42"
-          Id="Package\Foreach SiebelFS Folder\Dir"
-          TopLeft="247,99" />
+          Size="122,42"
+          Id="Package\Foreach SiebelFS Folder\Clear FS"
+          TopLeft="263,10" />
         <NodeLayout
-          Size="138,42"
+          Size="162,42"
           Id="Package\Foreach SiebelFS Folder\DML Siebel Files"
-          TopLeft="42,200" />
+          TopLeft="234,99" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\Foreach SiebelFS Folder\End Log"
+          TopLeft="57,199" />
         <NodeLayout
           Size="127,42"
           Id="Package\Foreach SiebelFS Folder\SAF Files"
@@ -5255,21 +5299,25 @@ WHERE Name = ?</property>
         <NodeLayout
           Size="124,42"
           Id="Package\Foreach SiebelFS Folder\Start Log"
-          TopLeft="76,11" />
+          TopLeft="45,11" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Foreach SiebelFS Folder\Update Docs"
+          TopLeft="248,198" />
         <EdgeLayout
           Id="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint]"
-          TopLeft="112.25,141">
+          TopLeft="115.25,141">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59"
+              EndConnector="0,58"
               Start="0,0"
-              End="0,51.5">
+              End="0,50.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.5" />
+                    End="0,50.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5280,7 +5328,7 @@ WHERE Name = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 1]"
-          TopLeft="116.083333333333,53">
+          TopLeft="110.25,53">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5301,67 +5349,63 @@ WHERE Name = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 2]"
-          TopLeft="157.333333333333,53">
+          Id="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 3]"
+          TopLeft="177,219.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="136.166666666667,46"
+              EndConnector="71,0"
               Start="0,0"
-              End="136.166666666667,38.5">
+              End="63.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.7515923566879" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.7515923566879"
-                    Point2="0,18.7515923566879"
-                    Point3="4,18.7515923566879" />
-                  <mssgle:LineSegment
-                    End="132.166666666667,18.7515923566879" />
-                  <mssgle:CubicBezierSegment
-                    Point1="132.166666666667,18.7515923566879"
-                    Point2="136.166666666667,18.7515923566879"
-                    Point3="136.166666666667,22.7515923566879" />
-                  <mssgle:LineSegment
-                    End="136.166666666667,38.5" />
+                    End="63.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="60.0833333333333,23.7515923566879,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 4]"
-          TopLeft="279.333333333333,141">
+          Id="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 5]"
+          TopLeft="317,198">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-146.666666666667,59"
+              EndConnector="0,-57"
               Start="0,0"
-              End="-146.666666666667,51.5">
+              End="0,-49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.6996841155235" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.6996841155235"
-                    Point2="0,29.6996841155235"
-                    Point3="-4,29.6996841155235" />
+                    End="0,-49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach SiebelFS Folder.PrecedenceConstraints[Constraint 6]"
+          TopLeft="263,31.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-94,0"
+              Start="0,0"
+              End="-86.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-142.666666666667,29.6996841155235" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-142.666666666667,29.6996841155235"
-                    Point2="-146.666666666667,29.6996841155235"
-                    Point3="-146.666666666667,33.6996841155235" />
-                  <mssgle:LineSegment
-                    End="-146.666666666667,51.5" />
+                    End="-86.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5373,14 +5417,14 @@ WHERE Name = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="440,297"
-          Size="440,340"
+          PanelSize="440,270"
+          Size="440,313"
           Id="Package\Foreach SiebelFS Folder"
-          TopLeft="635,58" />
+          TopLeft="631,117" />
         <NodeLayout
           Size="130,42"
           Id="Package\Select Folders"
-          TopLeft="383,111" />
+          TopLeft="383,159" />
         <NodeLayout
           Size="149,42"
           Id="Package\Sequence Container\Get Template Path"
@@ -5417,10 +5461,10 @@ WHERE Name = ?</property>
           PanelSize="202,182"
           Size="202,225"
           Id="Package\Sequence Container"
-          TopLeft="55,118" />
+          TopLeft="55,166" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="257,230.5">
+          TopLeft="257,278.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5454,7 +5498,7 @@ WHERE Name = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="445.5,214">
+          TopLeft="445.5,262">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5476,7 +5520,7 @@ WHERE Name = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="155.75,74">
+          TopLeft="155.75,122">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5498,18 +5542,30 @@ WHERE Name = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="508,231.5">
+          TopLeft="508,283">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="127,0"
+              EndConnector="123,-9.5"
               Start="0,0"
-              End="119.5,0">
+              End="115.5,-9.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="119.5,0" />
+                    End="57.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.5,0"
+                    Point2="61.5,0"
+                    Point3="61.5,-4" />
+                  <mssgle:LineSegment
+                    End="61.5,-5.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.5,-5.5"
+                    Point2="61.5,-9.5"
+                    Point3="65.5,-9.5" />
+                  <mssgle:LineSegment
+                    End="115.5,-9.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5520,30 +5576,30 @@ WHERE Name = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="635,311">
+          TopLeft="631,349.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-129,19"
+              EndConnector="-125,28.25"
               Start="0,0"
-              End="-121.5,19">
+              End="-117.5,28.25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-39.6692607003891,0" />
+                    End="-38.3706441393875,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-39.6692607003891,0"
-                    Point2="-43.6692607003891,0"
-                    Point3="-43.6692607003891,4" />
+                    Point1="-38.3706441393875,0"
+                    Point2="-42.3706441393875,0"
+                    Point3="-42.3706441393875,4" />
                   <mssgle:LineSegment
-                    End="-43.6692607003891,15" />
+                    End="-42.3706441393875,24.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="-43.6692607003891,15"
-                    Point2="-43.6692607003891,19"
-                    Point3="-47.6692607003891,19" />
+                    Point1="-42.3706441393875,24.25"
+                    Point2="-42.3706441393875,28.25"
+                    Point3="-46.3706441393875,28.25" />
                   <mssgle:LineSegment
-                    End="-121.5,19" />
+                    End="-117.5,28.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5554,30 +5610,30 @@ WHERE Name = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="513,132">
+          TopLeft="513,180">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="122,13"
+              EndConnector="118,17.25"
               Start="0,0"
-              End="114.5,13">
+              End="110.5,17.25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="76.7003891050584,0" />
+                    End="74.0021119324182,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="76.7003891050584,0"
-                    Point2="80.7003891050584,0"
-                    Point3="80.7003891050584,4" />
+                    Point1="74.0021119324182,0"
+                    Point2="78.0021119324182,0"
+                    Point3="78.0021119324182,4" />
                   <mssgle:LineSegment
-                    End="80.7003891050584,9" />
+                    End="78.0021119324182,13.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="80.7003891050584,9"
-                    Point2="80.7003891050584,13"
-                    Point3="84.7003891050584,13" />
+                    Point1="78.0021119324182,13.25"
+                    Point2="78.0021119324182,17.25"
+                    Point3="82.0021119324182,17.25" />
                   <mssgle:LineSegment
-                    End="114.5,13" />
+                    End="110.5,17.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5588,7 +5644,7 @@ WHERE Name = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="442,256">
+          TopLeft="442,304">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

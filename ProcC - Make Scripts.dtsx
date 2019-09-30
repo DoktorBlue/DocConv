@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcC - Make Scripts"
   DTS:PackageType="5"
-  DTS:VersionBuild="71"
-  DTS:VersionGUID="{7892E3FC-BD18-4C17-8D7D-D861A0446ED8}">
+  DTS:VersionBuild="80"
+  DTS:VersionGUID="{32FF995B-0D4F-4612-AEF6-1648AE055883}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -223,6 +223,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="MigLog"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{2A4D1A3D-8159-44A9-BD1C-3E1B64AB9C71}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -232,7 +244,7 @@
       DTS:Required="True">
       <DTS:Property
         DTS:DataType="17"
-        DTS:Name="ParameterValue">16</DTS:Property>
+        DTS:Name="ParameterValue">19</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
@@ -289,7 +301,7 @@ Inner Join FileTypes FT ON D.FileType = FT.ID
 Inner Join [xFdF Templates] AS X ON D.[xFdF Template] = X.ID
 Inner Join [MetadataStatus] AS M ON D.[DocStatus] = M.ID
 Where M.DoConvert = 1
-AND CurrentStep = 15
+AND CurrentStep = 18
 AND ProcStatus &lt; 3 
 Order By FT.Sort ASC, X.[Doc Count] DESC, DossierDate ASC</DTS:VariableValue>
     </DTS:Variable>
@@ -341,7 +353,108 @@ Order By FT.Sort ASC, X.[Doc Count] DESC, DossierDate ASC</DTS:VariableValue>
         DTS:DataType="8">E:\Scripts\Unzip</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">4,7,OnError,13,OnQueryCancel,12,OnTaskFailed,9,OnWarning</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnQueryCancel"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{2A4D1A3D-8159-44A9-BD1C-3E1B64AB9C71}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clear Log"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0dd6b8cb-ddcc-4b0a-9363-6a98358ff3b4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear Log"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="DELETE FROM [dbo].[SysSSisLog]&#xA;WHERE StartTime &lt; DateAdd(Day,-1, GetDate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Create Batches"
       DTS:AssignExpression="@[User::i]=@[User::i]+1"
@@ -355,6 +468,8 @@ Order By FT.Sort ASC, X.[Doc Count] DESC, DossierDate ASC</DTS:VariableValue>
       DTS:MaxConcurrent="1"
       DTS:ObjectName="Create Batches">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:Executables>
         <DTS:Executable
           DTS:refId="Package\Create Batches\A - Create Batch"
@@ -364,8 +479,10 @@ Order By FT.Sort ASC, X.[Doc Count] DESC, DossierDate ASC</DTS:VariableValue>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="A - Create Batch"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
@@ -393,6 +510,8 @@ Order By FT.Sort ASC, X.[Doc Count] DESC, DossierDate ASC</DTS:VariableValue>
           DTS:ObjectName="B - Link Documents"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <pipeline
               version="1">
@@ -1116,17 +1235,21 @@ where [refTable].[Doc] = ? and [refTable].[Main] = ?</property>
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        ID, Name, Path, Source
-FROM            [Sonar Files] AS F
-WHERE        (Actief = 1)</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        F.ID, F.Name, F.Path, F.Source
+FROM            [Sonar Files] AS F INNER JOIN
+                         Documents AS D ON F.ID = D.SAF INNER JOIN
+                         MetadataStatus AS S ON D.DocStatus = S.ID
+WHERE        (F.Actief = 1) AND (S.DoConvert = 1) AND (D.ProcStatus &lt; 3)</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        ID, Name, Path, Source
-FROM            [Sonar Files] AS F
-WHERE        (Actief = 1)) [refTable]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        F.ID, F.Name, F.Path, F.Source
+FROM            [Sonar Files] AS F INNER JOIN
+                         Documents AS D ON F.ID = D.SAF INNER JOIN
+                         MetadataStatus AS S ON D.DocStatus = S.ID
+WHERE        (F.Actief = 1) AND (S.DoConvert = 1) AND (D.ProcStatus &lt; 3)) [refTable]
 where [refTable].[ID] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -1359,13 +1482,13 @@ where [refTable].[ID] = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_STR,255,1252)((#{Package\Create Batches\B - Link Documents\SAF Path.Outputs[Lookup Match Output].Columns[CurrentYear]} ? "/siebelfs/att2/" : #{Package\Create Batches\B - Link Documents\SAF Path.Outputs[Lookup Match Output].Columns[SAF Path]}) + #{Package\Create Batches\B - Link Documents\SAF Source.Outputs[Lookup Match Output].Columns[Prefix]} + "_1-" + #{Package\Create Batches\B - Link Documents\SAF File.Outputs[Lookup Match Output].Columns[Suffix]} + ".SAF")</property>
+                              name="Expression">(DT_STR,255,1252)((#{Package\Create Batches\B - Link Documents\SAF Path.Outputs[Lookup Match Output].Columns[CurrentYear]} ? [LEFT](#{Package\Create Batches\B - Link Documents\SAF Path.Outputs[Lookup Match Output].Columns[SAF Path]},[LEN](#{Package\Create Batches\B - Link Documents\SAF Path.Outputs[Lookup Match Output].Columns[SAF Path]}) - 5) + "\\" : #{Package\Create Batches\B - Link Documents\SAF Path.Outputs[Lookup Match Output].Columns[SAF Path]}) + #{Package\Create Batches\B - Link Documents\SAF Source.Outputs[Lookup Match Output].Columns[Prefix]} + "_1-" + #{Package\Create Batches\B - Link Documents\SAF File.Outputs[Lookup Match Output].Columns[Suffix]} + ".SAF")</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,255,1252)((CurrentYear ? "/siebelfs/att2/" : [SAF Path]) + Prefix + "_1-" + Suffix + ".SAF")</property>
+                              name="FriendlyExpression">(DT_STR,255,1252)((CurrentYear ? LEFT([SAF Path],LEN([SAF Path]) - 5) + "\\" : [SAF Path]) + Prefix + "_1-" + Suffix + ".SAF")</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -2144,8 +2267,10 @@ where [refTable].[ID] = ?</property>
           DTS:ExecutableType="Microsoft.FileSystemTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Batch BOK"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <FileSystemData
               TaskSourcePath="User::Dummy_File"
@@ -2163,6 +2288,8 @@ where [refTable].[ID] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="C - Generate Scripts">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:Executables>
             <DTS:Executable
               DTS:refId="Package\Create Batches\C - Generate Scripts\Dispatch"
@@ -2172,8 +2299,10 @@ where [refTable].[ID] = ?</property>
               DTS:ExecutableType="Microsoft.ExpressionTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Dispatch"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
               <DTS:ObjectData>
                 <ExpressionTask
                   Expression="1" />
@@ -2189,6 +2318,8 @@ where [refTable].[ID] = ?</property>
               DTS:ObjectName="PDF"
               DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
               <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
               <DTS:ObjectData>
                 <pipeline
                   version="1">
@@ -2252,14 +2383,14 @@ where [refTable].[ID] = ?</property>
                             <inputColumn
                               refId="Package\Create Batches\C - Generate Scripts\PDF\Cmd File.Inputs[Flat File Destination Input].Columns[Out]"
                               cachedDataType="wstr"
-                              cachedLength="532"
+                              cachedLength="511"
                               cachedName="Out"
                               externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\PDF\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[Out]"
                               lineageId="Package\Create Batches\C - Generate Scripts\PDF\Derived Column.Outputs[Derived Column Output].Columns[Out]" />
                             <inputColumn
                               refId="Package\Create Batches\C - Generate Scripts\PDF\Cmd File.Inputs[Flat File Destination Input].Columns[Log]"
                               cachedDataType="wstr"
-                              cachedLength="532"
+                              cachedLength="511"
                               cachedName="Log"
                               externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\PDF\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[Log]"
                               lineageId="Package\Create Batches\C - Generate Scripts\PDF\Derived Column.Outputs[Derived Column Output].Columns[Log]" />
@@ -2469,13 +2600,13 @@ where [refTable].[ID] = ?</property>
                                   containsID="true"
                                   dataType="System.String"
                                   description="Derived Column Expression"
-                                  name="Expression">#{Package\Create Batches\C - Generate Scripts\PDF\Templ Root.Outputs[Lookup Match Output].Columns[Template Root]} + "/" + #{Package\Create Batches\C - Generate Scripts\PDF\Doc IDs.Outputs[OLE DB Source Output].Columns[Name]}</property>
+                                  name="Expression">#{Package\Create Batches\C - Generate Scripts\PDF\Templ Root.Outputs[Lookup Match Output].Columns[Template Root]} + "\\" + #{Package\Create Batches\C - Generate Scripts\PDF\Doc IDs.Outputs[OLE DB Source Output].Columns[Name]}</property>
                                 <property
                                   containsID="true"
                                   dataType="System.String"
                                   description="Derived Column Friendly Expression"
                                   expressionType="Notify"
-                                  name="FriendlyExpression">[Template Root] + "/" + Name</property>
+                                  name="FriendlyExpression">[Template Root] + "\\" + Name</property>
                               </properties>
                             </outputColumn>
                           </outputColumns>
@@ -3104,6 +3235,8 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
               DTS:ObjectName="SAF"
               DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
               <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
               <DTS:ObjectData>
                 <pipeline
                   version="1">
@@ -3616,13 +3749,13 @@ Public Class ScriptMain
 
         AddCmdLine("MkDir """ & Row.UnzipDestination & """ 1>> %~dpn0.siebel 2>> %~dpn0.err")
         If Row.CurrentYear Then
-            SrcPath = Left(Row.Archive, Len(Row.Archive) - Len(Row.Saf) - 14)
+            SrcPath = Left(Row.Archive, Len(Row.Archive) - Len(Row.Saf) - 5)
             AddCmdLine("Copy """ & SrcPath + "2\" + Row.Saf & """ """ & Row.UnzipDestination & """ 1>> %~dpn0.siebel 2>> %~dpn0.err")
             AddCmdLine("If ERRORLEVEL 1 Copy """ & SrcPath + "\" + Row.Saf & """ """ & Row.UnzipDestination & """ 1>> %~dpn0.siebel 2>> %~dpn0.err")
         Else
             AddCmdLine("Copy """ & Row.Archive & """ """ & Row.UnzipDestination & """ 1>> %~dpn0.siebel 2>> %~dpn0.err")
         End If
-        AddCmdLine("""" & Row.UnzipProgramm & """ """ & Row.UnzipDestination & "\" & Row.Saf & """ """ & OutFile & """ >> %~dpn0.siebel 2>> %~dpn0.siebel")
+        AddCmdLine("""" & Row.UnzipProgramm & """ """ & Row.UnzipDestination & "\" & Row.Saf & """ """ & OutFile & """ >> %~dpn0.err 2>> %~dpn0.siebel")
         AddCmdLine("If ERRORLEVEL 0 Set Result=Unzipped")
         AddCmdLine("If ERRORLEVEL 1 Set Result=Failed")
         Call PrepareLocalDateTime()
@@ -3861,7 +3994,7 @@ End Class
     <msb:CodeName>SC_5f38e7770e7e48b98fbe584e9670cd64</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_5f38e7770e7e48b98fbe584e9670cd64</msb:DisplayName>
-    <msb:ProjectId>{493F9237-41BF-4581-92BB-35C1CEF2D90E}</msb:ProjectId>
+    <msb:ProjectId>{0BC9D56D-DBB8-4A0A-BF8C-DE062CD774F4}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_5f38e7770e7e48b98fbe584e9670cd64.vbproj" />
@@ -4187,31 +4320,31 @@ End Namespace
                             <arrayElement
                               dataType="System.String"><![CDATA[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
-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
+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
-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
+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
-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
+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
-LnJlbG9jAAAMAAAAAIAAAAACAAAANgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAABE
-TQAAAAAAAEgAAAACAAUAQCgAABgkAAABAAAAAAAAAFhMAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+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
-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
+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
-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
+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
@@ -4219,20 +4352,20 @@ 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
-PAAACgoGKiYCFgMoPQAACipaAywIAhYoPgAACipyTwQAcHM/AAAKeh4CKEAAAAoqHgIoQQAACioA
+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
-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
+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
-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
+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
-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
+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
-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
+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
@@ -4364,40 +4497,40 @@ ADAAXgB8ACUAbABkAHQAJQBeAHwAUwB0AGEAcgB0AF4AfAAAKWUAYwBoAG8AIAAwAF4AfAAlAGwA
 ZAB0ACUAXgB8AEUAbgBkAF4AfAAAA1wAAAMuAAAPTQBrAEQAaQByACAAIgAARSIAIAAxAD4APgAg
 ACUAfgBkAHAAbgAwAC4AcwBpAGUAYgBlAGwAIAAyAD4APgAgACUAfgBkAHAAbgAwAC4AZQByAHIA
 AA1DAG8AcAB5ACAAIgAABTIAXAAAByIAIAAiAAAtSQBmACAARQBSAFIATwBSAEwARQBWAEUATAAg
-ADEAIABDAG8AcAB5ACAAIgAAAyIAAEkiACAAPgA+ACAAJQB+AGQAcABuADAALgBzAGkAZQBiAGUA
-bAAgADIAPgA+ACAAJQB+AGQAcABuADAALgBzAGkAZQBiAGUAbAAAR0kAZgAgAEUAUgBSAE8AUgBM
-AEUAVgBFAEwAIAAwACAAUwBlAHQAIABSAGUAcwB1AGwAdAA9AFUAbgB6AGkAcABwAGUAZAAAQ0kA
-ZgAgAEUAUgBSAE8AUgBMAEUAVgBFAEwAIAAxACAAUwBlAHQAIABSAGUAcwB1AGwAdAA9AEYAYQBp
-AGwAZQBkAAALZQBjAGgAbwAgAAAnXgB8ACUAbABkAHQAJQBeAHwAJQBSAGUAcwB1AGwAdAAlAF4A
-fAAAIWUAYwBoAG8AIABEAG8AYwBDAG8AbgB2AEkARABeAD0AAB0gAD4APgAgACUAfgBkAHAAbgAw
-AC4AZQByAHIAAICbSQBzAE4AdQBsAGwAIABwAHIAbwBwAGUAcgB0AHkAIABjAGEAbgBuAG8AdAAg
-AGIAZQAgAHMAZQB0ACAAdABvACAARgBhAGwAcwBlAC4AIABBAHMAcwBpAGcAbgAgAGEAIAB2AGEA
-bAB1AGUAIAB0AG8AIAB0AGgAZQAgAGMAbwBsAHUAbQBuACAAaQBuAHMAdABlAGEAZAAuAAAPSQBu
-AHAAdQB0ACAAMAAAD0MAbQBkAEYAaQBsAGUAABFEAG8AYwBDAG8AdQBuAHQAAAAAWUtT6bKzNkWt
-fMpEiTCcUwAEIAEBCAMgAAEFIAEBEREEIAEBDgQgAQECBSACAQ4OBSABARFFByAEAQ4ODg4GFRI4
-ARIMBhUSOAESCAYVEjgBEmUGFRI4ARI0BCAAEwAHAAESbRGAoQUgABKApQcgAgEOEoClBgcDDg4Q
-CAUAAQ4dDgYAAw4ODg4EAAEIDgUAAg4OCAQAAQ4IBwAEDg4ODg4EBwIICAMAAAEFIAASgLkFAAAS
-gMEDIAAOCCAFAQgODg4IBgABARKAxQYAARKAxQgLIAMBEoCNHQgSgJEEBhKAjQMGHQgEIAEICAQg
-AQIIBCABDggDBwECAyAAAgUgAgEIHAcgAgIOEYDNBSABHQgIBwACCBKAkQ4FIAASgNEGIAESgNUc
-BQAAEoDZBiABHBKA3QQAAQgcBAABHBwEAAEBHAQgAQIcAyAACAQHAR4AAh4ABRABAB4ABAoBHgAE
-BwETAAYVEjgBEwAHBhUScQETAAYVEnEBEwACEwAECgETAAUgAQETAAi3elxWGTTgiQiwP19/EdUK
-OgiJhF3NgIDMkQcGFRI4ARIMBwYVEjgBEggHBhUSOAESZQcGFRI4ARI0AwYSeQMGEn0CBggDBhIo
-AwYSLAMGEiAEBhKAlQMGEjACBhwEAAASDAQAABIIBAAAEmUEAAASNAQAABJ5BAAAEn0FAAEBEn0F
-IAEBEhwLIAQBCA4SgI0SgJENIAQBCB0IHRKAjRKAkQYgAQESgJUEAAASMAQgABJtBxABAR4AHgAH
-MAEBARAeAAQIABIMBAgAEggECAASZQQIABI0BAgAEnkECAASfQMoAAgDKAACAygADgQIABIwBCgA
-EwAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1ND
-XzVmMzhlNzc3MGU3ZTQ4Yjk4ZmJlNTg0ZTk2NzBjZDY0AAAFAQAAAAAWAQARQ29weXJpZ2h0IEAg
-IDIwMTkAAAUBAAEAACkBACQyMTQyMmFmMy1lYjVkLTQxMWYtODJiNi1kMGQwZTIzYmQxYjcAAAwB
-AAcxLjAuMC4wAABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rp
-c3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNQQBAAAACAEAAQAAAAAAGAEACk15VGVtcGxhdGUI
-MTEuMC4wLjAAAGEBADRTeXN0ZW0uV2ViLlNlcnZpY2VzLlByb3RvY29scy5Tb2FwSHR0cENsaWVu
-dFByb3RvY29sEkNyZWF0ZV9fSW5zdGFuY2VfXxNEaXNwb3NlX19JbnN0YW5jZV9fAAAAEAEAC015
-LkNvbXB1dGVyAAATAQAOTXkuQXBwbGljYXRpb24AAAwBAAdNeS5Vc2VyAAATAQAOTXkuV2ViU2Vy
-dmljZXMAAAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIs
-IG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9r
-ZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIA
-AAAAAAAAAAAAAFBBRFBBRFC0AAAAOE0AAAAAAAAAAAAAUk0AAAAgAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAERNAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAA
+ADEAIABDAG8AcAB5ACAAIgAAAyIAAEMiACAAPgA+ACAAJQB+AGQAcABuADAALgBlAHIAcgAgADIA
+PgA+ACAAJQB+AGQAcABuADAALgBzAGkAZQBiAGUAbAAAR0kAZgAgAEUAUgBSAE8AUgBMAEUAVgBF
+AEwAIAAwACAAUwBlAHQAIABSAGUAcwB1AGwAdAA9AFUAbgB6AGkAcABwAGUAZAAAQ0kAZgAgAEUA
+UgBSAE8AUgBMAEUAVgBFAEwAIAAxACAAUwBlAHQAIABSAGUAcwB1AGwAdAA9AEYAYQBpAGwAZQBk
+AAALZQBjAGgAbwAgAAAnXgB8ACUAbABkAHQAJQBeAHwAJQBSAGUAcwB1AGwAdAAlAF4AfAAAIWUA
+YwBoAG8AIABEAG8AYwBDAG8AbgB2AEkARABeAD0AAB0gAD4APgAgACUAfgBkAHAAbgAwAC4AZQBy
+AHIAAICbSQBzAE4AdQBsAGwAIABwAHIAbwBwAGUAcgB0AHkAIABjAGEAbgBuAG8AdAAgAGIAZQAg
+AHMAZQB0ACAAdABvACAARgBhAGwAcwBlAC4AIABBAHMAcwBpAGcAbgAgAGEAIAB2AGEAbAB1AGUA
+IAB0AG8AIAB0AGgAZQAgAGMAbwBsAHUAbQBuACAAaQBuAHMAdABlAGEAZAAuAAAPSQBuAHAAdQB0
+ACAAMAAAD0MAbQBkAEYAaQBsAGUAABFEAG8AYwBDAG8AdQBuAHQAAOOj60qptUtKnKsdrMp0o3UA
+BCABAQgDIAABBSABARERBCABAQ4EIAEBAgUgAgEODgUgAQERRQcgBAEODg4OBhUSOAESDAYVEjgB
+EggGFRI4ARJlBhUSOAESNAQgABMABwABEm0RgKEFIAASgKUHIAIBDhKApQYHAw4OEAgFAAEOHQ4G
+AAMODg4OBAABCA4FAAIODggEAAEOCAcABA4ODg4OBAcCCAgDAAABBSAAEoC5BQAAEoDBAyAADggg
+BQEIDg4OCAYAAQESgMUGAAESgMUICyADARKAjR0IEoCRBAYSgI0DBh0IBCABCAgEIAECCAQgAQ4I
+AwcBAgMgAAIFIAIBCBwHIAICDhGAzQUgAR0ICAcAAggSgJEOBSAAEoDRBiABEoDVHAUAABKA2QYg
+ARwSgN0EAAEIHAQAARwcBAABARwEIAECHAMgAAgEBwEeAAIeAAUQAQAeAAQKAR4ABAcBEwAGFRI4
+ARMABwYVEnEBEwAGFRJxARMAAhMABAoBEwAFIAEBEwAIt3pcVhk04IkIsD9ffxHVCjoIiYRdzYCA
+zJEHBhUSOAESDAcGFRI4ARIIBwYVEjgBEmUHBhUSOAESNAMGEnkDBhJ9AgYIAwYSKAMGEiwDBhIg
+BAYSgJUDBhIwAgYcBAAAEgwEAAASCAQAABJlBAAAEjQEAAASeQQAABJ9BQABARJ9BSABARIcCyAE
+AQgOEoCNEoCRDSAEAQgdCB0SgI0SgJEGIAEBEoCVBAAAEjAEIAASbQcQAQEeAB4ABzABAQEQHgAE
+CAASDAQIABIIBAgAEmUECAASNAQIABJ5BAgAEn0DKAAIAygAAgMoAA4ECAASMAQoABMACAEACAAA
+AAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTQ181ZjM4ZTc3
+NzBlN2U0OGI5OGZiZTU4NGU5NjcwY2Q2NAAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDE5AAAF
+AQABAAApAQAkMjE0MjJhZjMtZWI1ZC00MTFmLTgyYjYtZDBkMGUyM2JkMWI3AAAMAQAHMS4wLjAu
+MAAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC41AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFt
+ZRIuTkVUIEZyYW1ld29yayA0LjUEAQAAAAgBAAEAAAAAABgBAApNeVRlbXBsYXRlCDExLjAuMC4w
+AABhAQA0U3lzdGVtLldlYi5TZXJ2aWNlcy5Qcm90b2NvbHMuU29hcEh0dHBDbGllbnRQcm90b2Nv
+bBJDcmVhdGVfX0luc3RhbmNlX18TRGlzcG9zZV9fSW5zdGFuY2VfXwAAABABAAtNeS5Db21wdXRl
+cgAAEwEADk15LkFwcGxpY2F0aW9uAAAMAQAHTXkuVXNlcgAAEwEADk15LldlYlNlcnZpY2VzAAAA
+tAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2Nvcmxp
+YiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1
+YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAA
+AABQQURQQURQtAAAADBNAAAAAAAAAAAAAEpNAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8TQAA
+AAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAAAAAYAACA
@@ -4427,7 +4560,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAwAAABkPQAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAwAAABcPQAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -4870,6 +5003,8 @@ where [refTable].[Step] = ? and [refTable].[Name] = ?</property>
               DTS:ObjectName="XML"
               DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
               <DTS:Variables />
+              <DTS:LoggingOptions
+                DTS:FilterKind="0" />
               <DTS:ObjectData>
                 <pipeline
                   version="1">
@@ -6460,8 +6595,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Purge Batch"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="2">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
@@ -6483,8 +6620,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Set Batch State"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
@@ -6506,8 +6645,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:ExecutableType="Microsoft.ExpressionTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Start"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <ExpressionTask
               Expression="1" />
@@ -6521,8 +6662,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Update Batch"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
@@ -6544,8 +6687,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Update Documents"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="4">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
@@ -6659,6 +6804,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:ObjectName="Create Run"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -7833,8 +7980,10 @@ where [refTable].[Step] = ?</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get RunID"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
@@ -7881,6 +8030,14 @@ where [refTable].[Step] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Create Batches" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{2C8A7A48-E56E-4AD4-8B31-6B3F7920B06E}"
+      DTS:From="Package\Clear Log"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Create Batches" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -7893,7 +8050,11 @@ where [refTable].[Step] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Clear Log"
+          TopLeft="187,54" />
         <NodeLayout
           Size="130,42"
           Id="Package\Create Batches\A - Create Batch"
@@ -8285,25 +8446,25 @@ where [refTable].[Step] = ?</property>
         <NodeLayout
           Size="135,42"
           Id="Package\Create Run"
-          TopLeft="262,51" />
+          TopLeft="399,51" />
         <NodeLayout
           Size="131,42"
           Id="Package\Get RunID"
-          TopLeft="541,48" />
+          TopLeft="622,49" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="397,70.5">
+          TopLeft="534,71">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="144,0"
+              EndConnector="88,0"
               Start="0,0"
-              End="136.5,0">
+              End="80.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="136.5,0" />
+                    End="80.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8314,18 +8475,18 @@ where [refTable].[Step] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="608.75,90">
+          TopLeft="685.375,91">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,78"
+              EndConnector="0,77"
               Start="0,0"
-              End="0,70.5">
+              End="0,69.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.5" />
+                    End="0,69.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8336,7 +8497,7 @@ where [refTable].[Step] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="325.75,93">
+          TopLeft="466.5,93">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8348,6 +8509,28 @@ where [refTable].[Step] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="250.125,96">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8427,7 +8610,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8449,7 +8634,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8471,7 +8658,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8517,7 +8706,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8539,7 +8730,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8561,7 +8754,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8583,7 +8778,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8629,7 +8826,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8651,7 +8850,9 @@ where [refTable].[Step] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8909,13 +9110,13 @@ where [refTable].[Step] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="118,42"
-          Id="Package\Create Batches\C - Generate Scripts\SAF\Doc IDs"
-          TopLeft="285,66" />
-        <NodeLayout
           Size="139,42"
           Id="Package\Create Batches\C - Generate Scripts\SAF\Set Defaults"
           TopLeft="561,65" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Create Batches\C - Generate Scripts\SAF\Doc IDs"
+          TopLeft="285,66" />
         <NodeLayout
           Size="143,42"
           Id="Package\Create Batches\C - Generate Scripts\SAF\Layout Script"
@@ -8928,6 +9129,30 @@ where [refTable].[Step] = ?</property>
           Size="123,42"
           Id="Package\Create Batches\C - Generate Scripts\SAF\Cmd File"
           TopLeft="47,189" />
+        <EdgeLayout
+          Id="Package\Create Batches\C - Generate Scripts\SAF.Paths[CmdFile]"
+          TopLeft="283,211.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-113,0"
+              Start="0,0"
+              End="-105.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-105.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.9538671875,5,36.407734375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Create Batches\C - Generate Scripts\SAF.Paths[OLE DB Source Output]"
           TopLeft="403,86.5">
@@ -8992,30 +9217,6 @@ where [refTable].[Step] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Create Batches\C - Generate Scripts\SAF.Paths[CmdFile]"
-          TopLeft="283,211.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-113,0"
-              Start="0,0"
-              End="-105.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-105.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-70.9538671875,5,36.407734375,9.7490234375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcE - Send to EA - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{1B71850D-80C8-4E62-A264-4475C884F15B}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{A1F33493-E020-428E-A268-F59865A396D2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1520,13 +1520,13 @@ where [refTable].[Step] = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_I2)[CEILING]((#{Package\A - Create Run\Create Run\Dosering.Outputs[OLE DB Source Output].Columns[Dosering]} * #{Package\A - Create Run\Create Run\Frequentie.Outputs[Lookup Match Output].Columns[ProcInterval]} - #{Package\A - Create Run\Create Run\CurDepth.Outputs[Lookup Match Output].Columns[CurQueDep]}) / #{Package\A - Create Run\Create Run\NoBatches.Outputs[Lookup Match Output].Columns[NoBatches]})</property>
+                              name="Expression">(DT_I2)[FLOOR]((#{Package\A - Create Run\Create Run\Dosering.Outputs[OLE DB Source Output].Columns[Dosering]} * #{Package\A - Create Run\Create Run\Frequentie.Outputs[Lookup Match Output].Columns[ProcInterval]} - #{Package\A - Create Run\Create Run\CurDepth.Outputs[Lookup Match Output].Columns[CurQueDep]}) / #{Package\A - Create Run\Create Run\NoBatches.Outputs[Lookup Match Output].Columns[NoBatches]})</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_I2)CEILING((Dosering * ProcInterval - CurQueDep) / NoBatches)</property>
+                              name="FriendlyExpression">(DT_I2)FLOOR((Dosering * ProcInterval - CurQueDep) / NoBatches)</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -1602,7 +1602,6 @@ where [refTable].[Step] = ?</property>
           DTS:refId="Package\A - Create Run\Exec MQ Cmd"
           DTS:CreationName="Microsoft.ExecuteProcess"
           DTS:Description="Execute Process Task"
-          DTS:Disabled="True"
           DTS:DTSID="{70C9C154-6EBE-4C15-9AB0-6DD4CA1F2542}"
           DTS:ExecutableType="Microsoft.ExecuteProcess"
           DTS:LocaleID="-1"
@@ -1611,7 +1610,10 @@ where [refTable].[Step] = ?</property>
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
-          <DTS:ObjectData />
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="E:\Scripts\04-EA\MQ_Queue_Depth.bat" />
+          </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\A - Create Run\Get RunID"
@@ -4211,7 +4213,7 @@ where [refTable].[ID] = ?</property>
         <NodeLayout
           Size="131,42"
           Id="Package\A - Create Run\Get RunID"
-          TopLeft="222,102" />
+          TopLeft="233,101" />
         <NodeLayout
           Size="173,42"
           Id="Package\A - Create Run\Import DosSchema"
@@ -4222,18 +4224,18 @@ where [refTable].[ID] = ?</property>
           TopLeft="28,24" />
         <EdgeLayout
           Id="Package\A - Create Run.PrecedenceConstraints[Constraint]"
-          TopLeft="168,124.5">
+          TopLeft="168,124">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54,0"
+              EndConnector="65,0"
               Start="0,0"
-              End="46.5,0">
+              End="57.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="46.5,0" />
+                    End="57.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4311,10 +4313,10 @@ where [refTable].[ID] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="417,258"
-          Size="417,301"
+          PanelSize="417,249"
+          Size="417,292"
           Id="Package\A - Create Run"
-          TopLeft="64,61" />
+          TopLeft="41,43" />
         <NodeLayout
           Size="155,42"
           Id="Package\B - Link Documents\Create Batches"
@@ -4410,7 +4412,7 @@ where [refTable].[ID] = ?</property>
           PanelSize="222,479"
           Size="222,522"
           Id="Package\B - Link Documents"
-          TopLeft="639,79" />
+          TopLeft="616,45" />
         <NodeLayout
           Size="107,42"
           Id="Package\C - Process Batches\Foreach Batch\Slave"
@@ -4418,8 +4420,8 @@ where [refTable].[ID] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="179,101"
-          Size="179,144"
+          PanelSize="161,101"
+          Size="161,144"
           Id="Package\C - Process Batches\Foreach Batch"
           TopLeft="236,22" />
         <NodeLayout
@@ -4523,24 +4525,36 @@ where [refTable].[ID] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="449,198"
-          Size="449,241"
+          PanelSize="413,182"
+          Size="413,225"
           Id="Package\C - Process Batches"
-          TopLeft="64,398" />
+          TopLeft="44,352" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="481,257.333333333333">
+          TopLeft="458,189">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="158,0"
+              EndConnector="158,31.3333333333333"
               Start="0,0"
-              End="150.5,0">
+              End="150.5,31.3333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="150.5,0" />
+                    End="90.5103132161956,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="90.5103132161956,0"
+                    Point2="94.5103132161956,0"
+                    Point3="94.5103132161956,4" />
+                  <mssgle:LineSegment
+                    End="94.5103132161956,27.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.5103132161956,27.3333333333333"
+                    Point2="94.5103132161956,31.3333333333333"
+                    Point3="98.5103132161956,31.3333333333333" />
+                  <mssgle:LineSegment
+                    End="150.5,31.3333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4551,30 +4565,30 @@ where [refTable].[ID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="639,425.666666666667">
+          TopLeft="616,391.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-126,92.8333333333334"
+              EndConnector="-159,72.8333333333334"
               Start="0,0"
-              End="-118.5,92.8333333333334">
+              End="-151.5,72.8333333333334">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-46.6310160427808,0" />
+                    End="-59.8915202444614,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-46.6310160427808,0"
-                    Point2="-50.6310160427808,0"
-                    Point3="-50.6310160427808,4" />
+                    Point1="-59.8915202444614,0"
+                    Point2="-63.8915202444614,0"
+                    Point3="-63.8915202444614,4" />
                   <mssgle:LineSegment
-                    End="-50.6310160427808,88.8333333333334" />
+                    End="-63.8915202444614,68.8333333333334" />
                   <mssgle:CubicBezierSegment
-                    Point1="-50.6310160427808,88.8333333333334"
-                    Point2="-50.6310160427808,92.8333333333334"
-                    Point3="-54.6310160427808,92.8333333333334" />
+                    Point1="-63.8915202444614,68.8333333333334"
+                    Point2="-63.8915202444614,72.8333333333334"
+                    Point3="-67.8915202444614,72.8333333333334" />
                   <mssgle:LineSegment
-                    End="-118.5,92.8333333333334" />
+                    End="-151.5,72.8333333333334" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
