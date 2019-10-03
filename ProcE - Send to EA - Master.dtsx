@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcE - Send to EA - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{A1F33493-E020-428E-A268-F59865A396D2}">
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{53D7DF45-D5C5-4D4C-938C-1267EFEAF99F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4177,6 +4177,8 @@ where [refTable].[ID] = ?</property>
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{8E0C963F-D3E9-416B-B13A-4979C42792ED}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::Batches]&gt;0"
       DTS:From="Package\A - Create Run"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -4201,7 +4203,7 @@ where [refTable].[ID] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\A - Create Run\Create Run"
@@ -4560,7 +4562,9 @@ where [refTable].[ID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="86.5103132161956,-22,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4610,73 +4614,33 @@ where [refTable].[ID] = ?</property>
           Id="Package\A - Create Run\Create Run\NoBatches"
           TopLeft="531,49" />
         <NodeLayout
-          Size="123,42"
-          Id="Package\A - Create Run\Create Run\Dosering"
-          TopLeft="60,54" />
-        <NodeLayout
           Size="116,42"
           Id="Package\A - Create Run\Create Run\Step ID"
           TopLeft="285,191" />
         <NodeLayout
-          Size="132,42"
-          Id="Package\A - Create Run\Create Run\Frequentie"
-          TopLeft="279,51" />
+          Size="123,42"
+          Id="Package\A - Create Run\Create Run\Dosering"
+          TopLeft="60,54" />
         <NodeLayout
           Size="105,42"
           Id="Package\A - Create Run\Create Run\Runs"
           TopLeft="295,329" />
         <NodeLayout
-          Size="126,42"
-          Id="Package\A - Create Run\Create Run\CurDepth"
-          TopLeft="534,190" />
+          Size="132,42"
+          Id="Package\A - Create Run\Create Run\Frequentie"
+          TopLeft="279,51" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\A - Create Run\Create Run\Row Count"
+          TopLeft="59,328" />
         <NodeLayout
           Size="122,42"
           Id="Package\A - Create Run\Create Run\Software"
           TopLeft="64,192" />
-        <EdgeLayout
-          Id="Package\A - Create Run\Create Run.Paths[OLE DB Source Output]"
-          TopLeft="183,73.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="96,0"
-              Start="0,0"
-              End="88.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="88.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output2]"
-          TopLeft="534,211.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-133,0"
-              Start="0,0"
-              End="-125.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-125.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="126,42"
+          Id="Package\A - Create Run\Create Run\CurDepth"
+          TopLeft="534,190" />
         <EdgeLayout
           Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output1]"
           TopLeft="597.25,91">
@@ -4743,10 +4707,50 @@ where [refTable].[ID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="133,42"
-          Id="Package\A - Create Run\Create Run\Row Count"
-          TopLeft="59,328" />
+        <EdgeLayout
+          Id="Package\A - Create Run\Create Run.Paths[Row Count Output 1]"
+          TopLeft="192,349.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103,0"
+              Start="0,0"
+              End="95.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="95.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\A - Create Run\Create Run.Paths[OLE DB Source Output]"
+          TopLeft="183,73.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96,0"
+              Start="0,0"
+              End="88.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="88.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output3]"
           TopLeft="125.25,234">
@@ -4770,19 +4774,19 @@ where [refTable].[ID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\A - Create Run\Create Run.Paths[Row Count Output 1]"
-          TopLeft="192,349.5">
+          Id="Package\A - Create Run\Create Run.Paths[Lookup Match Output2]"
+          TopLeft="534,211.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="103,0"
+              EndConnector="-133,0"
               Start="0,0"
-              End="95.5,0">
+              End="-125.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="95.5,0" />
+                    End="-125.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4795,15 +4799,19 @@ where [refTable].[ID] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelinePath
-    design-time-name="Package\A - Create Run\Create Run.Paths[Lookup Match Output2]">
-    <PathAnnotation>Never</PathAnnotation>
-  </PipelinePath>
-  <PipelinePath
     design-time-name="Package\A - Create Run\Create Run.Paths[Lookup Match Output1]">
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
   <PipelinePath
     design-time-name="Package\A - Create Run\Create Run.Paths[Lookup Match Output]">
+    <PathAnnotation>Never</PathAnnotation>
+  </PipelinePath>
+  <PipelinePath
+    design-time-name="Package\A - Create Run\Create Run.Paths[Lookup Match Output3]">
+    <PathAnnotation>Never</PathAnnotation>
+  </PipelinePath>
+  <PipelinePath
+    design-time-name="Package\A - Create Run\Create Run.Paths[Lookup Match Output2]">
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
   <PipelineComponentMetadata
@@ -5166,9 +5174,5 @@ where [refTable].[ID] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelinePath
-    design-time-name="Package\A - Create Run\Create Run.Paths[Lookup Match Output3]">
-    <PathAnnotation>Never</PathAnnotation>
-  </PipelinePath>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

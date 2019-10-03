@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcF - Receive from EA - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{EDBB1F93-26D8-4B04-A0E3-98287407F637}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{C975CD5D-4512-4C5A-88EE-9565B95B8FBF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -127,6 +127,15 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{BA4A2C30-AD1F-4EB1-89FF-525756DF90AB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MQ">
+      <DTS:VariableValue
+        DTS:DataType="11">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{F33755EF-D235-4FDF-9451-8BB6DAB55E0C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
@@ -226,7 +235,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
-          SQLTask:SqlStatementSource="SELECT * FROM&#xA;(SELECT ValStr AS QueueManager FROM [Control Params] WHERE Param = 9 AND Step = 20) AS A Cross JOIN&#xA;(SELECT ValStr AS HostName FROM [Control Params] WHERE Param = 10 AND Step = 20) AS B Cross JOIN&#xA;(SELECT ValNum AS Port FROM [Control Params] WHERE Param = 11 AND Step = 20) AS C Cross JOIN&#xA;(SELECT ValStr AS ChannelName FROM [Control Params] WHERE Param = 12 AND Step = 20) AS D Cross JOIN&#xA;(SELECT ValStr AS UserID FROM [Control Params] WHERE Param = 13 AND Step = 20) AS E Cross JOIN&#xA;(SELECT ValStr AS Password FROM [Control Params] WHERE Param = 14 AND Step = 20) AS F Cross JOIN&#xA;(SELECT ValStr AS Queue FROM [Control Params] WHERE Param = 16 AND Step = 20) AS G"
+          SQLTask:SqlStatementSource="SELECT * FROM&#xA;(SELECT ValStr AS QueueManager FROM [Control Params] WHERE Param = 9 AND Step = 20) AS A Cross JOIN&#xA;(SELECT ValStr AS HostName FROM [Control Params] WHERE Param = 10 AND Step = 20) AS B Cross JOIN&#xA;(SELECT ValNum AS Port FROM [Control Params] WHERE Param = 11 AND Step = 20) AS C Cross JOIN&#xA;(SELECT ValStr AS ChannelName FROM [Control Params] WHERE Param = 12 AND Step = 20) AS D Cross JOIN&#xA;(SELECT ValStr AS UserID FROM [Control Params] WHERE Param = 13 AND Step = 20) AS E Cross JOIN&#xA;(SELECT ValStr AS Password FROM [Control Params] WHERE Param = 14 AND Step = 20) AS F Cross JOIN&#xA;(SELECT ValStr AS Queue FROM [Control Params] WHERE Param = 16 AND Step = 20) AS G Cross JOIN&#xA;(SELECT Cast(ValNum as bit) AS MQ FROM [Control Params] WHERE Param = 18 AND Step = 20) AS H"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -249,6 +258,9 @@
           <SQLTask:ResultBinding
             SQLTask:ResultName="6"
             SQLTask:DtsVariableName="User::Queue" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="7"
+            SQLTask:DtsVariableName="User::MQ" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -297,6 +309,10 @@
           <ParameterAssignment>
             <ParameterName>Queue</ParameterName>
             <BindedVariableOrParameterName>User::Queue</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>MQ_Source</ParameterName>
+            <BindedVariableOrParameterName>User::MQ</BindedVariableOrParameterName>
           </ParameterAssignment>
         </ExecutePackageTask>
       </DTS:ObjectData>
