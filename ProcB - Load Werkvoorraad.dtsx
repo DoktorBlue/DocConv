@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcB - Load Werkvoorraad"
   DTS:PackageType="5"
-  DTS:VersionBuild="108"
-  DTS:VersionGUID="{8B02DC06-C79F-492A-8D20-9F2FF24C8DE1}">
+  DTS:VersionBuild="109"
+  DTS:VersionGUID="{05D6E4F7-3DE6-47D6-9698-DF20F9DE3E9B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -1273,6 +1273,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       cachedDataType="bool"
                       cachedName="InFS"
                       lineageId="Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[InFS]" />
+                    <inputColumn
+                      refId="Package\Load Docs\Derived Column.Inputs[Derived Column Input].Columns[SAF ID]"
+                      cachedDataType="i4"
+                      cachedName="SAF ID"
+                      lineageId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[SAF ID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1298,13 +1303,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_I1)(#{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[BSN Status]} != 1 ? #{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[BSN Status]} + 10 : !#{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[Moet]} ? 6 : !#{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[Kan]} ? 7 : [ISNULL](#{Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]}) ? 5 : [ISNULL](#{Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[AOS]}) ? 4 : [REPLACENULL](#{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DossierDate]},(DT_DATE)"2000-01-01") &lt; [DATEADD]("year",-10,@[User::MigEnd]) ? 22 : [ISNULL](#{Package\Load Docs\Users.Outputs[Lookup Match Output].Columns[User ID]}) ? 23 : #{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[FileType ID]} == 1756 ? (![REPLACENULL](#{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[InFS]}, FALSE ) ? 15 : [ISNULL](#{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF FileType]}) ? 16 : #{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF Status]} &lt; 3 ? #{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF Status]} + 16 : 1) : 1)</property>
+                          name="Expression">(DT_I1)([ISNULL](#{Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[SAF ID]}) ? 24 : #{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[BSN Status]} != 1 ? #{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[BSN Status]} + 10 : !#{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[Moet]} ? 6 : !#{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[Kan]} ? 7 : [ISNULL](#{Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]}) ? 5 : [ISNULL](#{Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[AOS]}) ? 4 : [REPLACENULL](#{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DossierDate]},(DT_DATE)"2000-01-01") &lt; [DATEADD]("year",-10,@[User::MigEnd]) ? 22 : [ISNULL](#{Package\Load Docs\Users.Outputs[Lookup Match Output].Columns[User ID]}) ? 23 : #{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[FileType ID]} == 1756 ? (![REPLACENULL](#{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[InFS]}, FALSE ) ? 15 : [ISNULL](#{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF FileType]}) ? 16 : #{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF Status]} &lt; 3 ? #{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF Status]} + 16 : 1) : 1)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_I1)([BSN Status] != 1 ? [BSN Status] + 10 : !Moet ? 6 : !Kan ? 7 : ISNULL([DocType ID]) ? 5 : ISNULL(AOS) ? 4 : REPLACENULL(DossierDate,(DT_DATE)"2000-01-01") &lt; DATEADD("year",-10,@[User::MigEnd]) ? 22 : ISNULL([User ID]) ? 23 : [FileType ID] == 1756 ? (!REPLACENULL(InFS, FALSE ) ? 15 : ISNULL([xFdF FileType]) ? 16 : [xFdF Status] &lt; 3 ? [xFdF Status] + 16 : 1) : 1)</property>
+                          name="FriendlyExpression">(DT_I1)(ISNULL([SAF ID]) ? 24 : [BSN Status] != 1 ? [BSN Status] + 10 : !Moet ? 6 : !Kan ? 7 : ISNULL([DocType ID]) ? 5 : ISNULL(AOS) ? 4 : REPLACENULL(DossierDate,(DT_DATE)"2000-01-01") &lt; DATEADD("year",-10,@[User::MigEnd]) ? 22 : ISNULL([User ID]) ? 23 : [FileType ID] == 1756 ? (!REPLACENULL(InFS, FALSE ) ? 15 : ISNULL([xFdF FileType]) ? 16 : [xFdF Status] &lt; 3 ? [xFdF Status] + 16 : 1) : 1)</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2377,6 +2382,11 @@ where [refTable].[Name] = ?</property>
                       cachedDataType="bool"
                       cachedName="DocID"
                       lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocID]" />
+                    <inputColumn
+                      refId="Package\Load Docs\Dropout Check.Inputs[Conditional Split Input].Columns[Created]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Created"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Created]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2452,13 +2462,13 @@ where [refTable].[Name] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[SAF ID]})</property>
+                      name="Expression">[ISNULL](#{Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[SAF ID]}) &amp;&amp; [REPLACENULL](#{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Created]},(DT_DATE)"2099-12-31") &lt; [DATEADD]("month",-1,@[User::MigStart])</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL([SAF ID])</property>
+                      name="FriendlyExpression">ISNULL([SAF ID]) &amp;&amp; REPLACENULL(Created,(DT_DATE)"2099-12-31") &lt; DATEADD("month",-1,@[User::MigStart])</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -5450,14 +5460,14 @@ where [refTable].[Name] = ?</property>
               startId="Package\Load Docs\Dropout Check.Outputs[FileSize]" />
             <path
               refId="Package\Load Docs.Paths[Lookup Match Output4]"
-              endId="Package\Load Docs\Dropout Check.Inputs[Conditional Split Input]"
+              endId="Package\Load Docs\Conv DocName.Inputs[Input 0]"
               name="Lookup Match Output"
-              startId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output]" />
+              startId="Package\Load Docs\Users.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Docs.Paths[Lookup Match Output3]"
-              endId="Package\Load Docs\Users.Inputs[Lookup Input]"
+              endId="Package\Load Docs\xFdF Templates.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load Docs\FileTypes.Outputs[Lookup Match Output]" />
+              startId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Docs.Paths[Lookup Match Output2]"
               endId="Package\Load Docs\FileTypes.Inputs[Lookup Input]"
@@ -5465,14 +5475,14 @@ where [refTable].[Name] = ?</property>
               startId="Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Docs.Paths[Lookup Match Output1]"
-              endId="Package\Load Docs\xFdF Templates.Inputs[Lookup Input]"
+              endId="Package\Load Docs\Users.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output]" />
+              startId="Package\Load Docs\FileTypes.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Docs.Paths[Lookup Match Output]"
-              endId="Package\Load Docs\Conv DocName.Inputs[Input 0]"
+              endId="Package\Load Docs\Dropout Check.Inputs[Conditional Split Input]"
               name="Lookup Match Output"
-              startId="Package\Load Docs\Users.Outputs[Lookup Match Output]" />
+              startId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Docs.Paths[Merge Join Output]"
               endId="Package\Load Docs\Ext.Inputs[Derived Column Input]"
@@ -5621,6 +5631,10 @@ where [refTable].[Name] = ?</property>
           TopLeft="44,613" />
         <NodeLayout
           Size="130,42"
+          Id="Package\Load Docs\Doc Dropout"
+          TopLeft="873,397" />
+        <NodeLayout
+          Size="130,42"
           Id="Package\Load Docs\Set SAF Reason"
           TopLeft="508,283" />
         <NodeLayout
@@ -5636,29 +5650,29 @@ where [refTable].[Name] = ?</property>
           Id="Package\Load Docs\Set OudDos Reason"
           TopLeft="496,180" />
         <NodeLayout
-          Size="130,308"
-          Id="Package\Load Docs\Dropout Check"
-          TopLeft="282,155" />
+          Size="125,42"
+          Id="Package\Load Docs\Sonar FS"
+          TopLeft="279,48" />
         <NodeLayout
           Size="134,42"
           Id="Package\Load Docs\Set NoDoc Reason"
           TopLeft="500,131" />
         <NodeLayout
+          Size="130,308"
+          Id="Package\Load Docs\Dropout Check"
+          TopLeft="282,155" />
+        <NodeLayout
           Size="121,42"
           Id="Package\Load Docs\Left Join"
           TopLeft="696,49" />
         <NodeLayout
-          Size="130,42"
-          Id="Package\Load Docs\Doc Dropout"
-          TopLeft="873,397" />
+          Size="134,42"
+          Id="Package\Load Docs\Set NoCon Reason"
+          TopLeft="509,398" />
         <NodeLayout
           Size="130,42"
           Id="Package\Load Docs\Derived Column"
           TopLeft="455,612" />
-        <NodeLayout
-          Size="134,42"
-          Id="Package\Load Docs\Set NoCon Reason"
-          TopLeft="509,398" />
         <NodeLayout
           Size="123,42"
           Id="Package\Load Docs\Doc p Klt"
@@ -5671,10 +5685,6 @@ where [refTable].[Name] = ?</property>
           Size="130,42"
           Id="Package\Load Docs\Conv DocName"
           TopLeft="261,611" />
-        <NodeLayout
-          Size="125,42"
-          Id="Package\Load Docs\Sonar FS"
-          TopLeft="279,48" />
         <NodeLayout
           Size="142,42"
           Id="Package\Load Docs\Set FileSize Reason"
@@ -6071,18 +6081,18 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Lookup Match Output4]"
-          TopLeft="344.25,90">
+          TopLeft="152,633">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,65"
+              EndConnector="109,0"
               Start="0,0"
-              End="0,57.5">
+              End="101.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.5" />
+                    End="101.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6093,18 +6103,18 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Lookup Match Output3]"
-          TopLeft="101.25,536">
+          TopLeft="100.5,325">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,69.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,69.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6137,18 +6147,18 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Lookup Match Output1]"
-          TopLeft="100.5,325">
+          TopLeft="101.25,536">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,77"
               Start="0,0"
-              End="0,52.5">
+              End="0,69.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,69.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6159,18 +6169,18 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Lookup Match Output]"
-          TopLeft="152,633">
+          TopLeft="344.25,90">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="109,0"
+              EndConnector="0,65"
               Start="0,0"
-              End="101.5,0">
+              End="0,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="101.5,0" />
+                    End="0,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6653,43 +6663,7 @@ where [refTable].[Name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Documents">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Doc exists?">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\FileTypes">
+    design-time-name="Package\Load Docs\xFdF Templates">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -6735,6 +6709,78 @@ where [refTable].[Name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Documents">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Sonar">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\FileTypes">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Doc exists?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load Docs\Doc p Klt">
     <Properties>
       <Property>
@@ -6766,19 +6812,6 @@ where [refTable].[Name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Sonar">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load Docs\Al uitgevallen?">
     <Properties>
       <Property>
@@ -6795,29 +6828,6 @@ where [refTable].[Name] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\xFdF Templates">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

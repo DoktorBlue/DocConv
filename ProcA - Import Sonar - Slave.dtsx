@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcA - Import Sonar - Slave"
   DTS:PackageType="5"
-  DTS:VersionBuild="121"
-  DTS:VersionGUID="{8B1820FF-0828-4E28-8ED7-ECE3ECD4E3E1}">
+  DTS:VersionBuild="123"
+  DTS:VersionGUID="{A50AC261-B606-49AE-A8A2-41223F742AB1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -62,7 +62,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAyBZ706+yK1BczhlubnwuSAAAAAASAAACgAAAAEAAAAOFLx/XaC98vtZubOlrHKzsgAAAARiqXgFBrfpzL3G30I7a7nlms/FjU85TTjWf4meItDBoUAAAAZ+t/zzmf+s6/Ku+JFiO46lYYA8w</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABnZL9NQcfoYVPfb9pYX+mkAAAAAASAAACgAAAAEAAAAJ3rJTP8YaE11Rqj+D8Li+0gAAAAh7erI3i06zZUelY3PNFfEk3rcDNo+nrNm4hWUHqqfxAUAAAAwmEra6FvnqXpMiY4KcWQOs1ceZo</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -80,7 +80,7 @@
         <DTS:Property
           DTS:DataType="8"
           DTS:Name="ParameterValue"
-          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACTWzysKCvX2En1qDK+R+fVAAAAAASAAACgAAAAEAAAAPbpYyDIddnDdQSEnykbzw8gAAAAX4BtmUv8ajfXxWNSEUeRWBbLMLJgujMavuCI7tuws5wUAAAAp5VK8Nhhvfl+/1zrVOyVCtnV574</DTS:Property>
+          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAwQEyEjX6i9Bb/KEvqxIv5AAAAAASAAACgAAAAEAAAAHLqOBfQ6vb0v/VpiPPrfxAgAAAAX2yjn5Vp0hWKw0wzaDOpp62MDtxNMDOZYZZpAmymLh4UAAAABfXmICe0lMdNs/oeLz3qFdS6VZ8</DTS:Property>
       </DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
@@ -3711,29 +3711,29 @@ And Contact = ?</property>
                       startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Found?.Outputs[Ja]" />
                     <path
                       refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output4]"
-                      endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\BSN Status.Inputs[Derived Column Input]"
-                      name="Lookup Match Output"
-                      startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Klanten.Outputs[Lookup Match Output]" />
-                    <path
-                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output2]"
                       endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Multicast.Inputs[Multicast Input 1]"
                       name="Lookup Match Output"
                       startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Get Att Source.Outputs[Lookup Match Output]" />
                     <path
-                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output3]"
-                      endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\EVT Act.Inputs[Lookup Input]"
-                      name="Lookup Match Output"
-                      startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Con Cnt.Outputs[Lookup Match Output]" />
-                    <path
-                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output]"
+                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output2]"
                       endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Conditional Split.Inputs[Conditional Split Input]"
                       name="Lookup Match Output"
                       startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Doc per Klant Status.Outputs[Lookup Match Output]" />
                     <path
-                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output1]"
+                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output3]"
+                      endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\BSN Status.Inputs[Derived Column Input]"
+                      name="Lookup Match Output"
+                      startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Klanten.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output]"
                       endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Reset ConCnt.Inputs[Derived Column Input]"
                       name="Lookup Match Output"
                       startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\EVT Act.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output1]"
+                      endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\EVT Act.Inputs[Lookup Input]"
+                      name="Lookup Match Output"
+                      startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Con Cnt.Outputs[Lookup Match Output]" />
                     <path
                       refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Merge Join Output]"
                       endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Found?.Inputs[Conditional Split Input]"
@@ -11155,129 +11155,6 @@ where [refTable].[ROW_ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Update Klant BSN\Last DV End"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Last DV End"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml"></property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Update Klant BSN\Last DV End.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Sonar]"
-                  connectionManagerRefId="Package.ConnectionManagers[Sonar]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Update Klant BSN\Last DV End.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Update Klant BSN\Last DV End.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="IgnoreFailure"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Update Klant BSN\Last DV End.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update Klant BSN\Last DV End.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Update Klant BSN\Last DV End.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Update Klant BSN\Last DV End.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Update Klant BSN\Last DV End.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Update Klant BSN\Last DV End.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Update Klant BSN\Last DV End.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Update Klant BSN\Last DV End.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Update Klant BSN\Last DV End.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Update Klant BSN\Set BSN Validation"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
@@ -12451,11 +12328,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               name="Ja"
               startId="Package\Update Klant BSN\Bestaat al?.Outputs[Ja]" />
             <path
-              refId="Package\Update Klant BSN.Paths[Lookup Match Output]"
-              endId="Package\Update Klant BSN\Data Conversion.Inputs[Data Conversion Input]"
-              name="Lookup Match Output"
-              startId="Package\Update Klant BSN\Last DV End.Outputs[Lookup Match Output]" />
-            <path
               refId="Package\Update Klant BSN.Paths[Lookup No Match Output]"
               endId="Package\Update Klant BSN\Klanten.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
@@ -12467,7 +12339,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\Update Klant BSN\S_Contact.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Update Klant BSN.Paths[Output 0]"
-              endId="Package\Update Klant BSN\Last DV End.Inputs[Lookup Input]"
+              endId="Package\Update Klant BSN\Data Conversion.Inputs[Data Conversion Input]"
               name="Output 0"
               startId="Package\Update Klant BSN\Validate BSN.Outputs[Output 0]" />
             <path
@@ -13594,17 +13466,25 @@ where [refTable].[RowID] = ?</property>
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Conditional Split"
           TopLeft="616,445" />
         <NodeLayout
+          Size="130,42"
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Set Att Source"
+          TopLeft="485,56" />
+        <NodeLayout
           Size="133,42"
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Merge Join"
           TopLeft="906,190" />
         <NodeLayout
           Size="130,42"
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Set Att Source"
-          TopLeft="485,56" />
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\RowCount"
+          TopLeft="274,55" />
         <NodeLayout
           Size="145,42"
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Doc per Klant"
           TopLeft="626,571" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Set BSN Status"
+          TopLeft="887,441" />
         <NodeLayout
           Size="136,42"
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\BSN Status"
@@ -13617,10 +13497,6 @@ where [refTable].[RowID] = ?</property>
           Size="130,42"
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Activity Att"
           TopLeft="49,57" />
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Set BSN Status"
-          TopLeft="887,441" />
         <NodeLayout
           Size="148,42"
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Reset ConCnt"
@@ -13646,10 +13522,6 @@ where [refTable].[RowID] = ?</property>
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Con Cnt"
           TopLeft="85,199" />
         <NodeLayout
-          Size="108,42"
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Sonar"
-          TopLeft="393,578" />
-        <NodeLayout
           Size="116,42"
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Found?"
           TopLeft="907,328" />
@@ -13662,77 +13534,13 @@ where [refTable].[RowID] = ?</property>
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Act Contact"
           TopLeft="898,55" />
         <NodeLayout
+          Size="108,42"
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Sonar"
+          TopLeft="393,578" />
+        <NodeLayout
           Size="134,42"
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Bestaat al in Doc?"
           TopLeft="350,192" />
-        <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Nope]"
-          TopLeft="350,216.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-146,0"
-              Start="0,0"
-              End="-138.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-138.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-81.19634765625,5,23.8926953125,11.2822265625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Multicast Output 2]"
-          TopLeft="680,211">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-196,0"
-              Start="0,0"
-              End="-188.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-188.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Multicast Output 1]"
-          TopLeft="803,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="103,0"
-              Start="0,0"
-              End="95.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="95.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Merge Join Output]"
           TopLeft="968.75,232">
@@ -13752,33 +13560,13 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output3]"
-          TopLeft="147.5,241">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,96"
-              Start="0,0"
-              End="0,88.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,88.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output1]"
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output]"
           TopLeft="149.75,379">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13796,33 +13584,13 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output4]"
-          TopLeft="625,353">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-144,0"
-              Start="0,0"
-              End="-136.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-136.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output]"
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output2]"
           TopLeft="507,467">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13840,11 +13608,37 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output2]"
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output1]"
+          TopLeft="147.5,241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,96"
+              Start="0,0"
+              End="0,88.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output4]"
           TopLeft="741.25,99">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13864,6 +13658,30 @@ where [refTable].[RowID] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-48.19138671875,34.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output3]"
+          TopLeft="625,353">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144,0"
+              Start="0,0"
+              End="-136.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-136.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -13934,7 +13752,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13956,7 +13776,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13978,7 +13800,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14000,7 +13824,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14028,6 +13854,30 @@ where [refTable].[RowID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Row Count Output 1]"
+          TopLeft="404,76.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="81,0"
+              Start="0,0"
+              End="73.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="73.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[OLE DB Source Output1]"
           TopLeft="969.25,97">
           <EdgeLayout.Curve>
@@ -14046,13 +13896,11 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\RowCount"
-          TopLeft="274,55" />
         <EdgeLayout
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[OLE DB Source Output]"
           TopLeft="179,77">
@@ -14072,40 +13920,92 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Row Count Output 1]"
-          TopLeft="404,76.5">
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Nope]"
+          TopLeft="350,216.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="81,0"
+              EndConnector="-146,0"
               Start="0,0"
-              End="73.5,0">
+              End="-138.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="73.5,0" />
+                    End="-138.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-81.19634765625,5,23.8926953125,11.2822265625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Multicast Output 2]"
+          TopLeft="680,211">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-196,0"
+              Start="0,0"
+              End="-188.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-188.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Multicast Output 1]"
+          TopLeft="803,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103,0"
+              Start="0,0"
+              End="95.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="95.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelinePath
-    design-time-name="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output4]">
+    design-time-name="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output3]">
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
   <PipelinePath
-    design-time-name="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output3]">
+    design-time-name="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output2]">
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
   <PipelinePath
@@ -14130,57 +14030,37 @@ where [refTable].[RowID] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="130,42"
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Get Att Source"
-          TopLeft="882,54" />
-        <NodeLayout
-          Size="108,42"
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Sonar"
-          TopLeft="76,520" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Contact Exists ?"
-          TopLeft="356,297" />
-        <NodeLayout
-          Size="136,42"
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\BSN Status"
-          TopLeft="854,295" />
-        <NodeLayout
-          Size="105,42"
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Case"
-          TopLeft="893,176" />
-        <NodeLayout
-          Size="116,42"
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Klanten"
-          TopLeft="629,297" />
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Multicast"
-          TopLeft="360,177" />
-        <NodeLayout
           Size="136,42"
           Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Data Conversion"
           TopLeft="70,180" />
         <NodeLayout
           Size="130,42"
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Set Att Source"
-          TopLeft="639,52" />
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\RowCount"
+          TopLeft="365,56" />
         <NodeLayout
           Size="145,42"
           Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Doc per Klant"
           TopLeft="545,514" />
         <NodeLayout
-          Size="138,42"
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Conditional Split"
-          TopLeft="553,412" />
-        <NodeLayout
           Size="130,42"
           Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Set BSN Status"
           TopLeft="294,406" />
         <NodeLayout
+          Size="138,42"
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Conditional Split"
+          TopLeft="553,412" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\BSN Status"
+          TopLeft="854,295" />
+        <NodeLayout
           Size="130,52"
           Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Doc per Klant Status"
           TopLeft="857,414" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Multicast"
+          TopLeft="360,177" />
         <NodeLayout
           Size="153,42"
           Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Contact RowID"
@@ -14190,6 +14070,26 @@ where [refTable].[RowID] = ?</property>
           Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Derived Column"
           TopLeft="58,399" />
         <NodeLayout
+          Size="108,42"
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Sonar"
+          TopLeft="76,520" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Get Att Source"
+          TopLeft="882,54" />
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Case"
+          TopLeft="893,176" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Contact Exists ?"
+          TopLeft="356,297" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Klanten"
+          TopLeft="629,297" />
+        <NodeLayout
           Size="121,42"
           Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Case Att"
           TopLeft="41,53" />
@@ -14197,6 +14097,130 @@ where [refTable].[RowID] = ?</property>
           Size="137,42"
           Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Bestaat al ?"
           TopLeft="70,292" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Set Att Source"
+          TopLeft="639,52" />
+        <EdgeLayout
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Derived Column Output3]"
+          TopLeft="922,337">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77"
+              Start="0,0"
+              End="0,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Derived Column Output2]"
+          TopLeft="133.5,441">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,79"
+              Start="0,0"
+              End="0,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Derived Column Output1]"
+          TopLeft="628,197.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-145,0"
+              Start="0,0"
+              End="-137.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-137.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Derived Column Output]"
+          TopLeft="769,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113,0"
+              Start="0,0"
+              End="105.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="105.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Data Conversion Output]"
+          TopLeft="138.25,222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Yes]"
           TopLeft="486,318">
@@ -14246,6 +14270,54 @@ where [refTable].[RowID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Row Count Output 1]"
+          TopLeft="495,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="144,0"
+              Start="0,0"
+              End="136.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="136.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[OLE DB Source Output]"
+          TopLeft="162,75.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="203,0"
+              Start="0,0"
+              End="195.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="195.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Nope]"
           TopLeft="137.75,334">
           <EdgeLayout.Curve>
@@ -14288,7 +14360,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14310,51 +14384,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Lookup Match Output2]"
-          TopLeft="857,436.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-166,0"
-              Start="0,0"
-              End="-158.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-158.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Lookup Match Output1]"
-          TopLeft="946.25,96">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,80"
-              Start="0,0"
-              End="0,72.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14376,7 +14408,57 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Lookup Match Output1]"
+          TopLeft="946.25,96">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80"
+              Start="0,0"
+              End="0,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Lookup Match Output2]"
+          TopLeft="857,436.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-166,0"
+              Start="0,0"
+              End="-158.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-158.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14425,164 +14507,6 @@ where [refTable].[RowID] = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="-66.21298828125,5,27.9259765625,9.7490234375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Derived Column Output3]"
-          TopLeft="922,337">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,77"
-              Start="0,0"
-              End="0,69.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,69.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Derived Column Output2]"
-          TopLeft="133.5,441">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,79"
-              Start="0,0"
-              End="0,71.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,71.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Derived Column Output1]"
-          TopLeft="628,197.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-145,0"
-              Start="0,0"
-              End="-137.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-137.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Derived Column Output]"
-          TopLeft="769,74">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="113,0"
-              Start="0,0"
-              End="105.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="105.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Data Conversion Output]"
-          TopLeft="138.25,222">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,70"
-              Start="0,0"
-              End="0,62.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,62.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\RowCount"
-          TopLeft="365,56" />
-        <EdgeLayout
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[OLE DB Source Output]"
-          TopLeft="162,75.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="203,0"
-              Start="0,0"
-              End="195.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="195.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Row Count Output 1]"
-          TopLeft="495,75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="144,0"
-              Start="0,0"
-              End="136.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="136.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14748,7 +14672,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14770,7 +14696,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14792,7 +14720,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14838,7 +14768,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14860,7 +14792,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14882,7 +14816,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14904,7 +14840,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14926,7 +14864,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14972,7 +14912,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14994,7 +14936,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15016,7 +14960,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15038,7 +14984,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -15100,7 +15048,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15122,7 +15072,9 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15222,25 +15174,21 @@ where [refTable].[RowID] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="144,42"
-          Id="Package\Update Klant BSN\Validate BSN"
-          TopLeft="375,48" />
+          Size="172,42"
+          Id="Package\Update Klant BSN\Set BSN Validation"
+          TopLeft="70,298" />
         <NodeLayout
           Size="134,42"
           Id="Package\Update Klant BSN\Bestaat al?"
           TopLeft="385,178" />
         <NodeLayout
-          Size="172,42"
-          Id="Package\Update Klant BSN\Set BSN Validation"
-          TopLeft="70,298" />
-        <NodeLayout
           Size="130,42"
           Id="Package\Update Klant BSN\S_Contact"
-          TopLeft="85,51" />
+          TopLeft="404,38" />
         <NodeLayout
           Size="161,42"
           Id="Package\Update Klant BSN\Data Conversion"
-          TopLeft="695,176" />
+          TopLeft="689,176" />
         <NodeLayout
           Size="116,42"
           Id="Package\Update Klant BSN\Klanten"
@@ -15249,9 +15197,83 @@ where [refTable].[RowID] = ?</property>
           Size="144,42"
           Id="Package\Update Klant BSN\Al Validated?"
           TopLeft="85,172" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Update Klant BSN\Validate BSN"
+          TopLeft="694,35" />
+        <EdgeLayout
+          Id="Package\Update Klant BSN.Paths[Ja]"
+          TopLeft="385,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-156,0"
+              Start="0,0"
+              End="-148.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-148.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-79.6250390625,5,10.750078125,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update Klant BSN.Paths[Data Conversion Output]"
+          TopLeft="689,198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-170,0"
+              Start="0,0"
+              End="-162.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-162.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update Klant BSN.Paths[Update]"
+          TopLeft="156.5,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,84"
+              Start="0,0"
+              End="0,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.28029296875,32.4453125,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Update Klant BSN.Paths[OLE DB Source Output]"
-          TopLeft="215,70.5">
+          TopLeft="534,57.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15296,115 +15318,19 @@ where [refTable].[RowID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Update Klant BSN.Paths[Ja]"
-          TopLeft="385,196">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-156,0"
-              Start="0,0"
-              End="-148.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-148.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-79.6250390625,5,10.750078125,9.421875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update Klant BSN.Paths[Data Conversion Output]"
-          TopLeft="695,198">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-176,0"
-              Start="0,0"
-              End="-168.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-168.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update Klant BSN.Paths[Update]"
-          TopLeft="156.5,214">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,84"
-              Start="0,0"
-              End="0,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-16.28029296875,32.4453125,32.5605859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="140,42"
-          Id="Package\Update Klant BSN\Last DV End"
-          TopLeft="701,48" />
-        <EdgeLayout
           Id="Package\Update Klant BSN.Paths[Output 0]"
-          TopLeft="519,69">
+          TopLeft="767.75,77">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="182,0"
+              EndConnector="0,99"
               Start="0,0"
-              End="174.5,0">
+              End="0,91.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="174.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update Klant BSN.Paths[Lookup Match Output]"
-          TopLeft="773.25,90">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,86"
-              Start="0,0"
-              End="0,78.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,78.5" />
+                    End="0,91.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15422,7 +15348,7 @@ where [refTable].[RowID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -15432,7 +15358,7 @@ where [refTable].[RowID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15529,9 +15455,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15553,9 +15477,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -15610,32 +15532,5 @@ where [refTable].[RowID] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Update Klant BSN\Last DV End">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelinePath
-    design-time-name="Package\Update Klant BSN.Paths[Lookup Match Output]">
-    <PathAnnotation>Never</PathAnnotation>
-  </PipelinePath>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

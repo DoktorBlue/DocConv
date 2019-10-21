@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcF - Receive from EA - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="51"
-  DTS:VersionGUID="{C975CD5D-4512-4C5A-88EE-9565B95B8FBF}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{6FDD4D84-CB13-4ACE-ABC9-3C8785EA4FF7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -301,10 +301,6 @@
           <ParameterAssignment>
             <ParameterName>MQ_HostName</ParameterName>
             <BindedVariableOrParameterName>User::H</BindedVariableOrParameterName>
-          </ParameterAssignment>
-          <ParameterAssignment>
-            <ParameterName>DB_ServerName</ParameterName>
-            <BindedVariableOrParameterName>$Project::MigLog_ServerName</BindedVariableOrParameterName>
           </ParameterAssignment>
           <ParameterAssignment>
             <ParameterName>Queue</ParameterName>

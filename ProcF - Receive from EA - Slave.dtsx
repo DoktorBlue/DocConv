@@ -11,23 +11,11 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcF - Receive from EA - Slave"
   DTS:PackageType="5"
-  DTS:VersionBuild="73"
-  DTS:VersionGUID="{EA1463FD-746E-43D0-89A8-3C99BBC54A9A}">
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{3AA4FE96-DCF0-43ED-B857-6C2AF1EEFFAE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[ConvCtrl]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{A1FF23BF-DBFB-4679-AA57-CFF5AD9CEE31}"
-      DTS:ObjectName="ConvCtrl">
-      <DTS:PropertyExpression
-        DTS:Name="ServerName">@[$Package::DB_ServerName]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=VMT010140177175;Initial Catalog=ConvCtrl;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
       DTS:CreationName="FLATFILE"
@@ -112,34 +100,12 @@
           ConnectionString="QueueManager=QMSONARMIG;HostName=10.140.177.125;Port=1434;ChannelName=SYSTEM.ADMIN.SVRCONN;UserID=bla061;AuthenticationMode=Credentials;CertificateLabel=;CertificateKeyRepository=0;SSLCipherSpec=;SSLPeerName=;SSLResetCount=0;SSLRevocationCheck=False">
           <Password
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABWb9VwCHuq9g8mrKfxPuXAAAAAAASAAACgAAAAEAAAAKwrFOM8HOxNN6YQoTCYQkYYAAAAlZgSHgGjUfR89CNzONhLX3XWIrQjVRGmFAAAAAsepMOYOi7zQDarOzuVnAy3u4Mc</Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMrhZ6H9nkEKEZfobl3Sc7QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABHB2pZJMNBtC99pGvMGAluAAAAAASAAACgAAAAEAAAAJ7lyf+KPyfan3tDdTYAQykYAAAAHWFJUxO3z0G8r2tf+URSIivpPsc7FcfhFAAAAPnIwKJIxLqvK8BBh/zMiLk3MoSl</Password>
         </ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:LogProviders>
-    <DTS:LogProvider
-      DTS:ConfigString="ConvCtrl"
-      DTS:CreationName="Microsoft.LogProviderSQLServer"
-      DTS:Description="Writes log entries for events to a SQL Server database"
-      DTS:DTSID="{B9E1EA99-9FC0-4F1A-9F8D-EE8BEFA0BE5B}"
-      DTS:ObjectName="SSIS log provider for SQL Server">
-      <DTS:ObjectData>
-        <InnerObject />
-      </DTS:ObjectData>
-    </DTS:LogProvider>
-  </DTS:LogProviders>
   <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{BADA69E4-D197-4685-9FC4-7EEED3E1D006}"
-      DTS:ObjectName="DB_ServerName"
-      DTS:Required="True">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">VMT010140177175</DTS:Property>
-    </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
@@ -172,7 +138,7 @@
         <DTS:Property
           DTS:DataType="8"
           DTS:Name="ParameterValue"
-          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACHtno2LTQNudYhfxnAylarAAAAAASAAACgAAAAEAAAACllBSRtYcm5NVKjsK4459oYAAAA/Yr+cCCpcFaYil9qZxEdlwLeGcScuAEzFAAAAAVF4SWjeGviCSNQbqbv4jxejUiD</DTS:Property>
+          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMrhZ6H9nkEKEZfobl3Sc7QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD+K1QcIwRnxX+mAX9w/I+GAAAAAASAAACgAAAAEAAAAEbXahQO2HmQ6hXtl2oMHz8YAAAAfFJMYms/nJCqPKqQO/rCnlapzrVJJ3O0FAAAANnU1/1z4mIy4RmTR7avPSY7p8kY</DTS:Property>
       </DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
@@ -322,10 +288,6 @@
       <DTS:Property
         DTS:Name="DataBytes">-1</DTS:Property>
     </DTS:Property>
-    <DTS:SelectedLogProviders>
-      <DTS:SelectedLogProvider
-        DTS:InstanceID="{B9E1EA99-9FC0-4F1A-9F8D-EE8BEFA0BE5B}" />
-    </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
@@ -338,6 +300,8 @@
       DTS:ObjectName="Prep MQ"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
@@ -354,9 +318,11 @@
       DTS:ObjectName="ProcessDetails"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{A1FF23BF-DBFB-4679-AA57-CFF5AD9CEE31}"
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
           SQLTask:SqlStatementSource="INSERT INTO ProcessDetails&#xA;                         (Step, Status, Doc, Moment, Elapsed, [Doc/Klant], Batch)&#xA;SELECT        26 AS Step, 2 AS Status, D.Doc, MQ.PutDateTime, DATEDIFF(ms, D.Moment, MQ.PutDateTime) AS Elapsed, X.ID, D.Batch&#xA;FROM            [Doc per Klant] AS X INNER JOIN&#xA;                         MQ ON X.BerichtNr = MQ.BerichtNr INNER JOIN&#xA;                         ProcessDetails AS D ON X.ID = D.[Doc/Klant]&#xA;WHERE        (D.Step = 27)&#xA;;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -837,8 +803,8 @@
               <connections>
                 <connection
                   refId="Package\Receive Messages\MQ.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ConvCtrl]"
-                  connectionManagerRefId="Package.ConnectionManagers[ConvCtrl]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -980,8 +946,8 @@
               <connections>
                 <connection
                   refId="Package\Receive Messages\MQ Response.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ConvCtrl]"
-                  connectionManagerRefId="Package.ConnectionManagers[ConvCtrl]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1232,6 +1198,91 @@
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 3"
                   synchronousInputId="Package\Receive Messages\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Receive Messages\Time Zone Conversion"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2019 KingswaySoft Inc."
+              description="Converts dates between time zones"
+              name="Time Zone Conversion"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The time zone of incoming data."
+                  expressionType="Notify"
+                  name="InputTimeZoneName">UTC</property>
+                <property
+                  dataType="System.String"
+                  description="The time zone that incoming data will be converted to."
+                  expressionType="Notify"
+                  name="OutputTimeZoneName">W. Europe Standard Time</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.TimeZoneConversionComponent</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Receive Messages\Time Zone Conversion.Inputs[Primary Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Primary Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Receive Messages\Time Zone Conversion.Inputs[Primary Input].Columns[PutDateTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PutDateTime"
+                      externalMetadataColumnId="Package\Receive Messages\Time Zone Conversion.Inputs[Primary Input].ExternalColumns[InputTime]"
+                      lineageId="Package\Receive Messages\IBM MQ Source.Outputs[Default Output].Columns[PutDateTime]"
+                      usageType="readWrite" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Receive Messages\Time Zone Conversion.Inputs[Primary Input].ExternalColumns[InputTime]"
+                      dataType="date"
+                      name="InputTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Receive Messages\Time Zone Conversion.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Receive Messages\Time Zone Conversion.Inputs[Primary Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Receive Messages\Time Zone Conversion.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Receive Messages\Time Zone Conversion.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Receive Messages\Time Zone Conversion.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Receive Messages\Time Zone Conversion.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Receive Messages\Time Zone Conversion.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Receive Messages\Time Zone Conversion.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Receive Messages\Time Zone Conversion.Outputs[DefaultOutput]"
+                  exclusionGroup="1"
+                  name="DefaultOutput"
+                  synchronousInputId="Package\Receive Messages\Time Zone Conversion.Inputs[Primary Input]">
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -1999,9 +2050,14 @@
           <paths>
             <path
               refId="Package\Receive Messages.Paths[Default Output]"
-              endId="Package\Receive Messages\Multicast.Inputs[Multicast Input 1]"
+              endId="Package\Receive Messages\Time Zone Conversion.Inputs[Primary Input]"
               name="Default Output"
               startId="Package\Receive Messages\IBM MQ Source.Outputs[Default Output]" />
+            <path
+              refId="Package\Receive Messages.Paths[DefaultOutput]"
+              endId="Package\Receive Messages\Multicast.Inputs[Multicast Input 1]"
+              name="DefaultOutput"
+              startId="Package\Receive Messages\Time Zone Conversion.Outputs[DefaultOutput]" />
             <path
               refId="Package\Receive Messages.Paths[Derived Column Output]"
               endId="Package\Receive Messages\MQ.Inputs[OLE DB Destination Input]"
@@ -2214,8 +2270,8 @@
               <connections>
                 <connection
                   refId="Package\Test\MQ.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ConvCtrl]"
-                  connectionManagerRefId="Package.ConnectionManagers[ConvCtrl]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2349,8 +2405,8 @@
               <connections>
                 <connection
                   refId="Package\Test\MQ Response.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ConvCtrl]"
-                  connectionManagerRefId="Package.ConnectionManagers[ConvCtrl]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3497,9 +3553,11 @@
       DTS:ObjectName="Update Doc P Klant"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{A1FF23BF-DBFB-4679-AA57-CFF5AD9CEE31}"
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
           SQLTask:SqlStatementSource="UPDATE       [Doc per Klant]&#xA;SET                ProcStatus = 2, EA = MQ.[Doc GUID]&#xA;FROM            [Doc per Klant] INNER JOIN&#xA;                         MQ ON [Doc per Klant].BerichtNr = MQ.BerichtNr&#xA;;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3563,6 +3621,10 @@
           Id="Package\Prep MQ"
           TopLeft="140,68" />
         <NodeLayout
+          Size="152,42"
+          Id="Package\ProcessDetails"
+          TopLeft="473,239" />
+        <NodeLayout
           Size="172,42"
           Id="Package\Receive Messages"
           TopLeft="458,70" />
@@ -3570,10 +3632,6 @@
           Size="100,42"
           Id="Package\Test"
           TopLeft="155,237" />
-        <NodeLayout
-          Size="152,42"
-          Id="Package\ProcessDetails"
-          TopLeft="473,239" />
         <NodeLayout
           Size="175,42"
           Id="Package\Update Doc P Klant"
@@ -3699,41 +3757,41 @@
         <NodeLayout
           Size="149,42"
           Id="Package\Receive Messages\MQ Response"
-          TopLeft="686,73" />
+          TopLeft="670,207" />
         <NodeLayout
           Size="123,42"
           Id="Package\Receive Messages\Multicast"
-          TopLeft="367,77" />
+          TopLeft="363,213" />
         <NodeLayout
           Size="97,42"
           Id="Package\Receive Messages\MQ"
-          TopLeft="695,358" />
+          TopLeft="372,349" />
         <NodeLayout
           Size="139,42"
           Id="Package\Receive Messages\XML Extract"
-          TopLeft="355,213" />
+          TopLeft="61,212" />
         <NodeLayout
           Size="144,42"
           Id="Package\Receive Messages\Comp GUIDs"
-          TopLeft="670,209" />
+          TopLeft="58,354" />
         <NodeLayout
           Size="157,42"
           Id="Package\Receive Messages\IBM MQ Source"
           TopLeft="54,81" />
         <EdgeLayout
           Id="Package\Receive Messages.Paths[Multicast Output 2]"
-          TopLeft="426.5,119">
+          TopLeft="363,233.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,94"
+              EndConnector="-163,0"
               Start="0,0"
-              End="0,86.5">
+              End="-155.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,86.5" />
+                    End="-155.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3744,18 +3802,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Receive Messages.Paths[Multicast Output 1]"
-          TopLeft="490,96">
+          TopLeft="486,231">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="196,0"
+              EndConnector="184,0"
               Start="0,0"
-              End="188.5,0">
+              End="176.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="188.5,0" />
+                    End="176.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3766,18 +3824,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Receive Messages.Paths[Envelope]"
-          TopLeft="494,232">
+          TopLeft="130.25,254">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="176,0"
+              EndConnector="0,100"
               Start="0,0"
-              End="168.5,0">
+              End="0,92.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="168.5,0" />
+                    End="0,92.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3788,18 +3846,44 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Receive Messages.Paths[Derived Column Output]"
-          TopLeft="742.75,251">
+          TopLeft="202,372.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,107"
+              EndConnector="170,0"
               Start="0,0"
-              End="0,99.5">
+              End="162.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,99.5" />
+                    End="162.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Receive Messages\Time Zone Conversion"
+          TopLeft="356,81" />
+        <EdgeLayout
+          Id="Package\Receive Messages.Paths[Default Output]"
+          TopLeft="211,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="145,0"
+              Start="0,0"
+              End="137.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="137.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3809,19 +3893,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Receive Messages.Paths[Default Output]"
-          TopLeft="211,100">
+          Id="Package\Receive Messages.Paths[DefaultOutput]"
+          TopLeft="424,123">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="156,0"
+              EndConnector="0,90"
               Start="0,0"
-              End="148.5,0">
+              End="0,82.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="148.5,0" />
+                    End="0,82.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3835,6 +3919,19 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Receive Messages\MQ Response">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Receive Messages\MQ">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3938,6 +4035,19 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Test\MQ Response">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Test\MQ">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

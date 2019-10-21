@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcE - Send to EA - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{53D7DF45-D5C5-4D4C-938C-1267EFEAF99F}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{811B34DE-AC26-479F-8CAA-7888C9069F1F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1200,7 +1200,7 @@ where [refTable].[Step] = ?</property>
                         isUsed="True">
                         <externalMetadataColumn
                           refId="Package\A - Create Run\Create Run\Runs.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                          dataType="i2"
+                          dataType="i4"
                           name="ID" />
                         <externalMetadataColumn
                           refId="Package\A - Create Run\Create Run\Runs.Inputs[OLE DB Destination Input].ExternalColumns[Step]"
@@ -3922,7 +3922,7 @@ where [refTable].[ID] = ?</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
-              SQLTask:SqlStatementSource="UPDATE [dbo].[Batches] SET&#xA;  Status = 3&#xA;, Exported = GetDate()&#xA;WHERE Run = ?;&#xA;&#xA;UPDATE       [Doc per Klant]&#xA;SET                ProcStatus = 3&#xA;FROM            Batches INNER JOIN&#xA;                         ProcessDetails ON Batches.ID = ProcessDetails.Batch INNER JOIN&#xA;                         [Doc per Klant] ON ProcessDetails.[Doc/Klant] = [Doc per Klant].ID&#xA;WHERE        (Batches.Run = ?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="UPDATE [dbo].[Batches] SET&#xA;  Status = 3&#xA;, Linked = GetDate()&#xA;, Exported = GetDate()&#xA;WHERE Run = ?;&#xA;&#xA;UPDATE       [Doc per Klant]&#xA;SET                ProcStatus = 3&#xA;FROM            Batches INNER JOIN&#xA;                         ProcessDetails ON Batches.ID = ProcessDetails.Batch INNER JOIN&#xA;                         [Doc per Klant] ON ProcessDetails.[Doc/Klant] = [Doc per Klant].ID&#xA;WHERE        (Batches.Run = ?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::RunID"
@@ -4842,6 +4842,19 @@ where [refTable].[ID] = ?</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\A - Create Run\Create Run\Runs">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
