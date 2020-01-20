@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcA - Import Sonar - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{32BDC1FE-31EE-4002-A833-D2F6E95CF8FA}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{FA72F062-8B8E-4432-A5A4-8F421F280674}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -36,6 +36,16 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{584AA35E-491D-420A-B9BE-09C14D5FF117}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SMZ">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{D38E1390-CD33-4DFB-803E-ACF47E31D760}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -46,6 +56,22 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\Create Run"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{a8f1d4d9-3c3b-444b-8a89-731f2ccf01db}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Run"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[Runs]( [Step], [Created], [Software])&#xA;Select Step, GetDate(), Max(ID)&#xA;From SoftwareVersion&#xA;Group by Step&#xA;Having Step = 28" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Read Parameters"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -53,12 +79,12 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Read Parameters"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
-          SQLTask:SqlStatementSource="SELECT * FROM&#xA;(SELECT ValStr AS HostName FROM [Control Params] WHERE Param = 10 AND Step = 16) AS B Cross JOIN&#xA;(SELECT ValStr AS UserID FROM [Control Params] WHERE Param = 13 AND Step = 16) AS E Cross JOIN&#xA;(SELECT ValStr AS Password FROM [Control Params] WHERE Param = 14 AND Step = 16) AS F"
+          SQLTask:SqlStatementSource="SELECT * FROM&#xA;(SELECT ValStr AS HostName FROM [Control Params] WHERE Param = 10 AND Step = 28) AS B Cross JOIN&#xA;(SELECT ValStr AS UserID FROM [Control Params] WHERE Param = 13 AND Step = 28) AS E Cross JOIN&#xA;(SELECT ValStr AS Password FROM [Control Params] WHERE Param = 14 AND Step = 28) AS F Cross JOIN&#xA;(SELECT ValStr AS SMZ FROM [Control Params] WHERE Param = 5 AND Step = 28) AS P"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -69,6 +95,9 @@
           <SQLTask:ResultBinding
             SQLTask:ResultName="2"
             SQLTask:DtsVariableName="User::PWD" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="3"
+            SQLTask:DtsVariableName="User::SMZ" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -741,12 +770,6 @@ HAVING        ([Template ID] IS NOT NULL) AND ([Template Alias] IS NOT NULL)</pr
                           externalMetadataColumnId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[InDB]"
                           lineageId="Package\Update References\Update DocTypes\Derived Column.Outputs[Derived Column Output].Columns[DB]" />
                         <inputColumn
-                          refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].Columns[FS]"
-                          cachedDataType="bool"
-                          cachedName="FS"
-                          externalMetadataColumnId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[InFS]"
-                          lineageId="Package\Update References\Update DocTypes\Derived Column.Outputs[Derived Column Output].Columns[FS]" />
-                        <inputColumn
                           refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].Columns[XS]"
                           cachedDataType="bool"
                           cachedName="XS"
@@ -783,10 +806,6 @@ HAVING        ([Template ID] IS NOT NULL) AND ([Template Alias] IS NOT NULL)</pr
                           dataType="bool"
                           name="InDB" />
                         <externalMetadataColumn
-                          refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[InFS]"
-                          dataType="bool"
-                          name="InFS" />
-                        <externalMetadataColumn
                           refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[InXls]"
                           dataType="bool"
                           name="InXls" />
@@ -798,6 +817,15 @@ HAVING        ([Template ID] IS NOT NULL) AND ([Template Alias] IS NOT NULL)</pr
                           refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[Inserted]"
                           dataType="dbTimeStamp"
                           name="Inserted" />
+                        <externalMetadataColumn
+                          refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[Mask]"
+                          dataType="wstr"
+                          length="255"
+                          name="Mask" />
+                        <externalMetadataColumn
+                          refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[VolgNr]"
+                          dataType="i2"
+                          name="VolgNr" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2775,13 +2803,15 @@ HAVING        ([Template ID] IS NOT NULL)</property>
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[xFdF Templates]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        ID, LOWER(Name) AS Name, [Doc Count], InDB
+FROM            [xFdF Templates]</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[xFdF Templates]) [refTable]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        ID, LOWER(Name) AS Name, [Doc Count], InDB
+FROM            [xFdF Templates]) [refTable]
 where [refTable].[Name] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -2813,12 +2843,12 @@ where [refTable].[Name] = ?</property>
                     <property
                       dataType="System.String"
                       description="Indicates whether to reference metadata in an XML format."
-                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Doc Count" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="InDB" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="InFS" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FileSize" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FileType" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Inserted" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Doc Count" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="InDB" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\Update References\Update xFdF\Cnt Templates.Outputs[OLE DB Source Output].Columns[Template Version]};</property>
+                      name="ParameterMap">#{Package\Update References\Update xFdF\Derived Column.Outputs[Derived Column Output].Columns[Key]};</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2842,11 +2872,11 @@ where [refTable].[Name] = ?</property>
                       name="Lookup Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Update References\Update xFdF\Bestaat al?.Inputs[Lookup Input].Columns[Template Version]"
+                          refId="Package\Update References\Update xFdF\Bestaat al?.Inputs[Lookup Input].Columns[Key]"
                           cachedDataType="wstr"
                           cachedLength="255"
-                          cachedName="Template Version"
-                          lineageId="Package\Update References\Update xFdF\Cnt Templates.Outputs[OLE DB Source Output].Columns[Template Version]">
+                          cachedName="Key"
+                          lineageId="Package\Update References\Update xFdF\Derived Column.Outputs[Derived Column Output].Columns[Key]">
                           <properties>
                             <property
                               dataType="System.String"
@@ -3089,6 +3119,14 @@ HAVING        ([Template Version] IS NOT NULL)</property>
                       refId="Package\Update References\Update xFdF\Derived Column.Inputs[Derived Column Input]"
                       description="Input to the Derived Column Transformation"
                       name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update References\Update xFdF\Derived Column.Inputs[Derived Column Input].Columns[Template Version]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Template Version"
+                          lineageId="Package\Update References\Update xFdF\Cnt Templates.Outputs[OLE DB Source Output].Columns[Template Version]" />
+                      </inputColumns>
                       <externalMetadataColumns />
                     </input>
                   </inputs>
@@ -3164,6 +3202,29 @@ HAVING        ([Template Version] IS NOT NULL)</property>
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
                               name="FriendlyExpression">(DT_UI1)1</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update References\Update xFdF\Derived Column.Outputs[Derived Column Output].Columns[Key]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Update References\Update xFdF\Derived Column.Outputs[Derived Column Output].Columns[Key]"
+                          name="Key"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[LOWER](#{Package\Update References\Update xFdF\Cnt Templates.Outputs[OLE DB Source Output].Columns[Template Version]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">LOWER([Template Version])</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -3645,6 +3706,10 @@ HAVING        ([Template Version] IS NOT NULL)</property>
             <ParameterName>OraSonar_UserName</ParameterName>
             <BindedVariableOrParameterName>User::User</BindedVariableOrParameterName>
           </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>SMZ</ParameterName>
+            <BindedVariableOrParameterName>User::SMZ</BindedVariableOrParameterName>
+          </ParameterAssignment>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3674,6 +3739,22 @@ HAVING        ([Template Version] IS NOT NULL)</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Update References" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{6DF33C04-F1F7-4878-B95E-D35731B53F5F}"
+      DTS:From="Package\Create Run"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Update SonarData" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{26A67B26-2C71-466C-A53A-6BFA4AE3656B}"
+      DTS:From="Package\Create Run"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Update References" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3688,9 +3769,13 @@ HAVING        ([Template Version] IS NOT NULL)</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="135,42"
+          Id="Package\Create Run"
+          TopLeft="135,276" />
+        <NodeLayout
           Size="165,42"
           Id="Package\Read Parameters"
-          TopLeft="64,63" />
+          TopLeft="117,81" />
         <NodeLayout
           Size="141,42"
           Id="Package\Update References\Update DocTypes"
@@ -3732,28 +3817,28 @@ HAVING        ([Template Version] IS NOT NULL)</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="470,245"
-          Size="470,288"
+          PanelSize="470,209"
+          Size="470,252"
           Id="Package\Update References"
-          TopLeft="65,186" />
+          TopLeft="402,68" />
         <NodeLayout
           Size="170,42"
           Id="Package\Update SonarData"
-          TopLeft="360,58" />
+          TopLeft="120,179" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="229,81.5">
+          TopLeft="202.25,123">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="131,0"
+              EndConnector="0,56"
               Start="0,0"
-              End="123.5,0">
+              End="0,48.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="123.5,0" />
+                    End="0,48.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3764,30 +3849,18 @@ HAVING        ([Template Version] IS NOT NULL)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="445,100">
+          TopLeft="290,197">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-68,86"
+              EndConnector="112,0"
               Start="0,0"
-              End="-68,78.5">
+              End="104.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.4249363867684" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47.4249363867684"
-                    Point2="0,51.4249363867684"
-                    Point3="-4,51.4249363867684" />
-                  <mssgle:LineSegment
-                    End="-64,51.4249363867684" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-64,51.4249363867684"
-                    Point2="-68,51.4249363867684"
-                    Point3="-68,55.4249363867684" />
-                  <mssgle:LineSegment
-                    End="-68,78.5" />
+                    End="104.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3798,30 +3871,86 @@ HAVING        ([Template Version] IS NOT NULL)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="146.5,105">
+          TopLeft="282,102">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="76.5,81"
+              EndConnector="120,31"
               Start="0,0"
-              End="76.5,73.5">
+              End="112.5,31">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.4351145038168" />
+                    End="75.1623036649215,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,44.4351145038168"
-                    Point2="0,48.4351145038168"
-                    Point3="4,48.4351145038168" />
+                    Point1="75.1623036649215,0"
+                    Point2="79.1623036649215,0"
+                    Point3="79.1623036649215,4" />
                   <mssgle:LineSegment
-                    End="72.5,48.4351145038168" />
+                    End="79.1623036649215,27" />
                   <mssgle:CubicBezierSegment
-                    Point1="72.5,48.4351145038168"
-                    Point2="76.5,48.4351145038168"
-                    Point3="76.5,52.4351145038168" />
+                    Point1="79.1623036649215,27"
+                    Point2="79.1623036649215,31"
+                    Point3="83.1623036649215,31" />
                   <mssgle:LineSegment
-                    End="76.5,73.5" />
+                    End="112.5,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="203.75,276">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-55"
+              Start="0,0"
+              End="0,-47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="270,297">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="132,-42"
+              Start="0,0"
+              End="124.5,-42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="83.0785340314136,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.0785340314136,0"
+                    Point2="87.0785340314136,0"
+                    Point3="87.0785340314136,-4" />
+                  <mssgle:LineSegment
+                    End="87.0785340314136,-38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87.0785340314136,-38"
+                    Point2="87.0785340314136,-42"
+                    Point3="91.0785340314136,-42" />
+                  <mssgle:LineSegment
+                    End="124.5,-42" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3909,9 +4038,7 @@ HAVING        ([Template Version] IS NOT NULL)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4005,14 +4132,25 @@ HAVING        ([Template Version] IS NOT NULL)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update References\Update DocTypes\DocTypes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Update References\Update File Extensions">
     <LayoutInfo>
@@ -4323,21 +4461,17 @@ HAVING        ([Template Version] IS NOT NULL)</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="172,42"
-          Id="Package\Update References\Update xFdF\DocCnt Changed ?"
-          TopLeft="565,240" />
+          Size="158,42"
+          Id="Package\Update References\Update xFdF\xFdF Templates"
+          TopLeft="310,388" />
         <NodeLayout
           Size="150,42"
           Id="Package\Update References\Update xFdF\Cnt Templates"
           TopLeft="54,110" />
         <NodeLayout
-          Size="147,42"
-          Id="Package\Update References\Update xFdF\Set DocCount"
-          TopLeft="573,386" />
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Update References\Update xFdF\xFdF Templates"
-          TopLeft="310,388" />
+          Size="172,42"
+          Id="Package\Update References\Update xFdF\DocCnt Changed ?"
+          TopLeft="565,240" />
         <NodeLayout
           Size="134,42"
           Id="Package\Update References\Update xFdF\Bestaat al?"
@@ -4346,30 +4480,10 @@ HAVING        ([Template Version] IS NOT NULL)</property>
           Size="158,42"
           Id="Package\Update References\Update xFdF\Derived Column"
           TopLeft="322,107" />
-        <EdgeLayout
-          Id="Package\Update References\Update xFdF.Paths[Update]"
-          TopLeft="648.75,282">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,104"
-              Start="0,0"
-              End="0,96.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,96.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-16.28029296875,42.4453125,32.5605859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Update References\Update xFdF\Set DocCount"
+          TopLeft="573,386" />
         <EdgeLayout
           Id="Package\Update References\Update xFdF.Paths[OLE DB Source Output]"
           TopLeft="204,129.5">
@@ -4466,8 +4580,55 @@ HAVING        ([Template Version] IS NOT NULL)</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update References\Update xFdF.Paths[Update]"
+          TopLeft="648.75,282">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,104"
+              Start="0,0"
+              End="0,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.28029296875,42.4453125,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update References\Update xFdF\Bestaat al?">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

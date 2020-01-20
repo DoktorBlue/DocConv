@@ -1,54 +1,70 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="9/10/2019 8:26:57 PM"
+  DTS:CreationDate="10/21/2019 12:44:53 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="VMT010140177175"
   DTS:CreatorName="TEST\bla061"
-  DTS:DTSID="{8E60D1F2-FDED-471D-BA99-1F944C2875EA}"
+  DTS:DTSID="{A3992F48-F72C-47AC-9141-930E295BB471}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1043"
-  DTS:ObjectName="MigStraat E-F"
+  DTS:ObjectName="Exec Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{B564821F-D62F-4FEE-B1BD-C36C999B10BF}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{63BC6D1D-F54C-464D-AE99-C79394FEBDD7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{260314A0-76C4-41DF-B96C-F34C89F50B61}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PackName">
+      <DTS:VariableValue
+        DTS:DataType="8">Update ReleaseInfo</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\ProcE"
+      DTS:refId="Package\Exec Package"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="Execute Package Task"
-      DTS:DTSID="{5ADA8950-C3EA-4C8C-AE65-7DAD97E26AD8}"
+      DTS:DTSID="{8B4B464F-629A-4EAF-A84E-C3677A0C7A15}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="ProcE"
+      DTS:ObjectName="Exec Package"
       DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="PackageName">@[User::PackName] +".dtsx"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
-          <PackageName>ProcE - Send to EA - Master.dtsx</PackageName>
+          <PackageName>Update ReleaseInfo.dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\ProcF"
-      DTS:CreationName="Microsoft.ExecutePackageTask"
-      DTS:Description="Execute Package Task"
-      DTS:DTSID="{990F7826-CD47-494E-9887-11E1A7AAC5AA}"
-      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:refId="Package\Get Package"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0B68B93C-36F7-4AB1-93CA-7BD165834ECE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="ProcF"
-      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      DTS:ObjectName="Get Package"
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
-        <ExecutePackageTask>
-          <UseProjectReference>True</UseProjectReference>
-          <PackageName>ProcF - Receive from EA - Master.dtsx</PackageName>
-        </ExecutePackageTask>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="SELECT&#xA;  [ValStr]&#xA;FROM [dbo].[Control Params]&#xA;WHERE (Param = 3) AND Step =19"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::PackName" />
+        </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -56,11 +72,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{E48ECCB6-DBD0-496A-A886-17E6C86DAB91}"
-      DTS:From="Package\ProcE"
+      DTS:DTSID="{99C37D9C-EE2F-47D0-B1BD-0DF886887B2E}"
+      DTS:From="Package\Get Package"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\ProcF" />
+      DTS:To="Package\Exec Package" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -75,27 +91,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="109,42"
-          Id="Package\ProcE"
-          TopLeft="69,110" />
+          Size="149,42"
+          Id="Package\Exec Package"
+          TopLeft="93,150" />
         <NodeLayout
-          Size="108,42"
-          Id="Package\ProcF"
-          TopLeft="310,111" />
+          Size="142,42"
+          Id="Package\Get Package"
+          TopLeft="94,51" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="178,131.5">
+          TopLeft="166.25,93">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="132,0"
+              EndConnector="0,57"
               Start="0,0"
-              End="124.5,0">
+              End="0,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="124.5,0" />
+                    End="0,49.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

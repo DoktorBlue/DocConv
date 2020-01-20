@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcA - Import Sonar - Slave"
   DTS:PackageType="5"
-  DTS:VersionBuild="123"
-  DTS:VersionGUID="{A50AC261-B606-49AE-A8A2-41223F742AB1}">
+  DTS:VersionBuild="126"
+  DTS:VersionGUID="{7DF2344E-A875-49B6-8756-0EF86F1785D9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -46,6 +46,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMZ]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{9C858D85-D9A9-4B7F-A4E6-3C8A60719DDC}"
+      DTS:ObjectName="SMZ">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Package::SMZ]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Scripts\BZ_download.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Sonar]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{E45F875B-32EB-41C7-865E-E8B8EE03A501}"
@@ -62,7 +74,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABnZL9NQcfoYVPfb9pYX+mkAAAAAASAAACgAAAAEAAAAJ3rJTP8YaE11Rqj+D8Li+0gAAAAh7erI3i06zZUelY3PNFfEk3rcDNo+nrNm4hWUHqqfxAUAAAAwmEra6FvnqXpMiY4KcWQOs1ceZo</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMrhZ6H9nkEKEZfobl3Sc7QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABMe8leA8W3qr2gXjXG1+a3AAAAAASAAACgAAAAEAAAAN3ZBGEdH10OepuRcpGd4NogAAAArkC+gqB2CXEsSTOQseqhxDksRBZ+QprdmunbExrE71wUAAAAd78+0V2VPlFbYjushWi7pxGsE8o</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -80,7 +92,7 @@
         <DTS:Property
           DTS:DataType="8"
           DTS:Name="ParameterValue"
-          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJjjzw2WYv0SFNyaRlhiKfQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAwQEyEjX6i9Bb/KEvqxIv5AAAAAASAAACgAAAAEAAAAHLqOBfQ6vb0v/VpiPPrfxAgAAAAX2yjn5Vp0hWKw0wzaDOpp62MDtxNMDOZYZZpAmymLh4UAAAABfXmICe0lMdNs/oeLz3qFdS6VZ8</DTS:Property>
+          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMrhZ6H9nkEKEZfobl3Sc7QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADm6eFSy+KAedmlgwrHCImgAAAAAASAAACgAAAAEAAAAHl7jqPY2pt55N9z0CF6qK0gAAAA9c8CAa5QJdyynCNcpCkROu6vXSAJDSDLqtJVyxQ2lmwUAAAArUu62FPCbgjV+ruCjtN+55SwBK4</DTS:Property>
       </DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
@@ -102,6 +114,16 @@
       <DTS:Property
         DTS:DataType="8"
         DTS:Name="ParameterValue">EA_MIGRATIE</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{634CD65C-E0B4-449F-AEAB-7118CAC7B9B7}"
+      DTS:ObjectName="SMZ"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">E:\Scripts\BZ_download.xlsx</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
@@ -1884,6 +1906,10 @@ where "refTable"."ACTIVITY_ID" = ?</property>
                               refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Doc per Klant.Inputs[OLE DB Destination Input].ExternalColumns[ProcStatus]"
                               dataType="ui1"
                               name="ProcStatus" />
+                            <externalMetadataColumn
+                              refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Doc per Klant.Inputs[OLE DB Destination Input].ExternalColumns[EA]"
+                              dataType="guid"
+                              name="EA" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -3711,29 +3737,29 @@ And Contact = ?</property>
                       startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Found?.Outputs[Ja]" />
                     <path
                       refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output4]"
-                      endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Multicast.Inputs[Multicast Input 1]"
-                      name="Lookup Match Output"
-                      startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Get Att Source.Outputs[Lookup Match Output]" />
-                    <path
-                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output2]"
                       endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Conditional Split.Inputs[Conditional Split Input]"
                       name="Lookup Match Output"
                       startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Doc per Klant Status.Outputs[Lookup Match Output]" />
                     <path
-                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output3]"
-                      endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\BSN Status.Inputs[Derived Column Input]"
-                      name="Lookup Match Output"
-                      startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Klanten.Outputs[Lookup Match Output]" />
-                    <path
-                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output]"
+                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output2]"
                       endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Reset ConCnt.Inputs[Derived Column Input]"
                       name="Lookup Match Output"
                       startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\EVT Act.Outputs[Lookup Match Output]" />
                     <path
-                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output1]"
+                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output3]"
+                      endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Multicast.Inputs[Multicast Input 1]"
+                      name="Lookup Match Output"
+                      startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Get Att Source.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output]"
                       endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\EVT Act.Inputs[Lookup Input]"
                       name="Lookup Match Output"
                       startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Con Cnt.Outputs[Lookup Match Output]" />
+                    <path
+                      refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output1]"
+                      endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\BSN Status.Inputs[Derived Column Input]"
+                      name="Lookup Match Output"
+                      startId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Klanten.Outputs[Lookup Match Output]" />
                     <path
                       refId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Merge Join Output]"
                       endId="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Found?.Inputs[Conditional Split Input]"
@@ -5542,6 +5568,10 @@ where "refTable"."ROW_ID" = ?</property>
                               refId="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Doc per Klant.Inputs[OLE DB Destination Input].ExternalColumns[ProcStatus]"
                               dataType="ui1"
                               name="ProcStatus" />
+                            <externalMetadataColumn
+                              refId="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Doc per Klant.Inputs[OLE DB Destination Input].ExternalColumns[EA]"
+                              dataType="guid"
+                              name="EA" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -8623,6 +8653,10 @@ where [refTable].[RowID] = ?</property>
                               refId="Package\Import Contact Documents\Loop Until All Att Processed\Load Contact\Doc per Klant.Inputs[OLE DB Destination Input].ExternalColumns[ProcStatus]"
                               dataType="ui1"
                               name="ProcStatus" />
+                            <externalMetadataColumn
+                              refId="Package\Import Contact Documents\Loop Until All Att Processed\Load Contact\Doc per Klant.Inputs[OLE DB Destination Input].ExternalColumns[EA]"
+                              dataType="guid"
+                              name="EA" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -9993,6 +10027,627 @@ And Contact = ?</property>
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\Import Contact Documents\Loop Until All Att Processed" />
       </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set EP"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C4EB3CEB-7F21-46E0-A990-052739AC9D18}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set EP"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Set EP\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Set EP\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Set EP\Data Conversion.Inputs[Data Conversion Input].Columns[BSN]"
+                      cachedDataType="r8"
+                      cachedName="BSN"
+                      lineageId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].Columns[BSN]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Set EP\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Set EP\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set EP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BSN]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Set EP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BSN]"
+                      name="Copy of BSN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Set EP\EP - BSN.Outputs[Excel Source Output].Columns[BSN]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Set EP\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Set EP\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set EP\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Set EP\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Set EP\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Set EP\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Set EP\EP - BSN"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="EP - BSN"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">ContentExport$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set EP\EP - BSN.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SMZ]"
+                  connectionManagerRefId="Package.ConnectionManagers[SMZ]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].Columns[BSN]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[BSN]"
+                      lineageId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].Columns[BSN]"
+                      name="BSN"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[BSN]"
+                      dataType="r8"
+                      name="BSN" />
+                    <externalMetadataColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="255"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[VoorLetters]"
+                      dataType="wstr"
+                      length="255"
+                      name="VoorLetters" />
+                    <externalMetadataColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[PostCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="PostCode" />
+                    <externalMetadataColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[HuisNummer]"
+                      dataType="wstr"
+                      length="255"
+                      name="HuisNummer" />
+                    <externalMetadataColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[BeginDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="BeginDate" />
+                    <externalMetadataColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[EndDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="255"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Output].ExternalColumns[UserName]"
+                      dataType="wstr"
+                      length="255"
+                      name="UserName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Set EP\EP - BSN.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Set EP\EP - BSN.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Set EP\EP - BSN.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Set EP\EP - BSN.Outputs[Excel Source Error Output].Columns[BSN]"
+                      dataType="r8"
+                      lineageId="Package\Set EP\EP - BSN.Outputs[Excel Source Error Output].Columns[BSN]"
+                      name="BSN" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Set EP\EP already set ?"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="EP already set ?"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Set EP\EP already set ?.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Set EP\EP already set ?.Inputs[Conditional Split Input].Columns[EigenPers]"
+                      cachedDataType="bool"
+                      cachedName="EigenPers"
+                      lineageId="Package\Set EP\Klanten.Outputs[Lookup Match Output].Columns[EigenPers]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Set EP\EP already set ?.Outputs[Ja]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Ja"
+                  synchronousInputId="Package\Set EP\EP already set ?.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Set EP\Klanten.Outputs[Lookup Match Output].Columns[EigenPers]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">EigenPers</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Set EP\EP already set ?.Outputs[Nee]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Nee"
+                  synchronousInputId="Package\Set EP\EP already set ?.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Set EP\EP already set ?.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Set EP\EP already set ?.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set EP\EP already set ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Set EP\EP already set ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Set EP\EP already set ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Set EP\EP already set ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Set EP\Klanten"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Klanten"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        ID, CAST(SOC_SECURITY_NUM AS bigint) AS BSN, EigenPers
+FROM            Klanten</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        ID, CAST(SOC_SECURITY_NUM AS bigint) AS BSN, EigenPers
+FROM            Klanten) [refTable]
+where [refTable].[BSN] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BSN" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EigenPers" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Set EP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BSN]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set EP\Klanten.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Set EP\Klanten.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Set EP\Klanten.Inputs[Lookup Input].Columns[Copy of BSN]"
+                      cachedDataType="i8"
+                      cachedName="Copy of BSN"
+                      lineageId="Package\Set EP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BSN]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">BSN</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Set EP\Klanten.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Set EP\Klanten.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set EP\Klanten.Outputs[Lookup Match Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Set EP\Klanten.Outputs[Lookup Match Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ID</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Set EP\Klanten.Outputs[Lookup Match Output].Columns[EigenPers]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Set EP\Klanten.Outputs[Lookup Match Output].Columns[EigenPers]"
+                      name="EigenPers"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">EigenPers</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Set EP\Klanten.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Set EP\Klanten.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Set EP\Klanten.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Set EP\Klanten.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set EP\Klanten.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Set EP\Klanten.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Set EP\Klanten.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Set EP\Klanten.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Set EP\Set EP"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Set EP"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[Klanten] SET  [EigenPers] = 1
+WHERE ID = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Set EP\Set EP.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Set EP\Set EP.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Set EP\Set EP.Inputs[OLE DB Command Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Set EP\Set EP.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Set EP\Klanten.Outputs[Lookup Match Output].Columns[ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Set EP\Set EP.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Set EP\Set EP.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Set EP\Set EP.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Set EP\Set EP.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Set EP\Set EP.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Set EP\Set EP.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Set EP\Set EP.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Set EP\Set EP.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Set EP\Set EP.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Set EP.Paths[Data Conversion Output]"
+              endId="Package\Set EP\Klanten.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Set EP\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Set EP.Paths[Excel Source Output]"
+              endId="Package\Set EP\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\Set EP\EP - BSN.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Set EP.Paths[Lookup Match Output]"
+              endId="Package\Set EP\EP already set ?.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\Set EP\Klanten.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Set EP.Paths[Nee]"
+              endId="Package\Set EP\Set EP.Inputs[OLE DB Command Input]"
+              name="Nee"
+              startId="Package\Set EP\EP already set ?.Outputs[Nee]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Set meest recente datum"
@@ -12966,6 +13621,14 @@ where [refTable].[RowID] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
       DTS:To="Package\Import Activity Documents" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{CD441BD0-279A-4E76-A5A0-1D2626A1654D}"
+      DTS:From="Package\Import Contact Documents"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Set EP" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -13196,7 +13859,7 @@ where [refTable].[RowID] = ?</property>
         <NodeLayout
           Size="130,54"
           Id="Package\Set meest recente datum"
-          TopLeft="703,29" />
+          TopLeft="639,33" />
         <NodeLayout
           Size="130,42"
           Id="Package\Update Klant BSN"
@@ -13329,18 +13992,30 @@ where [refTable].[RowID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="769.75,151">
+          TopLeft="728.666666666667,151">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-68"
+              EndConnector="-24.6666666666666,-64"
               Start="0,0"
-              End="0,-60.5">
+              End="-24.6666666666666,-56.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-60.5" />
+                    End="0,-21.8304576144036" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-21.8304576144036"
+                    Point2="0,-25.8304576144036"
+                    Point3="-4,-25.8304576144036" />
+                  <mssgle:LineSegment
+                    End="-20.6666666666666,-25.8304576144036" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.6666666666666,-25.8304576144036"
+                    Point2="-24.6666666666666,-25.8304576144036"
+                    Point3="-24.6666666666666,-29.8304576144036" />
+                  <mssgle:LineSegment
+                    End="-24.6666666666666,-56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13397,6 +14072,44 @@ where [refTable].[RowID] = ?</property>
                     Point3="77.3333333333333,41.2803352083573" />
                   <mssgle:LineSegment
                     End="77.3333333333333,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Set EP"
+          TopLeft="798,36" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="814.333333333333,151">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.1666666666667,-73"
+              Start="0,0"
+              End="40.1666666666667,-65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-25.4628657164291" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-25.4628657164291"
+                    Point2="0,-29.4628657164291"
+                    Point3="4,-29.4628657164291" />
+                  <mssgle:LineSegment
+                    End="36.1666666666667,-29.4628657164291" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.1666666666667,-29.4628657164291"
+                    Point2="40.1666666666667,-29.4628657164291"
+                    Point3="40.1666666666667,-33.4628657164291" />
+                  <mssgle:LineSegment
+                    End="40.1666666666667,-65.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13560,61 +14273,11 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output]"
-          TopLeft="149.75,379">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,79"
-              Start="0,0"
-              End="0,71.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,71.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output2]"
-          TopLeft="507,467">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="109,0"
-              Start="0,0"
-              End="101.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="101.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output1]"
           TopLeft="147.5,241">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13632,13 +14295,77 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output2]"
+          TopLeft="149.75,379">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,79"
+              Start="0,0"
+              End="0,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output1]"
+          TopLeft="625,353">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144,0"
+              Start="0,0"
+              End="-136.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-136.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output4]"
+          TopLeft="507,467">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="109,0"
+              Start="0,0"
+              End="101.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="101.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output3]"
           TopLeft="741.25,99">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13658,30 +14385,6 @@ where [refTable].[RowID] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-48.19138671875,34.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output3]"
-          TopLeft="625,353">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-144,0"
-              Start="0,0"
-              End="-136.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-136.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -13752,9 +14455,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13776,9 +14477,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13800,9 +14499,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13824,9 +14521,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13872,9 +14567,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13896,9 +14589,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13920,9 +14611,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13968,9 +14657,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13992,16 +14679,14 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelinePath
-    design-time-name="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output3]">
+    design-time-name="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output4]">
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
   <PipelinePath
@@ -14016,6 +14701,19 @@ where [refTable].[RowID] = ?</property>
     design-time-name="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity.Paths[Lookup Match Output]">
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Doc per Klant">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Import Activity Documents\Loop Until All Att Processed\Load Activity\Activity Att">
     <Properties>
@@ -14120,9 +14818,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14144,9 +14840,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14168,9 +14862,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14192,9 +14884,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14216,9 +14906,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14288,9 +14976,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14312,9 +14998,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14360,9 +15044,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14384,9 +15066,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14408,9 +15088,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14432,9 +15110,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14456,9 +15132,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14524,6 +15198,19 @@ where [refTable].[RowID] = ?</property>
     design-time-name="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case.Paths[Lookup Match Output]">
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Doc per Klant">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Import Case Documents\Loop Until All Case Att Processed\Load Case\Case Att">
     <Properties>
@@ -14672,9 +15359,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14696,9 +15381,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14720,9 +15403,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14768,9 +15449,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14792,9 +15471,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14816,9 +15493,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14840,9 +15515,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14864,9 +15537,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14912,9 +15583,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14936,9 +15605,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14960,9 +15627,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14984,9 +15649,7 @@ where [refTable].[RowID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -15004,6 +15667,19 @@ where [refTable].[RowID] = ?</property>
     design-time-name="Package\Import Contact Documents\Loop Until All Att Processed\Load Contact.Paths[Lookup Match Output]">
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Contact Documents\Loop Until All Att Processed\Load Contact\Doc per Klant">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Set meest recente datum">
     <LayoutInfo>
@@ -15272,6 +15948,28 @@ where [refTable].[RowID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Update Klant BSN.Paths[Output 0]"
+          TopLeft="767.75,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,99"
+              Start="0,0"
+              End="0,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Update Klant BSN.Paths[OLE DB Source Output]"
           TopLeft="534,57.5">
           <EdgeLayout.Curve>
@@ -15315,28 +16013,6 @@ where [refTable].[RowID] = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="-13.75298828125,30.048828125,27.5059765625,9.40234375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Update Klant BSN.Paths[Output 0]"
-          TopLeft="767.75,77">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,99"
-              Start="0,0"
-              End="0,91.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,91.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -15526,6 +16202,162 @@ where [refTable].[RowID] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Set EP">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Set EP\EP - BSN"
+          TopLeft="34,73" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\Set EP\Klanten"
+          TopLeft="578,70" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Set EP\Data Conversion"
+          TopLeft="275,72" />
+        <EdgeLayout
+          Id="Package\Set EP.Paths[Excel Source Output]"
+          TopLeft="160,93.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115,0"
+              Start="0,0"
+              End="107.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="107.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Set EP.Paths[Data Conversion Output]"
+          TopLeft="436,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142,0"
+              Start="0,0"
+              End="134.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="134.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Set EP\EP already set ?"
+          TopLeft="552,240" />
+        <EdgeLayout
+          Id="Package\Set EP.Paths[Lookup Match Output]"
+          TopLeft="633.75,112">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,128"
+              Start="0,0"
+              End="0,120.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,120.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,54.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Set EP\Set EP"
+          TopLeft="301,239" />
+        <EdgeLayout
+          Id="Package\Set EP.Paths[Nee]"
+          TopLeft="552,260.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-138,0"
+              Start="0,0"
+              End="-130.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-130.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-74.34634765625,5,18.1926953125,9.3974609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Set EP\EP - BSN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Set EP\Klanten">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

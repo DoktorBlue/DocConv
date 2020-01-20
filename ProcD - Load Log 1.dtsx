@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="VMT010140177175"
   DTS:CreatorName="TEST\bla061"
-  DTS:DTSID="{57861177-5D90-486F-9BCA-FA9BA227A262}"
+  DTS:DTSID="{39FF0F3C-A650-4FA2-BEA1-793943A8A4A5}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcD - Load Log"
   DTS:PackageType="5"
-  DTS:VersionBuild="120"
-  DTS:VersionGUID="{9E85ACA1-246E-47C2-AE09-D59E91E3F80C}">
+  DTS:VersionBuild="121"
+  DTS:VersionGUID="{C6D21F53-26F0-429E-8A5D-8E42F7F10761}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Err]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{587A10EB-75B0-4D85-A06E-753F1911A5EC}"
+      DTS:DTSID="{A35CDEA0-26AC-4324-AC14-8A90D6451876}"
       DTS:ObjectName="Err">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[$Package::ExecRoot]+"\\03-Finished\\" +  @[User::BatchName] + ".err"</DTS:PropertyExpression>
@@ -40,7 +40,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Line"
-              DTS:DTSID="{EA6AABA6-5207-4E79-8C34-1C30341B1F9C}"
+              DTS:DTSID="{83F312B2-6A15-41F9-85BC-B8D910D912F6}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -49,7 +49,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Log]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{F8F3F8FB-EA5B-4A49-88DE-FD7B7A6663A8}"
+      DTS:DTSID="{863C414B-77CB-4C37-8ED9-CCA0BAF9A523}"
       DTS:ObjectName="Log">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[$Package::ExecRoot]+"\\03-Finished\\" +  @[User::BatchName] + ".log"</DTS:PropertyExpression>
@@ -69,7 +69,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ID"
-              DTS:DTSID="{B8F18EF2-86A1-4BF2-8652-9C9315EC1F9E}"
+              DTS:DTSID="{D5F1D4E7-0688-4D25-A0D4-B09FCD40CB75}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -78,7 +78,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TimeStamp"
-              DTS:DTSID="{31BAB9BA-0DC9-409D-9F1E-644B2AF6316E}"
+              DTS:DTSID="{4C69FDE1-7742-466B-8D24-BDB2EA9D78B5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -87,7 +87,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Status"
-              DTS:DTSID="{15F0DC99-CB52-4813-AB97-465CD9A6B13F}"
+              DTS:DTSID="{A2681C60-6B9E-4EEF-99CA-0A4642D3339D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -96,7 +96,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="File"
-              DTS:DTSID="{84186A32-8622-40AB-AE7D-6E7AA780F757}"
+              DTS:DTSID="{5DBB067B-2823-4E9C-932F-4A65ED7C8CBD}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -105,7 +105,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Util]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{c0a39ee4-c619-45a9-ba80-be40b6b82e98}"
+      DTS:DTSID="{40CA0A57-1818-40A3-9830-822E3551BB79}"
       DTS:ObjectName="Util">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[$Package::ExecRoot]+"\\03-Finished\\" +  @[User::BatchName] + ".util"</DTS:PropertyExpression>
@@ -125,7 +125,7 @@
               DTS:ColumnWidth="19"
               DTS:DataType="7"
               DTS:ObjectName="Moment"
-              DTS:DTSID="{A65C3D14-0DC7-4F06-8F7B-0E0D46F6C43F}"
+              DTS:DTSID="{29435C71-DB00-41F6-9A1E-2F497C3625C1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnDelimiter=""
@@ -133,7 +133,7 @@
               DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:ObjectName="Column 1"
-              DTS:DTSID="{906D65C7-77B2-46D3-B651-9BFDE9F1117A}"
+              DTS:DTSID="{402823E3-4C93-4E32-AD8B-F6F20D894352}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -142,7 +142,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CPU"
-              DTS:DTSID="{35431BF3-AAF7-45C1-808D-662C7936F350}"
+              DTS:DTSID="{B12D4AE2-4CAC-4260-BE7A-4221A3522757}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -153,7 +153,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{2010AC45-8EA8-49E3-AA7E-B1DCA7EEE618}"
+      DTS:DTSID="{3BBD423C-37F0-47D9-9777-6B2858451B1B}"
       DTS:ObjectName="ExecRoot"
       DTS:Required="True">
       <DTS:Property
@@ -163,7 +163,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="17"
-      DTS:DTSID="{F48C03A3-7772-4446-BD31-B0D110E1D98D}"
+      DTS:DTSID="{96527FA8-FD2C-491C-ACD5-C1F58F043CCE}"
       DTS:ObjectName="MainStep"
       DTS:Required="True">
       <DTS:Property
@@ -174,7 +174,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3E3EACE6-26A3-4F72-871F-3104B5817169}"
+      DTS:DTSID="{F02F7003-6F55-4B82-8326-596657DD0D31}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="(DT_I4) SUBSTRING( @[User::BatchName] , 2, 9)"
       DTS:IncludeInDebugDump="2345"
@@ -185,7 +185,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{19A2A32B-DF1A-4D92-A963-6A22F5B82231}"
+      DTS:DTSID="{CFB72555-13C0-4E0E-B2DD-7516D6620DF0}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="BatchName">
@@ -194,7 +194,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{AB09165B-B772-4D3E-99DF-470A0C443B7B}"
+      DTS:DTSID="{1851371D-B0A9-4B50-B8A1-962C93609517}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::ExecRoot]+&quot;\\03-Finished\\&quot;+  @[User::BatchName]+&quot;.OK&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -205,7 +205,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{41138C6E-B0EB-423C-B69B-0A0196FAA7D7}"
+      DTS:DTSID="{35BBF24B-34E9-405B-8606-8AB02F011D89}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileName">
@@ -215,7 +215,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D9DD1E76-6899-49B9-9C79-115C8EBE7C16}"
+      DTS:DTSID="{406DFF9E-9FCA-46C2-A278-CAFCDC7C9A95}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::ExecRoot]+&quot;\\04-LogProcessed\\&quot;+ @[User::BatchName]"
       DTS:IncludeInDebugDump="2345"
@@ -226,7 +226,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{8E886B58-DCEF-435C-AA95-FE60B5DF30B7}"
+      DTS:DTSID="{693608B0-3736-43F9-A1DE-716A3BEF817B}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::NaarDir] +&quot;\\&quot;+ @[User::FileName]"
       DTS:IncludeInDebugDump="2345"
@@ -237,7 +237,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DBF21E36-2EA7-4B31-9742-8183CD83C426}"
+      DTS:DTSID="{AD63AD46-E003-4868-96F2-0B90D0618FA3}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ProcDetailName">
@@ -246,7 +246,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1AAA1871-72F8-4579-A9E7-5108F03F8C0E}"
+      DTS:DTSID="{CBB56906-7590-4953-BD29-361E4790DEAE}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::ExecRoot]+&quot;\\03-Finished\\&quot;+ @[User::FileName]"
       DTS:IncludeInDebugDump="2345"
@@ -340,7 +340,7 @@
       DTS:refId="Package\Clear Log"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{d5748669-33a9-4f2e-b8fe-3482f2a57ad9}"
+      DTS:DTSID="{DC054940-1E0D-4F5E-9BF5-B6039C0CB5A5}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear Log"
@@ -358,14 +358,14 @@
       DTS:refId="Package\For each finished batch"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{8997374B-C81E-4B74-AB75-DDA25DAA2C15}"
+      DTS:DTSID="{C08DB822-7592-415E-BA00-192CDD7FE3E1}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="For each finished batch">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
-        DTS:DTSID="{B20E22F6-C13C-4BD6-A27E-CF065C8371C2}"
-        DTS:ObjectName="{B20E22F6-C13C-4BD6-A27E-CF065C8371C2}">
+        DTS:DTSID="{39E5D888-7DC4-4EA6-A639-F1711869E955}"
+        DTS:ObjectName="{39E5D888-7DC4-4EA6-A639-F1711869E955}">
         <DTS:PropertyExpression
           DTS:Name="Directory">@[$Package::ExecRoot]+"\\03-Finished"</DTS:PropertyExpression>
         <DTS:ObjectData>
@@ -389,7 +389,7 @@
           DTS:refId="Package\For each finished batch\Create Dir"
           DTS:CreationName="Microsoft.FileSystemTask"
           DTS:Description="File System Task"
-          DTS:DTSID="{A00B25FE-3461-4937-89C6-A596AA1F1D88}"
+          DTS:DTSID="{B9C3CD7D-E4F6-414A-AD4B-FA074BEBB308}"
           DTS:ExecutableType="Microsoft.FileSystemTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Create Dir"
@@ -409,7 +409,7 @@
           DTS:refId="Package\For each finished batch\Load Log"
           DTS:CreationName="STOCK:SEQUENCE"
           DTS:Description="Sequence Container"
-          DTS:DTSID="{C029235C-72EB-498D-8AA5-B96DFDB43617}"
+          DTS:DTSID="{35098EDF-8FD3-459C-A9E9-985481660FA6}"
           DTS:ExecutableType="STOCK:SEQUENCE"
           DTS:LocaleID="-1"
           DTS:ObjectName="Load Log">
@@ -421,7 +421,7 @@
               DTS:refId="Package\For each finished batch\Load Log\Dispatch"
               DTS:CreationName="Microsoft.ExpressionTask"
               DTS:Description="Expression Task"
-              DTS:DTSID="{7A55EB5F-A696-4A0E-970A-D66F8912C7C8}"
+              DTS:DTSID="{DAB2FB12-0E33-4B5D-93A3-A984DBB38B44}"
               DTS:ExecutableType="Microsoft.ExpressionTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Dispatch"
@@ -438,7 +438,7 @@
               DTS:refId="Package\For each finished batch\Load Log\PDF"
               DTS:CreationName="Microsoft.Pipeline"
               DTS:Description="Data Flow Task"
-              DTS:DTSID="{086ef5ad-acbd-4297-b75c-a4a8937f0bd0}"
+              DTS:DTSID="{9BCE0182-60EC-4B17-BB30-97F4883C5224}"
               DTS:ExecutableType="Microsoft.Pipeline"
               DTS:LocaleID="-1"
               DTS:ObjectName="PDF"
@@ -7032,14 +7032,14 @@ WHERE ID = ?</property>
                       startId="Package\For each finished batch\Load Log\PDF\Step.Outputs[Lookup Match Output]" />
                     <path
                       refId="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output1]"
-                      endId="Package\For each finished batch\Load Log\PDF\Derived Column.Inputs[Derived Column Input]"
-                      name="Merge Join Output"
-                      startId="Package\For each finished batch\Load Log\PDF\Merge  Batch Info.Outputs[Merge Join Output]" />
-                    <path
-                      refId="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output]"
                       endId="Package\For each finished batch\Load Log\PDF\Set Error Code Name.Inputs[Derived Column Input]"
                       name="Merge Join Output"
                       startId="Package\For each finished batch\Load Log\PDF\Merge Doc Info.Outputs[Merge Join Output]" />
+                    <path
+                      refId="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output]"
+                      endId="Package\For each finished batch\Load Log\PDF\Derived Column.Inputs[Derived Column Input]"
+                      name="Merge Join Output"
+                      startId="Package\For each finished batch\Load Log\PDF\Merge  Batch Info.Outputs[Merge Join Output]" />
                     <path
                       refId="Package\For each finished batch\Load Log\PDF.Paths[Multicast Output 1]"
                       endId="Package\For each finished batch\Load Log\PDF\Set ErrCode Unexpected.Inputs[Derived Column Input]"
@@ -7108,7 +7108,7 @@ WHERE ID = ?</property>
               DTS:refId="Package\For each finished batch\Load Log\SAF"
               DTS:CreationName="Microsoft.Pipeline"
               DTS:Description="Data Flow Task"
-              DTS:DTSID="{d30a7f28-9d3c-4c28-9ff9-63f7312b113c}"
+              DTS:DTSID="{65CAAD4A-44F2-4308-8215-4BE9CBFD8905}"
               DTS:ExecutableType="Microsoft.Pipeline"
               DTS:LocaleID="-1"
               DTS:ObjectName="SAF"
@@ -11201,201 +11201,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </outputs>
                     </component>
                     <component
-                      refId="Package\For each finished batch\Load Log\SAF\ProcessDetail"
-                      componentClassID="Microsoft.OLEDBDestination"
-                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                      description="OLE DB Destination"
-                      name="ProcessDetail"
-                      usesDispositions="true"
-                      version="4">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                          name="CommandTimeout">0</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the name of the database object used to open a rowset."
-                          name="OpenRowset">[dbo].[ProcessDetails]</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the variable that contains the name of the database object used to open a rowset."
-                          name="OpenRowsetVariable"></property>
-                        <property
-                          dataType="System.String"
-                          description="The SQL command to be executed."
-                          name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the column code page to use when code page information is unavailable from the data source."
-                          name="DefaultCodePage">1252</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Forces the use of the DefaultCodePage property value when describing character data."
-                          name="AlwaysUseDefaultCodePage">false</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the mode used to access the database."
-                          name="AccessMode"
-                          typeConverter="AccessMode">3</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                          name="FastLoadKeepIdentity">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                          name="FastLoadKeepNulls">false</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                          name="FastLoadOptions">CHECK_CONSTRAINTS</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                          name="FastLoadMaxInsertCommitSize">2147483647</property>
-                      </properties>
-                      <connections>
-                        <connection
-                          refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Connections[OleDbConnection]"
-                          connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
-                          connectionManagerRefId="Project.ConnectionManagers[MigLog]"
-                          description="The OLE DB runtime connection used to access the database."
-                          name="OleDbConnection" />
-                      </connections>
-                      <inputs>
-                        <input
-                          refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input]"
-                          errorOrTruncationOperation="Insert"
-                          errorRowDisposition="FailComponent"
-                          hasSideEffects="true"
-                          name="OLE DB Destination Input">
-                          <inputColumns>
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].Columns[File]"
-                              cachedCodepage="1252"
-                              cachedDataType="str"
-                              cachedLength="255"
-                              cachedName="File"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[File]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Union All.Outputs[Union All Output 1].Columns[File]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].Columns[Moment]"
-                              cachedDataType="dbTimeStamp"
-                              cachedName="Moment"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Moment]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Union All.Outputs[Union All Output 1].Columns[Moment]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].Columns[Elapsed]"
-                              cachedDataType="i4"
-                              cachedName="Elapsed"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Elapsed]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Union All.Outputs[Union All Output 1].Columns[Elapsed]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].Columns[ID]"
-                              cachedDataType="i4"
-                              cachedName="ID"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Doc]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Union All.Outputs[Union All Output 1].Columns[ID]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].Columns[Step ID]"
-                              cachedDataType="ui1"
-                              cachedName="Step ID"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Step]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Union All.Outputs[Union All Output 1].Columns[Step ID]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].Columns[Error Status ID]"
-                              cachedDataType="ui1"
-                              cachedName="Error Status ID"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Union All.Outputs[Union All Output 1].Columns[Error Status ID]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].Columns[Batch ID]"
-                              cachedDataType="i4"
-                              cachedName="Batch ID"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Batch]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Union All.Outputs[Union All Output 1].Columns[Batch ID]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].Columns[FileSize]"
-                              cachedDataType="i4"
-                              cachedName="FileSize"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[FileSize_KB]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Union All.Outputs[Union All Output 1].Columns[FileSize]" />
-                          </inputColumns>
-                          <externalMetadataColumns
-                            isUsed="True">
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                              dataType="i4"
-                              name="ID" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Step]"
-                              dataType="ui1"
-                              name="Step" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
-                              dataType="ui1"
-                              name="Status" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Doc]"
-                              dataType="i4"
-                              name="Doc" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Moment]"
-                              dataType="dbTimeStamp"
-                              name="Moment" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[File]"
-                              codePage="1252"
-                              dataType="str"
-                              length="255"
-                              name="File" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[FileSize_KB]"
-                              dataType="i4"
-                              name="FileSize_KB" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Elapsed]"
-                              dataType="i4"
-                              name="Elapsed" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Batch]"
-                              dataType="i4"
-                              name="Batch" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Doc/Klant]"
-                              dataType="i4"
-                              name="Doc/Klant" />
-                          </externalMetadataColumns>
-                        </input>
-                      </inputs>
-                      <outputs>
-                        <output
-                          refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Outputs[OLE DB Destination Error Output]"
-                          exclusionGroup="1"
-                          isErrorOut="true"
-                          name="OLE DB Destination Error Output"
-                          synchronousInputId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input]">
-                          <outputColumns>
-                            <outputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                              dataType="i4"
-                              lineageId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                              name="ErrorCode"
-                              specialFlags="1" />
-                            <outputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                              dataType="i4"
-                              lineageId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                              name="ErrorColumn"
-                              specialFlags="2" />
-                          </outputColumns>
-                          <externalMetadataColumns />
-                        </output>
-                      </outputs>
-                    </component>
-                    <component
                       refId="Package\For each finished batch\Load Log\SAF\Read Err"
                       componentClassID="Microsoft.FlatFileSource"
                       contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -12894,204 +12699,8 @@ where [refTable].[Name] = ?</property>
                         </output>
                       </outputs>
                     </component>
-                    <component
-                      refId="Package\For each finished batch\Load Log\SAF\Update Batch"
-                      componentClassID="Microsoft.OLEDBCommand"
-                      contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-                      description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-                      name="Update Batch"
-                      usesDispositions="true"
-                      version="2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                          name="CommandTimeout">0</property>
-                        <property
-                          dataType="System.String"
-                          description="The SQL command to be executed."
-                          expressionType="Notify"
-                          name="SqlCommand"
-                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[Batches] SET
-  Status = ?
-, ProcStart = ?
-, ProcEnd = ?
-, Error = ?
-, Success = ?
-WHERE ID = ?
-</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the column code page to use when code page information is unavailable from the data source."
-                          name="DefaultCodePage">1252</property>
-                      </properties>
-                      <connections>
-                        <connection
-                          refId="Package\For each finished batch\Load Log\SAF\Update Batch.Connections[OleDbConnection]"
-                          connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
-                          connectionManagerRefId="Project.ConnectionManagers[MigLog]"
-                          description="The OLE DB runtime connection used to access the database."
-                          name="OleDbConnection" />
-                      </connections>
-                      <inputs>
-                        <input
-                          refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input]"
-                          errorOrTruncationOperation="Command Execution"
-                          errorRowDisposition="FailComponent"
-                          hasSideEffects="true"
-                          name="OLE DB Command Input">
-                          <inputColumns>
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].Columns[Status]"
-                              cachedDataType="ui1"
-                              cachedName="Status"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Determine Elapse.Outputs[Batch].Columns[Status]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].Columns[Start]"
-                              cachedDataType="dbTimeStamp"
-                              cachedName="Start"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Determine Elapse.Outputs[Batch].Columns[Start]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].Columns[End]"
-                              cachedDataType="dbTimeStamp"
-                              cachedName="End"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Determine Elapse.Outputs[Batch].Columns[End]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].Columns[GenErr]"
-                              cachedCodepage="1252"
-                              cachedDataType="str"
-                              cachedLength="8000"
-                              cachedName="GenErr"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Determine Elapse.Outputs[Batch].Columns[GenErr]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].Columns[Success]"
-                              cachedDataType="bool"
-                              cachedName="Success"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Determine Elapse.Outputs[Batch].Columns[Success]" />
-                            <inputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].Columns[Batch ID]"
-                              cachedDataType="i4"
-                              cachedName="Batch ID"
-                              externalMetadataColumnId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Determine Elapse.Outputs[Batch].Columns[Batch ID]" />
-                          </inputColumns>
-                          <externalMetadataColumns
-                            isUsed="True">
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                              dataType="ui1"
-                              name="Param_0">
-                              <properties>
-                                <property
-                                  dataType="System.Int32"
-                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                                  name="DBParamInfoFlags">65</property>
-                              </properties>
-                            </externalMetadataColumn>
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                              dataType="dbTimeStamp"
-                              name="Param_1">
-                              <properties>
-                                <property
-                                  dataType="System.Int32"
-                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                                  name="DBParamInfoFlags">65</property>
-                              </properties>
-                            </externalMetadataColumn>
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                              dataType="dbTimeStamp"
-                              name="Param_2">
-                              <properties>
-                                <property
-                                  dataType="System.Int32"
-                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                                  name="DBParamInfoFlags">65</property>
-                              </properties>
-                            </externalMetadataColumn>
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                              codePage="1252"
-                              dataType="str"
-                              length="8000"
-                              name="Param_3">
-                              <properties>
-                                <property
-                                  dataType="System.Int32"
-                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                                  name="DBParamInfoFlags">65</property>
-                              </properties>
-                            </externalMetadataColumn>
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                              dataType="bool"
-                              name="Param_4">
-                              <properties>
-                                <property
-                                  dataType="System.Int32"
-                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                                  name="DBParamInfoFlags">65</property>
-                              </properties>
-                            </externalMetadataColumn>
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                              dataType="i4"
-                              name="Param_5">
-                              <properties>
-                                <property
-                                  dataType="System.Int32"
-                                  description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                                  name="DBParamInfoFlags">81</property>
-                              </properties>
-                            </externalMetadataColumn>
-                          </externalMetadataColumns>
-                        </input>
-                      </inputs>
-                      <outputs>
-                        <output
-                          refId="Package\For each finished batch\Load Log\SAF\Update Batch.Outputs[OLE DB Command Output]"
-                          exclusionGroup="1"
-                          name="OLE DB Command Output"
-                          synchronousInputId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input]">
-                          <externalMetadataColumns />
-                        </output>
-                        <output
-                          refId="Package\For each finished batch\Load Log\SAF\Update Batch.Outputs[OLE DB Command Error Output]"
-                          exclusionGroup="1"
-                          isErrorOut="true"
-                          name="OLE DB Command Error Output"
-                          synchronousInputId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input]">
-                          <outputColumns>
-                            <outputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                              dataType="i4"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Update Batch.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                              name="ErrorCode"
-                              specialFlags="1" />
-                            <outputColumn
-                              refId="Package\For each finished batch\Load Log\SAF\Update Batch.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                              dataType="i4"
-                              lineageId="Package\For each finished batch\Load Log\SAF\Update Batch.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                              name="ErrorColumn"
-                              specialFlags="2" />
-                          </outputColumns>
-                          <externalMetadataColumns />
-                        </output>
-                      </outputs>
-                    </component>
                   </components>
                   <paths>
-                    <path
-                      refId="Package\For each finished batch\Load Log\SAF.Paths[Batch]"
-                      endId="Package\For each finished batch\Load Log\SAF\Update Batch.Inputs[OLE DB Command Input]"
-                      name="Batch"
-                      startId="Package\For each finished batch\Load Log\SAF\Determine Elapse.Outputs[Batch]" />
                     <path
                       refId="Package\For each finished batch\Load Log\SAF.Paths[Derived Column Output]"
                       endId="Package\For each finished batch\Load Log\SAF\Error Status.Inputs[Lookup Input]"
@@ -13183,11 +12792,6 @@ WHERE ID = ?
                       name="Sort Output"
                       startId="Package\For each finished batch\Load Log\SAF\Sort Log.Outputs[Sort Output]" />
                     <path
-                      refId="Package\For each finished batch\Load Log\SAF.Paths[Union All Output 1]"
-                      endId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input]"
-                      name="Union All Output 1"
-                      startId="Package\For each finished batch\Load Log\SAF\Union All.Outputs[Union All Output 1]" />
-                    <path
                       refId="Package\For each finished batch\Load Log\SAF.Paths[Zinvol]"
                       endId="Package\For each finished batch\Load Log\SAF\Concat.Inputs[Input 0]"
                       name="Zinvol"
@@ -13200,7 +12804,7 @@ WHERE ID = ?
               DTS:refId="Package\For each finished batch\Load Log\XML"
               DTS:CreationName="Microsoft.Pipeline"
               DTS:Description="Data Flow Task"
-              DTS:DTSID="{d6c9e348-71e9-4d19-a19c-8219b8e075a7}"
+              DTS:DTSID="{8EDB0C4E-0D42-4459-8F04-D251FFA826E7}"
               DTS:ExecutableType="Microsoft.Pipeline"
               DTS:LocaleID="-1"
               DTS:ObjectName="XML"
@@ -19794,14 +19398,14 @@ WHERE ID = ?</property>
                       startId="Package\For each finished batch\Load Log\XML\Step.Outputs[Lookup Match Output]" />
                     <path
                       refId="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output1]"
-                      endId="Package\For each finished batch\Load Log\XML\Set Error Code Name.Inputs[Derived Column Input]"
-                      name="Merge Join Output"
-                      startId="Package\For each finished batch\Load Log\XML\Merge Doc Info.Outputs[Merge Join Output]" />
-                    <path
-                      refId="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output]"
                       endId="Package\For each finished batch\Load Log\XML\Derived Column.Inputs[Derived Column Input]"
                       name="Merge Join Output"
                       startId="Package\For each finished batch\Load Log\XML\Merge Batch Info.Outputs[Merge Join Output]" />
+                    <path
+                      refId="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output]"
+                      endId="Package\For each finished batch\Load Log\XML\Set Error Code Name.Inputs[Derived Column Input]"
+                      name="Merge Join Output"
+                      startId="Package\For each finished batch\Load Log\XML\Merge Doc Info.Outputs[Merge Join Output]" />
                     <path
                       refId="Package\For each finished batch\Load Log\XML.Paths[Multicast Output 1]"
                       endId="Package\For each finished batch\Load Log\XML\Set ErrCode Unexpected.Inputs[Derived Column Input]"
@@ -19871,7 +19475,7 @@ WHERE ID = ?</property>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\For each finished batch\Load Log.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
-              DTS:DTSID="{FB987EAC-79B2-4BF9-8D40-ABA95BCE3B35}"
+              DTS:DTSID="{832A34FE-75F2-4F6D-A071-46181CCBC617}"
               DTS:EvalOp="1"
               DTS:Expression="@[$Package::MainStep]==18"
               DTS:From="Package\For each finished batch\Load Log\Dispatch"
@@ -19881,7 +19485,7 @@ WHERE ID = ?</property>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\For each finished batch\Load Log.PrecedenceConstraints[Constraint 1]"
               DTS:CreationName=""
-              DTS:DTSID="{64DFB8C1-167F-460B-A6AA-3A1E432F9E5C}"
+              DTS:DTSID="{33666332-45CB-4342-B4EB-E3CB422FD6FD}"
               DTS:EvalOp="1"
               DTS:Expression="@[$Package::MainStep]==16"
               DTS:From="Package\For each finished batch\Load Log\Dispatch"
@@ -19891,7 +19495,7 @@ WHERE ID = ?</property>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\For each finished batch\Load Log.PrecedenceConstraints[Constraint 2]"
               DTS:CreationName=""
-              DTS:DTSID="{FAC64857-DA73-4DCA-9143-2ADB35B803D7}"
+              DTS:DTSID="{CEB67AB9-6E5A-4562-A49F-81739772577B}"
               DTS:EvalOp="1"
               DTS:Expression="@[$Package::MainStep]==17"
               DTS:From="Package\For each finished batch\Load Log\Dispatch"
@@ -19904,14 +19508,14 @@ WHERE ID = ?</property>
           DTS:refId="Package\For each finished batch\Move Files to LogProcessed Folder"
           DTS:CreationName="STOCK:FOREACHLOOP"
           DTS:Description="Foreach Loop Container"
-          DTS:DTSID="{37991FD0-0CA0-44AB-B12F-87152C251B80}"
+          DTS:DTSID="{2451D6A6-FD58-4EED-B0F1-4E64CED58ECC}"
           DTS:ExecutableType="STOCK:FOREACHLOOP"
           DTS:LocaleID="-1"
           DTS:ObjectName="Move Files to LogProcessed Folder">
           <DTS:ForEachEnumerator
             DTS:CreationName="Microsoft.ForEachFileEnumerator"
-            DTS:DTSID="{794709FC-A0B4-4527-985E-ACB4031F923C}"
-            DTS:ObjectName="{794709FC-A0B4-4527-985E-ACB4031F923C}">
+            DTS:DTSID="{A5B316F6-839F-4C16-854C-E343FFF1084E}"
+            DTS:ObjectName="{A5B316F6-839F-4C16-854C-E343FFF1084E}">
             <DTS:PropertyExpression
               DTS:Name="Directory">@[$Package::ExecRoot]+"\\03-Finished"</DTS:PropertyExpression>
             <DTS:PropertyExpression
@@ -19937,7 +19541,7 @@ WHERE ID = ?</property>
               DTS:refId="Package\For each finished batch\Move Files to LogProcessed Folder\Move File"
               DTS:CreationName="Microsoft.FileSystemTask"
               DTS:Description="File System Task"
-              DTS:DTSID="{03590DED-46CD-483E-B2ED-0E5C26F75EB6}"
+              DTS:DTSID="{ED8D8CEA-0D92-457B-BB5B-77644F54F5BC}"
               DTS:ExecutableType="Microsoft.FileSystemTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Move File"
@@ -19959,8 +19563,8 @@ WHERE ID = ?</property>
           <DTS:ForEachVariableMappings>
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{9B59A761-E912-427B-BA73-C22C87F97818}"
-              DTS:ObjectName="{9B59A761-E912-427B-BA73-C22C87F97818}"
+              DTS:DTSID="{C15D936E-3CB3-469C-88F7-28856500FC5E}"
+              DTS:ObjectName="{C15D936E-3CB3-469C-88F7-28856500FC5E}"
               DTS:ValueIndex="0"
               DTS:VariableName="User::FileName" />
           </DTS:ForEachVariableMappings>
@@ -19969,7 +19573,7 @@ WHERE ID = ?</property>
           DTS:refId="Package\For each finished batch\Proces Util"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{330242E7-009F-4463-A19C-27366850A498}"
+          DTS:DTSID="{060CC5BC-59BA-4368-BA8F-7EA76EAF3F95}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Proces Util"
@@ -20329,7 +19933,7 @@ WHERE ID = ?</property>
           DTS:refId="Package\For each finished batch\Purge OK File"
           DTS:CreationName="Microsoft.FileSystemTask"
           DTS:Description="File System Task"
-          DTS:DTSID="{3B1D1F4D-807A-4A69-B72D-3AE546720131}"
+          DTS:DTSID="{2C6DBAD7-68E9-467A-9B89-4EB2929ACEBA}"
           DTS:ExecutableType="Microsoft.FileSystemTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Purge OK File"
@@ -20348,7 +19952,7 @@ WHERE ID = ?</property>
           DTS:refId="Package\For each finished batch\Update Documents"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{4B5FF8B5-8212-407B-B080-2BFDFAFB0634}"
+          DTS:DTSID="{EB9ED98C-3A49-4F5F-9677-A8B9A91594A8}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Update Documents"
@@ -20380,7 +19984,7 @@ WHERE ID = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\For each finished batch.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{B117382E-B896-4702-98C4-301FBDD9D34A}"
+          DTS:DTSID="{556FAB98-68A2-4DD9-8D1C-3EE2BDDA8F7C}"
           DTS:From="Package\For each finished batch\Load Log"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -20388,7 +19992,7 @@ WHERE ID = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\For each finished batch.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{7825AD7F-F8E8-472D-94DB-1ADE236F9B5F}"
+          DTS:DTSID="{4883D986-7793-48CB-9580-278E4683B11B}"
           DTS:From="Package\For each finished batch\Load Log"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -20396,7 +20000,7 @@ WHERE ID = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\For each finished batch.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{66EA8EE4-F1A8-4266-8A7C-38ABA1B92C13}"
+          DTS:DTSID="{25ED5190-7D33-4D3C-9781-01952639FCC7}"
           DTS:From="Package\For each finished batch\Create Dir"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
@@ -20404,7 +20008,7 @@ WHERE ID = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\For each finished batch.PrecedenceConstraints[Constraint 3]"
           DTS:CreationName=""
-          DTS:DTSID="{B515E672-677B-4C3B-B403-05B91B69A4EB}"
+          DTS:DTSID="{3CF4EF8E-C0CF-4EC5-A34F-5820F8A28646}"
           DTS:From="Package\For each finished batch\Purge OK File"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3"
@@ -20412,7 +20016,7 @@ WHERE ID = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\For each finished batch.PrecedenceConstraints[Constraint 4]"
           DTS:CreationName=""
-          DTS:DTSID="{11A825D4-B491-4CE9-A9E5-3016C70F77B8}"
+          DTS:DTSID="{71D27BB1-3331-4CE9-B48F-DE50C72F8039}"
           DTS:From="Package\For each finished batch\Load Log"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 4"
@@ -20420,7 +20024,7 @@ WHERE ID = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\For each finished batch.PrecedenceConstraints[Constraint 5]"
           DTS:CreationName=""
-          DTS:DTSID="{AE0DE3B5-0879-4D4C-B6A3-8A9B16880C4E}"
+          DTS:DTSID="{F06C84E8-ED3E-48F8-B937-7B8D7E2D0781}"
           DTS:From="Package\For each finished batch\Load Log"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 5"
@@ -20428,7 +20032,7 @@ WHERE ID = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\For each finished batch.PrecedenceConstraints[Constraint 6]"
           DTS:CreationName=""
-          DTS:DTSID="{2373FBEB-6DC8-4B10-AAC5-8E805269B77F}"
+          DTS:DTSID="{3D21F4FA-9229-4A48-8B63-AC31297AF6E4}"
           DTS:From="Package\For each finished batch\Proces Util"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 6"
@@ -20437,8 +20041,8 @@ WHERE ID = ?</property>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{E041CBB5-A971-4285-BDB1-3137D6DC1DB4}"
-          DTS:ObjectName="{E041CBB5-A971-4285-BDB1-3137D6DC1DB4}"
+          DTS:DTSID="{BF929B22-30E5-4FED-B0AD-6E0640BE030D}"
+          DTS:ObjectName="{BF929B22-30E5-4FED-B0AD-6E0640BE030D}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::BatchName" />
       </DTS:ForEachVariableMappings>
@@ -20448,7 +20052,7 @@ WHERE ID = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{E9226AAC-0868-4332-B4CF-96F2AFA66B56}"
+      DTS:DTSID="{822F9FE4-5A6C-414E-905A-18EF3D2102A2}"
       DTS:From="Package\Clear Log"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -21244,7 +20848,7 @@ WHERE ID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output]"
+          Id="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output1]"
           TopLeft="178,307.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21266,7 +20870,7 @@ WHERE ID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output1]"
+          Id="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output]"
           TopLeft="980,699">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21719,17 +21323,9 @@ WHERE ID = ?</property>
           Id="Package\For each finished batch\Load Log\SAF\Sort Log"
           TopLeft="62,180" />
         <NodeLayout
-          Size="130,42"
-          Id="Package\For each finished batch\Load Log\SAF\Update Batch"
-          TopLeft="759,64" />
-        <NodeLayout
           Size="139,42"
           Id="Package\For each finished batch\Load Log\SAF\Get FileSize"
           TopLeft="504,181" />
-        <NodeLayout
-          Size="147,42"
-          Id="Package\For each finished batch\Load Log\SAF\ProcessDetail"
-          TopLeft="779,542" />
         <NodeLayout
           Size="147,42"
           Id="Package\For each finished batch\Load Log\SAF\Set ErrCode Unexpected"
@@ -21787,30 +21383,6 @@ WHERE ID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\For each finished batch\Load Log\SAF.Paths[Batch]"
-          TopLeft="645,84.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="114,0"
-              Start="0,0"
-              End="106.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="106.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="40.59806640625,5,25.3038671875,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\For each finished batch\Load Log\SAF.Paths[Zinvol]"
           TopLeft="273,561.5">
           <EdgeLayout.Curve>
@@ -21832,28 +21404,6 @@ WHERE ID = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="-56.339296875,5,27.17859375,9.7490234375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\For each finished batch\Load Log\SAF.Paths[Union All Output 1]"
-          TopLeft="851.5,472">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,70"
-              Start="0,0"
-              End="0,62.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,62.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -22287,19 +21837,6 @@ WHERE ID = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\For each finished batch\Load Log\SAF\ProcessDetail">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\For each finished batch\Load Log\XML">
     <LayoutInfo>
@@ -22682,7 +22219,7 @@ WHERE ID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output]"
+          Id="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output1]"
           TopLeft="977.25,699">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -22704,7 +22241,7 @@ WHERE ID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output1]"
+          Id="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output]"
           TopLeft="178,307.5">
           <EdgeLayout.Curve>
             <mssgle:Curve

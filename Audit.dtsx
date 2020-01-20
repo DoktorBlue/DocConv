@@ -1,0 +1,1465 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/22/2019 12:39:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VMT010140177175"
+  DTS:CreatorName="TEST\bla061"
+  DTS:DTSID="{0477DAFE-BA06-4EA4-BCDD-449D7EF09B51}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1043"
+  DTS:ObjectName="Audit"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{678563BB-AB92-4CCE-8028-9DDC5A0B0A68}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{A03817DC-8D83-42CE-A602-1A9E0A4258E3}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Scripts\Controle_EA.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{AE56DB1C-7E0A-400C-8657-570432F0CE5A}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1043"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\Scripts\controle_ea.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ROW_ID_CONTACT_ATT"
+              DTS:DTSID="{DFD854CD-1496-4E7E-853F-DC211B337857}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AANMAAKDATUM"
+              DTS:DTSID="{13B5B716-69D2-432F-B675-8C6943F535A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DOCUMENT_TITEL"
+              DTS:DTSID="{5B9297F0-44FF-4931-91E0-7200969555DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TEMPATE_GEN"
+              DTS:DTSID="{DED1CC02-4317-46BC-AD15-3648B7D8202C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TEMPLATE_DET"
+              DTS:DTSID="{29C7B507-93D4-4060-B386-706F7EA1CE61}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BSN"
+              DTS:DTSID="{FA234C91-3B1C-44E0-A4A4-61F064F22F33}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ROW_ID_WZ"
+              DTS:DTSID="{6E69FE03-14B9-415D-99C3-771DE00B2DBD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Purge EA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f47a3a37-1309-4048-acd4-a5276e9af9f6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Purge EA"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="Truncate Table [Audit EA]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Purge Sonar"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BAB7BEB8-5EF2-49DC-B3DC-504AAD1821B9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Purge Sonar"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="Truncate Table [Audit Sonar]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Read EA"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8D2E3B54-1A81-4717-8FA7-EFBC063387DF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Read EA"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Read EA\Audit EA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Audit EA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Audit EA]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Read EA\Audit EA.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].Columns[NaamApplicatiedomein]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NaamApplicatiedomein"
+                      externalMetadataColumnId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[NaamApplicatiedomein]"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[NaamApplicatiedomein]" />
+                    <inputColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].Columns[EA]"
+                      cachedDataType="guid"
+                      cachedName="EA"
+                      externalMetadataColumnId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[EA]"
+                      lineageId="Package\Read EA\Derived Column.Outputs[Derived Column Output].Columns[EA]" />
+                    <inputColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].Columns[BSN]"
+                      cachedDataType="i4"
+                      cachedName="BSN"
+                      externalMetadataColumnId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[BSN]"
+                      lineageId="Package\Read EA\Derived Column.Outputs[Derived Column Output].Columns[BSN]" />
+                    <inputColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].Columns[CDCTAandachtsgebied]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CDCTAandachtsgebied"
+                      externalMetadataColumnId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[Aandachtsgebied]"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[CDCTAandachtsgebied]" />
+                    <inputColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].Columns[CDCTOnderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CDCTOnderwerp"
+                      externalMetadataColumnId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[Onderwerp]"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[CDCTOnderwerp]" />
+                    <inputColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].Columns[CDCTSubOnderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CDCTSubOnderwerp"
+                      externalMetadataColumnId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[SubOnderwerp]"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[CDCTSubOnderwerp]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[Aandachtsgebied]"
+                      dataType="wstr"
+                      length="255"
+                      name="Aandachtsgebied" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[Onderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      name="Onderwerp" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[SubOnderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      name="SubOnderwerp" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[NaamApplicatiedomein]"
+                      dataType="wstr"
+                      length="255"
+                      name="NaamApplicatiedomein" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[EA]"
+                      dataType="guid"
+                      name="EA" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input].ExternalColumns[BSN]"
+                      dataType="i4"
+                      name="BSN" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Read EA\Audit EA.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read EA\Audit EA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Read EA\Audit EA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Read EA\Audit EA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Read EA\Audit EA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Read EA\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Read EA\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Read EA\Derived Column.Inputs[Derived Column Input].Columns[EAEDDocumentId]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EAEDDocumentId"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[EAEDDocumentId]" />
+                    <inputColumn
+                      refId="Package\Read EA\Derived Column.Inputs[Derived Column Input].Columns[NatuurlijkPersoon]"
+                      cachedDataType="r8"
+                      cachedName="NatuurlijkPersoon"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[NatuurlijkPersoon]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Read EA\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Read EA\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read EA\Derived Column.Outputs[Derived Column Output].Columns[EA]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Read EA\Derived Column.Outputs[Derived Column Output].Columns[EA]"
+                      name="EA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_GUID)#{Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[EAEDDocumentId]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_GUID)EAEDDocumentId</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Read EA\Derived Column.Outputs[Derived Column Output].Columns[BSN]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Read EA\Derived Column.Outputs[Derived Column Output].Columns[BSN]"
+                      name="BSN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[NatuurlijkPersoon]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)NatuurlijkPersoon</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Read EA\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Read EA\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read EA\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Read EA\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Read EA\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Read EA\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Read EA\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">BSN$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Read EA\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Read EA\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[EAEDDocumentId]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[EAEDDocumentId]"
+                      length="255"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[EAEDDocumentId]"
+                      name="EAEDDocumentId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[NatuurlijkPersoon]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[NatuurlijkPersoon]"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[NatuurlijkPersoon]"
+                      name="NatuurlijkPersoon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[CDCTAandachtsgebied]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[CDCTAandachtsgebied]"
+                      length="255"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[CDCTAandachtsgebied]"
+                      name="CDCTAandachtsgebied"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[CDCTOnderwerp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[CDCTOnderwerp]"
+                      length="255"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[CDCTOnderwerp]"
+                      name="CDCTOnderwerp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[CDCTSubOnderwerp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[CDCTSubOnderwerp]"
+                      length="255"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[CDCTSubOnderwerp]"
+                      name="CDCTSubOnderwerp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[NaamApplicatiedomein]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[NaamApplicatiedomein]"
+                      length="255"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Output].Columns[NaamApplicatiedomein]"
+                      name="NaamApplicatiedomein"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[EAEDDocumentId]"
+                      dataType="wstr"
+                      length="255"
+                      name="EAEDDocumentId" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[EAEDDocumentTitel]"
+                      dataType="wstr"
+                      length="255"
+                      name="EAEDDocumentTitel" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[EAEDDocumentTitel1]"
+                      dataType="wstr"
+                      length="255"
+                      name="EAEDDocumentTitel1" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[NatuurlijkPersoon]"
+                      dataType="r8"
+                      name="NatuurlijkPersoon" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[CDCTAandachtsgebied]"
+                      dataType="wstr"
+                      length="255"
+                      name="CDCTAandachtsgebied" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[CDCTOnderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      name="CDCTOnderwerp" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[CDCTSubOnderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      name="CDCTSubOnderwerp" />
+                    <externalMetadataColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Output].ExternalColumns[NaamApplicatiedomein]"
+                      dataType="wstr"
+                      length="255"
+                      name="NaamApplicatiedomein" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[EAEDDocumentId]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[EAEDDocumentId]"
+                      name="EAEDDocumentId" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[NatuurlijkPersoon]"
+                      dataType="r8"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[NatuurlijkPersoon]"
+                      name="NatuurlijkPersoon" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[CDCTAandachtsgebied]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[CDCTAandachtsgebied]"
+                      name="CDCTAandachtsgebied" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[CDCTOnderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[CDCTOnderwerp]"
+                      name="CDCTOnderwerp" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[CDCTSubOnderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[CDCTSubOnderwerp]"
+                      name="CDCTSubOnderwerp" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[NaamApplicatiedomein]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[NaamApplicatiedomein]"
+                      name="NaamApplicatiedomein" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Read EA\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Read EA.Paths[Derived Column Output]"
+              endId="Package\Read EA\Audit EA.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Read EA\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Read EA.Paths[Excel Source Output]"
+              endId="Package\Read EA\Derived Column.Inputs[Derived Column Input]"
+              name="Excel Source Output"
+              startId="Package\Read EA\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Read Sonar"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{77A12C7F-81E0-449B-AED4-EFD6189E8AD9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Read Sonar"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Read Sonar\Audit Sonar"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Audit Sonar"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Audit Sonar]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Read Sonar\Audit Sonar.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].Columns[DOCUMENT_TITEL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="DOCUMENT_TITEL"
+                      externalMetadataColumnId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[DOCUMENT_TITEL]"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[DOCUMENT_TITEL]" />
+                    <inputColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].Columns[TEMPATE_GEN]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="TEMPATE_GEN"
+                      externalMetadataColumnId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[TEMPATE_GEN]"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[TEMPATE_GEN]" />
+                    <inputColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].Columns[TEMPLATE_DET]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="TEMPLATE_DET"
+                      externalMetadataColumnId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[TEMPLATE_DET]"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[TEMPLATE_DET]" />
+                    <inputColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].Columns[BSN]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="BSN"
+                      externalMetadataColumnId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[BSN]"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[BSN]" />
+                    <inputColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].Columns[ROW_ID_CONTACT_ATT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ROW_ID_CONTACT_ATT"
+                      externalMetadataColumnId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[ROW_ID_WZ]"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[ROW_ID_CONTACT_ATT]" />
+                    <inputColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].Columns[Aanmaak]"
+                      cachedDataType="date"
+                      cachedName="Aanmaak"
+                      externalMetadataColumnId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Aanmaak]"
+                      lineageId="Package\Read Sonar\Derived Column.Outputs[Derived Column Output].Columns[Aanmaak]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[DOCUMENT_TITEL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="DOCUMENT_TITEL" />
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[TEMPATE_GEN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TEMPATE_GEN" />
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[TEMPLATE_DET]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TEMPLATE_DET" />
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[BSN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="BSN" />
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[ROW_ID_WZ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ROW_ID_WZ" />
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input].ExternalColumns[Aanmaak]"
+                      dataType="dbTimeStamp"
+                      name="Aanmaak" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Read Sonar\Audit Sonar.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read Sonar\Audit Sonar.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Read Sonar\Audit Sonar.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Read Sonar\Audit Sonar.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Read Sonar\Audit Sonar.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Read Sonar\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Read Sonar\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Read Sonar\Derived Column.Inputs[Derived Column Input].Columns[AANMAAKDATUM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AANMAAKDATUM"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[AANMAAKDATUM]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Read Sonar\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Read Sonar\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read Sonar\Derived Column.Outputs[Derived Column Output].Columns[Aanmaak]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Read Sonar\Derived Column.Outputs[Derived Column Output].Columns[Aanmaak]"
+                      name="Aanmaak"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DATE)([SUBSTRING](#{Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[AANMAAKDATUM]},7,4) + [SUBSTRING](#{Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[AANMAAKDATUM]},3,4) + [LEFT](#{Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[AANMAAKDATUM]},2) + [SUBSTRING](#{Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[AANMAAKDATUM]},11,8))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DATE)(SUBSTRING(AANMAAKDATUM,7,4) + SUBSTRING(AANMAAKDATUM,3,4) + LEFT(AANMAAKDATUM,2) + SUBSTRING(AANMAAKDATUM,11,8))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Read Sonar\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Read Sonar\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read Sonar\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Read Sonar\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Read Sonar\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Read Sonar\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Read Sonar\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1043"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Read Sonar\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[AANMAAKDATUM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AANMAAKDATUM]"
+                      length="50"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[AANMAAKDATUM]"
+                      name="AANMAAKDATUM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[DOCUMENT_TITEL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DOCUMENT_TITEL]"
+                      length="500"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[DOCUMENT_TITEL]"
+                      name="DOCUMENT_TITEL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[TEMPATE_GEN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TEMPATE_GEN]"
+                      length="255"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[TEMPATE_GEN]"
+                      name="TEMPATE_GEN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[TEMPLATE_DET]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TEMPLATE_DET]"
+                      length="255"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[TEMPLATE_DET]"
+                      name="TEMPLATE_DET"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[BSN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BSN]"
+                      length="10"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[BSN]"
+                      name="BSN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[ROW_ID_CONTACT_ATT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ROW_ID_CONTACT_ATT]"
+                      length="20"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].Columns[ROW_ID_CONTACT_ATT]"
+                      name="ROW_ID_CONTACT_ATT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[AANMAAKDATUM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AANMAAKDATUM" />
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DOCUMENT_TITEL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="DOCUMENT_TITEL" />
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TEMPATE_GEN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TEMPATE_GEN" />
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TEMPLATE_DET]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="TEMPLATE_DET" />
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BSN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="BSN" />
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ROW_ID_WZ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ROW_ID_WZ" />
+                    <externalMetadataColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ROW_ID_CONTACT_ATT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ROW_ID_CONTACT_ATT" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Read Sonar.Paths[Derived Column Output]"
+              endId="Package\Read Sonar\Audit Sonar.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Read Sonar\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Read Sonar.Paths[Flat File Source Output]"
+              endId="Package\Read Sonar\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Read Sonar\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D1C8A117-8145-49DC-BF73-2B5892530CDA}"
+      DTS:From="Package\Purge Sonar"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Read Sonar" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{CCB8CA89-03B5-43B2-AB14-EA18D78CB051}"
+      DTS:From="Package\Purge EA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Read EA" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Purge EA"
+          TopLeft="78,82" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Purge Sonar"
+          TopLeft="374,81" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Read EA"
+          TopLeft="75,189" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Read Sonar"
+          TopLeft="372,189" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="442.75,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="138.75,124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Read EA">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Read EA\Excel Source"
+          TopLeft="62,120" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Read EA\Derived Column"
+          TopLeft="353,117" />
+        <EdgeLayout
+          Id="Package\Read EA.Paths[Excel Source Output]"
+          TopLeft="206,139.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147,0"
+              Start="0,0"
+              End="139.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="139.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Read EA\Audit EA"
+          TopLeft="682,115" />
+        <EdgeLayout
+          Id="Package\Read EA.Paths[Derived Column Output]"
+          TopLeft="511,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="171,0"
+              Start="0,0"
+              End="163.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="163.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Read EA\Audit EA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Read EA\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Read Sonar">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Read Sonar\Flat File Source"
+          TopLeft="68,201" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Read Sonar\Derived Column"
+          TopLeft="364,198" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Read Sonar\Audit Sonar"
+          TopLeft="697,196" />
+        <EdgeLayout
+          Id="Package\Read Sonar.Paths[Flat File Source Output]"
+          TopLeft="224,220.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140,0"
+              Start="0,0"
+              End="132.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="132.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Read Sonar.Paths[Derived Column Output]"
+          TopLeft="522,218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="175,0"
+              Start="0,0"
+              End="167.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="167.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Read Sonar\Audit Sonar">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

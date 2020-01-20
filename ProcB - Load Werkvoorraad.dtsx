@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcB - Load Werkvoorraad"
   DTS:PackageType="5"
-  DTS:VersionBuild="109"
-  DTS:VersionGUID="{05D6E4F7-3DE6-47D6-9698-DF20F9DE3E9B}">
+  DTS:VersionBuild="119"
+  DTS:VersionGUID="{C4BB3F5E-6A97-4B35-BBE5-2F7BD9709805}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -43,8 +43,49 @@
       <DTS:VariableValue
         DTS:DataType="7">1/1/2020</DTS:VariableValue>
     </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1262C42D-3223-43A7-BB86-58195BD18EAB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ReportType">
+      <DTS:VariableValue
+        DTS:DataType="17">1</DTS:VariableValue>
+    </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clean Harde Uitval"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3387AD5D-C932-43F9-B179-66F4A204E79D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clean Harde Uitval"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="DELETE FROM Documents&#xA;FROM [Doc DropOut] INNER JOIN&#xA;                         Documents ON [Doc DropOut].[Sonar ID] = Documents.Sonar&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Run"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{31B2C931-F368-4174-B0CF-064C227D7CE5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Run"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[Runs]( [Step], [Created], [Software])&#xA;Select Step, GetDate(), Max(ID)&#xA;From SoftwareVersion&#xA;Group by Step&#xA;Having Step = 15" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Get Params"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -58,7 +99,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
-          SQLTask:SqlStatementSource="Select&#xA;(SELECT  ValNum FROM [dbo].[Control Params] WHERE Param = 8 AND Step = 1) AS MaxSize&#xA;, (SELECT  ValDate FROM [dbo].[Control Params] WHERE Param = 17 AND Step = 32) AS MigStart&#xA;, (SELECT  ValDate FROM [dbo].[Control Params] WHERE Param = 17 AND Step = 33) AS MigEnd&#xA;"
+          SQLTask:SqlStatementSource="Select&#xA;(SELECT  ValNum FROM [dbo].[Control Params] WHERE Param = 8 AND Step = 32) AS MaxSize&#xA;, (SELECT  ValDate FROM [dbo].[Control Params] WHERE Param = 17 AND Step = 32) AS MigStart&#xA;, (SELECT  ValDate FROM [dbo].[Control Params] WHERE Param = 17 AND Step = 33) AS MigEnd&#xA;"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -1153,7 +1194,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="DocName"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocName]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocName]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1177,6 +1218,699 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               </outputs>
             </component>
             <component
+              refId="Package\Load Docs\D"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="D"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Load Docs\D.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[Sonar ID]"
+                      cachedDataType="i4"
+                      cachedName="Sonar ID"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Sonar ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Sonar ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[Template Version]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Template Version"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Template Version]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Template Version]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[Template Alias]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Template Alias"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Template Alias]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Template Alias]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[Ext]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Ext"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Ext]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Ext]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[SonarSrc]"
+                      cachedDataType="ui1"
+                      cachedName="SonarSrc"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[SonarSrc]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[SonarSrc]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[FileDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FileDate"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[FileDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[DocSize]"
+                      cachedDataType="i4"
+                      cachedName="DocSize"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocSize]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocSize]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[DocName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DocName"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[Created]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Created"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Created]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Created]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[# Docs]"
+                      cachedDataType="i2"
+                      cachedName="# Docs"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[# Docs]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[# Docs]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[FileName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="FileName"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[FileName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[DossierDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DossierDate"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DossierDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DossierDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[BSN Status]"
+                      cachedDataType="ui1"
+                      cachedName="BSN Status"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[BSN Status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[BSN Status]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[DocID]"
+                      cachedDataType="bool"
+                      cachedName="DocID"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[Owner]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Owner"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Owner]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Owner]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[File ?]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="File ?"
+                      lineageId="Package\Load Docs\Ext.Outputs[Derived Column Output].Columns[File ?]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[File ?]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[SAF ID]"
+                      cachedDataType="i4"
+                      cachedName="SAF ID"
+                      lineageId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[SAF ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[SAF ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[FileSize]"
+                      cachedDataType="i4"
+                      cachedName="FileSize"
+                      lineageId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[FileSize]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileSize]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[DocType ID]"
+                      cachedDataType="i2"
+                      cachedName="DocType ID"
+                      lineageId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocType ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 1].Columns[AOS]"
+                      cachedDataType="i2"
+                      cachedName="AOS"
+                      lineageId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Match Output].Columns[AOS]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[AOS]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load Docs\D.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[Sonar ID]"
+                      cachedDataType="i4"
+                      cachedName="Sonar ID"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Sonar ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Sonar ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[Template Version]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Template Version"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Template Version]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Template Version]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[Template Alias]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Template Alias"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Template Alias]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Template Alias]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[Ext]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Ext"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Ext]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Ext]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[SonarSrc]"
+                      cachedDataType="ui1"
+                      cachedName="SonarSrc"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[SonarSrc]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[SonarSrc]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[FileDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FileDate"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[FileDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[DocSize]"
+                      cachedDataType="i4"
+                      cachedName="DocSize"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocSize]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocSize]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[DocName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DocName"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[Created]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Created"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Created]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Created]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[# Docs]"
+                      cachedDataType="i2"
+                      cachedName="# Docs"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[# Docs]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[# Docs]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[FileName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="FileName"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[FileName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[DossierDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DossierDate"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DossierDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DossierDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[BSN Status]"
+                      cachedDataType="ui1"
+                      cachedName="BSN Status"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[BSN Status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[BSN Status]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[DocID]"
+                      cachedDataType="bool"
+                      cachedName="DocID"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[Owner]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Owner"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Owner]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Owner]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[File ?]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="File ?"
+                      lineageId="Package\Load Docs\Ext.Outputs[Derived Column Output].Columns[File ?]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[File ?]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[SAF ID]"
+                      cachedDataType="i4"
+                      cachedName="SAF ID"
+                      lineageId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[SAF ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[SAF ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[FileSize]"
+                      cachedDataType="i4"
+                      cachedName="FileSize"
+                      lineageId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[FileSize]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileSize]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[Masked AOS]"
+                      cachedDataType="i2"
+                      cachedName="Masked AOS"
+                      lineageId="Package\Load Docs\Mask.Outputs[Lookup Match Output].Columns[Masked AOS]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[AOS]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Docs\D.Inputs[Union All Input 2].Columns[Masked DocTypeID]"
+                      cachedDataType="i2"
+                      cachedName="Masked DocTypeID"
+                      lineageId="Package\Load Docs\Mask.Outputs[Lookup Match Output].Columns[Masked DocTypeID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocType ID]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load Docs\D.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Docs\D.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Sonar ID]"
+                      dataType="i4"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Sonar ID]"
+                      name="Sonar ID" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Template Version]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Template Version]"
+                      name="Template Version" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Template Alias]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Template Alias]"
+                      name="Template Alias" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Ext]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Ext]"
+                      name="Ext" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[SonarSrc]"
+                      dataType="ui1"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[SonarSrc]"
+                      name="SonarSrc" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileDate]"
+                      name="FileDate" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocSize]"
+                      dataType="i4"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocSize]"
+                      name="DocSize" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocName]"
+                      name="DocName" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Created]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Created]"
+                      name="Created" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[# Docs]"
+                      dataType="i2"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[# Docs]"
+                      name="# Docs" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileName]"
+                      name="FileName" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DossierDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DossierDate]"
+                      name="DossierDate" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[BSN Status]"
+                      dataType="ui1"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[BSN Status]"
+                      name="BSN Status" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocID]"
+                      dataType="bool"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocID]"
+                      name="DocID" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Owner]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Owner]"
+                      name="Owner" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[File ?]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[File ?]"
+                      name="File ?" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[SAF ID]"
+                      dataType="i4"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[SAF ID]"
+                      name="SAF ID" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileSize]"
+                      dataType="i4"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileSize]"
+                      name="FileSize" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocType ID]"
+                      dataType="i2"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocType ID]"
+                      name="DocType ID" />
+                    <outputColumn
+                      refId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[AOS]"
+                      dataType="i2"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[AOS]"
+                      name="AOS" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load Docs\Derived Column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -1193,17 +1927,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       refId="Package\Load Docs\Derived Column.Inputs[Derived Column Input].Columns[BSN Status]"
                       cachedDataType="ui1"
                       cachedName="BSN Status"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[BSN Status]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[BSN Status]" />
                     <inputColumn
                       refId="Package\Load Docs\Derived Column.Inputs[Derived Column Input].Columns[DocType ID]"
                       cachedDataType="i2"
                       cachedName="DocType ID"
-                      lineageId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocType ID]" />
                     <inputColumn
                       refId="Package\Load Docs\Derived Column.Inputs[Derived Column Input].Columns[AOS]"
                       cachedDataType="i2"
                       cachedName="AOS"
-                      lineageId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[AOS]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[AOS]" />
                     <inputColumn
                       refId="Package\Load Docs\Derived Column.Inputs[Derived Column Input].Columns[Kan]"
                       cachedDataType="bool"
@@ -1233,20 +1967,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       refId="Package\Load Docs\Derived Column.Inputs[Derived Column Input].Columns[SonarSrc]"
                       cachedDataType="ui1"
                       cachedName="SonarSrc"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[SonarSrc]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[SonarSrc]" />
                     <inputColumn
                       refId="Package\Load Docs\Derived Column.Inputs[Derived Column Input].Columns[Created]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Created"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Created]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Created]" />
                     <inputColumn
                       refId="Package\Load Docs\Derived Column.Inputs[Derived Column Input].Columns[DossierDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="DossierDate"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DossierDate]"
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DossierDate]"
                       truncationRowDisposition="FailComponent"
                       usageType="readWrite">
                       <properties>
@@ -1254,7 +1987,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[SonarSrc]} == 3 ? #{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Created]} : [REPLACENULL](#{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DossierDate]},(DT_DATE)"2000-01-01")</property>
+                          name="Expression">#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[SonarSrc]} == 3 ? #{Package\Load Docs\D.Outputs[Union All Output 1].Columns[Created]} : [REPLACENULL](#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DossierDate]},(DT_DATE)"2000-01-01")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -1277,7 +2010,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       refId="Package\Load Docs\Derived Column.Inputs[Derived Column Input].Columns[SAF ID]"
                       cachedDataType="i4"
                       cachedName="SAF ID"
-                      lineageId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[SAF ID]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[SAF ID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1303,7 +2036,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_I1)([ISNULL](#{Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[SAF ID]}) ? 24 : #{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[BSN Status]} != 1 ? #{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[BSN Status]} + 10 : !#{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[Moet]} ? 6 : !#{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[Kan]} ? 7 : [ISNULL](#{Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]}) ? 5 : [ISNULL](#{Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[AOS]}) ? 4 : [REPLACENULL](#{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DossierDate]},(DT_DATE)"2000-01-01") &lt; [DATEADD]("year",-10,@[User::MigEnd]) ? 22 : [ISNULL](#{Package\Load Docs\Users.Outputs[Lookup Match Output].Columns[User ID]}) ? 23 : #{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[FileType ID]} == 1756 ? (![REPLACENULL](#{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[InFS]}, FALSE ) ? 15 : [ISNULL](#{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF FileType]}) ? 16 : #{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF Status]} &lt; 3 ? #{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF Status]} + 16 : 1) : 1)</property>
+                          name="Expression">(DT_I1)([ISNULL](#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[SAF ID]}) ? 24 : #{Package\Load Docs\D.Outputs[Union All Output 1].Columns[BSN Status]} != 1 ? #{Package\Load Docs\D.Outputs[Union All Output 1].Columns[BSN Status]} + 10 : !#{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[Moet]} ? 6 : !#{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[Kan]} ? 7 : [ISNULL](#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocType ID]}) ? 5 : [ISNULL](#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[AOS]}) ? 4 : [REPLACENULL](#{Package\Load Docs\D.Outputs[Union All Output 1].Columns[DossierDate]},(DT_DATE)"2000-01-01") &lt; [DATEADD]("year",-10,@[User::MigEnd]) ? 22 : [ISNULL](#{Package\Load Docs\Users.Outputs[Lookup Match Output].Columns[User ID]}) ? 23 : #{Package\Load Docs\FileTypes.Outputs[Lookup Match Output].Columns[FileType ID]} == 1756 ? (![REPLACENULL](#{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[InFS]}, FALSE ) ? 15 : [ISNULL](#{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF FileType]}) ? 16 : #{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF Status]} &lt; 3 ? #{Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output].Columns[xFdF Status]} + 16 : 1) : 1)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -1629,7 +2362,7 @@ where [refTable].[Sonar] = ?</property>
                       refId="Package\Load Docs\Doc exists?.Inputs[Lookup Input].Columns[Sonar ID]"
                       cachedDataType="i4"
                       cachedName="Sonar ID"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Sonar ID]">
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Sonar ID]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1890,175 +2623,87 @@ where [refTable].[Sonar] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load Docs\Doc Types"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Doc Types"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        ID, AOS, Name
-FROM            [Document Types]
-WHERE        (InDB = 1)</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        ID, AOS, Name
-FROM            [Document Types]
-WHERE        (InDB = 1)) [refTable]
-where [refTable].[Name] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AOS" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load Docs\Sonar.Outputs[OLE DB Source Output].Columns[Template Alias]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load Docs\Doc Types.Connections[OleDbConnection]"
-                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
+              refId="Package\Load Docs\DocType Found?"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="DocType Found?"
+              usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Load Docs\Doc Types.Inputs[Lookup Input]"
-                  name="Lookup Input">
+                  refId="Package\Load Docs\DocType Found?.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Docs\Doc Types.Inputs[Lookup Input].Columns[Template Alias]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Template Alias"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Template Alias]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Name</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
+                      refId="Package\Load Docs\DocType Found?.Inputs[Conditional Split Input].Columns[DocType ID]"
+                      cachedDataType="i2"
+                      cachedName="DocType ID"
+                      lineageId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="IgnoreFailure"
+                  refId="Package\Load Docs\DocType Found?.Outputs[Nee]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Load Docs\Doc Types.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]"
-                      dataType="i2"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]"
-                      name="DocType ID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">ID</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[AOS]"
-                      dataType="i2"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[AOS]"
-                      name="AOS"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">AOS</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
+                  name="Nee"
+                  synchronousInputId="Package\Load Docs\DocType Found?.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Load Docs\Specific Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL([DocType ID])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load Docs\Doc Types.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  refId="Package\Load Docs\DocType Found?.Outputs[Ja]"
+                  description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Load Docs\Doc Types.Inputs[Lookup Input]">
+                  name="Ja"
+                  synchronousInputId="Package\Load Docs\DocType Found?.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load Docs\Doc Types.Outputs[Lookup Error Output]"
+                  refId="Package\Load Docs\DocType Found?.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Load Docs\Doc Types.Inputs[Lookup Input]">
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Load Docs\DocType Found?.Inputs[Conditional Split Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Docs\Doc Types.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Load Docs\DocType Found?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Docs\Doc Types.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load Docs\DocType Found?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Docs\Doc Types.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load Docs\DocType Found?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Docs\Doc Types.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load Docs\DocType Found?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2161,13 +2806,13 @@ where [refTable].[Name] = ?</property>
                       cachedDataType="i2"
                       cachedName="DocType ID"
                       externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DocType]"
-                      lineageId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DocType ID]" />
                     <inputColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[Sonar ID]"
                       cachedDataType="i4"
                       cachedName="Sonar ID"
                       externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Sonar]"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Sonar ID]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Sonar ID]" />
                     <inputColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[FileType ID]"
                       cachedDataType="i2"
@@ -2191,32 +2836,31 @@ where [refTable].[Name] = ?</property>
                       cachedDataType="dbTimeStamp"
                       cachedName="DossierDate"
                       externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[DossierDate]"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DossierDate]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[DossierDate]" />
                     <inputColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[FileDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FileDate"
                       externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[FileDate]"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[FileDate]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[FileDate]" />
                     <inputColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[SonarSrc]"
                       cachedDataType="ui1"
                       cachedName="SonarSrc"
-                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Source]"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[SonarSrc]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[SonarSrc]" />
                     <inputColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[SAF ID]"
                       cachedDataType="i4"
                       cachedName="SAF ID"
                       externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[SAF]"
-                      lineageId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[SAF ID]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[SAF ID]" />
                     <inputColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[Created]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Created"
                       externalMetadataColumnId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].ExternalColumns[Created]"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Created]" />
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Created]" />
                     <inputColumn
                       refId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input].Columns[User ID]"
                       cachedDataType="i4"
@@ -2364,7 +3008,7 @@ where [refTable].[Name] = ?</property>
                     <inputColumn
                       refId="Package\Load Docs\Dropout Check.Inputs[Conditional Split Input].Columns[File ?]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="20"
                       cachedName="File ?"
                       lineageId="Package\Load Docs\Ext.Outputs[Derived Column Output].Columns[File ?]" />
                     <inputColumn
@@ -2406,13 +3050,13 @@ where [refTable].[Name] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\Load Docs\Ext.Outputs[Derived Column Output].Columns[File ?]} != "FILE"</property>
+                      name="Expression">#{Package\Load Docs\Ext.Outputs[Derived Column Output].Columns[File ?]} == "Burk"</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">[File ?] != "FILE"</property>
+                      name="FriendlyExpression">[File ?] == "Burk"</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -2490,13 +3134,13 @@ where [refTable].[Name] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[REPLACENULL](#{Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[FileSize]},#{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocSize]}) &lt; @[User::MaxFileSize]</property>
+                      name="Expression">[REPLACENULL](#{Package\Load Docs\Sonar FS.Outputs[Lookup Match Output].Columns[FileSize]},#{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocSize]}) &lt;= @[User::MaxFileSize]</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">REPLACENULL(FileSize,DocSize) &lt; @[User::MaxFileSize]</property>
+                      name="FriendlyExpression">REPLACENULL(FileSize,DocSize) &lt;= @[User::MaxFileSize]</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -2841,7 +3485,7 @@ where [refTable].[Name] = ?</property>
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="Ext"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Ext]">
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Ext]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -3305,6 +3949,180 @@ where [refTable].[Name] = ?</property>
                           name="InputColumnID">#{Package\Load Docs\Left Join.Inputs[Merge Join Left Input].Columns[Owner]}</property>
                       </properties>
                     </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Docs\Mask"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Mask"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Document Types]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[Document Types]
+where ? like [Mask] AND Mask IS Not NULL AND AOS IS Not Null
+Order By VolgNr</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Template" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Doc Count" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="InDB" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="InXls" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AOS" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Inserted" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Mask" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VolgNr" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="generic" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocName]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Docs\Mask.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Docs\Mask.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Docs\Mask.Inputs[Lookup Input].Columns[DocName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DocName"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[DocName]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Mask</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Docs\Mask.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load Docs\Mask.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Docs\Mask.Outputs[Lookup Match Output].Columns[Masked AOS]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Docs\Mask.Outputs[Lookup Match Output].Columns[Masked AOS]"
+                      name="Masked AOS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">AOS</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Docs\Mask.Outputs[Lookup Match Output].Columns[Masked DocTypeID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Docs\Mask.Outputs[Lookup Match Output].Columns[Masked DocTypeID]"
+                      name="Masked DocTypeID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Docs\Mask.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load Docs\Mask.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Docs\Mask.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load Docs\Mask.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Docs\Mask.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Docs\Mask.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Docs\Mask.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Docs\Mask.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -4445,6 +5263,183 @@ where [refTable].[Source] = ? and [refTable].[Name] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Load Docs\Specific Doc Types"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Specific Doc Types"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        ID, AOS, Name
+FROM            [Document Types]
+WHERE        (InDB = 1) AND (generic = 0)</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        ID, AOS, Name
+FROM            [Document Types]
+WHERE        (InDB = 1) AND (generic = 0)) [refTable]
+where [refTable].[Name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AOS" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Template Alias]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Docs\Specific Doc Types.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Docs\Specific Doc Types.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Docs\Specific Doc Types.Inputs[Lookup Input].Columns[Template Alias]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Template Alias"
+                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Template Alias]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load Docs\Specific Doc Types.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Match Output].Columns[DocType ID]"
+                      name="DocType ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ID</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Match Output].Columns[AOS]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Match Output].Columns[AOS]"
+                      name="AOS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">AOS</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Docs\Specific Doc Types.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load Docs\Specific Doc Types.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load Docs\Specific Doc Types.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load Docs\Status Changed ?"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -5114,7 +6109,7 @@ where [refTable].[RowID] = ?</property>
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Owner"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Owner]">
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Owner]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -5275,7 +6270,7 @@ where [refTable].[Name] = ?</property>
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Template Version"
-                      lineageId="Package\Load Docs\Left Join.Outputs[Merge Join Output].Columns[Template Version]">
+                      lineageId="Package\Load Docs\D.Outputs[Union All Output 1].Columns[Template Version]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -5459,45 +6454,60 @@ where [refTable].[Name] = ?</property>
               name="Ja"
               startId="Package\Load Docs\Dropout Check.Outputs[FileSize]" />
             <path
-              refId="Package\Load Docs.Paths[Lookup Match Output4]"
-              endId="Package\Load Docs\Conv DocName.Inputs[Input 0]"
+              refId="Package\Load Docs.Paths[Ja2]"
+              endId="Package\Load Docs\D.Inputs[Union All Input 1]"
+              name="Ja"
+              startId="Package\Load Docs\DocType Found?.Outputs[Ja]" />
+            <path
+              refId="Package\Load Docs.Paths[Lookup Match Output5]"
+              endId="Package\Load Docs\D.Inputs[Union All Input 2]"
               name="Lookup Match Output"
-              startId="Package\Load Docs\Users.Outputs[Lookup Match Output]" />
+              startId="Package\Load Docs\Mask.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load Docs.Paths[Lookup Match Output4]"
+              endId="Package\Load Docs\DocType Found?.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\Load Docs\Specific Doc Types.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Docs.Paths[Lookup Match Output3]"
-              endId="Package\Load Docs\xFdF Templates.Inputs[Lookup Input]"
+              endId="Package\Load Docs\Dropout Check.Inputs[Conditional Split Input]"
               name="Lookup Match Output"
-              startId="Package\Load Docs\Doc Types.Outputs[Lookup Match Output]" />
+              startId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Load Docs.Paths[Lookup Match Output2]"
+              refId="Package\Load Docs.Paths[Lookup Match Output1]"
               endId="Package\Load Docs\FileTypes.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Load Docs\xFdF Templates.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Load Docs.Paths[Lookup Match Output1]"
+              refId="Package\Load Docs.Paths[Lookup Match Output]"
               endId="Package\Load Docs\Users.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Load Docs\FileTypes.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Load Docs.Paths[Lookup Match Output]"
-              endId="Package\Load Docs\Dropout Check.Inputs[Conditional Split Input]"
+              refId="Package\Load Docs.Paths[Lookup Match Output2]"
+              endId="Package\Load Docs\Conv DocName.Inputs[Input 0]"
               name="Lookup Match Output"
-              startId="Package\Load Docs\Sonar FS.Outputs[Lookup Match Output]" />
+              startId="Package\Load Docs\Users.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load Docs.Paths[Merge Join Output]"
               endId="Package\Load Docs\Ext.Inputs[Derived Column Input]"
               name="Merge Join Output"
               startId="Package\Load Docs\Left Join.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Load Docs.Paths[No]"
-              endId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input]"
-              name="No"
-              startId="Package\Load Docs\Doc exists?.Outputs[No]" />
+              refId="Package\Load Docs.Paths[Nee]"
+              endId="Package\Load Docs\Mask.Inputs[Lookup Input]"
+              name="Nee"
+              startId="Package\Load Docs\DocType Found?.Outputs[Nee]" />
             <path
-              refId="Package\Load Docs.Paths[No1]"
+              refId="Package\Load Docs.Paths[No]"
               endId="Package\Load Docs\Doc Dropout.Inputs[OLE DB Destination Input]"
               name="No"
               startId="Package\Load Docs\Al uitgevallen?.Outputs[No]" />
+            <path
+              refId="Package\Load Docs.Paths[No1]"
+              endId="Package\Load Docs\Documents.Inputs[OLE DB Destination Input]"
+              name="No"
+              startId="Package\Load Docs\Doc exists?.Outputs[No]" />
             <path
               refId="Package\Load Docs.Paths[No Contact]"
               endId="Package\Load Docs\Set NoCon Reason.Inputs[Derived Column Input]"
@@ -5515,7 +6525,7 @@ where [refTable].[Name] = ?</property>
               startId="Package\Load Docs\Dropout Check.Outputs[No SAF]" />
             <path
               refId="Package\Load Docs.Paths[OK]"
-              endId="Package\Load Docs\Doc Types.Inputs[Lookup Input]"
+              endId="Package\Load Docs\Specific Doc Types.Inputs[Lookup Input]"
               name="OK"
               startId="Package\Load Docs\Dropout Check.Outputs[OK]" />
             <path
@@ -5539,10 +6549,15 @@ where [refTable].[Name] = ?</property>
               name="Output 0"
               startId="Package\Load Docs\Conv DocName.Outputs[Output 0]" />
             <path
-              refId="Package\Load Docs.Paths[Union All Output 1]"
+              refId="Package\Load Docs.Paths[Union All Output 11]"
               endId="Package\Load Docs\Al uitgevallen?.Inputs[Lookup Input]"
               name="Union All Output 1"
               startId="Package\Load Docs\U.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\Load Docs.Paths[Union All Output 1]"
+              endId="Package\Load Docs\xFdF Templates.Inputs[Lookup Input]"
+              name="Union All Output 1"
+              startId="Package\Load Docs\D.Outputs[Union All Output 1]" />
             <path
               refId="Package\Load Docs.Paths[Update]"
               endId="Package\Load Docs\Upd Docs.Inputs[OLE DB Command Input]"
@@ -5552,8 +6567,53 @@ where [refTable].[Name] = ?</property>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Report"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{D351860F-0A33-42B9-B370-C0AAF979C017}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Report"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Standen.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>Type</ParameterName>
+            <BindedVariableOrParameterName>User::ReportType</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DropOut"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3D74F50F-71F9-4A41-AAB4-8515A4FEFEE5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DropOut"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="Truncate Table [dbo].[Doc DropOut]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C49A6B4B-B931-4DDB-8B88-2BF9CB4DC5B4}"
+      DTS:From="Package\Create Run"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load Docs" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -5562,6 +6622,30 @@ where [refTable].[Name] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Load Docs" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{DBFB95AD-0041-427A-B745-DD8E305BAFA3}"
+      DTS:From="Package\Load Docs"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Clean Harde Uitval" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{BE284542-B76C-4D0F-9034-BF5A0C15085C}"
+      DTS:From="Package\Truncate DropOut"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Load Docs" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{69583E23-6A06-4770-BF15-E3BF36C40028}"
+      DTS:From="Package\Clean Harde Uitval"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Report" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -5574,18 +6658,56 @@ where [refTable].[Name] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Clean Harde Uitval"
+          TopLeft="433,328" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Create Run"
+          TopLeft="755,198" />
         <NodeLayout
           Size="138,42"
           Id="Package\Get Params"
-          TopLeft="122,79" />
+          TopLeft="448,75" />
         <NodeLayout
           Size="131,42"
           Id="Package\Load Docs"
-          TopLeft="126,205" />
+          TopLeft="452,201" />
+        <NodeLayout
+          Size="112,42"
+          Id="Package\Report"
+          TopLeft="767,325" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Truncate DropOut"
+          TopLeft="168,200" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="755,220.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-172,0"
+              Start="0,0"
+              End="-164.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-164.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="191.25,121">
+          TopLeft="517.25,117">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5605,6 +6727,72 @@ where [refTable].[Name] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="518,243">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,85"
+              Start="0,0"
+              End="0,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="335,221.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117,0"
+              Start="0,0"
+              End="109.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="109.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="604,347.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="163,0"
+              Start="0,0"
+              End="155.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="155.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -5614,112 +6802,124 @@ where [refTable].[Name] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="135,42"
-          Id="Package\Load Docs\Documents"
-          TopLeft="902,610" />
-        <NodeLayout
-          Size="135,42"
-          Id="Package\Load Docs\Status Changed ?"
-          TopLeft="659,522" />
-        <NodeLayout
-          Size="108,42"
-          Id="Package\Load Docs\Sonar"
-          TopLeft="881,13" />
-        <NodeLayout
-          Size="108,42"
-          Id="Package\Load Docs\Users"
-          TopLeft="44,613" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Load Docs\Doc Dropout"
-          TopLeft="873,397" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Load Docs\Set SAF Reason"
-          TopLeft="508,283" />
-        <NodeLayout
-          Size="131,42"
-          Id="Package\Load Docs\Doc Types"
-          TopLeft="34,283" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\Load Docs\Upd Docs"
-          TopLeft="908,518" />
-        <NodeLayout
           Size="139,42"
           Id="Package\Load Docs\Set OudDos Reason"
-          TopLeft="496,180" />
+          TopLeft="514,180" />
         <NodeLayout
           Size="125,42"
           Id="Package\Load Docs\Sonar FS"
-          TopLeft="279,48" />
+          TopLeft="326,49" />
         <NodeLayout
           Size="134,42"
           Id="Package\Load Docs\Set NoDoc Reason"
-          TopLeft="500,131" />
-        <NodeLayout
-          Size="130,308"
-          Id="Package\Load Docs\Dropout Check"
-          TopLeft="282,155" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Load Docs\Left Join"
-          TopLeft="696,49" />
+          TopLeft="518,131" />
         <NodeLayout
           Size="134,42"
           Id="Package\Load Docs\Set NoCon Reason"
-          TopLeft="509,398" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Load Docs\Derived Column"
-          TopLeft="455,612" />
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Load Docs\Doc p Klt"
-          TopLeft="877,84" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Load Docs\Set Inval Con Reason"
-          TopLeft="504,452" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Load Docs\Conv DocName"
-          TopLeft="261,611" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Load Docs\Set FileSize Reason"
-          TopLeft="502,229" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\Load Docs\FileTypes"
-          TopLeft="41,494" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Load Docs\Set Dub Reason"
-          TopLeft="505,337" />
+          TopLeft="527,398" />
         <NodeLayout
           Size="135,42"
           Id="Package\Load Docs\xFdF Templates"
-          TopLeft="34,385" />
+          TopLeft="52,385" />
         <NodeLayout
           Size="130,42"
-          Id="Package\Load Docs\Doc exists?"
-          TopLeft="656,612" />
+          Id="Package\Load Docs\DocType Found?"
+          TopLeft="45,157" />
         <NodeLayout
           Size="87,260"
           Id="Package\Load Docs\U"
-          TopLeft="715,185" />
+          TopLeft="733,185" />
         <NodeLayout
-          Size="140,42"
-          Id="Package\Load Docs\Al uitgevallen?"
-          TopLeft="874,287" />
+          Size="142,42"
+          Id="Package\Load Docs\Set Inval Con Reason"
+          TopLeft="522,452" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Docs\Derived Column"
+          TopLeft="473,612" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Load Docs\Doc p Klt"
+          TopLeft="896,120" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Load Docs\Set FileSize Reason"
+          TopLeft="520,229" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Load Docs\Left Join"
+          TopLeft="714,49" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Load Docs\Status Changed ?"
+          TopLeft="677,522" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Load Docs\Users"
+          TopLeft="62,613" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Docs\Set Dub Reason"
+          TopLeft="523,337" />
+        <NodeLayout
+          Size="87,42"
+          Id="Package\Load Docs\D"
+          TopLeft="187,294" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Load Docs\Sonar"
+          TopLeft="900,49" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Docs\Conv DocName"
+          TopLeft="279,611" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Docs\Doc exists?"
+          TopLeft="674,612" />
+        <NodeLayout
+          Size="130,308"
+          Id="Package\Load Docs\Dropout Check"
+          TopLeft="300,155" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Load Docs\FileTypes"
+          TopLeft="59,494" />
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Load Docs\Mask"
+          TopLeft="33,295" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Load Docs\Upd Docs"
+          TopLeft="926,518" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Docs\Set SAF Reason"
+          TopLeft="526,283" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Load Docs\Specific Doc Types"
+          TopLeft="70,49" />
         <NodeLayout
           Size="95,42"
           Id="Package\Load Docs\Ext"
-          TopLeft="522,47" />
+          TopLeft="540,47" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Load Docs\Al uitgevallen?"
+          TopLeft="892,287" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Load Docs\Documents"
+          TopLeft="920,610" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Docs\Doc Dropout"
+          TopLeft="891,397" />
         <EdgeLayout
           Id="Package\Load Docs.Paths[Update]"
-          TopLeft="794,541">
+          TopLeft="812,541">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5742,8 +6942,8 @@ where [refTable].[Name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Docs.Paths[Union All Output 1]"
-          TopLeft="802,311.5">
+          Id="Package\Load Docs.Paths[Union All Output 11]"
+          TopLeft="820,311.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5764,8 +6964,42 @@ where [refTable].[Name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Load Docs.Paths[Union All Output 1]"
+          TopLeft="230.5,336">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-111,49"
+              Start="0,0"
+              End="-111,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="-4,24.5" />
+                  <mssgle:LineSegment
+                    End="-107,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-107,24.5"
+                    Point2="-111,24.5"
+                    Point3="-111,28.5" />
+                  <mssgle:LineSegment
+                    End="-111,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Load Docs.Paths[Output 0]"
-          TopLeft="391,632.5">
+          TopLeft="409,632.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5787,7 +7021,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Outdated]"
-          TopLeft="412,234">
+          TopLeft="430,234">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5823,30 +7057,30 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[OLE DB Source Output1]"
-          TopLeft="877,105">
+          TopLeft="957.5,120">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-60,-29.3333333333333"
+              EndConnector="-183,-29"
               Start="0,0"
-              End="-52.5,-29.3333333333333">
+              End="-183,-21.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-30.6788990825688,0" />
+                    End="0,-10.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-30.6788990825688,0"
-                    Point2="-34.6788990825688,0"
-                    Point3="-34.6788990825688,-4" />
+                    Point1="0,-10.5"
+                    Point2="0,-14.5"
+                    Point3="-4,-14.5" />
                   <mssgle:LineSegment
-                    End="-34.6788990825688,-25.3333333333333" />
+                    End="-179,-14.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-34.6788990825688,-25.3333333333333"
-                    Point2="-34.6788990825688,-29.3333333333333"
-                    Point3="-38.6788990825688,-29.3333333333333" />
+                    Point1="-179,-14.5"
+                    Point2="-183,-14.5"
+                    Point3="-183,-18.5" />
                   <mssgle:LineSegment
-                    End="-52.5,-29.3333333333333" />
+                    End="-183,-21.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5857,30 +7091,18 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[OLE DB Source Output]"
-          TopLeft="881,34">
+          TopLeft="900,70">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-64,30.3333333333333"
+              EndConnector="-65,0"
               Start="0,0"
-              End="-56.5,30.3333333333333">
+              End="-57.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-32.9908256880734,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-32.9908256880734,0"
-                    Point2="-36.9908256880734,0"
-                    Point3="-36.9908256880734,4" />
-                  <mssgle:LineSegment
-                    End="-36.9908256880734,26.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-36.9908256880734,26.3333333333333"
-                    Point2="-36.9908256880734,30.3333333333333"
-                    Point3="-40.9908256880734,30.3333333333333" />
-                  <mssgle:LineSegment
-                    End="-56.5,30.3333333333333" />
+                    End="-57.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5891,31 +7113,43 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[OK]"
-          TopLeft="282,306.5">
+          TopLeft="344.666666666667,155">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-117,0"
+              EndConnector="-188,-64"
               Start="0,0"
-              End="-109.5,0">
+              End="-188,-56.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-109.5,0" />
+                    End="0,-28.0072381814069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-28.0072381814069"
+                    Point2="0,-32.0072381814069"
+                    Point3="-4,-32.0072381814069" />
+                  <mssgle:LineSegment
+                    End="-184,-32.0072381814069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-184,-32.0072381814069"
+                    Point2="-188,-32.0072381814069"
+                    Point3="-188,-36.0072381814069" />
+                  <mssgle:LineSegment
+                    End="-188,-56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-62.1464453125,5,14.792890625,9.5732421875"
+              BoundingBox="-101.3964453125,-27.0072381814069,14.792890625,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[No SAF]"
-          TopLeft="412,306.5">
+          TopLeft="430,306.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5939,7 +7173,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[No Doc]"
-          TopLeft="412,196.5">
+          TopLeft="430,196.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5975,7 +7209,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[No Contact]"
-          TopLeft="412,384">
+          TopLeft="430,384">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6011,31 +7245,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[No1]"
-          TopLeft="941,329">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,68"
-              Start="0,0"
-              End="0,60.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,60.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-6.54203125,25.5390625,13.0840625,9.421875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Docs.Paths[No]"
-          TopLeft="786,632">
+          TopLeft="804,632">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6058,8 +7268,56 @@ where [refTable].[Name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Load Docs.Paths[No]"
+          TopLeft="959,329">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-6.54203125,25.5390625,13.0840625,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Docs.Paths[Nee]"
+          TopLeft="87.5833333333333,199">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,96"
+              Start="0,0"
+              End="0,88.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-9.09634765625,39.55126953125,18.1926953125,9.3974609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Load Docs.Paths[Merge Join Output]"
-          TopLeft="696,69">
+          TopLeft="714,69">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6080,8 +7338,74 @@ where [refTable].[Name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Load Docs.Paths[Lookup Match Output5]"
+          TopLeft="138,315.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49,0"
+              Start="0,0"
+              End="41.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="41.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Load Docs.Paths[Lookup Match Output4]"
-          TopLeft="152,633">
+          TopLeft="112.666666666667,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Docs.Paths[Lookup Match Output3]"
+          TopLeft="386.916666666667,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Docs.Paths[Lookup Match Output2]"
+          TopLeft="170,633">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6102,30 +7426,8 @@ where [refTable].[Name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Docs.Paths[Lookup Match Output3]"
-          TopLeft="100.5,325">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Docs.Paths[Lookup Match Output2]"
-          TopLeft="103,427">
+          Id="Package\Load Docs.Paths[Lookup Match Output1]"
+          TopLeft="121,427">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6146,8 +7448,8 @@ where [refTable].[Name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Docs.Paths[Lookup Match Output1]"
-          TopLeft="101.25,536">
+          Id="Package\Load Docs.Paths[Lookup Match Output]"
+          TopLeft="119.25,536">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6168,30 +7470,44 @@ where [refTable].[Name] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Docs.Paths[Lookup Match Output]"
-          TopLeft="344.25,90">
+          Id="Package\Load Docs.Paths[Ja2]"
+          TopLeft="130.333333333333,199">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,65"
+              EndConnector="100.166666666667,95"
               Start="0,0"
-              End="0,57.5">
+              End="100.166666666667,87.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.5" />
+                    End="0,34.693009118541" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.693009118541"
+                    Point2="0,38.693009118541"
+                    Point3="4,38.693009118541" />
+                  <mssgle:LineSegment
+                    End="96.1666666666667,38.693009118541" />
+                  <mssgle:CubicBezierSegment
+                    Point1="96.1666666666667,38.693009118541"
+                    Point2="100.166666666667,38.693009118541"
+                    Point3="100.166666666667,42.693009118541" />
+                  <mssgle:LineSegment
+                    End="100.166666666667,87.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="44.7082942708333,43.693009118541,10.750078125,9.421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Ja1]"
-          TopLeft="412,271.5">
+          TopLeft="430,271.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6227,7 +7543,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Ja]"
-          TopLeft="723.75,612">
+          TopLeft="741.75,612">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6251,7 +7567,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Invalid Contact]"
-          TopLeft="412,421.5">
+          TopLeft="430,421.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6287,7 +7603,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Dubbel]"
-          TopLeft="412,346.5">
+          TopLeft="430,346.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6323,7 +7639,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Derived Column Output8]"
-          TopLeft="646,473">
+          TopLeft="664,473">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6357,7 +7673,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Derived Column Output7]"
-          TopLeft="635,201">
+          TopLeft="653,201">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6391,7 +7707,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Derived Column Output6]"
-          TopLeft="644,250">
+          TopLeft="662,250">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6425,7 +7741,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Derived Column Output5]"
-          TopLeft="635,358">
+          TopLeft="653,358">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6459,7 +7775,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Derived Column Output4]"
-          TopLeft="585,633">
+          TopLeft="603,633">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6481,18 +7797,18 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Derived Column Output3]"
-          TopLeft="522,68.5">
+          TopLeft="540,69">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-118,0"
+              EndConnector="-89,0"
               Start="0,0"
-              End="-110.5,0">
+              End="-81.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-110.5,0" />
+                    End="-81.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6503,7 +7819,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Derived Column Output2]"
-          TopLeft="634,152">
+          TopLeft="652,152">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6537,7 +7853,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Derived Column Output1]"
-          TopLeft="643,419">
+          TopLeft="661,419">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6571,7 +7887,7 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Docs.Paths[Derived Column Output]"
-          TopLeft="638,304">
+          TopLeft="656,304">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6607,6 +7923,10 @@ where [refTable].[Name] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelinePath
+    design-time-name="Package\Load Docs.Paths[Lookup Match Output5]">
+    <PathAnnotation>Never</PathAnnotation>
+  </PipelinePath>
+  <PipelinePath
     design-time-name="Package\Load Docs.Paths[Lookup Match Output4]">
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
@@ -6627,20 +7947,7 @@ where [refTable].[Name] = ?</property>
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Doc Dropout">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Doc Types">
+    design-time-name="Package\Load Docs\Sonar FS">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -6686,6 +7993,14 @@ where [refTable].[Name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Doc p Klt">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load Docs\Users">
     <Properties>
       <Property>
@@ -6709,19 +8024,6 @@ where [refTable].[Name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Documents">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load Docs\Sonar">
     <Properties>
       <Property>
@@ -6731,29 +8033,6 @@ where [refTable].[Name] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\FileTypes">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -6781,15 +8060,7 @@ where [refTable].[Name] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Doc p Klt">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Docs\Sonar FS">
+    design-time-name="Package\Load Docs\FileTypes">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -6805,6 +8076,52 @@ where [refTable].[Name] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Mask">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">true</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Document Types]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Specific Doc Types">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6831,6 +8148,32 @@ where [refTable].[Name] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Documents">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Docs\Doc Dropout">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
