@@ -7,12 +7,12 @@
   DTS:CreatorName="TEST\bla061"
   DTS:DTSID="{3BE3FB78-92F0-4F47-97A3-109DA69A3D96}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
   DTS:LocaleID="1043"
   DTS:ObjectName="Klaar"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{26FF9CE4-0ED9-4B3A-95A9-1033EE37E3D9}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{1986DCE9-9F2D-4E7A-880E-0BF2CA5EED96}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -25,7 +25,7 @@
       DTS:ExecutableType="Microsoft.ExecuteProcess"
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute Process Task"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <ExecuteProcessData
@@ -40,7 +40,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Reset"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData

@@ -7,12 +7,12 @@
   DTS:CreatorName="TEST\bla061"
   DTS:DTSID="{6975C7FF-85EE-475D-A125-A8B00997F2AB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcE - Send to EA - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="79"
-  DTS:VersionGUID="{08E531CD-C473-4AE1-9B17-7587202F1247}">
+  DTS:VersionBuild="80"
+  DTS:VersionGUID="{9E03F2F5-2A0F-4561-B450-805FA8E75CA6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -101,21 +101,17 @@
       DTS:CreationName=""
       DTS:DTSID="{A2D9E2F3-345E-48C2-B235-664630F89162}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT top &quot; +  (DT_WSTR, 9) @[User::Total_Extent] + &quot;&#xA;(SELECT ValStr FROM [Control Params] AS V  WHERE (Param = 5) AND (Step = 15)) + P.Path + '\\' AS [Doc Path]&#xA;, D.ID AS [Doc ID], X.ID AS [DocKlant ID],&#xA; (SELECT MIN(ID) AS StartID FROM Batches WHERE (Run = &quot;+ (DT_WSTR, 9) @[User::RunID] +&quot;)) AS [MinBatch ID]&#xA;, D.DocName as [Doc Name]&#xA;FROM Documents AS D INNER JOIN&#xA; DocPath AS P ON D.CurrentStep = 18 AND D.ProcStatus = 2 AND D.ID = P.ID INNER JOIN&#xA; Sonar AS S ON D.Sonar = S.ID INNER JOIN&#xA; [Doc per Klant] AS X ON S.RowID = X.Sonar AND S.SonarSrc = X.Source and X.ProcStatus = 1&#xA;WHERE (X.[BSN Status] = 1)&quot;"
+      DTS:Expression="&quot;SELECT top &quot; +  (DT_WSTR, 9) @[User::Total_Extent] + &quot;&#xA;(SELECT ValStr FROM [Control Params] AS V  WHERE (Param = 5) AND (Step = 15)) + P.Path + '\\' AS [Doc Path]&#xA;, D.ID AS [Doc ID],(SELECT MIN(ID) AS StartID FROM Batches WHERE (Run = &quot;+ (DT_WSTR, 9) @[User::RunID] +&quot;)) AS [MinBatch ID]&#xA;, D.DocName as [Doc Name]&#xA;FROM Documents AS D INNER JOIN&#xA; DocPath AS P ON D.CurrentStep = 18 AND D.ProcStatus = 2 AND D.ID = P.ID  &quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Doc_Src">
       <DTS:VariableValue
         DTS:DataType="8">SELECT top 0
 (SELECT ValStr FROM [Control Params] AS V  WHERE (Param = 5) AND (Step = 15)) + P.Path + '\' AS [Doc Path]
-, D.ID AS [Doc ID], X.ID AS [DocKlant ID],
- (SELECT MIN(ID) AS StartID FROM Batches WHERE (Run = 0)) AS [MinBatch ID]
+, D.ID AS [Doc ID],(SELECT MIN(ID) AS StartID FROM Batches WHERE (Run = 0)) AS [MinBatch ID]
 , D.DocName as [Doc Name]
 FROM Documents AS D INNER JOIN
- DocPath AS P ON D.CurrentStep = 18 AND D.ProcStatus = 2 AND D.ID = P.ID INNER JOIN
- Sonar AS S ON D.Sonar = S.ID INNER JOIN
- [Doc per Klant] AS X ON S.RowID = X.Sonar AND S.SonarSrc = X.Source and X.ProcStatus = 1
-WHERE (X.[BSN Status] = 1)</DTS:VariableValue>
+ DocPath AS P ON D.CurrentStep = 18 AND D.ProcStatus = 2 AND D.ID = P.ID  </DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1105,16 +1101,16 @@ where [refTable].[Step] = ?</property>
                       expressionType="Notify"
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        COUNT(1) AS Aantal, CAST(15 AS tinyint) AS refKey
-FROM            [Doc per Klant]
-WHERE        (ProcStatus = 3)</property>
+FROM            Documents
+WHERE        (CurrentStep = 19) AND (ProcStatus = 3)</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        COUNT(1) AS Aantal, CAST(15 AS tinyint) AS refKey
-FROM            [Doc per Klant]
-WHERE        (ProcStatus = 3)) [refTable]
+FROM            Documents
+WHERE        (CurrentStep = 19) AND (ProcStatus = 3)) [refTable]
 where [refTable].[refKey] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -1802,7 +1798,7 @@ where [refTable].[Step] = ?</property>
           DTS:ExecutableType="Microsoft.ExecuteProcess"
           DTS:LocaleID="-1"
           DTS:ObjectName="Exec MQ Cmd"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -1851,7 +1847,7 @@ where [refTable].[Step] = ?</property>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Get Var"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2814,12 +2810,6 @@ where [refTable].[Step] = ?</property>
                           externalMetadataColumnId="Package\B - Link Documents\Link\Process Details.Inputs[OLE DB Destination Input].ExternalColumns[Batch]"
                           lineageId="Package\B - Link Documents\Link\Set Batch ID Offset.Outputs[Output 0].Columns[Batch ID]" />
                         <inputColumn
-                          refId="Package\B - Link Documents\Link\Process Details.Inputs[OLE DB Destination Input].Columns[DocKlant ID]"
-                          cachedDataType="i4"
-                          cachedName="DocKlant ID"
-                          externalMetadataColumnId="Package\B - Link Documents\Link\Process Details.Inputs[OLE DB Destination Input].ExternalColumns[Doc/Klant]"
-                          lineageId="Package\B - Link Documents\Link\Select Docs.Outputs[OLE DB Source Output].Columns[DocKlant ID]" />
-                        <inputColumn
                           refId="Package\B - Link Documents\Link\Process Details.Inputs[OLE DB Destination Input].Columns[Step]"
                           cachedDataType="ui1"
                           cachedName="Step"
@@ -2892,10 +2882,6 @@ where [refTable].[Step] = ?</property>
                           refId="Package\B - Link Documents\Link\Process Details.Inputs[OLE DB Destination Input].ExternalColumns[Batch]"
                           dataType="i4"
                           name="Batch" />
-                        <externalMetadataColumn
-                          refId="Package\B - Link Documents\Link\Process Details.Inputs[OLE DB Destination Input].ExternalColumns[Doc/Klant]"
-                          dataType="i4"
-                          name="Doc/Klant" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -3006,15 +2992,6 @@ where [refTable].[Step] = ?</property>
                           name="Doc ID"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\B - Link Documents\Link\Select Docs.Outputs[OLE DB Source Output].Columns[DocKlant ID]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\B - Link Documents\Link\Select Docs.Outputs[OLE DB Source Output].ExternalColumns[DocKlant ID]"
-                          lineageId="Package\B - Link Documents\Link\Select Docs.Outputs[OLE DB Source Output].Columns[DocKlant ID]"
-                          name="DocKlant ID"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
                           refId="Package\B - Link Documents\Link\Select Docs.Outputs[OLE DB Source Output].Columns[MinBatch ID]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
@@ -3048,10 +3025,6 @@ where [refTable].[Step] = ?</property>
                           dataType="i4"
                           name="Doc ID" />
                         <externalMetadataColumn
-                          refId="Package\B - Link Documents\Link\Select Docs.Outputs[OLE DB Source Output].ExternalColumns[DocKlant ID]"
-                          dataType="i4"
-                          name="DocKlant ID" />
-                        <externalMetadataColumn
                           refId="Package\B - Link Documents\Link\Select Docs.Outputs[OLE DB Source Output].ExternalColumns[MinBatch ID]"
                           dataType="i4"
                           name="MinBatch ID" />
@@ -3080,11 +3053,6 @@ where [refTable].[Step] = ?</property>
                           dataType="i4"
                           lineageId="Package\B - Link Documents\Link\Select Docs.Outputs[OLE DB Source Error Output].Columns[Doc ID]"
                           name="Doc ID" />
-                        <outputColumn
-                          refId="Package\B - Link Documents\Link\Select Docs.Outputs[OLE DB Source Error Output].Columns[DocKlant ID]"
-                          dataType="i4"
-                          lineageId="Package\B - Link Documents\Link\Select Docs.Outputs[OLE DB Source Error Output].Columns[DocKlant ID]"
-                          name="DocKlant ID" />
                         <outputColumn
                           refId="Package\B - Link Documents\Link\Select Docs.Outputs[OLE DB Source Error Output].Columns[MinBatch ID]"
                           dataType="i4"
@@ -4924,7 +4892,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4934,7 +4902,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5119,9 +5087,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5143,9 +5109,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5168,7 +5132,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-81.8700390625,39.25,163.740078125,16"
+              BoundingBox="-81.8700390625,39.25,146.4178125,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5191,9 +5155,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

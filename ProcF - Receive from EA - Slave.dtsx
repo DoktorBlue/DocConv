@@ -7,12 +7,12 @@
   DTS:CreatorName="TEST\bla061"
   DTS:DTSID="{BBC1D647-07D4-454D-B9AE-09E31B8211D4}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcF - Receive from EA - Slave"
   DTS:PackageType="5"
-  DTS:VersionBuild="92"
-  DTS:VersionGUID="{337C6BE8-B0BF-44FB-BF54-B7CCBD28E466}">
+  DTS:VersionBuild="93"
+  DTS:VersionGUID="{D316909D-6309-4D22-9F84-2D9535CC6C25}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35,11 +35,7 @@
         DTS:Name="UserID">@[$Package::MQ_UserID]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <ConnectionManager
-          ConnectionString="QueueManager=QMSONARMIG;HostName=10.140.177.125;Port=1434;ChannelName=SYSTEM.ADMIN.SVRCONN;UserID=bla061;AuthenticationMode=Credentials;CertificateLabel=;CertificateKeyRepository=0;SSLCipherSpec=;SSLPeerName=;SSLResetCount=0;SSLRevocationCheck=False">
-          <Password
-            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMrhZ6H9nkEKEZfobl3Sc7QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADkoiNHrUMdfnFiVseXB24JAAAAAASAAACgAAAAEAAAADFPSsYjZVUztLyixtuR/20YAAAAX+XPNDB/ZwH3VQvkxipTGFwDyTlWRS/AFAAAAPootVMnWxlnAQxT1WobGLf19+sk</Password>
-        </ConnectionManager>
+          ConnectionString="QueueManager=QMSONARMIG;HostName=10.140.177.125;Port=1434;ChannelName=SYSTEM.ADMIN.SVRCONN;UserID=bla061;AuthenticationMode=Credentials;CertificateLabel=;CertificateKeyRepository=0;SSLCipherSpec=;SSLPeerName=;SSLResetCount=0;SSLRevocationCheck=False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -76,7 +72,7 @@
         <DTS:Property
           DTS:DataType="8"
           DTS:Name="ParameterValue"
-          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMrhZ6H9nkEKEZfobl3Sc7QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD3mwA/pFYbjEF/Csdj2jiJAAAAAASAAACgAAAAEAAAANhvrs0BiMcNc5vlevASXJAYAAAA4RHm/r4mRBuugO1lTY0SgZrB+/uM+tVJFAAAAJLJ6XQikokS7F3EyDyufN6lY1NP</DTS:Property>
+          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAh6sJG+g7hEeIrm56o+XGUQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADXyYwE6nzzOMFm+kkCeYratZa2K3PllzbJCTUe7FfdLgAAAAAOgAAAAAIAACAAAAAJhbwTW9yP8V9HkotMMVw3dgVtFfCHbjWJP5zy8EZJExAAAAB5MeSyjJzzi555g0ukawI8QAAAALMRAJEuSoxtSN/gyOw1j4Wmpvud8rgEmRDfL2hsPJpa2FR6FYWWie9osVITm4Z1d4dnU9LUr2YZD5m7Y4bhhjk</DTS:Property>
       </DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
@@ -2365,24 +2361,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               description="Extract column data from an XML document."
               name="XML Extract"
               usesDispositions="true"
-              version="2">
+              version="3">
               <properties>
-                <property
-                  containsID="true"
-                  dataType="System.Int32"
-                  description="The id of the input field that contains the XML"
-                  expressionType="Notify"
-                  name="InputXmlColumnId">#{Package\Process Messages\MQ Response.Outputs[OLE DB Source Output].Columns[MessageBody]}</property>
-                <property
-                  dataType="System.String"
-                  description="A list of the output nodes in the XML design that are ignored."
-                  expressionType="Notify"
-                  name="IgnoredOutputs">[]</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="The template of the expected incoming xml."
-                  name="Design">&lt;Envelope dataName="Envelope" prefix="Prefix_3" type="ComplexElement"&gt;&lt;Header dataName="" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="ComplexElement"&gt;&lt;UwvMLHeader dataName="" prefix="Prefix_2" type="ComplexElement"&gt;&lt;RouteInformatie dataName="" prefix="&amp;lt;&amp;lt;None&amp;gt;&amp;gt;" type="ComplexElement"&gt;&lt;Bron dataName="" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="ComplexElement"&gt;&lt;ApplicatieNaam dataName="Envelope.Header.UwvMLHeader.RouteInformatie.Bron.ApplicatieNaam" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;Machine dataName="Envelope.Header.UwvMLHeader.RouteInformatie.Bron.Machine" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;DatTijdVersturenBericht dataName="Envelope.Header.UwvMLHeader.RouteInformatie.Bron.DatTijdVersturenBericht" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;/Bron&gt;&lt;Bestemming dataName="" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="ComplexElement"&gt;&lt;ApplicatieNaam dataName="Envelope.Header.UwvMLHeader.RouteInformatie.Bestemming.ApplicatieNaam" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;/Bestemming&gt;&lt;GegevensUitwisselingsnr dataName="Envelope.Header.UwvMLHeader.RouteInformatie.GegevensUitwisselingsnr" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;/RouteInformatie&gt;&lt;BerichtIdentificatie dataName="" prefix="&amp;lt;&amp;lt;None&amp;gt;&amp;gt;" type="ComplexElement"&gt;&lt;BerichtReferentienr dataName="Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtReferentienr" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;BerichtType dataName="" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="ComplexElement"&gt;&lt;BerichtNaam dataName="Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.BerichtNaam" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;VersieMajor dataName="Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.VersieMajor" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;VersieMinor dataName="Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.VersieMinor" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;Buildnr dataName="Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.Buildnr" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;CommunicatieType dataName="Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.CommunicatieType" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;CommunicatieElement dataName="Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.CommunicatieElement" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;/BerichtType&gt;&lt;DatTijdAanmaakBericht dataName="Envelope.Header.UwvMLHeader.BerichtIdentificatie.DatTijdAanmaakBericht" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;DatTijdVersturenBericht dataName="Envelope.Header.UwvMLHeader.BerichtIdentificatie.DatTijdVersturenBericht" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;IndTestbericht dataName="Envelope.Header.UwvMLHeader.BerichtIdentificatie.IndTestbericht" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;/BerichtIdentificatie&gt;&lt;/UwvMLHeader&gt;&lt;/Header&gt;&lt;Body dataName="" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="ComplexElement"&gt;&lt;EAEDRegielaag-RegistrerenDocumentResponse dataName="" prefix="Prefix_1" type="ComplexElement"&gt;&lt;Document dataName="" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="ComplexElement"&gt;&lt;CdClassificatie dataName="Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.CdClassificatie" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;OmsAandachtsgebied dataName="Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.OmsAandachtsgebied" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;OmsOnderwerp dataName="Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.OmsOnderwerp" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;OmsSubonderwerp dataName="Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.OmsSubonderwerp" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;IdDocument dataName="Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.IdDocument" prefix="&amp;lt;&amp;lt;Inherit&amp;gt;&amp;gt;" type="Element" /&gt;&lt;/Document&gt;&lt;/EAEDRegielaag-RegistrerenDocumentResponse&gt;&lt;/Body&gt;&lt;/Envelope&gt;</property>
+                  name="Design">[{"NodeName":"Envelope","Prefix":"Prefix_3","NodeType":1,"OutputType":"Output","OutputOrColumnName":"Envelope","Children":[{"NodeName":"Header","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"None","Children":[{"NodeName":"UwvMLHeader","Prefix":"Prefix_2","NodeType":1,"OutputType":"None","Children":[{"NodeName":"RouteInformatie","Prefix":"&lt;&lt;None&gt;&gt;","NodeType":1,"OutputType":"None","Children":[{"NodeName":"Bron","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"None","Children":[{"NodeName":"ApplicatieNaam","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.RouteInformatie.Bron.ApplicatieNaam"},{"NodeName":"Machine","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.RouteInformatie.Bron.Machine"},{"NodeName":"DatTijdVersturenBericht","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.RouteInformatie.Bron.DatTijdVersturenBericht"}]},{"NodeName":"Bestemming","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"None","Children":[{"NodeName":"ApplicatieNaam","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.RouteInformatie.Bestemming.ApplicatieNaam"}]},{"NodeName":"GegevensUitwisselingsnr","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.RouteInformatie.GegevensUitwisselingsnr"}]},{"NodeName":"BerichtIdentificatie","Prefix":"&lt;&lt;None&gt;&gt;","NodeType":1,"OutputType":"None","Children":[{"NodeName":"BerichtReferentienr","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtReferentienr"},{"NodeName":"BerichtType","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"None","Children":[{"NodeName":"BerichtNaam","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.BerichtNaam"},{"NodeName":"VersieMajor","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.VersieMajor"},{"NodeName":"VersieMinor","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.VersieMinor"},{"NodeName":"Buildnr","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.Buildnr"},{"NodeName":"CommunicatieType","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.CommunicatieType"},{"NodeName":"CommunicatieElement","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.CommunicatieElement"}]},{"NodeName":"DatTijdAanmaakBericht","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.BerichtIdentificatie.DatTijdAanmaakBericht"},{"NodeName":"DatTijdVersturenBericht","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.BerichtIdentificatie.DatTijdVersturenBericht"},{"NodeName":"IndTestbericht","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Header.UwvMLHeader.BerichtIdentificatie.IndTestbericht"}]}]}]},{"NodeName":"Body","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"None","Children":[{"NodeName":"EAEDRegielaag-RegistrerenDocumentResponse","Prefix":"Prefix_1","NodeType":1,"OutputType":"None","Children":[{"NodeName":"Document","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"None","Children":[{"NodeName":"CdClassificatie","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.CdClassificatie"},{"NodeName":"OmsAandachtsgebied","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.OmsAandachtsgebied"},{"NodeName":"OmsOnderwerp","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.OmsOnderwerp"},{"NodeName":"OmsSubonderwerp","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.OmsSubonderwerp"},{"NodeName":"IdDocument","Prefix":"&lt;&lt;Inherit&gt;&gt;","NodeType":1,"OutputType":"Column","OutputOrColumnName":"Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.IdDocument"}]}]}]}]}]</property>
                 <property
                   dataType="System.Int32"
                   description="The template of the expected incoming xml."
@@ -2408,12 +2393,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
   }
 ]</property>
                 <property
-                  dataType="System.Boolean"
-                  description="Used when manipulating the JSON structure in the 'Design' page. Specifies if output names should be long to avoid duplicates or short to increase readability"
-                  name="QualifiedOutputNames">false</property>
-                <property
                   dataType="System.String"
                   name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.ProductivityPack.XmlExtractComponent</property>
+                <property
+                  containsID="true"
+                  dataType="System.Int32"
+                  description="Specifies the input column that contains the document to extract."
+                  expressionType="Notify"
+                  name="DocumentInputColumn">#{Package\Process Messages\MQ Response.Outputs[OLE DB Source Output].Columns[MessageBody]}</property>
               </properties>
               <inputs>
                 <input
@@ -2473,8 +2460,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="2048"
                       lineageId="Package\Process Messages\XML Extract.Outputs[Error Output].Columns[ErrorMessage]"
                       name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\Process Messages\XML Extract.Outputs[Error Output].Columns[_upstream.MessageBody]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Process Messages\XML Extract.Outputs[Error Output].ExternalColumns[_upstream.MessageBody]"
+                      lineageId="Package\Process Messages\XML Extract.Outputs[Error Output].Columns[_upstream.MessageBody]"
+                      name="_upstream.MessageBody" />
+                    <outputColumn
+                      refId="Package\Process Messages\XML Extract.Outputs[Error Output].Columns[_upstream.PutDateTime]"
+                      dataType="dbTimeStamp"
+                      externalMetadataColumnId="Package\Process Messages\XML Extract.Outputs[Error Output].ExternalColumns[_upstream.PutDateTime]"
+                      lineageId="Package\Process Messages\XML Extract.Outputs[Error Output].Columns[_upstream.PutDateTime]"
+                      name="_upstream.PutDateTime" />
                   </outputColumns>
-                  <externalMetadataColumns />
+                  <externalMetadataColumns>
+                    <externalMetadataColumn
+                      refId="Package\Process Messages\XML Extract.Outputs[Error Output].ExternalColumns[_upstream.MessageBody]"
+                      dataType="nText"
+                      name="_upstream.MessageBody" />
+                    <externalMetadataColumn
+                      refId="Package\Process Messages\XML Extract.Outputs[Error Output].ExternalColumns[_upstream.PutDateTime]"
+                      dataType="dbTimeStamp"
+                      name="_upstream.PutDateTime" />
+                  </externalMetadataColumns>
                 </output>
                 <output
                   refId="Package\Process Messages\XML Extract.Outputs[Envelope]"
@@ -2486,17 +2494,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       description="The id of the parent output of this output."
                       expressionType="Notify"
                       name="ParentId">#{Package\Process Messages\-1:invalid}</property>
-                    <property
-                      dataType="System.String"
-                      description="The XPath to this output in the XML document."
-                      expressionType="Notify"
-                      name="XPath">/Prefix_3:Envelope</property>
-                    <property
-                      containsID="true"
-                      dataType="System.Int32"
-                      description="The id of the field that contains the fully formed xml for the current level."
-                      expressionType="Notify"
-                      name="XmlField">#{Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_XML]}</property>
                     <property
                       containsID="true"
                       dataType="System.Int32"
@@ -2537,15 +2534,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       name="_upstream.PutDateTime"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].Columns[_upstream.ReasonCode]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.ReasonCode]"
-                      lineageId="Package\Process Messages\XML Extract.Outputs[Envelope].Columns[_upstream.ReasonCode]"
-                      name="_upstream.ReasonCode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Process Messages\XML Extract.Outputs[Envelope].Columns[Envelope.Header.UwvMLHeader.RouteInformatie.GegevensUitwisselingsnr]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
@@ -2558,10 +2546,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   </outputColumns>
                   <externalMetadataColumns>
                     <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_XML]"
-                      dataType="nText"
-                      name="_XML" />
-                    <externalMetadataColumn
                       refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_RowIndex]"
                       dataType="i4"
                       name="_RowIndex" />
@@ -2571,10 +2555,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="100"
                       name="Envelope.Header.UwvMLHeader.RouteInformatie.Bron.ApplicatieNaam">
                       <properties>
-                        <property
-                          dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/RouteInformatie/Bron/ApplicatieNaam</property>
                         <property
                           dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
@@ -2593,10 +2573,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       <properties>
                         <property
                           dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/RouteInformatie/Bron/Machine</property>
-                        <property
-                          dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
                           name="Delimiter">,</property>
                         <property
@@ -2611,10 +2587,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="100"
                       name="Envelope.Header.UwvMLHeader.RouteInformatie.Bron.DatTijdVersturenBericht">
                       <properties>
-                        <property
-                          dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/RouteInformatie/Bron/DatTijdVersturenBericht</property>
                         <property
                           dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
@@ -2633,10 +2605,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       <properties>
                         <property
                           dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/RouteInformatie/Bestemming/ApplicatieNaam</property>
-                        <property
-                          dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
                           name="Delimiter">,</property>
                         <property
@@ -2651,10 +2619,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="100"
                       name="GegevensUitwisselingsnr">
                       <properties>
-                        <property
-                          dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/RouteInformatie/GegevensUitwisselingsnr</property>
                         <property
                           dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
@@ -2673,10 +2637,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       <properties>
                         <property
                           dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/BerichtIdentificatie/BerichtReferentienr</property>
-                        <property
-                          dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
                           name="Delimiter">,</property>
                         <property
@@ -2691,10 +2651,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="100"
                       name="Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.BerichtNaam">
                       <properties>
-                        <property
-                          dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/BerichtIdentificatie/BerichtType/BerichtNaam</property>
                         <property
                           dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
@@ -2713,10 +2669,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       <properties>
                         <property
                           dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/BerichtIdentificatie/BerichtType/VersieMajor</property>
-                        <property
-                          dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
                           name="Delimiter">,</property>
                         <property
@@ -2731,10 +2683,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="100"
                       name="Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.VersieMinor">
                       <properties>
-                        <property
-                          dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/BerichtIdentificatie/BerichtType/VersieMinor</property>
                         <property
                           dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
@@ -2753,10 +2701,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       <properties>
                         <property
                           dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/BerichtIdentificatie/BerichtType/Buildnr</property>
-                        <property
-                          dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
                           name="Delimiter">,</property>
                         <property
@@ -2771,10 +2715,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="100"
                       name="Envelope.Header.UwvMLHeader.BerichtIdentificatie.BerichtType.CommunicatieType">
                       <properties>
-                        <property
-                          dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/BerichtIdentificatie/BerichtType/CommunicatieType</property>
                         <property
                           dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
@@ -2793,10 +2733,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       <properties>
                         <property
                           dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/BerichtIdentificatie/BerichtType/CommunicatieElement</property>
-                        <property
-                          dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
                           name="Delimiter">,</property>
                         <property
@@ -2811,10 +2747,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="100"
                       name="Envelope.Header.UwvMLHeader.BerichtIdentificatie.DatTijdAanmaakBericht">
                       <properties>
-                        <property
-                          dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/BerichtIdentificatie/DatTijdAanmaakBericht</property>
                         <property
                           dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
@@ -2833,10 +2765,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       <properties>
                         <property
                           dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/BerichtIdentificatie/DatTijdVersturenBericht</property>
-                        <property
-                          dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
                           name="Delimiter">,</property>
                         <property
@@ -2851,10 +2779,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="100"
                       name="Envelope.Header.UwvMLHeader.BerichtIdentificatie.IndTestbericht">
                       <properties>
-                        <property
-                          dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Header/Prefix_2:UwvMLHeader/BerichtIdentificatie/IndTestbericht</property>
                         <property
                           dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
@@ -2873,10 +2797,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       <properties>
                         <property
                           dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Body/Prefix_1:EAEDRegielaag-RegistrerenDocumentResponse/Prefix_1:Document/Prefix_1:CdClassificatie</property>
-                        <property
-                          dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
                           name="Delimiter">,</property>
                         <property
@@ -2891,10 +2811,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="100"
                       name="Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.OmsAandachtsgebied">
                       <properties>
-                        <property
-                          dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Body/Prefix_1:EAEDRegielaag-RegistrerenDocumentResponse/Prefix_1:Document/Prefix_1:OmsAandachtsgebied</property>
                         <property
                           dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
@@ -2913,10 +2829,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       <properties>
                         <property
                           dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Body/Prefix_1:EAEDRegielaag-RegistrerenDocumentResponse/Prefix_1:Document/Prefix_1:OmsOnderwerp</property>
-                        <property
-                          dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
                           name="Delimiter">,</property>
                         <property
@@ -2931,10 +2843,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       length="100"
                       name="Envelope.Body.EAEDRegielaag-RegistrerenDocumentResponse.Document.OmsSubonderwerp">
                       <properties>
-                        <property
-                          dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Body/Prefix_1:EAEDRegielaag-RegistrerenDocumentResponse/Prefix_1:Document/Prefix_1:OmsSubonderwerp</property>
                         <property
                           dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
@@ -2953,10 +2861,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       <properties>
                         <property
                           dataType="System.String"
-                          description="The id of the parent output of this output."
-                          name="XPath">/Prefix_3:Envelope/Prefix_3:Body/Prefix_1:EAEDRegielaag-RegistrerenDocumentResponse/Prefix_1:Document/Prefix_1:IdDocument</property>
-                        <property
-                          dataType="System.String"
                           description="The delimiter used to join 'Elements' items (Elements underneath a node with the same name)."
                           name="Delimiter">,</property>
                         <property
@@ -2966,78 +2870,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.CharacterSet]"
-                      dataType="i4"
-                      name="_upstream.CharacterSet" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.CompletionCode]"
-                      dataType="i4"
-                      name="_upstream.CompletionCode" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.Encoding]"
-                      dataType="i4"
-                      name="_upstream.Encoding" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.Format]"
-                      dataType="wstr"
-                      length="4000"
-                      name="_upstream.Format" />
-                    <externalMetadataColumn
                       refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.MessageBody]"
                       dataType="nText"
                       name="_upstream.MessageBody" />
                     <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.MessageId]"
-                      dataType="image"
-                      name="_upstream.MessageId" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.MessageLength]"
-                      dataType="i4"
-                      name="_upstream.MessageLength" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.MessageSequenceNumber]"
-                      dataType="i4"
-                      name="_upstream.MessageSequenceNumber" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.MessageType]"
-                      dataType="i4"
-                      name="_upstream.MessageType" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.Priority]"
-                      dataType="i4"
-                      name="_upstream.Priority" />
-                    <externalMetadataColumn
                       refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.PutDateTime]"
                       dataType="dbTimeStamp"
                       name="_upstream.PutDateTime" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.ReasonCode]"
-                      dataType="i4"
-                      name="_upstream.ReasonCode" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.ReasonName]"
-                      dataType="wstr"
-                      length="4000"
-                      name="_upstream.ReasonName" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.ReplyToQueueManagerName]"
-                      dataType="wstr"
-                      length="4000"
-                      name="_upstream.ReplyToQueueManagerName" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.ReplyToQueueName]"
-                      dataType="wstr"
-                      length="4000"
-                      name="_upstream.ReplyToQueueName" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.UserId]"
-                      dataType="wstr"
-                      length="4000"
-                      name="_upstream.UserId" />
-                    <externalMetadataColumn
-                      refId="Package\Process Messages\XML Extract.Outputs[Envelope].ExternalColumns[_upstream.VolgNr]"
-                      dataType="i4"
-                      name="_upstream.VolgNr" />
                   </externalMetadataColumns>
                 </output>
               </outputs>
@@ -3563,10 +3402,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        CAST(26 AS TinyInt) AS Step, MQ.ReasonCode AS Status, D.Doc, MQ.PutDateTime, DATEDIFF(ms, D.Moment, MQ.PutDateTime) AS Elapsed, X.ID, D.Batch
-FROM            [Doc per Klant] AS X INNER JOIN
+FROM            Documents AS X INNER JOIN
                          MQ ON X.BerichtNr = MQ.BerichtNr INNER JOIN
-                         ProcessDetails AS D ON X.ID = D.[Doc/Klant]
-WHERE        (D.Step = 27)</property>
+                         ProcessDetails AS D ON X.ID = D.Doc AND D.Step = 27</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -3863,12 +3701,6 @@ WHERE        (D.Step = 27)</property>
                       cachedName="PutDateTime"
                       externalMetadataColumnId="Package\Set End\ProcessDetails.Inputs[OLE DB Destination Input].ExternalColumns[Moment]"
                       lineageId="Package\Set End\Base.Outputs[OLE DB Source Output].Columns[PutDateTime]" />
-                    <inputColumn
-                      refId="Package\Set End\ProcessDetails.Inputs[OLE DB Destination Input].Columns[ID]"
-                      cachedDataType="i4"
-                      cachedName="ID"
-                      externalMetadataColumnId="Package\Set End\ProcessDetails.Inputs[OLE DB Destination Input].ExternalColumns[Doc/Klant]"
-                      lineageId="Package\Set End\Base.Outputs[OLE DB Source Output].Columns[ID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3910,10 +3742,6 @@ WHERE        (D.Step = 27)</property>
                       refId="Package\Set End\ProcessDetails.Inputs[OLE DB Destination Input].ExternalColumns[Batch]"
                       dataType="i4"
                       name="Batch" />
-                    <externalMetadataColumn
-                      refId="Package\Set End\ProcessDetails.Inputs[OLE DB Destination Input].ExternalColumns[Doc/Klant]"
-                      dataType="i4"
-                      name="Doc/Klant" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3961,7 +3789,7 @@ WHERE        (D.Step = 27)</property>
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update Doc P Klant"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -4043,6 +3871,10 @@ WHERE        (D.Step = 27)</property>
           Id="Package\Receive Messages"
           TopLeft="426,69" />
         <NodeLayout
+          Size="118,42"
+          Id="Package\Set End"
+          TopLeft="783,217" />
+        <NodeLayout
           Size="137,42"
           Id="Package\Update Doc P Klant"
           TopLeft="777,367" />
@@ -4060,6 +3892,28 @@ WHERE        (D.Step = 27)</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,101.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="596,239.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="187,0"
+              Start="0,0"
+              End="179.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="179.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4104,32 +3958,6 @@ WHERE        (D.Step = 27)</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,97.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="118,42"
-          Id="Package\Set End"
-          TopLeft="783,217" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="596,239.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="187,0"
-              Start="0,0"
-              End="179.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="179.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4633,13 +4461,13 @@ WHERE        (D.Step = 27)</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="104,42"
-          Id="Package\Set End\Base"
-          TopLeft="94,86" />
-        <NodeLayout
           Size="152,42"
           Id="Package\Set End\ProcessDetails"
           TopLeft="375,85" />
+        <NodeLayout
+          Size="104,42"
+          Id="Package\Set End\Base"
+          TopLeft="94,86" />
         <EdgeLayout
           Id="Package\Set End.Paths[OLE DB Source Output]"
           TopLeft="198,106.5">

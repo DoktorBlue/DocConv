@@ -7,12 +7,12 @@
   DTS:CreatorName="TEST\bla061"
   DTS:DTSID="{6D24DEC1-B4CB-4A19-9429-E035863B71BC}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcA - Import Sonar - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{FA72F062-8B8E-4432-A5A4-8F421F280674}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{3EA48900-E2CB-4F83-B6D5-684E9D36E5AB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -826,6 +826,10 @@ HAVING        ([Template ID] IS NOT NULL) AND ([Template Alias] IS NOT NULL)</pr
                           refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[VolgNr]"
                           dataType="i2"
                           name="VolgNr" />
+                        <externalMetadataColumn
+                          refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[generic]"
+                          dataType="bool"
+                          name="generic" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
