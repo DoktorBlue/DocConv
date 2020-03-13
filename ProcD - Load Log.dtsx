@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcD - Load Log"
   DTS:PackageType="5"
-  DTS:VersionBuild="120"
-  DTS:VersionGUID="{9E85ACA1-246E-47C2-AE09-D59E91E3F80C}">
+  DTS:VersionBuild="121"
+  DTS:VersionGUID="{1231B351-721D-4450-BD5B-8930D0D08D00}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4898,10 +4898,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                               refId="Package\For each finished batch\Load Log\PDF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Batch]"
                               dataType="i4"
                               name="Batch" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\PDF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Doc/Klant]"
-                              dataType="i4"
-                              name="Doc/Klant" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -7032,14 +7028,14 @@ WHERE ID = ?</property>
                       startId="Package\For each finished batch\Load Log\PDF\Step.Outputs[Lookup Match Output]" />
                     <path
                       refId="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output1]"
-                      endId="Package\For each finished batch\Load Log\PDF\Derived Column.Inputs[Derived Column Input]"
-                      name="Merge Join Output"
-                      startId="Package\For each finished batch\Load Log\PDF\Merge  Batch Info.Outputs[Merge Join Output]" />
-                    <path
-                      refId="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output]"
                       endId="Package\For each finished batch\Load Log\PDF\Set Error Code Name.Inputs[Derived Column Input]"
                       name="Merge Join Output"
                       startId="Package\For each finished batch\Load Log\PDF\Merge Doc Info.Outputs[Merge Join Output]" />
+                    <path
+                      refId="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output]"
+                      endId="Package\For each finished batch\Load Log\PDF\Derived Column.Inputs[Derived Column Input]"
+                      name="Merge Join Output"
+                      startId="Package\For each finished batch\Load Log\PDF\Merge  Batch Info.Outputs[Merge Join Output]" />
                     <path
                       refId="Package\For each finished batch\Load Log\PDF.Paths[Multicast Output 1]"
                       endId="Package\For each finished batch\Load Log\PDF\Set ErrCode Unexpected.Inputs[Derived Column Input]"
@@ -11363,10 +11359,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                               refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Batch]"
                               dataType="i4"
                               name="Batch" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\SAF\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Doc/Klant]"
-                              dataType="i4"
-                              name="Doc/Klant" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -17660,10 +17652,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                               refId="Package\For each finished batch\Load Log\XML\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Batch]"
                               dataType="i4"
                               name="Batch" />
-                            <externalMetadataColumn
-                              refId="Package\For each finished batch\Load Log\XML\ProcessDetail.Inputs[OLE DB Destination Input].ExternalColumns[Doc/Klant]"
-                              dataType="i4"
-                              name="Doc/Klant" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -19794,14 +19782,14 @@ WHERE ID = ?</property>
                       startId="Package\For each finished batch\Load Log\XML\Step.Outputs[Lookup Match Output]" />
                     <path
                       refId="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output1]"
-                      endId="Package\For each finished batch\Load Log\XML\Set Error Code Name.Inputs[Derived Column Input]"
-                      name="Merge Join Output"
-                      startId="Package\For each finished batch\Load Log\XML\Merge Doc Info.Outputs[Merge Join Output]" />
-                    <path
-                      refId="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output]"
                       endId="Package\For each finished batch\Load Log\XML\Derived Column.Inputs[Derived Column Input]"
                       name="Merge Join Output"
                       startId="Package\For each finished batch\Load Log\XML\Merge Batch Info.Outputs[Merge Join Output]" />
+                    <path
+                      refId="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output]"
+                      endId="Package\For each finished batch\Load Log\XML\Set Error Code Name.Inputs[Derived Column Input]"
+                      name="Merge Join Output"
+                      startId="Package\For each finished batch\Load Log\XML\Merge Doc Info.Outputs[Merge Join Output]" />
                     <path
                       refId="Package\For each finished batch\Load Log\XML.Paths[Multicast Output 1]"
                       endId="Package\For each finished batch\Load Log\XML\Set ErrCode Unexpected.Inputs[Derived Column Input]"
@@ -21244,7 +21232,7 @@ WHERE ID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output]"
+          Id="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output1]"
           TopLeft="178,307.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21266,7 +21254,7 @@ WHERE ID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output1]"
+          Id="Package\For each finished batch\Load Log\PDF.Paths[Merge Join Output]"
           TopLeft="980,699">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -22682,7 +22670,7 @@ WHERE ID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output]"
+          Id="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output1]"
           TopLeft="977.25,699">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -22704,7 +22692,7 @@ WHERE ID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output1]"
+          Id="Package\For each finished batch\Load Log\XML.Paths[Merge Join Output]"
           TopLeft="178,307.5">
           <EdgeLayout.Curve>
             <mssgle:Curve

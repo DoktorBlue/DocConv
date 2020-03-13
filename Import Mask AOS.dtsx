@@ -1,0 +1,2936 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/16/2019 9:38:14 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VMT010140177175"
+  DTS:CreatorName="TEST\bla061"
+  DTS:DTSID="{590B22F9-6839-4367-AB0C-B883DC5204A2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1043"
+  DTS:ObjectName="Import Mask AOS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{A2300389-9E77-424C-9EEE-E6A231726AE7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AOS Codes]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{D94A8762-3D3F-4A01-9B5C-67D85827C515}"
+      DTS:ObjectName="AOS Codes">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Package::Root] </DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Data\Import\AOS_Mask_v0.95.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{3202A46D-73C5-4D7E-B4BA-68627E496CD1}"
+      DTS:ObjectName="Root"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">E:\Data\Import\AOS_Mask_v0.95.xlsx</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Templates"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BA45D629-38AC-484A-BD70-79193A38A79B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Templates"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Templates\Alias"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Alias"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT Mask, InXls, AOS, VolgNr, Uitval
+FROM            [Document Types]
+WHERE        (Mask IS NOT NULL)
+ORDER BY Mask</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Templates\Alias.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\Alias.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB InXls]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].ExternalColumns[InXls]"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB InXls]"
+                      name="DB InXls"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB AOS]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].ExternalColumns[AOS]"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB AOS]"
+                      name="DB AOS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB Mask]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].ExternalColumns[Mask]"
+                      length="255"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB Mask]"
+                      name="DB Mask"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB VolgNr]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].ExternalColumns[VolgNr]"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB VolgNr]"
+                      name="DB VolgNr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB Uitval]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].ExternalColumns[Uitval]"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB Uitval]"
+                      name="DB Uitval"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].ExternalColumns[InXls]"
+                      dataType="bool"
+                      name="InXls" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].ExternalColumns[AOS]"
+                      dataType="i2"
+                      name="AOS" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].ExternalColumns[Mask]"
+                      dataType="wstr"
+                      length="255"
+                      name="Mask" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].ExternalColumns[VolgNr]"
+                      dataType="i2"
+                      name="VolgNr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].ExternalColumns[Uitval]"
+                      dataType="bool"
+                      name="Uitval" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[Mask]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[Mask]"
+                      name="Mask" />
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[InXls]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[InXls]"
+                      name="InXls" />
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[AOS]"
+                      dataType="i2"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[AOS]"
+                      name="AOS" />
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[VolgNr]"
+                      dataType="i2"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[VolgNr]"
+                      name="VolgNr" />
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[Uitval]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[Uitval]"
+                      name="Uitval" />
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\Aliasses"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Aliasses"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Document Types]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Templates\Aliasses.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].Columns[Xls]"
+                      cachedDataType="bool"
+                      cachedName="Xls"
+                      externalMetadataColumnId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[InXls]"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Xls]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].Columns[AOS ID]"
+                      cachedDataType="i2"
+                      cachedName="AOS ID"
+                      externalMetadataColumnId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[AOS]"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[AOS ID]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].Columns[DB]"
+                      cachedDataType="bool"
+                      cachedName="DB"
+                      externalMetadataColumnId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[InDB]"
+                      lineageId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[DB]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].Columns[DocCount]"
+                      cachedDataType="i4"
+                      cachedName="DocCount"
+                      externalMetadataColumnId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[Doc Count]"
+                      lineageId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[DocCount]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].Columns[mask]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="mask"
+                      externalMetadataColumnId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[Mask]"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[mask]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].Columns[volgnr]"
+                      cachedDataType="r8"
+                      cachedName="volgnr"
+                      externalMetadataColumnId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[VolgNr]"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[volgnr]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].Columns[Generic]"
+                      cachedDataType="bool"
+                      cachedName="Generic"
+                      externalMetadataColumnId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[generic]"
+                      lineageId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[Generic]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].Columns[Uitval]"
+                      cachedDataType="bool"
+                      cachedName="Uitval"
+                      externalMetadataColumnId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[Uitval]"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Uitval]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i2"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[Doc Count]"
+                      dataType="i4"
+                      name="Doc Count" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[InDB]"
+                      dataType="bool"
+                      name="InDB" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[Template]"
+                      dataType="i2"
+                      name="Template" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[InXls]"
+                      dataType="bool"
+                      name="InXls" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[AOS]"
+                      dataType="i2"
+                      name="AOS" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[Inserted]"
+                      dataType="dbTimeStamp"
+                      name="Inserted" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[Mask]"
+                      dataType="wstr"
+                      length="255"
+                      name="Mask" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[VolgNr]"
+                      dataType="i2"
+                      name="VolgNr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[generic]"
+                      dataType="bool"
+                      name="generic" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input].ExternalColumns[Uitval]"
+                      dataType="bool"
+                      name="Uitval" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\Aliasses.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Aliasses.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Aliasses.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Templates\Aliasses.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Aliasses.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\AOS"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="AOS"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[AOS_Codes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[AOS_Codes]) [refTable]
+where [refTable].[Aandachtsgebied] = ? and [refTable].[Onderwerp] = ? and [refTable].[SubOnderwerp] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Classificatie" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Aandachtsgebied" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Onderwerp" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SubOnderwerp" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DIV Bekend" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Aandachtsgebied]};#{Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Onderwerp]};#{Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Subonderwerp]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Templates\AOS.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Templates\AOS.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\AOS.Inputs[Lookup Input].Columns[Aandachtsgebied]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Aandachtsgebied"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Aandachtsgebied]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Aandachtsgebied</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\AOS.Inputs[Lookup Input].Columns[Onderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Onderwerp"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Onderwerp]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Onderwerp</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\AOS.Inputs[Lookup Input].Columns[Subonderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Subonderwerp"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Subonderwerp]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SubOnderwerp</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\AOS.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load Templates\AOS.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\AOS.Outputs[Lookup Match Output].Columns[AOS ID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Load Templates\AOS.Outputs[Lookup Match Output].Columns[AOS ID]"
+                      name="AOS ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Templates\AOS.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load Templates\AOS.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Templates\AOS.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load Templates\AOS.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\AOS.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\AOS.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Templates\AOS.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\AOS.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\AOS Exists?"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="AOS Exists?"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Templates\AOS Exists?.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\AOS Exists?.Inputs[Conditional Split Input].Columns[Aandachtsgebied]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Aandachtsgebied"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Aandachtsgebied]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\AOS Exists?.Outputs[Leeg]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Leeg"
+                  synchronousInputId="Package\Load Templates\AOS Exists?.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[REPLACENULL]([TRIM](#{Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Aandachtsgebied]}),"") == ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">REPLACENULL(TRIM(Aandachtsgebied),"") == ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Templates\AOS Exists?.Outputs[Bestaat]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Bestaat"
+                  synchronousInputId="Package\Load Templates\AOS Exists?.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Templates\AOS Exists?.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Load Templates\AOS Exists?.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\AOS Exists?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\AOS Exists?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Templates\AOS Exists?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\AOS Exists?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\Bestaat ?"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Bestaat ?"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input].Columns[Xls]"
+                      cachedDataType="bool"
+                      cachedName="Xls"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Xls]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input].Columns[DB InXls]"
+                      cachedDataType="bool"
+                      cachedName="DB InXls"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB InXls]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input].Columns[DB AOS]"
+                      cachedDataType="i2"
+                      cachedName="DB AOS"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB AOS]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input].Columns[AOS ID]"
+                      cachedDataType="i2"
+                      cachedName="AOS ID"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[AOS ID]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input].Columns[volgnr]"
+                      cachedDataType="r8"
+                      cachedName="volgnr"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[volgnr]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input].Columns[DB VolgNr]"
+                      cachedDataType="i2"
+                      cachedName="DB VolgNr"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB VolgNr]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input].Columns[DB Uitval]"
+                      cachedDataType="bool"
+                      cachedName="DB Uitval"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Uitval]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input].Columns[Uitval]"
+                      cachedDataType="bool"
+                      cachedName="Uitval"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Uitval]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input].Columns[DB Mask]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DB Mask"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Mask]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\Bestaat ?.Outputs[Insert]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Insert"
+                  synchronousInputId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Mask]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL([DB Mask])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Templates\Bestaat ?.Outputs[Gelijk]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Gelijk"
+                  synchronousInputId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Xls]} == [REPLACENULL](#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB InXls]}, FALSE ) &amp;&amp; [REPLACENULL](#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[AOS ID]},0) == [REPLACENULL](#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB AOS]},0) &amp;&amp; #{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Uitval]} == [REPLACENULL](#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Uitval]}, FALSE ) &amp;&amp; #{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[volgnr]} == [REPLACENULL](#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB VolgNr]},0)</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Xls == REPLACENULL([DB InXls], FALSE ) &amp;&amp; REPLACENULL([AOS ID],0) == REPLACENULL([DB AOS],0) &amp;&amp; Uitval == REPLACENULL([DB Uitval], FALSE ) &amp;&amp; volgnr == REPLACENULL([DB VolgNr],0)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Templates\Bestaat ?.Outputs[Update]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Update"
+                  synchronousInputId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Templates\Bestaat ?.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Bestaat ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Bestaat ?.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Templates\Bestaat ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Bestaat ?.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Templates\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\Derived Column.Inputs[Derived Column Input].Columns[Aandachtsgebied]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Aandachtsgebied"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Aandachtsgebied]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM]([UPPER](#{Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Aandachtsgebied]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(UPPER(Aandachtsgebied))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Derived Column.Inputs[Derived Column Input].Columns[Onderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Onderwerp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Onderwerp]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM]([UPPER]([LEFT](#{Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Onderwerp]},1)) + [SUBSTRING](#{Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Onderwerp]},2,200))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(UPPER(LEFT(Onderwerp,1)) + SUBSTRING(Onderwerp,2,200))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Derived Column.Inputs[Derived Column Input].Columns[SubOnderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SubOnderwerp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[SubOnderwerp]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM]([REPLACENULL]([UPPER]([LEFT](#{Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[SubOnderwerp]},1)) + [SUBSTRING](#{Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[SubOnderwerp]},2,200),""))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(REPLACENULL(UPPER(LEFT(SubOnderwerp,1)) + SUBSTRING(SubOnderwerp,2,200),""))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Derived Column.Inputs[Derived Column Input].Columns[uitval]"
+                      cachedDataType="r8"
+                      cachedName="uitval"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[uitval]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Templates\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Derived Column.Outputs[Derived Column Output].Columns[Xls]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Templates\Derived Column.Outputs[Derived Column Output].Columns[Xls]"
+                      name="Xls"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression"> TRUE </property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression"> TRUE </property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Derived Column.Outputs[Derived Column Output].Columns[Uitval]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Templates\Derived Column.Outputs[Derived Column Output].Columns[Uitval]"
+                      name="Uitval"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[uitval]} == 1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">uitval == 1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Templates\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Templates\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Templates\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Blad1$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        Aandachtsgebied, Onderwerp, SubOnderwerp, Generic, volgnr, mask, uitval
+FROM            [Blad1$]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Templates\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[AOS Codes]"
+                  connectionManagerRefId="Package.ConnectionManagers[AOS Codes]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Aandachtsgebied]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[Aandachtsgebied]"
+                      length="255"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Aandachtsgebied]"
+                      name="Aandachtsgebied"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Onderwerp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[Onderwerp]"
+                      length="255"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Onderwerp]"
+                      name="Onderwerp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[SubOnderwerp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[SubOnderwerp]"
+                      length="255"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[SubOnderwerp]"
+                      name="SubOnderwerp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[volgnr]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[volgnr]"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[volgnr]"
+                      name="volgnr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[mask]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[mask]"
+                      length="255"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[mask]"
+                      name="mask"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[uitval]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[uitval]"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[uitval]"
+                      name="uitval"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[Aandachtsgebied]"
+                      dataType="wstr"
+                      length="255"
+                      name="Aandachtsgebied" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[Onderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      name="Onderwerp" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[SubOnderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      name="SubOnderwerp" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[volgnr]"
+                      dataType="r8"
+                      name="volgnr" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[mask]"
+                      dataType="wstr"
+                      length="255"
+                      name="mask" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[uitval]"
+                      dataType="r8"
+                      name="uitval" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[aantal]"
+                      dataType="r8"
+                      name="aantal" />
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].ExternalColumns[opmerking]"
+                      dataType="wstr"
+                      length="255"
+                      name="opmerking" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[Aandachtsgebied]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[Aandachtsgebied]"
+                      name="Aandachtsgebied" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[Onderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[Onderwerp]"
+                      name="Onderwerp" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[SubOnderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[SubOnderwerp]"
+                      name="SubOnderwerp" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[volgnr]"
+                      dataType="r8"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[volgnr]"
+                      name="volgnr" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[mask]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[mask]"
+                      name="mask" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[uitval]"
+                      dataType="r8"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[uitval]"
+                      name="uitval" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load Templates\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[Xls]"
+                      cachedDataType="bool"
+                      cachedName="Xls"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Xls]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[Aandachtsgebied]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Aandachtsgebied"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Aandachtsgebied]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[Onderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Onderwerp"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Onderwerp]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[SubOnderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SubOnderwerp"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[SubOnderwerp]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[mask]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="mask"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[mask]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[volgnr]"
+                      cachedDataType="r8"
+                      cachedName="volgnr"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[volgnr]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[Uitval]"
+                      cachedDataType="bool"
+                      cachedName="Uitval"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Uitval]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load Templates\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Right Input].Columns[DB InXls]"
+                      cachedDataType="bool"
+                      cachedName="DB InXls"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB InXls]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Right Input].Columns[DB AOS]"
+                      cachedDataType="i2"
+                      cachedName="DB AOS"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB AOS]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Right Input].Columns[DB Mask]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DB Mask"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB Mask]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Right Input].Columns[DB VolgNr]"
+                      cachedDataType="i2"
+                      cachedName="DB VolgNr"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB VolgNr]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Merge Join.Inputs[Merge Join Right Input].Columns[DB Uitval]"
+                      cachedDataType="bool"
+                      cachedName="DB Uitval"
+                      lineageId="Package\Load Templates\Alias.Outputs[OLE DB Source Output].Columns[DB Uitval]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Xls]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Xls]"
+                      name="Xls">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[Xls]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Aandachtsgebied]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Aandachtsgebied]"
+                      name="Aandachtsgebied">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[Aandachtsgebied]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Onderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Onderwerp]"
+                      name="Onderwerp">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[Onderwerp]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Subonderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Subonderwerp]"
+                      name="Subonderwerp">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[SubOnderwerp]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB InXls]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB InXls]"
+                      name="DB InXls">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Right Input].Columns[DB InXls]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB AOS]"
+                      dataType="i2"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB AOS]"
+                      name="DB AOS">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Right Input].Columns[DB AOS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[volgnr]"
+                      dataType="r8"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[volgnr]"
+                      name="volgnr">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[volgnr]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[mask]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[mask]"
+                      name="mask"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[mask]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Uitval]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Uitval]"
+                      name="Uitval">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Left Input].Columns[Uitval]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB Mask]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB Mask]"
+                      name="DB Mask">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Right Input].Columns[DB Mask]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB VolgNr]"
+                      dataType="i2"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB VolgNr]"
+                      name="DB VolgNr">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Right Input].Columns[DB VolgNr]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB Uitval]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB Uitval]"
+                      name="DB Uitval">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load Templates\Merge Join.Inputs[Merge Join Right Input].Columns[DB Uitval]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\Set Inserts"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Set Inserts"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Templates\Set Inserts.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load Templates\Set Inserts.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[DB]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[DB]"
+                      name="DB"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression"> FALSE </property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression"> FALSE </property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[DocCount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[DocCount]"
+                      name="DocCount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">-1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">-1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[Generic]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[Generic]"
+                      name="Generic"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression"> FALSE </property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression"> FALSE </property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">""</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Templates\Set Inserts.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load Templates\Set Inserts.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Set Inserts.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Set Inserts.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Templates\Set Inserts.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Set Inserts.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load Templates\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\Sort.Inputs[Sort Input].Columns[Xls]"
+                      cachedDataType="bool"
+                      cachedName="Xls"
+                      lineageId="Package\Load Templates\Derived Column.Outputs[Derived Column Output].Columns[Xls]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Sort.Inputs[Sort Input].Columns[Aandachtsgebied]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Aandachtsgebied"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Aandachtsgebied]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Sort.Inputs[Sort Input].Columns[Onderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Onderwerp"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Onderwerp]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Sort.Inputs[Sort Input].Columns[SubOnderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SubOnderwerp"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[SubOnderwerp]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Sort.Inputs[Sort Input].Columns[volgnr]"
+                      cachedDataType="r8"
+                      cachedName="volgnr"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[volgnr]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Sort.Inputs[Sort Input].Columns[mask]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="mask"
+                      lineageId="Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[mask]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Sort.Inputs[Sort Input].Columns[Uitval]"
+                      cachedDataType="bool"
+                      cachedName="Uitval"
+                      lineageId="Package\Load Templates\Derived Column.Outputs[Derived Column Output].Columns[Uitval]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Xls]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Xls]"
+                      name="Xls">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Templates\Derived Column.Outputs[Derived Column Output].Columns[Xls]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Aandachtsgebied]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Aandachtsgebied]"
+                      name="Aandachtsgebied">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Aandachtsgebied]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Onderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Onderwerp]"
+                      name="Onderwerp">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[Onderwerp]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[SubOnderwerp]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[SubOnderwerp]"
+                      name="SubOnderwerp">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[SubOnderwerp]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[volgnr]"
+                      dataType="r8"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[volgnr]"
+                      name="volgnr">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[volgnr]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[mask]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[mask]"
+                      name="mask"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Templates\Excel Source.Outputs[Excel Source Output].Columns[mask]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Uitval]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Sort.Outputs[Sort Output].Columns[Uitval]"
+                      name="Uitval">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load Templates\Derived Column.Outputs[Derived Column Output].Columns[Uitval]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Load Templates\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 1].Columns[Xls]"
+                      cachedDataType="bool"
+                      cachedName="Xls"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Xls]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Xls]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 1].Columns[DB InXls]"
+                      cachedDataType="bool"
+                      cachedName="DB InXls"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB InXls]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB InXls]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 1].Columns[DB AOS]"
+                      cachedDataType="i2"
+                      cachedName="DB AOS"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB AOS]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB AOS]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 1].Columns[AOS ID]"
+                      cachedDataType="i2"
+                      cachedName="AOS ID"
+                      lineageId="Package\Load Templates\AOS.Outputs[Lookup Match Output].Columns[AOS ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[AOS ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 1].Columns[volgnr]"
+                      cachedDataType="r8"
+                      cachedName="volgnr"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[volgnr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[volgnr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 1].Columns[DB VolgNr]"
+                      cachedDataType="i2"
+                      cachedName="DB VolgNr"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB VolgNr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB VolgNr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 1].Columns[mask]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="mask"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[mask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[mask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 1].Columns[DB Mask]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DB Mask"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB Mask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Mask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 1].Columns[DB Uitval]"
+                      cachedDataType="bool"
+                      cachedName="DB Uitval"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB Uitval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Uitval]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 1].Columns[Uitval]"
+                      cachedDataType="bool"
+                      cachedName="Uitval"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Uitval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Uitval]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load Templates\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 2].Columns[Xls]"
+                      cachedDataType="bool"
+                      cachedName="Xls"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Xls]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Xls]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 2].Columns[DB InXls]"
+                      cachedDataType="bool"
+                      cachedName="DB InXls"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB InXls]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB InXls]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 2].Columns[DB AOS]"
+                      cachedDataType="i2"
+                      cachedName="DB AOS"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB AOS]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB AOS]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 2].Columns[volgnr]"
+                      cachedDataType="r8"
+                      cachedName="volgnr"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[volgnr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[volgnr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 2].Columns[DB VolgNr]"
+                      cachedDataType="i2"
+                      cachedName="DB VolgNr"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB VolgNr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB VolgNr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 2].Columns[mask]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="mask"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[mask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[mask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 2].Columns[DB Mask]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DB Mask"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB Mask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Mask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 2].Columns[DB Uitval]"
+                      cachedDataType="bool"
+                      cachedName="DB Uitval"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[DB Uitval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Uitval]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load Templates\Union All.Inputs[Union All Input 2].Columns[Uitval]"
+                      cachedDataType="bool"
+                      cachedName="Uitval"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Uitval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Uitval]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load Templates\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Xls]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Xls]"
+                      name="Xls" />
+                    <outputColumn
+                      refId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB InXls]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB InXls]"
+                      name="DB InXls" />
+                    <outputColumn
+                      refId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB AOS]"
+                      dataType="i2"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB AOS]"
+                      name="DB AOS" />
+                    <outputColumn
+                      refId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[AOS ID]"
+                      dataType="i2"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[AOS ID]"
+                      name="AOS ID" />
+                    <outputColumn
+                      refId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[volgnr]"
+                      dataType="r8"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[volgnr]"
+                      name="volgnr" />
+                    <outputColumn
+                      refId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB VolgNr]"
+                      dataType="i2"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB VolgNr]"
+                      name="DB VolgNr" />
+                    <outputColumn
+                      refId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[mask]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[mask]"
+                      name="mask" />
+                    <outputColumn
+                      refId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Mask]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Mask]"
+                      name="DB Mask" />
+                    <outputColumn
+                      refId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Uitval]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[DB Uitval]"
+                      name="DB Uitval" />
+                    <outputColumn
+                      refId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Uitval]"
+                      dataType="bool"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Uitval]"
+                      name="Uitval" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\Update Sjabloon"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update Sjabloon"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE dbo.[Document Types] SET
+  InXls = 1, AOS = ?, [VolgNr] = ?, [Uitval] = ?
+WHERE Mask = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Templates\Update Sjabloon.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].Columns[AOS ID]"
+                      cachedDataType="i2"
+                      cachedName="AOS ID"
+                      externalMetadataColumnId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[AOS ID]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].Columns[volgnr]"
+                      cachedDataType="r8"
+                      cachedName="volgnr"
+                      externalMetadataColumnId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[volgnr]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].Columns[Uitval]"
+                      cachedDataType="bool"
+                      cachedName="Uitval"
+                      externalMetadataColumnId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[Uitval]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].Columns[mask]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="mask"
+                      externalMetadataColumnId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Load Templates\Union All.Outputs[Union All Output 1].Columns[mask]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i2"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i2"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="bool"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Templates\Update Sjabloon.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Templates\Update Sjabloon.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Templates\Update Sjabloon.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Update Sjabloon.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Templates\Update Sjabloon.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Templates\Update Sjabloon.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Templates.Paths[Bestaat]"
+              endId="Package\Load Templates\AOS.Inputs[Lookup Input]"
+              name="Bestaat"
+              startId="Package\Load Templates\AOS Exists?.Outputs[Bestaat]" />
+            <path
+              refId="Package\Load Templates.Paths[Derived Column Output]"
+              endId="Package\Load Templates\Sort.Inputs[Sort Input]"
+              name="Derived Column Output"
+              startId="Package\Load Templates\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Templates.Paths[Derived Column Output1]"
+              endId="Package\Load Templates\Aliasses.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load Templates\Set Inserts.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load Templates.Paths[Excel Source Output]"
+              endId="Package\Load Templates\Derived Column.Inputs[Derived Column Input]"
+              name="Excel Source Output"
+              startId="Package\Load Templates\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Load Templates.Paths[Insert]"
+              endId="Package\Load Templates\Set Inserts.Inputs[Derived Column Input]"
+              name="Insert"
+              startId="Package\Load Templates\Bestaat ?.Outputs[Insert]" />
+            <path
+              refId="Package\Load Templates.Paths[Leeg]"
+              endId="Package\Load Templates\Union All.Inputs[Union All Input 2]"
+              name="Leeg"
+              startId="Package\Load Templates\AOS Exists?.Outputs[Leeg]" />
+            <path
+              refId="Package\Load Templates.Paths[Lookup Match Output]"
+              endId="Package\Load Templates\Union All.Inputs[Union All Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Load Templates\AOS.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Load Templates.Paths[Merge Join Output]"
+              endId="Package\Load Templates\AOS Exists?.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Load Templates\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Load Templates.Paths[OLE DB Source Output]"
+              endId="Package\Load Templates\Merge Join.Inputs[Merge Join Right Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load Templates\Alias.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load Templates.Paths[Sort Output]"
+              endId="Package\Load Templates\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Load Templates\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Load Templates.Paths[Union All Output 1]"
+              endId="Package\Load Templates\Bestaat ?.Inputs[Conditional Split Input]"
+              name="Union All Output 1"
+              startId="Package\Load Templates\Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\Load Templates.Paths[Update]"
+              endId="Package\Load Templates\Update Sjabloon.Inputs[OLE DB Command Input]"
+              name="Update"
+              startId="Package\Load Templates\Bestaat ?.Outputs[Update]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Load Templates"
+          TopLeft="91,80" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Templates">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Load Templates\Union All"
+          TopLeft="496,414" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Load Templates\AOS"
+          TopLeft="668,412" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Load Templates\Sort"
+          TopLeft="651,55" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Load Templates\AOS Exists?"
+          TopLeft="627,284" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Load Templates\Derived Column"
+          TopLeft="353,54" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\Load Templates\Alias"
+          TopLeft="385,171" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\Load Templates\Aliasses"
+          TopLeft="78,299" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Templates\Set Inserts"
+          TopLeft="291,294" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Templates\Update Sjabloon"
+          TopLeft="77,423" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Load Templates\Excel Source"
+          TopLeft="79,52" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Load Templates\Merge Join"
+          TopLeft="631,169" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Load Templates\Bestaat ?"
+          TopLeft="293,417" />
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Bestaat]"
+          TopLeft="719.333333333333,326">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,86"
+              Start="0,0"
+              End="0,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.02138671875,34.5390625,34.0427734375,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Update]"
+          TopLeft="293,441">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-86,0"
+              Start="0,0"
+              End="-78.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-78.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.53029296875,5,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Union All Output 1]"
+          TopLeft="496,436.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78,0"
+              Start="0,0"
+              End="-70.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-70.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Sort Output]"
+          TopLeft="699,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[OLE DB Source Output]"
+          TopLeft="488,191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143,0"
+              Start="0,0"
+              End="135.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="135.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Merge Join Output]"
+          TopLeft="697.5,211">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73"
+              Start="0,0"
+              End="0,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Lookup Match Output]"
+          TopLeft="668,434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-48,0"
+              Start="0,0"
+              End="-40.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-40.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Leeg]"
+          TopLeft="675.333333333333,326">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-117.333333333333,88"
+              Start="0,0"
+              End="-117.333333333333,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7924263674614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7924263674614"
+                    Point2="0,35.7924263674614"
+                    Point3="-4,35.7924263674614" />
+                  <mssgle:LineSegment
+                    End="-113.333333333333,35.7924263674614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-113.333333333333,35.7924263674614"
+                    Point2="-117.333333333333,35.7924263674614"
+                    Point3="-117.333333333333,39.7924263674614" />
+                  <mssgle:LineSegment
+                    End="-117.333333333333,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-69.4796549479165,40.7924263674614,21.6259765625,11.3359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Insert]"
+          TopLeft="355.75,417">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-81"
+              Start="0,0"
+              End="0,-73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-73.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.75298828125,-41.451171875,27.5059765625,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Excel Source Output]"
+          TopLeft="223,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130,0"
+              Start="0,0"
+              End="122.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="122.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Derived Column Output1]"
+          TopLeft="291,317.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-93,0"
+              Start="0,0"
+              End="-85.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-85.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Derived Column Output]"
+          TopLeft="511,75.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140,0"
+              Start="0,0"
+              End="132.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="132.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelinePath
+    design-time-name="Package\Load Templates.Paths[Lookup Match Output]">
+    <PathAnnotation>Never</PathAnnotation>
+  </PipelinePath>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Templates\Aliasses">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Templates\Alias">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Templates\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Templates\AOS">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[AOS_Codes]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

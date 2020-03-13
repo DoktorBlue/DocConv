@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="Standen"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{5EFA9066-36B3-4C6C-9492-4B8433F4C95B}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{21464B38-9AE9-4056-9B66-8461A8B5EB88}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -35,6 +35,15 @@
       DTS:ObjectName="LastReport">
       <DTS:VariableValue
         DTS:DataType="7">11/8/2019 12:54:48 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ACE61476-377B-4C78-A3D1-719C9D3AC87B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MgtRepPeriode">
+      <DTS:VariableValue
+        DTS:DataType="2">7</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -81,7 +90,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
-          SQLTask:SqlStatementSource="INSERT INTO [dbo].[Standen]( [Type])&#xA;VALUES(?);&#xA;&#xA;SELECT IDENT_CURRENT( 'Standen' )  "
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[Standen]( [Type])&#xA;Select Type From (Select ? AS Type) V Where Type &lt; 3&#xA;;&#xA;&#xA;SELECT IDENT_CURRENT( 'Standen' )  "
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -872,7 +881,8 @@
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        CurrentStep AS Step, COUNT(1) AS Cnt, ProcStatus
 FROM            Documents AS D
 WHERE        (CurrentStep &gt; 15)
-GROUP BY CurrentStep, ProcStatus</property>
+GROUP BY CurrentStep, ProcStatus
+Order BY CurrentStep</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -906,6 +916,7 @@ GROUP BY CurrentStep, ProcStatus</property>
               <outputs>
                 <output
                   refId="Package\Process\Doc Status.Outputs[OLE DB Source Output]"
+                  isSorted="true"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
@@ -916,6 +927,7 @@ GROUP BY CurrentStep, ProcStatus</property>
                       externalMetadataColumnId="Package\Process\Doc Status.Outputs[OLE DB Source Output].ExternalColumns[Step]"
                       lineageId="Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[Step]"
                       name="Step"
+                      sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[Cnt]"
@@ -990,151 +1002,6 @@ GROUP BY CurrentStep, ProcStatus</property>
               </outputs>
             </component>
             <component
-              refId="Package\Process\EA Status"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="EA Status"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        CAST(19 AS TinyInt) AS Step, COUNT(1) AS Cnt, ProcStatus
-FROM            [Doc per Klant] AS D
-GROUP BY ProcStatus
-Having        (ProcStatus &gt; 1)</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Process\EA Status.Connections[OleDbConnection]"
-                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Process\EA Status.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Process\EA Status.Outputs[OLE DB Source Output].Columns[Step]"
-                      dataType="ui1"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Process\EA Status.Outputs[OLE DB Source Output].ExternalColumns[Step]"
-                      lineageId="Package\Process\EA Status.Outputs[OLE DB Source Output].Columns[Step]"
-                      name="Step"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Process\EA Status.Outputs[OLE DB Source Output].Columns[Cnt]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Process\EA Status.Outputs[OLE DB Source Output].ExternalColumns[Cnt]"
-                      lineageId="Package\Process\EA Status.Outputs[OLE DB Source Output].Columns[Cnt]"
-                      name="Cnt"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Process\EA Status.Outputs[OLE DB Source Output].Columns[ProcStatus]"
-                      dataType="ui1"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Process\EA Status.Outputs[OLE DB Source Output].ExternalColumns[ProcStatus]"
-                      lineageId="Package\Process\EA Status.Outputs[OLE DB Source Output].Columns[ProcStatus]"
-                      name="ProcStatus"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Process\EA Status.Outputs[OLE DB Source Output].ExternalColumns[Step]"
-                      dataType="ui1"
-                      name="Step" />
-                    <externalMetadataColumn
-                      refId="Package\Process\EA Status.Outputs[OLE DB Source Output].ExternalColumns[Cnt]"
-                      dataType="i4"
-                      name="Cnt" />
-                    <externalMetadataColumn
-                      refId="Package\Process\EA Status.Outputs[OLE DB Source Output].ExternalColumns[ProcStatus]"
-                      dataType="ui1"
-                      name="ProcStatus" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Process\EA Status.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Process\EA Status.Outputs[OLE DB Source Error Output].Columns[Step]"
-                      dataType="ui1"
-                      lineageId="Package\Process\EA Status.Outputs[OLE DB Source Error Output].Columns[Step]"
-                      name="Step" />
-                    <outputColumn
-                      refId="Package\Process\EA Status.Outputs[OLE DB Source Error Output].Columns[Cnt]"
-                      dataType="i4"
-                      lineageId="Package\Process\EA Status.Outputs[OLE DB Source Error Output].Columns[Cnt]"
-                      name="Cnt" />
-                    <outputColumn
-                      refId="Package\Process\EA Status.Outputs[OLE DB Source Error Output].Columns[ProcStatus]"
-                      dataType="ui1"
-                      lineageId="Package\Process\EA Status.Outputs[OLE DB Source Error Output].Columns[ProcStatus]"
-                      name="ProcStatus" />
-                    <outputColumn
-                      refId="Package\Process\EA Status.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Process\EA Status.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Process\EA Status.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Process\EA Status.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Process\MainSteps"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -1161,7 +1028,7 @@ Having        (ProcStatus &gt; 1)</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        ID AS Step, Name, cast(ID-1 as TinyInt) AS [Prev Step]
 FROM            [Main ProcessSteps]
-where ID between 16 and 19
+where ID between 16 and 21
 order by ID</property>
                 <property
                   dataType="System.String"
@@ -1630,7 +1497,8 @@ where [refTable].[Step] = ?</property>
                       refId="Package\Process\Pivot.Inputs[Pivot Default Input].Columns[Step]"
                       cachedDataType="ui1"
                       cachedName="Step"
-                      lineageId="Package\Process\Union All.Outputs[Union All Output 1].Columns[Step]">
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[Step]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1642,7 +1510,7 @@ where [refTable].[Step] = ?</property>
                       refId="Package\Process\Pivot.Inputs[Pivot Default Input].Columns[Cnt]"
                       cachedDataType="i4"
                       cachedName="Cnt"
-                      lineageId="Package\Process\Union All.Outputs[Union All Output 1].Columns[Cnt]">
+                      lineageId="Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[Cnt]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1651,10 +1519,10 @@ where [refTable].[Step] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Process\Pivot.Inputs[Pivot Default Input].Columns[Status]"
+                      refId="Package\Process\Pivot.Inputs[Pivot Default Input].Columns[ProcStatus]"
                       cachedDataType="ui1"
-                      cachedName="Status"
-                      lineageId="Package\Process\Union All.Outputs[Union All Output 1].Columns[Status]">
+                      cachedName="ProcStatus"
+                      lineageId="Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[ProcStatus]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1681,7 +1549,7 @@ where [refTable].[Step] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Process\Union All.Outputs[Union All Output 1].Columns[Step]}</property>
+                          name="SourceColumn">#{Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[Step]}</property>
                         <property
                           dataType="System.Null"
                           description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
@@ -1699,7 +1567,7 @@ where [refTable].[Step] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Process\Union All.Outputs[Union All Output 1].Columns[Cnt]}</property>
+                          name="SourceColumn">#{Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[Cnt]}</property>
                         <property
                           dataType="System.String"
                           description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
@@ -1717,7 +1585,7 @@ where [refTable].[Step] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Process\Union All.Outputs[Union All Output 1].Columns[Cnt]}</property>
+                          name="SourceColumn">#{Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[Cnt]}</property>
                         <property
                           dataType="System.String"
                           description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
@@ -1735,7 +1603,7 @@ where [refTable].[Step] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Process\Union All.Outputs[Union All Output 1].Columns[Cnt]}</property>
+                          name="SourceColumn">#{Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[Cnt]}</property>
                         <property
                           dataType="System.String"
                           description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
@@ -2093,140 +1961,6 @@ where [refTable].[Step] = ?</property>
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\Process\Union All"
-              componentClassID="Microsoft.UnionAll"
-              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-              name="Union All"
-              version="1">
-              <inputs>
-                <input
-                  refId="Package\Process\Union All.Inputs[Union All Input 1]"
-                  name="Union All Input 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Process\Union All.Inputs[Union All Input 1].Columns[Step]"
-                      cachedDataType="ui1"
-                      cachedName="Step"
-                      lineageId="Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[Step]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Process\Union All.Outputs[Union All Output 1].Columns[Step]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Process\Union All.Inputs[Union All Input 1].Columns[Cnt]"
-                      cachedDataType="i4"
-                      cachedName="Cnt"
-                      lineageId="Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[Cnt]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Process\Union All.Outputs[Union All Output 1].Columns[Cnt]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Process\Union All.Inputs[Union All Input 1].Columns[ProcStatus]"
-                      cachedDataType="ui1"
-                      cachedName="ProcStatus"
-                      lineageId="Package\Process\Doc Status.Outputs[OLE DB Source Output].Columns[ProcStatus]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Process\Union All.Outputs[Union All Output 1].Columns[Status]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\Process\Union All.Inputs[Union All Input 2]"
-                  hasSideEffects="true"
-                  name="Union All Input 2">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Process\Union All.Inputs[Union All Input 2].Columns[Step]"
-                      cachedDataType="ui1"
-                      cachedName="Step"
-                      lineageId="Package\Process\EA Status.Outputs[OLE DB Source Output].Columns[Step]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Process\Union All.Outputs[Union All Output 1].Columns[Step]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Process\Union All.Inputs[Union All Input 2].Columns[Cnt]"
-                      cachedDataType="i4"
-                      cachedName="Cnt"
-                      lineageId="Package\Process\EA Status.Outputs[OLE DB Source Output].Columns[Cnt]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Process\Union All.Outputs[Union All Output 1].Columns[Cnt]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Process\Union All.Inputs[Union All Input 2].Columns[ProcStatus]"
-                      cachedDataType="ui1"
-                      cachedName="ProcStatus"
-                      lineageId="Package\Process\EA Status.Outputs[OLE DB Source Output].Columns[ProcStatus]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Process\Union All.Outputs[Union All Output 1].Columns[Status]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\Process\Union All.Inputs[Union All Input 3]"
-                  dangling="true"
-                  hasSideEffects="true"
-                  name="Union All Input 3">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Process\Union All.Outputs[Union All Output 1]"
-                  name="Union All Output 1">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Process\Union All.Outputs[Union All Output 1].Columns[Step]"
-                      dataType="ui1"
-                      lineageId="Package\Process\Union All.Outputs[Union All Output 1].Columns[Step]"
-                      name="Step" />
-                    <outputColumn
-                      refId="Package\Process\Union All.Outputs[Union All Output 1].Columns[Cnt]"
-                      dataType="i4"
-                      lineageId="Package\Process\Union All.Outputs[Union All Output 1].Columns[Cnt]"
-                      name="Cnt" />
-                    <outputColumn
-                      refId="Package\Process\Union All.Outputs[Union All Output 1].Columns[Status]"
-                      dataType="ui1"
-                      lineageId="Package\Process\Union All.Outputs[Union All Output 1].Columns[Status]"
-                      name="Status" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
@@ -2251,14 +1985,9 @@ where [refTable].[Step] = ?</property>
               startId="Package\Process\MainSteps.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Process.Paths[OLE DB Source Output1]"
-              endId="Package\Process\Union All.Inputs[Union All Input 1]"
+              endId="Package\Process\Pivot.Inputs[Pivot Default Input]"
               name="OLE DB Source Output"
               startId="Package\Process\Doc Status.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Process.Paths[OLE DB Source Output2]"
-              endId="Package\Process\Union All.Inputs[Union All Input 2]"
-              name="OLE DB Source Output"
-              startId="Package\Process\EA Status.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Process.Paths[Pivot Default Output]"
               endId="Package\Process\Sort.Inputs[Sort Input]"
@@ -2269,11 +1998,6 @@ where [refTable].[Step] = ?</property>
               endId="Package\Process\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\Process\Sort.Outputs[Sort Output]" />
-            <path
-              refId="Package\Process.Paths[Union All Output 1]"
-              endId="Package\Process\Pivot.Inputs[Pivot Default Input]"
-              name="Union All Output 1"
-              startId="Package\Process\Union All.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2313,7 +2037,7 @@ where [refTable].[Step] = ?</property>
           DTS:refId="Package\Report Stand\Report"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{2543429E-4665-4809-903C-0EBCEF9A618D}"
+          DTS:DTSID="{65ce72ef-17c0-4a09-9da0-3923a099bc61}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Report"
@@ -3079,23 +2803,35 @@ where [refTable].[RefKey] = ?</property>
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        1 AS RefKey, D.[Success]
-FROM            (SELECT        MAX(ID) AS ID
-                          FROM            Standen
-                          WHERE        (Type = 2)) AS S INNER JOIN
-                         [Standen Proces] AS D ON S.ID = D.Stand
-WHERE        (D.Step = 19)</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        1 AS RefKey, D.Success
+FROM            (
+SELECT   MAX(ID) AS ID  FROM  Standen  WHERE (Type = 2)
+) AS S INNER JOIN (
+SELECT Stand, SUM(S) AS Success
+FROM  (
+SELECT Stand, Success AS S FROM [Standen Proces] Where Step = 19
+UNION
+SELECT Stand, Success + Running AS S FROM  [Standen Proces] where Step between 20 and 21 
+) AS V
+GROUP BY Stand
+) AS D ON S.ID = D.Stand</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        1 AS RefKey, D.[Success]
-FROM            (SELECT        MAX(ID) AS ID
-                          FROM            Standen
-                          WHERE        (Type = 2)) AS S INNER JOIN
-                         [Standen Proces] AS D ON S.ID = D.Stand
-WHERE        (D.Step = 19)) [refTable]
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        1 AS RefKey, D.Success
+FROM            (
+SELECT   MAX(ID) AS ID  FROM  Standen  WHERE (Type = 2)
+) AS S INNER JOIN (
+SELECT Stand, SUM(S) AS Success
+FROM  (
+SELECT Stand, Success AS S FROM [Standen Proces] Where Step = 19
+UNION
+SELECT Stand, Success + Running AS S FROM  [Standen Proces] where Step between 20 and 21 
+) AS V
+GROUP BY Stand
+) AS D ON S.ID = D.Stand) [refTable]
 where [refTable].[RefKey] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -3415,7 +3151,7 @@ where [refTable].[RefKey] = ?</property>
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        1 AS RefKey, SUM(D.[Open] + D.Running) AS Running
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        1 AS RefKey, SUM(CASE WHEN Step IN (20, 21) THEN 0 ELSE D .[Open] END + D.Running) AS Running
 FROM            (SELECT        MAX(ID) AS ID
                           FROM            Standen
                           WHERE        (Type = 2)) AS S INNER JOIN
@@ -3425,7 +3161,7 @@ FROM            (SELECT        MAX(ID) AS ID
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        1 AS RefKey, SUM(D.[Open] + D.Running) AS Running
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        1 AS RefKey, SUM(CASE WHEN Step IN (20, 21) THEN 0 ELSE D .[Open] END + D.Running) AS Running
 FROM            (SELECT        MAX(ID) AS ID
                           FROM            Standen
                           WHERE        (Type = 2)) AS S INNER JOIN
@@ -3929,7 +3665,7 @@ where [refTable].[RefKey] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Report Stand.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{88AC7CA6-69BB-46F6-9997-4B6A7149F51A}"
+          DTS:DTSID="{82CEA38C-7168-40F7-B2E0-BF2928258214}"
           DTS:From="Package\Report Stand\Make Stand"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -3963,7 +3699,7 @@ where [refTable].[RefKey] = ?</property>
       DTS:CreationName=""
       DTS:DTSID="{AB698F3D-348A-4185-84DD-32493A305BAF}"
       DTS:EvalOp="3"
-      DTS:Expression="DATEDIFF( &quot;DAY&quot;, @[User::LastReport] , GETDATE()  ) &gt; 0"
+      DTS:Expression="DATEDIFF( &quot;DAY&quot;, @[User::LastReport] , GETDATE()  ) &gt;= @[User::MgtRepPeriode]"
       DTS:From="Package\Process"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Report Stand" />
@@ -3972,7 +3708,7 @@ where [refTable].[RefKey] = ?</property>
       DTS:CreationName=""
       DTS:DTSID="{D121F78F-CA76-4FC5-B7F9-6D2CEA0BEBE6}"
       DTS:EvalOp="3"
-      DTS:Expression="DATEDIFF( &quot;DAY&quot;, @[User::LastReport] , GETDATE()  ) &gt; 0"
+      DTS:Expression="DATEDIFF( &quot;DAY&quot;, @[User::LastReport] , GETDATE()  ) &gt;= @[User::MgtRepPeriode]"
       DTS:From="Package\Metadata"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\Report Stand" />
@@ -3985,13 +3721,13 @@ where [refTable].[RefKey] = ?</property>
       DTS:ObjectName="Constraint 4"
       DTS:To="Package\Make Stand" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
-      DTS:DTSID="{31A16F51-22BA-41BD-B65D-E53C7274E92C}"
+      DTS:DTSID="{FDA2C48A-9A32-4C75-80D2-BE5C71FE4CB6}"
       DTS:EvalOp="3"
-      DTS:Expression="@[$Package::Type]==3 &amp;&amp; DATEDIFF( &quot;DAY&quot;, @[User::LastReport] , GETDATE()  ) &gt; 0"
+      DTS:Expression="@[$Package::Type]==3 &amp;&amp; DATEDIFF( &quot;DAY&quot;, @[User::LastReport] , GETDATE()  ) &gt;= @[User::MgtRepPeriode]"
       DTS:From="Package\Make Stand"
-      DTS:ObjectName="Constraint 5"
+      DTS:ObjectName="Constraint 7"
       DTS:To="Package\Report Stand" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -4009,41 +3745,41 @@ where [refTable].[RefKey] = ?</property>
         <NodeLayout
           Size="131,42"
           Id="Package\Last Stand"
-          TopLeft="64,169" />
+          TopLeft="64,190" />
         <NodeLayout
           Size="138,42"
           Id="Package\Make Stand"
-          TopLeft="303,175" />
+          TopLeft="303,196" />
         <NodeLayout
           Size="125,42"
           Id="Package\Metadata"
-          TopLeft="310,41" />
+          TopLeft="310,62" />
         <NodeLayout
           Size="119,42"
           Id="Package\Process"
-          TopLeft="307,297" />
+          TopLeft="307,318" />
         <NodeLayout
           Size="138,42"
           Id="Package\Report Stand\Make Stand"
-          TopLeft="42,20" />
+          TopLeft="47,15" />
         <NodeLayout
           Size="112,42"
           Id="Package\Report Stand\Report"
-          TopLeft="53,117" />
+          TopLeft="58,110" />
         <EdgeLayout
           Id="Package\Report Stand.PrecedenceConstraints[Constraint]"
-          TopLeft="110,62">
+          TopLeft="115,57">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55"
+              EndConnector="0,53"
               Start="0,0"
-              End="0,47.5">
+              End="0,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.5" />
+                    End="0,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4058,10 +3794,10 @@ where [refTable].[RefKey] = ?</property>
           PanelSize="233,187"
           Size="233,230"
           Id="Package\Report Stand"
-          TopLeft="613,75" />
+          TopLeft="764,103" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="372.25,175">
+          TopLeft="372.25,196">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4085,7 +3821,7 @@ where [refTable].[RefKey] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="369.25,217">
+          TopLeft="369.25,238">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4109,79 +3845,79 @@ where [refTable].[RefKey] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="426,318">
+          TopLeft="426,339">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="187,-72.5"
+              EndConnector="338,-65.5"
               Start="0,0"
-              End="179.5,-72.5">
+              End="330.5,-65.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="119.23782234957,0" />
+                    End="218.750716332378,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="119.23782234957,0"
-                    Point2="123.23782234957,0"
-                    Point3="123.23782234957,-4" />
+                    Point1="218.750716332378,0"
+                    Point2="222.750716332378,0"
+                    Point3="222.750716332378,-4" />
                   <mssgle:LineSegment
-                    End="123.23782234957,-68.5" />
+                    End="222.750716332378,-61.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="123.23782234957,-68.5"
-                    Point2="123.23782234957,-72.5"
-                    Point3="127.23782234957,-72.5" />
+                    Point1="222.750716332378,-61.5"
+                    Point2="222.750716332378,-65.5"
+                    Point3="226.750716332378,-65.5" />
                   <mssgle:LineSegment
-                    End="179.5,-72.5" />
+                    End="330.5,-65.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="115.23782234957,1,16,16"
+              BoundingBox="214.750716332378,1,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="435,62">
+          TopLeft="435,83">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="178,72.5"
+              EndConnector="329,79.5"
               Start="0,0"
-              End="170.5,72.5">
+              End="321.5,79.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="113.30659025788,0" />
+                    End="212.819484240688,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="113.30659025788,0"
-                    Point2="117.30659025788,0"
-                    Point3="117.30659025788,4" />
+                    Point1="212.819484240688,0"
+                    Point2="216.819484240688,0"
+                    Point3="216.819484240688,4" />
                   <mssgle:LineSegment
-                    End="117.30659025788,68.5" />
+                    End="216.819484240688,75.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="117.30659025788,68.5"
-                    Point2="117.30659025788,72.5"
-                    Point3="121.30659025788,72.5" />
+                    Point1="216.819484240688,75.5"
+                    Point2="216.819484240688,79.5"
+                    Point3="220.819484240688,79.5" />
                   <mssgle:LineSegment
-                    End="170.5,72.5" />
+                    End="321.5,79.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="109.30659025788,-22,16,16"
+              BoundingBox="208.819484240688,-22,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="195,193">
+          TopLeft="195,214">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4202,26 +3938,26 @@ where [refTable].[RefKey] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="441,193">
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="441,217.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="172,0"
+              EndConnector="323,0"
               Start="0,0"
-              End="164.5,0">
+              End="315.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="164.5,0" />
+                    End="315.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="74.25,5,16,16"
+              BoundingBox="149.75,5,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4326,119 +4062,53 @@ where [refTable].[RefKey] = ?</property>
     design-time-name="Package\Process">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="131,42"
           Id="Package\Process\MainSteps"
-          TopLeft="82,31" />
+          TopLeft="360,34" />
         <NodeLayout
           Size="106,42"
           Id="Package\Process\Open"
-          TopLeft="99,128" />
-        <EdgeLayout
-          Id="Package\Process.Paths[OLE DB Source Output]"
-          TopLeft="149.75,73">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55"
-              Start="0,0"
-              End="0,47.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="133,42"
-          Id="Package\Process\Doc Status"
-          TopLeft="557,38" />
-        <NodeLayout
-          Size="128,42"
-          Id="Package\Process\EA Status"
-          TopLeft="561,230" />
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Process\Union All"
-          TopLeft="564,135" />
-        <EdgeLayout
-          Id="Package\Process.Paths[OLE DB Source Output1]"
-          TopLeft="624.5,80">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55"
-              Start="0,0"
-              End="0,47.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Process.Paths[OLE DB Source Output2]"
-          TopLeft="625.25,230">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,-53"
-              Start="0,0"
-              End="0,-45.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="104,42"
-          Id="Package\Process\Pivot"
-          TopLeft="333,134" />
+          TopLeft="377,131" />
         <NodeLayout
           Size="99,42"
           Id="Package\Process\Sort"
-          TopLeft="340,234" />
+          TopLeft="97,242" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Process\Doc Status"
+          TopLeft="74,32" />
         <NodeLayout
           Size="133,42"
           Id="Package\Process\Merge Join"
-          TopLeft="92,236" />
+          TopLeft="370,239" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Process\Derived Column"
+          TopLeft="358,349" />
+        <NodeLayout
+          Size="104,42"
+          Id="Package\Process\Pivot"
+          TopLeft="90,142" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Process\Stand Process"
+          TopLeft="629,343" />
         <EdgeLayout
-          Id="Package\Process.Paths[Lookup Match Output]"
-          TopLeft="155.25,170">
+          Id="Package\Process.Paths[OLE DB Source Output]"
+          TopLeft="427.75,76">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66"
+              EndConnector="0,55"
               Start="0,0"
-              End="0,58.5">
+              End="0,47.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.5" />
+                    End="0,47.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4447,13 +4117,9 @@ where [refTable].[RefKey] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Process\Derived Column"
-          TopLeft="80,346" />
         <EdgeLayout
           Id="Package\Process.Paths[Merge Join Output]"
-          TopLeft="158.75,278">
+          TopLeft="436.75,281">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4474,19 +4140,19 @@ where [refTable].[RefKey] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Process.Paths[Sort Output]"
-          TopLeft="340,256">
+          Id="Package\Process.Paths[Lookup Match Output]"
+          TopLeft="433.25,173">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-115,0"
+              EndConnector="0,66"
               Start="0,0"
-              End="-107.5,0">
+              End="0,58.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-107.5,0" />
+                    End="0,58.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4496,19 +4162,43 @@ where [refTable].[RefKey] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Process.Paths[Union All Output 1]"
-          TopLeft="564,155.5">
+          Id="Package\Process.Paths[Derived Column Output]"
+          TopLeft="516,367">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-127,0"
+              EndConnector="113,0"
               Start="0,0"
-              End="-119.5,0">
+              End="105.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-119.5,0" />
+                    End="105.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="44.75,5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process.Paths[Sort Output]"
+          TopLeft="196,261.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="174,0"
+              Start="0,0"
+              End="166.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="166.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4519,7 +4209,7 @@ where [refTable].[RefKey] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Process.Paths[Pivot Default Output]"
-          TopLeft="387.25,176">
+          TopLeft="144.25,184">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4539,24 +4229,20 @@ where [refTable].[RefKey] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Process\Stand Process"
-          TopLeft="357,340" />
         <EdgeLayout
-          Id="Package\Process.Paths[Derived Column Output]"
-          TopLeft="238,364">
+          Id="Package\Process.Paths[OLE DB Source Output1]"
+          TopLeft="141.25,74">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="119,0"
+              EndConnector="0,68"
               Start="0,0"
-              End="111.5,0">
+              End="0,60.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="111.5,0" />
+                    End="0,60.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4572,35 +4258,6 @@ where [refTable].[RefKey] = ?</property>
     design-time-name="Package\Process.Paths[Lookup Match Output]">
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
-  <PipelineComponentMetadata
-    design-time-name="Package\Process\EA Status">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Process\Stand Process">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Process\Doc Status">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Process\MainSteps">
     <Properties>
@@ -4632,15 +4289,52 @@ where [refTable].[RefKey] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Process\Doc Status">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Process\Stand Process">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Report Stand\Report">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="139,42"
+          Id="Package\Report Stand\Report\MD Akkoord"
+          TopLeft="541,114" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Report Stand\Report\P Failed"
+          TopLeft="554,260" />
+        <NodeLayout
           Size="116,42"
           Id="Package\Report Stand\Report\P Open"
           TopLeft="824,114" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Report Stand\Report\Report Stand"
+          TopLeft="45,388" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Report Stand\Report\Sonar"
+          TopLeft="46,114" />
         <NodeLayout
           Size="145,42"
           Id="Package\Report Stand\Report\MD Onbeslist"
@@ -4654,25 +4348,31 @@ where [refTable].[RefKey] = ?</property>
           Id="Package\Report Stand\Report\P Running"
           TopLeft="819,261" />
         <NodeLayout
-          Size="108,42"
-          Id="Package\Report Stand\Report\Sonar"
-          TopLeft="46,114" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Report Stand\Report\MD Akkoord"
-          TopLeft="541,114" />
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Report Stand\Report\P Failed"
-          TopLeft="554,260" />
-        <NodeLayout
           Size="158,42"
           Id="Package\Report Stand\Report\Derived Column"
           TopLeft="41,257" />
-        <NodeLayout
-          Size="144,42"
-          Id="Package\Report Stand\Report\Report Stand"
-          TopLeft="45,388" />
+        <EdgeLayout
+          Id="Package\Report Stand\Report.Paths[Derived Column Output]"
+          TopLeft="118.5,299">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,89"
+              Start="0,0"
+              End="0,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Report Stand\Report.Paths[OLE DB Source Output]"
           TopLeft="154,134.5">
@@ -4827,28 +4527,6 @@ where [refTable].[RefKey] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Report Stand\Report.Paths[Derived Column Output]"
-          TopLeft="118.5,299">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,89"
-              Start="0,0"
-              End="0,81.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,81.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -4877,58 +4555,12 @@ where [refTable].[RefKey] = ?</property>
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
   <PipelineComponentMetadata
-    design-time-name="Package\Report Stand\Report\P Open">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Report Stand\Report\MD Onbeslist">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Report Stand\Report\P Klaar">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4965,73 +4597,6 @@ where [refTable].[RefKey] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Report Stand\Report\Sonar">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Report Stand\Report\MD Akkoord">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Report Stand\Report\P Failed">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Report Stand\Report\Report Stand">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

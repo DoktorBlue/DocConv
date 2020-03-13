@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="MigStraat References"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{183CFC51-4FA9-4BF4-9D47-5177D72498EA}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{B077D76D-E73F-4D62-8364-9D652472A8D5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -55,57 +55,287 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Reference Processing\AOS"
-          DTS:CreationName="Microsoft.ExecutePackageTask"
-          DTS:Description="Execute Package Task"
-          DTS:DTSID="{cebbe1f4-3f93-4d66-b651-0eae93c06d1c}"
-          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:refId="Package\Reference Processing\CDCT"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{6fc95713-b98a-4e52-9662-48e2c8495cfa}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
           DTS:LocaleID="-1"
-          DTS:ObjectName="AOS"
-          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          DTS:ObjectName="CDCT">
           <DTS:Variables />
-          <DTS:ObjectData>
-            <ExecutePackageTask>
-              <UseProjectReference>True</UseProjectReference>
-              <PackageName>Import Templates AOS.dtsx</PackageName>
-              <ParameterAssignment>
-                <ParameterName>Root</ParameterName>
-                <BindedVariableOrParameterName>User::Root</BindedVariableOrParameterName>
-              </ParameterAssignment>
-            </ExecutePackageTask>
-          </DTS:ObjectData>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Reference Processing\CDCT\CDCT"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:Description="Execute Package Task"
+              DTS:DTSID="{205740e0-e386-4ded-a4a8-f80013563c1a}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="CDCT"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <PackageName>Import AOS.dtsx</PackageName>
+                  <ParameterAssignment>
+                    <ParameterName>Root</ParameterName>
+                    <BindedVariableOrParameterName>User::Root</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Reference Processing\CDCT\Get CDCT Root"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{ddeb622e-fd08-41c9-aaf3-86b3be1f098a}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Get CDCT Root"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+                  SQLTask:SqlStatementSource="SELECT  [ValStr]&#xA;FROM [dbo].[Control Params]&#xA;WHERE (Step =31) AND Param =7"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::Root" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Reference Processing\CDCT.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{21375fd9-043c-4757-8c28-ea62b8654635}"
+              DTS:From="Package\Reference Processing\CDCT\Get CDCT Root"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Reference Processing\CDCT\CDCT" />
+          </DTS:PrecedenceConstraints>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Reference Processing\Get AOS Root"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{a74ae836-c200-4a43-8daf-74fff07396ed}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:refId="Package\Reference Processing\Mask"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{D091254F-7AB7-4FEF-90FD-55565ACE1560}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Get AOS Root"
-          DTS:ThreadHint="0">
+          DTS:ObjectName="Mask">
           <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
-              SQLTask:SqlStatementSource="SELECT  [ValStr]&#xA;FROM [dbo].[Control Params]&#xA;WHERE (Step =28) AND Param =7"
-              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ResultBinding
-                SQLTask:ResultName="0"
-                SQLTask:DtsVariableName="User::Root" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Reference Processing\Mask\AOS Mask"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:Description="Execute Package Task"
+              DTS:DTSID="{765303f4-7766-4f1b-b00f-2a9185c505e4}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="AOS Mask"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <PackageName>Import Mask AOS.dtsx</PackageName>
+                  <ParameterAssignment>
+                    <ParameterName>Root</ParameterName>
+                    <BindedVariableOrParameterName>User::Root</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Reference Processing\Mask\Get AOS Mask"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{523ce01e-cf43-4af0-b9b9-07d88a41f8fe}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Get AOS Mask"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+                  SQLTask:SqlStatementSource="SELECT  [ValStr]&#xA;FROM [dbo].[Control Params]&#xA;WHERE (Step =29) AND Param =7"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::Root" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Reference Processing\Mask.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{6DEDB27B-2695-4DD9-AADA-2225CB05D6C5}"
+              DTS:From="Package\Reference Processing\Mask\Get AOS Mask"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Reference Processing\Mask\AOS Mask" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Reference Processing\PDF Templates"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{3DDC9EA7-72E1-48C1-A120-8C103D0C3F93}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PDF Templates">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Reference Processing\PDF Templates\Get Templ Root"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{e3cedc5e-96f5-4bbc-92ed-3f1bb59c27df}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Get Templ Root"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+                  SQLTask:SqlStatementSource="SELECT  [ValStr]&#xA;FROM [dbo].[Control Params]&#xA;WHERE (Step =30) AND Param =7"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::Root" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Reference Processing\PDF Templates\Templ"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:Description="Execute Package Task"
+              DTS:DTSID="{f8369c2b-9593-461f-bbf9-830e6b6bf43b}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Templ"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <PackageName>Import PDF Templates.dtsx</PackageName>
+                  <ParameterAssignment>
+                    <ParameterName>Root</ParameterName>
+                    <BindedVariableOrParameterName>User::Root</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Reference Processing\PDF Templates.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{142ED9C0-C341-4A57-881A-67570269A446}"
+              DTS:From="Package\Reference Processing\PDF Templates\Get Templ Root"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Reference Processing\PDF Templates\Templ" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Reference Processing\Sjablonen"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{9EE9ADDB-7360-4BB6-A7F3-DBAD3623D1A3}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sjablonen">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Reference Processing\Sjablonen\Get Sjabloon Root"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{d123e4dc-5588-4add-a703-81872fded6a1}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Get Sjabloon Root"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+                  SQLTask:SqlStatementSource="SELECT  [ValStr]&#xA;FROM [dbo].[Control Params]&#xA;WHERE (Step =28) AND Param =7"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::Root" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\Reference Processing\Sjablonen\Sjablonen"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:Description="Execute Package Task"
+              DTS:DTSID="{25ec3fb9-7864-47dc-9d70-ce93cf22d46f}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Sjablonen"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <PackageName>Import Sjablonen.dtsx</PackageName>
+                  <ParameterAssignment>
+                    <ParameterName>Root</ParameterName>
+                    <BindedVariableOrParameterName>User::Root</BindedVariableOrParameterName>
+                  </ParameterAssignment>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Reference Processing\Sjablonen.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{C5AA3ACF-3D8B-4E5D-930B-17F8FF9ACE9F}"
+              DTS:From="Package\Reference Processing\Sjablonen\Get Sjabloon Root"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\Reference Processing\Sjablonen\Sjablonen" />
+          </DTS:PrecedenceConstraints>
         </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Reference Processing.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{8CC1F31F-8684-4EF7-ADF0-2BD21684781F}"
-          DTS:From="Package\Reference Processing\Get AOS Root"
+          DTS:DTSID="{38549F06-03AA-4539-AB1C-DD22EF9FF3C0}"
+          DTS:From="Package\Reference Processing\CDCT"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Reference Processing\AOS" />
+          DTS:To="Package\Reference Processing\Sjablonen" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Reference Processing.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{08B70AB5-F7CD-4F17-B1AB-8AA5ACAB6C5B}"
+          DTS:From="Package\Reference Processing\Mask"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Reference Processing\PDF Templates" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Reference Processing.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{C01D69DC-8EE2-4B94-9ADE-678F2EB71EE7}"
+          DTS:From="Package\Reference Processing\Sjablonen"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Reference Processing\Mask" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -130,29 +360,33 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="149,42"
-          Id="Package\Reference Processing\Get AOS Root"
-          TopLeft="35,23" />
+          Size="112,42"
+          Id="Package\Proc B"
+          TopLeft="1127,288" />
         <NodeLayout
-          Size="102,42"
-          Id="Package\Reference Processing\AOS"
-          TopLeft="53,126" />
+          Size="130,42"
+          Id="Package\Reference Processing\PDF Templates\Get Templ Root"
+          TopLeft="34,22" />
+        <NodeLayout
+          Size="110,42"
+          Id="Package\Reference Processing\PDF Templates\Templ"
+          TopLeft="247,22" />
         <EdgeLayout
-          Id="Package\Reference Processing.PrecedenceConstraints[Constraint]"
-          TopLeft="106.75,65">
+          Id="Package\Reference Processing\PDF Templates.PrecedenceConstraints[Constraint]"
+          TopLeft="164,43">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61"
+              EndConnector="83,0"
               Start="0,0"
-              End="0,53.5">
+              End="75.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.5" />
+                    End="75.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -164,28 +398,208 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="584,301"
-          Size="584,344"
-          Id="Package\Reference Processing"
-          TopLeft="127,49" />
+          PanelSize="419,125"
+          Size="419,168"
+          Id="Package\Reference Processing\PDF Templates"
+          TopLeft="465,14" />
         <NodeLayout
-          Size="112,42"
-          Id="Package\Proc B"
-          TopLeft="364,472" />
+          Size="130,42"
+          Id="Package\Reference Processing\Mask\Get AOS Mask"
+          TopLeft="22,20" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Reference Processing\Mask\AOS Mask"
+          TopLeft="235,19" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="419.5,393">
+          Id="Package\Reference Processing\Mask.PrecedenceConstraints[Constraint]"
+          TopLeft="152,40.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,79"
+              EndConnector="83,0"
               Start="0,0"
-              End="0,71.5">
+              End="75.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,71.5" />
+                    End="75.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="410,99"
+          Size="410,142"
+          Id="Package\Reference Processing\Mask"
+          TopLeft="475,266" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Reference Processing\Sjablonen\Get Sjabloon Root"
+          TopLeft="40,23" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Reference Processing\Sjablonen\Sjablonen"
+          TopLeft="215,21" />
+        <EdgeLayout
+          Id="Package\Reference Processing\Sjablonen.PrecedenceConstraints[Constraint]"
+          TopLeft="183,43">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32,0"
+              Start="0,0"
+              End="24.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="24.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="372,110"
+          Size="372,153"
+          Id="Package\Reference Processing\Sjablonen"
+          TopLeft="38,254" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Reference Processing\CDCT\Get CDCT Root"
+          TopLeft="40,23" />
+        <NodeLayout
+          Size="110,42"
+          Id="Package\Reference Processing\CDCT\CDCT"
+          TopLeft="242,21" />
+        <EdgeLayout
+          Id="Package\Reference Processing\CDCT.PrecedenceConstraints[Constraint]"
+          TopLeft="170,43">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72,0"
+              Start="0,0"
+              End="64.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="64.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="377,120"
+          Size="377,163"
+          Id="Package\Reference Processing\CDCT"
+          TopLeft="32,16" />
+        <EdgeLayout
+          Id="Package\Reference Processing.PrecedenceConstraints[Constraint]"
+          TopLeft="222.25,179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Reference Processing.PrecedenceConstraints[Constraint 2]"
+          TopLeft="410,333.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65,0"
+              Start="0,0"
+              End="57.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="57.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Reference Processing.PrecedenceConstraints[Constraint 1]"
+          TopLeft="677.25,266">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-84"
+              Start="0,0"
+              End="0,-76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="996,463"
+          Size="996,506"
+          Id="Package\Reference Processing"
+          TopLeft="43,57" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="1039,309.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88,0"
+              Start="0,0"
+              End="80.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="80.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

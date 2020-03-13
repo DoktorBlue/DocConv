@@ -1,0 +1,1009 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/22/2020 1:58:28 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HP-OMEN"
+  DTS:CreatorName="HP-OMEN\Burk"
+  DTS:DTSID="{24CAB522-69BC-4AD3-A7FE-AF9C11A28E07}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1043"
+  DTS:ObjectName="ProcG - Export Sonar"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{6459236D-22D5-45CE-976A-D50F02C952EA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Export]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{91F2516D-2FF1-486E-8E24-BD56418D288B}"
+      DTS:ObjectName="Export">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::Folder] +"SONAR_EA_MIG_GUID_"+ @[User::Vandaag] +".csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1043"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\Scripts\04-EA\SONAR_EA_MIG_GUID_20200309_1456.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="14"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Att_Table_Name"
+              DTS:DTSID="{BEA2962E-332D-4042-AA16-410927329912}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RowID"
+              DTS:DTSID="{E3C90D12-03F2-4019-AD6C-D5FE1E2171CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EA_GUid"
+              DTS:DTSID="{86501D17-A961-4D0D-8165-DA6DE0A09147}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date_To_EA"
+              DTS:DTSID="{EBA0A81F-0769-45EE-A32F-FE004BF5AE65}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3467F894-61DD-4B79-B0FE-6C426ED47134}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="BatchID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2350EE21-0C3C-4B86-A7F8-3C46C58C51F7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Extent">
+      <DTS:VariableValue
+        DTS:DataType="3">10000</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E6E3AB82-8B34-4F88-BBE3-86313C0E19A6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Folder">
+      <DTS:VariableValue
+        DTS:DataType="8">E:\Scripts\04-EA\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{03932B3B-FB6A-42F7-84C9-EB09D197EC8A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR, 8)(year(getdate())*10000 + month(getdate())*100 + day(getdate()))+&quot;_&quot;+(DT_WSTR, 8)( DATEPART( &quot;HOUR&quot;, GetDate() ) * 100 + DATEPART( &quot;MINUTE&quot;, GetDate() ))"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Vandaag">
+      <DTS:VariableValue
+        DTS:DataType="8">20200309_1456</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create Batch"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{61228e50-5ce2-45ab-85a8-3692b8b2b14a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Batch"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="INSERT INTO Batches(Run, Status, Created)&#xA;Select MAX(ID) AS Run, 1 AS Status, GETDATE() AS Nu&#xA;From Runs&#xA;Where Step = 21;&#xA;&#xA;Select max(ID) From Batches&#xA;Where Run = (&#xA;Select max(ID) From Runs Where Step = 21&#xA;);"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::BatchID" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Run"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d4ca7d70-450f-4fd6-a9c6-f1d7d1d54c69}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Run"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="INSERT INTO Runs (Step, Created, Software, [# Batches], [# Extend])&#xA;SELECT        Step, GETDATE() AS Nu, MAX(ID) AS SW, 1 AS [# Batches], ? AS Extent&#xA;FROM            SoftwareVersion&#xA;GROUP BY Step&#xA;HAVING        (Step = 21);&#xA;&#xA;Select [# Extend] From Runs&#xA;Where ID = (Select max(ID) From Runs Where Step = 21);"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::Extent" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::Extent"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Do Export"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{11DAA43A-BC02-4819-8255-EDA58B3E9C48}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Do Export"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Do Export\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Do Export\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Do Export\Derived Column.Inputs[Derived Column Input].Columns[EA_GUid]"
+                      cachedDataType="guid"
+                      cachedName="EA_GUid"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[EA_GUid]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Do Export\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Do Export\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Do Export\Derived Column.Outputs[Derived Column Output].Columns[strGUID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Do Export\Derived Column.Outputs[Derived Column Output].Columns[strGUID]"
+                      name="strGUID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACE]([REPLACE]((DT_STR,50,1252)#{Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[EA_GUid]},"{",""),"}","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(REPLACE((DT_STR,50,1252)EA_GUid,"{",""),"}","")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Do Export\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Do Export\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Do Export\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Do Export\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Do Export\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Do Export\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Do Export\Export"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1043"
+              name="Export">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Do Export\Export.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Export]"
+                  connectionManagerRefId="Package.ConnectionManagers[Export]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Do Export\Export.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Do Export\Export.Inputs[Flat File Destination Input].Columns[Att_Table_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Att_Table_Name"
+                      externalMetadataColumnId="Package\Do Export\Export.Inputs[Flat File Destination Input].ExternalColumns[Att_Table_Name]"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[Att_Table_Name]" />
+                    <inputColumn
+                      refId="Package\Do Export\Export.Inputs[Flat File Destination Input].Columns[RowID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="RowID"
+                      externalMetadataColumnId="Package\Do Export\Export.Inputs[Flat File Destination Input].ExternalColumns[RowID]"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[RowID]" />
+                    <inputColumn
+                      refId="Package\Do Export\Export.Inputs[Flat File Destination Input].Columns[Date_To_EA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="41"
+                      cachedName="Date_To_EA"
+                      externalMetadataColumnId="Package\Do Export\Export.Inputs[Flat File Destination Input].ExternalColumns[Date_To_EA]"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_To_EA]" />
+                    <inputColumn
+                      refId="Package\Do Export\Export.Inputs[Flat File Destination Input].Columns[strGUID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="strGUID"
+                      externalMetadataColumnId="Package\Do Export\Export.Inputs[Flat File Destination Input].ExternalColumns[EA_GUid]"
+                      lineageId="Package\Do Export\Derived Column.Outputs[Derived Column Output].Columns[strGUID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Do Export\Export.Inputs[Flat File Destination Input].ExternalColumns[Att_Table_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Att_Table_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Do Export\Export.Inputs[Flat File Destination Input].ExternalColumns[RowID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="RowID" />
+                    <externalMetadataColumn
+                      refId="Package\Do Export\Export.Inputs[Flat File Destination Input].ExternalColumns[EA_GUid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EA_GUid" />
+                    <externalMetadataColumn
+                      refId="Package\Do Export\Export.Inputs[Flat File Destination Input].ExternalColumns[Date_To_EA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Date_To_EA" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Do Export\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT   Att_Table_Name, RowID, EA_GUid, CONVERT(varchar(20), Date_To_EA, 105) + ' ' + CONVERT(varchar(20), Date_To_EA, 108) AS Date_To_EA
+FROM            (
+                         SELECT     C.Prefix AS Att_Table_Name, S.RowID, D.EA EA_GUid,  Q.Moment  AS Date_To_EA
+FROM       Documents AS D 
+INNER JOIN Sonar AS S ON D.Sonar = S.ID 
+INNER JOIN SonarSrc AS C ON S.SonarSrc = C.ID 
+INNER JOIN (Select Doc From ProcessDetails WHERE (Batch = ?)) AS P ON D.ID = P.Doc
+INNER JOIN (Select Doc, Moment From ProcessDetails WHERE (Step = 26)) AS Q ON D.ID = Q.Doc
+) AS V</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{3467F894-61DD-4B79-B0FE-6C426ED47134};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Do Export\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MigLog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[EA_GUid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EA_GUid]"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[EA_GUid]"
+                      name="EA_GUid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_To_EA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_To_EA]"
+                      length="41"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date_To_EA]"
+                      name="Date_To_EA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[Att_Table_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Att_Table_Name]"
+                      length="50"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[Att_Table_Name]"
+                      name="Att_Table_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[RowID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RowID]"
+                      length="15"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].Columns[RowID]"
+                      name="RowID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Att_Table_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Att_Table_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RowID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="RowID" />
+                    <externalMetadataColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EA_GUid]"
+                      dataType="guid"
+                      name="EA_GUid" />
+                    <externalMetadataColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date_To_EA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="41"
+                      name="Date_To_EA" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EA_GUid]"
+                      dataType="guid"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EA_GUid]"
+                      name="EA_GUid" />
+                    <outputColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_To_EA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="41"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date_To_EA]"
+                      name="Date_To_EA" />
+                    <outputColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Att_Table_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Att_Table_Name]"
+                      name="Att_Table_Name" />
+                    <outputColumn
+                      refId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RowID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RowID]"
+                      name="RowID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Do Export.Paths[Derived Column Output]"
+              endId="Package\Do Export\Export.Inputs[Flat File Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Do Export\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Do Export.Paths[OLE DB Source Output]"
+              endId="Package\Do Export\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Do Export\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Extent"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4261A761-B372-4401-A0B5-47D97515E37C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Extent"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="SelecT  [ValNum]&#xA;From [dbo].[Control Params] &#xA;WHERE Param = 2 AND Step = 21"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::Extent" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Folder"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3560C2FC-2646-4D45-9C74-26DD1B36EFD9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Folder"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="Select ValStr&#xA;From [Control Params]&#xA;Where Param = 5 And Step = 21"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::Folder" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Link Docs"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9A1F999C-B61F-4587-A8F6-56D7E0A7DACE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Link Docs"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"INSERT INTO [dbo].[ProcessDetails]( [Step], [Status], [Doc], [Moment], [FileSize_KB], [Elapsed], [Batch])
+SELECT Top " + (DT_WSTR, 9) @[User::Extent] + " 21, 1, ID, GetDate(), -1, 0, " +  (DT_WSTR, 9) @[User::BatchID]
++ " From Documents Where CurrentStep = 20 AND ProcStatus = 2"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[ProcessDetails]( [Step], [Status], [Doc], [Moment], [FileSize_KB], [Elapsed], [Batch])&#xA;SELECT Top 10000 21, 1, ID, GetDate(), -1, 0, 0 From Documents Where CurrentStep = 20 AND ProcStatus = 2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set Docs Finshed"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0282db33-893c-467b-8a0b-083839088c20}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set Docs Finshed"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="Update Batches Set Exported = GetDate() Where ID = ?;&#xA;&#xA;UPDATE       Documents&#xA;SET         ProcStatus = 2&#xA;FROM         Documents&#xA;INNER JOIN   ProcessDetails AS P ON Documents.ID = P.Doc&#xA;WHERE       (P.Batch = ?) AND (P.Step = 21)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set Docs Running"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4342AD7B-C841-4C3C-8D81-76D1EB87053E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set Docs Running"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8CC7524-393E-44DF-8099-72EE6B66DCE4}"
+          SQLTask:SqlStatementSource="Update Batches Set Linked = GetDate() Where ID = ?;&#xA;&#xA;UPDATE       Documents&#xA;SET          CurrentStep = P.Step, ProcStatus = 3&#xA;FROM         Documents&#xA;INNER JOIN   ProcessDetails AS P ON Documents.ID = P.Doc&#xA;WHERE       (P.Batch = ?) AND (P.Step = 21)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{51B6A505-FEC4-431C-9029-F3DB44F50058}"
+      DTS:From="Package\Get Folder"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Do Export" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{83db2c4e-092f-45c4-ad38-d776038b7174}"
+      DTS:From="Package\Create Run"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Create Batch" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F1AB7702-5B7F-4BDB-B721-B61B9D694C8F}"
+      DTS:From="Package\Create Batch"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Link Docs" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{4067EF29-66E3-4F30-A5BD-1C0541B9770C}"
+      DTS:From="Package\Link Docs"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Do Export" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{0605D360-2C00-43B4-B7C0-CCF413D3FFB0}"
+      DTS:From="Package\Link Docs"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Set Docs Running" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{BA065C4D-4BFD-4A1F-9B44-072252005BF9}"
+      DTS:From="Package\Do Export"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Set Docs Finshed" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{F8650231-E6A3-460E-AE98-F89B8498563A}"
+      DTS:From="Package\Get Extent"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Create Run" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Create Batch"
+          TopLeft="358,65" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Create Run"
+          TopLeft="88,62" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Do Export"
+          TopLeft="362,306" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Get Folder"
+          TopLeft="81,307" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Link Docs"
+          TopLeft="363,179" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Set Docs Finshed"
+          TopLeft="629,305" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Set Docs Running"
+          TopLeft="627,179" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="212,327.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="150,0"
+              Start="0,0"
+              End="142.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="142.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="223,84.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135,0"
+              Start="0,0"
+              End="127.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="127.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="428,107">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="426.25,221">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,85"
+              Start="0,0"
+              End="0,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="490,200">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137,0"
+              Start="0,0"
+              End="129.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="129.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="490,326.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139,0"
+              Start="0,0"
+              End="131.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="131.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Get Extent"
+          TopLeft="84,175" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="152.5,175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-71"
+              Start="0,0"
+              End="0,-63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Do Export">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="111,42"
+          Id="Package\Do Export\Export"
+          TopLeft="657,63" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Do Export\OLE DB Source"
+          TopLeft="57,66" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Do Export\Derived Column"
+          TopLeft="352,66" />
+        <EdgeLayout
+          Id="Package\Do Export.Paths[OLE DB Source Output]"
+          TopLeft="214,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="138,0"
+              Start="0,0"
+              End="130.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="130.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Do Export.Paths[Derived Column Output]"
+          TopLeft="510,85.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147,0"
+              Start="0,0"
+              End="139.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="139.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Do Export\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

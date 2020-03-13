@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcA - Import Sonar - Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{FA72F062-8B8E-4432-A5A4-8F421F280674}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{200CA4ED-2296-42B1-A4F1-7A50DBDFA488}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -556,6 +556,28 @@ HAVING        ([Template ID] IS NOT NULL) AND ([Template Alias] IS NOT NULL)</pr
                               name="FriendlyExpression"> FALSE </property>
                           </properties>
                         </outputColumn>
+                        <outputColumn
+                          refId="Package\Update References\Update DocTypes\Derived Column.Outputs[Derived Column Output].Columns[Uitval]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Update References\Update DocTypes\Derived Column.Outputs[Derived Column Output].Columns[Uitval]"
+                          name="Uitval"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression"> FALSE </property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression"> FALSE </property>
+                          </properties>
+                        </outputColumn>
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -781,6 +803,12 @@ HAVING        ([Template ID] IS NOT NULL) AND ([Template Alias] IS NOT NULL)</pr
                           cachedName="Template ID"
                           externalMetadataColumnId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[Template]"
                           lineageId="Package\Update References\Update DocTypes\Templates.Outputs[Lookup Match Output].Columns[Template ID]" />
+                        <inputColumn
+                          refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].Columns[Uitval]"
+                          cachedDataType="bool"
+                          cachedName="Uitval"
+                          externalMetadataColumnId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[Uitval]"
+                          lineageId="Package\Update References\Update DocTypes\Derived Column.Outputs[Derived Column Output].Columns[Uitval]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -826,6 +854,14 @@ HAVING        ([Template ID] IS NOT NULL) AND ([Template Alias] IS NOT NULL)</pr
                           refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[VolgNr]"
                           dataType="i2"
                           name="VolgNr" />
+                        <externalMetadataColumn
+                          refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[generic]"
+                          dataType="bool"
+                          name="generic" />
+                        <externalMetadataColumn
+                          refId="Package\Update References\Update DocTypes\DocTypes.Inputs[OLE DB Destination Input].ExternalColumns[Uitval]"
+                          dataType="bool"
+                          name="Uitval" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -3976,13 +4012,13 @@ HAVING        ([Template Version] IS NOT NULL)</property>
           Id="Package\Update References\Update DocTypes\Cnt  DocTypes"
           TopLeft="54,110" />
         <NodeLayout
-          Size="147,42"
-          Id="Package\Update References\Update DocTypes\Set DocCount"
-          TopLeft="328,402" />
-        <NodeLayout
           Size="130,42"
           Id="Package\Update References\Update DocTypes\Templates"
           TopLeft="622,107" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Update References\Update DocTypes\Set DocCount"
+          TopLeft="328,402" />
         <NodeLayout
           Size="158,42"
           Id="Package\Update References\Update DocTypes\Derived Column"
