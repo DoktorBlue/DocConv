@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="Standen"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{21464B38-9AE9-4056-9B66-8461A8B5EB88}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{4BAF8119-EF2C-4775-9FEB-5C082479BB86}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -2804,34 +2804,36 @@ where [refTable].[RefKey] = ?</property>
                       expressionType="Notify"
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        1 AS RefKey, D.Success
-FROM            (
-SELECT   MAX(ID) AS ID  FROM  Standen  WHERE (Type = 2)
-) AS S INNER JOIN (
-SELECT Stand, SUM(S) AS Success
-FROM  (
-SELECT Stand, Success AS S FROM [Standen Proces] Where Step = 19
-UNION
-SELECT Stand, Success + Running AS S FROM  [Standen Proces] where Step between 20 and 21 
-) AS V
-GROUP BY Stand
-) AS D ON S.ID = D.Stand</property>
+FROM            (SELECT        MAX(ID) AS ID
+                          FROM            Standen
+                          WHERE        (Type = 2)) AS S INNER JOIN
+                             (SELECT        Stand, SUM(S) AS Success
+                               FROM            (SELECT        Stand, Success AS S
+                                                         FROM            [Standen Proces]
+                                                         WHERE        (Step = 19)
+                                                         UNION
+                                                         SELECT        Stand, Success + Running AS S
+                                                         FROM            [Standen Proces] 
+                                                         WHERE        (Step BETWEEN 20 AND 21)) AS V
+                               GROUP BY Stand) AS D ON S.ID = D.Stand</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        1 AS RefKey, D.Success
-FROM            (
-SELECT   MAX(ID) AS ID  FROM  Standen  WHERE (Type = 2)
-) AS S INNER JOIN (
-SELECT Stand, SUM(S) AS Success
-FROM  (
-SELECT Stand, Success AS S FROM [Standen Proces] Where Step = 19
-UNION
-SELECT Stand, Success + Running AS S FROM  [Standen Proces] where Step between 20 and 21 
-) AS V
-GROUP BY Stand
-) AS D ON S.ID = D.Stand) [refTable]
+FROM            (SELECT        MAX(ID) AS ID
+                          FROM            Standen
+                          WHERE        (Type = 2)) AS S INNER JOIN
+                             (SELECT        Stand, SUM(S) AS Success
+                               FROM            (SELECT        Stand, Success AS S
+                                                         FROM            [Standen Proces]
+                                                         WHERE        (Step = 19)
+                                                         UNION
+                                                         SELECT        Stand, Success + Running AS S
+                                                         FROM            [Standen Proces] 
+                                                         WHERE        (Step BETWEEN 20 AND 21)) AS V
+                               GROUP BY Stand) AS D ON S.ID = D.Stand) [refTable]
 where [refTable].[RefKey] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -3151,21 +3153,23 @@ where [refTable].[RefKey] = ?</property>
                       description="Specifies the SQL statement that generates the lookup table."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        1 AS RefKey, SUM(CASE WHEN Step IN (20, 21) THEN 0 ELSE D .[Open] END + D.Running) AS Running
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        1 AS RefKey, SUM(D.[Open] + D.Running) AS Running
 FROM            (SELECT        MAX(ID) AS ID
                           FROM            Standen
                           WHERE        (Type = 2)) AS S INNER JOIN
-                         [Standen Proces] AS D ON S.ID = D.Stand</property>
+                         [Standen Proces] AS D ON S.ID = D.Stand
+WHERE        (D.Step IN (20, 21))</property>
                     <property
                       dataType="System.String"
                       description="Specifies a SQL statement that uses parameters to generate the lookup table."
                       expressionType="Notify"
                       name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        1 AS RefKey, SUM(CASE WHEN Step IN (20, 21) THEN 0 ELSE D .[Open] END + D.Running) AS Running
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT        1 AS RefKey, SUM(D.[Open] + D.Running) AS Running
 FROM            (SELECT        MAX(ID) AS ID
                           FROM            Standen
                           WHERE        (Type = 2)) AS S INNER JOIN
-                         [Standen Proces] AS D ON S.ID = D.Stand) [refTable]
+                         [Standen Proces] AS D ON S.ID = D.Stand
+WHERE        (D.Step IN (20, 21))) [refTable]
 where [refTable].[RefKey] = ?</property>
                     <property
                       dataType="System.Int32"
@@ -4560,7 +4564,7 @@ where [refTable].[RefKey] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4570,7 +4574,7 @@ where [refTable].[RefKey] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

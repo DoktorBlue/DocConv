@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="Import Sjablonen"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{D3C6F4D7-1900-45EC-A665-270F086538FF}">
+  DTS:VersionBuild="61"
+  DTS:VersionGUID="{981942F1-D07E-443E-B632-20B42DF9AEC2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         DTS:Name="ExcelFilePath">@[$Package::Root] </DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Data\Import\AOS Codes v1.3.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Data\Import\AOS Codes v1.4.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -38,7 +38,7 @@
       DTS:Required="True">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">E:\Data\Import\AOS Codes v1.3.xlsx</DTS:Property>
+        DTS:Name="ParameterValue">E:\Data\Import\AOS Codes v1.4.xlsx</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -568,7 +568,7 @@ where [refTable].[Aandachtsgebied] = ? and [refTable].[Onderwerp] = ? and [refTa
                 <output
                   refId="Package\Load Templates\AOS.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="RedirectRow"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Load Templates\AOS.Inputs[Lookup Input]">
@@ -1103,7 +1103,7 @@ where [refTable].[Aandachtsgebied] = ? and [refTable].[Onderwerp] = ? and [refTa
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        Template, Aandachtsgebied, Onderwerp, SubOnderwerp, Generic
-FROM            [Blad1$]
+FROM            [AOS$]
 WHERE        (Template &lt;&gt; 'Totaal')</property>
                 <property
                   dataType="System.String"
@@ -1514,6 +1514,873 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
                   <externalMetadataColumns />
                 </output>
               </outputs>
+            </component>
+            <component
+              refId="Package\Load Templates\Report Failed AOS"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;11"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Report Failed AOS"
+              version="11">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\AssemblyInfo.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("SC_6155ef5d30b6417a8321d97c4a8e3d04")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyProduct("SC_6155ef5d30b6417a8321d97c4a8e3d04")> 
+<Assembly: AssemblyCopyright("Copyright @  2020")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("d62ac9b3-5f94-463f-8513-9369d8b5642e")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> 
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services component wrapper
+' This module defines the base class for your component
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+
+<CLSCompliant(False)> _
+Public Class UserComponent
+    Inherits ScriptComponent
+
+    Public Connections As New Connections(Me)
+    Public Variables As New Variables(Me)
+
+    Public Overrides Sub ProcessInput(ByVal InputID As Integer, ByVal InputName As String, ByVal Buffer As PipelineBuffer, ByVal OutputMap As OutputNameMap)
+
+        If InputName.Equals("Input 0", StringComparison.Ordinal) Then
+            Input0_ProcessInput(New Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap))
+        End If
+
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInput(ByVal Buffer As Input0Buffer)
+
+        While Buffer.NextRow()
+            Input0_ProcessInputRow(Buffer)
+        End While
+
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Connections
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Variables
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#Region "Imports"
+Imports System
+Imports System.Data
+Imports System.Math
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+#End Region
+
+' This is the class to which to add your code.  Do not change the name, attributes, or parent
+' of this class.
+<Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute> _
+<CLSCompliant(False)> _
+Public Class ScriptMain
+    Inherits UserComponent
+
+
+    Public Overrides Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+        ComponentMetaData.FireError(10, "Failed AOS", "[" _
+                                    & Row.Aandachtsgebied & "]-[" _
+                                    & Row.Onderwerp & "]-[" _
+                                    & Row.Subonderwerp & "]",
+                                    "", 0, True)
+    End Sub
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+
+Partial Friend NotInheritable Class MySettings
+    Inherits System.Configuration.ApplicationSettingsBase
+
+    Private Shared m_Value As MySettings
+
+    Private Shared m_SyncObject As Object = New Object
+
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Public Shared ReadOnly Property Value() As MySettings
+        Get
+            If (MySettings.m_Value Is Nothing) Then
+                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
+                If (MySettings.m_Value Is Nothing) Then
+                    Try
+                        MySettings.m_Value = New MySettings
+                    Finally
+                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
+                    End Try
+                End If
+            End If
+            Return MySettings.m_Value
+        End Get
+    End Property
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_6155ef5d30b6417a8321d97c4a8e3d04.vbproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4a212361-376b-4c81-bf56-6cb5565ac218}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>My Project</AppDesignerFolder>
+    <RootNamespace>SC_6155ef5d30b6417a8321d97c4a8e3d04</RootNamespace>
+    <AssemblyName>SC_6155ef5d30b6417a8321d97c4a8e3d04</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- This sections specifies references for the project. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.vb" />
+    <Compile Include="BufferWrapper.vb" />
+    <Compile Include="ComponentWrapper.vb" />
+  </ItemGroup>
+  <!-- Visual Basic supports Importing namespaces (equivalent to using statements in C#).-->
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a VB project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="SSIS_SC140" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="SSIS_SC140" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_6155ef5d30b6417a8321d97c4a8e3d04</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_6155ef5d30b6417a8321d97c4a8e3d04</msb:DisplayName>
+    <msb:ProjectId>{BBAEA3E0-2730-40E8-94FC-64682A9BB1D8}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_6155ef5d30b6417a8321d97c4a8e3d04.vbproj" />
+    <msb:File Include="My Project\Resources.resx" />
+    <msb:File Include="ComponentWrapper.vb" />
+    <msb:File Include="main.vb" />
+    <msb:File Include="BufferWrapper.vb" />
+    <msb:File Include="My Project\Settings.Designer.vb" />
+    <msb:File Include="My Project\AssemblyInfo.vb" />
+    <msb:File Include="My Project\Resources.Designer.vb" />
+    <msb:File Include="My Project\Settings.settings" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services buffer wrappers
+' This module defines classes for accessing data flow buffers
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+
+Option Strict Off   ' This allows usage of PipelineBuffer typed accessors.
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+
+<CLSCompliant(False)> _
+Public Class Input0Buffer
+    Inherits ScriptBuffer
+
+    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
+        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
+    End Sub
+
+    Public ReadOnly Property [Aandachtsgebied]() As String
+        Get
+            Return Buffer.GetString(Me.BufferColumnIndexes(0))
+        End Get
+    End Property
+    Public ReadOnly Property [Aandachtsgebied_IsNull] As Boolean
+        Get
+            Return IsNull(0)
+        End Get
+    End Property
+
+    Public ReadOnly Property [Onderwerp]() As String
+        Get
+            Return Buffer.GetString(Me.BufferColumnIndexes(1))
+        End Get
+    End Property
+    Public ReadOnly Property [Onderwerp_IsNull] As Boolean
+        Get
+            Return IsNull(1)
+        End Get
+    End Property
+
+    Public ReadOnly Property [Subonderwerp]() As String
+        Get
+            Return Buffer.GetString(Me.BufferColumnIndexes(2))
+        End Get
+    End Property
+    Public ReadOnly Property [Subonderwerp_IsNull] As Boolean
+        Get
+            Return IsNull(2)
+        End Get
+    End Property
+
+    Public Overloads Function NextRow() As Boolean
+        NextRow = MyBase.NextRow()
+    End Function
+
+    Public Overloads Function EndOfRowset() As Boolean
+        EndOfRowset = MyBase.EndOfRowset
+    End Function
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+Namespace My.Resources
+    
+    '''<summary>
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
+    '''</summary>
+    'This class was auto-generated by the Strongly Typed Resource Builder
+    'class via a tool like ResGen or Visual Studio.NET.
+    'To add or remove a member, edit your .ResX file then rerun ResGen
+    'with the /str option, or rebuild your VS project.
+    Class MyResources
+        
+        Private Shared _resMgr As System.Resources.ResourceManager
+        
+        Private Shared _resCulture As System.Globalization.CultureInfo
+        
+        Friend Sub New()
+            MyBase.New
+        End Sub
+        
+        '''<summary>
+        '''   Returns the cached ResourceManager instance used by this class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
+            Get
+                If (_resMgr Is Nothing) Then
+                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
+                    _resMgr = temp
+                End If
+                Return _resMgr
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared Property Culture() As System.Globalization.CultureInfo
+            Get
+                Return _resCulture
+            End Get
+            Set
+                _resCulture = value
+            End Set
+        End Property
+    End Class
+End Namespace
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_6155ef5d30b6417a8321d97c4a8e3d04.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[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
+EQCEIwAAAAAGGF8HBgARAAAAAQBEBAAAAQAYCgAAAQDABgAAAgDyCAAAAwDxBQAAAQBxAAAAAgBD
+AQAAAwDABgAABADxBQAAAQDABgAAAQAYCgAAAQCXCQAAAQCXCQAAAQDhBQAAAQAKAQAAAQAKAQkA
+XwcBABEAXwcGABkAXwcKACkAXwcQADEAXwcQADkAXwcQAEEAXwcQAEkAXwcQAFEAXwcQAFkAXwcV
+AGEAXwcVAGkAXwcQAHEAXwcQAHkAXwcQAIEAXwcaAJEAXwcgAKkAXwcGALEAXwcGALkAXwcGANEA
+XwcmAOkAXwcQAAEBXwcGADkBXwcGAJkAXwcGAKEAXwcGAAwAXwcGABQAXwcGABwAXwcGACQAXwcG
+AAwA+gBKABQA+gBKABwA+gBKACQA+gBKAMEAXwcGANkAMQFPANkAQwpXAPEAXwddACkBogBpAFkB
+RAlvAFEBSwd1ABEBXweAABEBwAaMABEB8giRABkBfgSVABEBNgWaABEBFAqfABEBYgmfACkBXwcG
+AFkBIgmjACkBBgmrAGkBOwSxADEBXwcGAHEBJQe2AHEBbgm2AMEAIgm7AMEAEwHAAMEAdQTEAHkB
+6wDQADQA8wnnADwAJwRKADwAMQT+ADwAXwcGACkAqwBtAy4ACwDmAS4AEwDvAS4AGwAOAi4AIwAX
+Ai4AKwBAAi4AMwBAAi4AOwAXAi4AQwBGAi4ASwBAAi4AUwBdAi4AWwBAAi4AYwBjAi4AawCNAi4A
+cwCaAkAAiwDkAkAAgwDpAkMAewDyAkMAgwDpAkkAqwB+A2MAewDyAmMAgwDpAmkAqwCSA4AAiwDk
+AoMAkwDkAoMAmwDkAoMAewDyAokAqwCfA6AAiwDkAqkAgwAOAsAAiwDkAsMAswDkAsMAUwBAAskA
+gwAOAuAAiwDkAuMAUwBAAgMBUwBAAiMBUwBAAkMBUwBAAoMBgwDpAoMBowALA6MBgwDpAqMBWwBA
+AqkBuwDkAmADUwBAAoADUwBAAgAEgwDpAgAEiwDkAiAEgwDpAiAEiwDkAkAEgwDpAkAEiwDkAmAE
+gwDpAmAEiwDkAoAEiwDkAqAEiwDkAsAEiwDkAsAEgwDpAuAEiwDkAgAFiwDkAgAFgwDpAmUAyADb
+AAQAAQAFAAUABwAHAAsADQANAA4AAAA6B7YBAAB+BbsBAAAgB8ABAAC3B8UBAADLBsoBAACSAc8B
+AADbANQBAAD5BNgBAAAjBtQBAAAUBdgBAAAxBtQBAAApBdgBAABEBNwBAAD+AOEBAgAEAAMAAgAF
+AAUAAgAGAAcAAgAHAAkAAgAJAAsAAgAKAA0AAQALAA0AAgAPAA8AAgAQABEAAgARABMAAgASABUA
+AgATABcAAgAUABkAAgAfABsAAgAnAB0ALgA1ADwAQwDNAOAA7wD2AASAAAABAAAAAAAAAAAAAAAA
+AEQAAAAEAAAAAAAAAAAAAAAEAbgAAAAAAAQAAAAAAAAAAAAAAAQBPQUAAAAACgAAAAAAAAAAAAAA
+DQHBAAAAAAAOAAAAAAAAAAAAAAAWAaEJAAAAAA4AAAAAAAAAAAAAABYBvgkAAAAADgAAAAAAAAAA
+AAAAFgH7BQAAAAAAAAAAAQAAAKEIAAAMAAQADQAEAAAAEAAaAHkAAAAQAEkAeQAAAAAASwB5AHUA
+1gB1APkAAAAAAABJRFRTQ29tcG9uZW50TWV0YURhdGExMDAAQ29udGV4dFZhbHVlYDEAVGhyZWFk
+U2FmZU9iamVjdFByb3ZpZGVyYDEAU0NfNjE1NWVmNWQzMGI2NDE3YTgzMjFkOTdjNGE4ZTNkMDQA
+PE1vZHVsZT4ASW5wdXRJRABUAERpc3Bvc2VfX0luc3RhbmNlX18AQ3JlYXRlX19JbnN0YW5jZV9f
+AGdldF9Db21wb25lbnRNZXRhRGF0YQBtc2NvcmxpYgBNaWNyb3NvZnQuVmlzdWFsQmFzaWMAZ2V0
+X0FhbmRhY2h0c2dlYmllZABDcmVhdGVJbnN0YW5jZQBnZXRfR2V0SW5zdGFuY2UAaW5zdGFuY2UA
+R2V0SGFzaENvZGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUASW5wdXROYW1l
+AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlBpcGVsaW5lAEdldFR5cGUAZ2V0X0N1bHR1cmUAc2V0
+X0N1bHR1cmUAX3Jlc0N1bHR1cmUAQXBwbGljYXRpb25CYXNlAEFwcGxpY2F0aW9uU2V0dGluZ3NC
+YXNlAEVkaXRvckJyb3dzYWJsZVN0YXRlAEd1aWRBdHRyaWJ1dGUASGVscEtleXdvcmRBdHRyaWJ1
+dGUAR2VuZXJhdGVkQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERl
+YnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAENvbVZpc2libGVBdHRy
+aWJ1dGUAQXNzZW1ibHlUaXRsZUF0dHJpYnV0ZQBTdGFuZGFyZE1vZHVsZUF0dHJpYnV0ZQBIaWRl
+TW9kdWxlTmFtZUF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJpYnV0ZQBUYXJnZXRGcmFt
+ZXdvcmtBdHRyaWJ1dGUARGVidWdnZXJIaWRkZW5BdHRyaWJ1dGUAQXNzZW1ibHlGaWxlVmVyc2lv
+bkF0dHJpYnV0ZQBNeUdyb3VwQ29sbGVjdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9u
+QXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0
+QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAENMU0NvbXBsaWFudEF0dHJpYnV0
+ZQBTU0lTU2NyaXB0Q29tcG9uZW50RW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlB
+dHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAbV9WYWx1ZQBnZXRfVmFsdWUA
+c2V0X1ZhbHVlAEdldE9iamVjdFZhbHVlAFN5c3RlbS5UaHJlYWRpbmcAU3lzdGVtLlJ1bnRpbWUu
+VmVyc2lvbmluZwBUb1N0cmluZwBHZXRTdHJpbmcATWF0aABNaWNyb3NvZnQuVmlzdWFsQmFzaWMu
+TXlTZXJ2aWNlcy5JbnRlcm5hbABTeXN0ZW0uQ29tcG9uZW50TW9kZWwAU0NfNjE1NWVmNWQzMGI2
+NDE3YTgzMjFkOTdjNGE4ZTNkMDQuZGxsAGdldF9BYW5kYWNodHNnZWJpZWRfSXNOdWxsAGdldF9P
+bmRlcndlcnBfSXNOdWxsAGdldF9TdWJvbmRlcndlcnBfSXNOdWxsAFN5c3RlbQBTeXN0ZW0uQ29t
+cG9uZW50TW9kZWwuRGVzaWduAFNjcmlwdE1haW4AZ2V0X0FwcGxpY2F0aW9uAE15QXBwbGljYXRp
+b24AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLlJlZmxl
+Y3Rpb24AU3RyaW5nQ29tcGFyaXNvbgBDdWx0dXJlSW5mbwBPdXRwdXROYW1lTWFwAE91dHB1dE1h
+cABNaWNyb3NvZnQuU3FsU2VydmVyLkRUU1BpcGVsaW5lV3JhcABnZXRfT25kZXJ3ZXJwAGdldF9T
+dWJvbmRlcndlcnAAbV9BcHBPYmplY3RQcm92aWRlcgBtX1VzZXJPYmplY3RQcm92aWRlcgBtX0Nv
+bXB1dGVyT2JqZWN0UHJvdmlkZXIAbV9NeVdlYlNlcnZpY2VzT2JqZWN0UHJvdmlkZXIASW5wdXQw
+QnVmZmVyAFBpcGVsaW5lQnVmZmVyAFNjcmlwdEJ1ZmZlcgBnZXRfUmVzb3VyY2VNYW5hZ2VyAFN5
+c3RlbS5Db2RlRG9tLkNvbXBpbGVyAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlBpcGVsaW5lLldy
+YXBwZXIAZ2V0X1VzZXIARW50ZXIAZ2V0X0NvbXB1dGVyAE15Q29tcHV0ZXIAX3Jlc01ncgBGaXJl
+RXJyb3IAQWN0aXZhdG9yAC5jdG9yAC5jY3RvcgBNb25pdG9yAFN5c3RlbS5EaWFnbm9zdGljcwBN
+aWNyb3NvZnQuVmlzdWFsQmFzaWMuRGV2aWNlcwBnZXRfV2ViU2VydmljZXMATXlXZWJTZXJ2aWNl
+cwBNaWNyb3NvZnQuVmlzdWFsQmFzaWMuQXBwbGljYXRpb25TZXJ2aWNlcwBTeXN0ZW0uUnVudGlt
+ZS5JbnRlcm9wU2VydmljZXMATWljcm9zb2Z0LlZpc3VhbEJhc2ljLkNvbXBpbGVyU2VydmljZXMA
+U3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNDXzYxNTVl
+ZjVkMzBiNjQxN2E4MzIxZDk3YzRhOGUzZDA0Lk15LlJlc291cmNlcwBNeVJlc291cmNlcwBTQ182
+MTU1ZWY1ZDMwYjY0MTdhODMyMWQ5N2M0YThlM2QwNC5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVn
+Z2luZ01vZGVzAFZhcmlhYmxlcwBCdWZmZXJDb2x1bW5JbmRleGVzAEdldENvbHVtbkluZGV4ZXMA
+TXlTZXR0aW5ncwBFcXVhbHMAQ29ubmVjdGlvbnMAUnVudGltZUhlbHBlcnMAQ29uY2F0AG1fU3lu
+Y09iamVjdABNeVByb2plY3QARW5kT2ZSb3dzZXQARXhpdABVc2VyQ29tcG9uZW50AFBhcmVudENv
+bXBvbmVudABTY3JpcHRDb21wb25lbnQATWljcm9zb2Z0LlNxbFNlcnZlci5UeFNjcmlwdABNaWNy
+b3NvZnQuU3FsU2VydmVyLlBpcGVsaW5lSG9zdABJbnB1dDBfUHJvY2Vzc0lucHV0AG1fQ29udGV4
+dABJbnB1dDBfUHJvY2Vzc0lucHV0Um93AE5leHRSb3cAU0NfNjE1NWVmNWQzMGI2NDE3YTgzMjFk
+OTdjNGE4ZTNkMDQuTXkAZ2V0X0Fzc2VtYmx5AAAxTQB5AC4AUgBlAHMAbwB1AHIAYwBlAHMALgBN
+AHkAUgBlAHMAbwB1AHIAYwBlAHMAABVGAGEAaQBsAGUAZAAgAEEATwBTAAADWwAAB10ALQBbAAED
+XQAAAQAPSQBuAHAAdQB0ACAAMAAAALRUGTu0eg5OpIjn7Xp+T9wABCABAQgDIAABBSABARERBCAB
+AQ4EIAEBAgUgAgEODgUgAQERRQcgBAEODg4OBhUSNAESDAYVEjQBEggGFRI0ARJlBhUSNAESMAQg
+ABMABwABEm0RgKEFIAASgKUHIAIBDhKApQMHAQIFIAASgKkFAAEOHQ4KIAYBCA4ODggQAgsgAwES
+gI0dCBKAkQQGEoCNAwYdCAQgAQ4IBCABAggDIAACByACAg4RgLEFIAEdCAgEAAEcHAQAAQEcBCAB
+AhwDIAAIAyAADgQHAR4AAh4ABRABAB4ABAoBHgAEBwETAAYVEjQBEwAHBhUScQETAAYVEnEBEwAC
+EwAECgETAAUgAQETAAi3elxWGTTgiQiwP19/EdUKOgiJhF3NgIDMkQcGFRI0ARIMBwYVEjQBEggH
+BhUSNAESZQcGFRI0ARIwAwYSeQMGEn0DBhIkAwYSKAQGEoCVAwYSLAIGHAMAAAEEAAASDAQAABII
+BAAAEmUEAAASMAQAABJ5BAAAEn0FAAEBEn0FIAEBEhwLIAQBCA4SgI0SgJEGIAEBEoCVBAAAEiwE
+IAASbQcQAQEeAB4ABzABAQEQHgAECAASDAQIABIIBAgAEmUECAASMAQIABJ5BAgAEn0DKAAOAygA
+AgQIABIsBCgAEwAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAA
+AAAAKAEAI1NDXzYxNTVlZjVkMzBiNjQxN2E4MzIxZDk3YzRhOGUzZDA0AAAFAQAAAAAWAQARQ29w
+eXJpZ2h0IEAgIDIwMjAAAAUBAAEAACkBACRkNjJhYzliMy01Zjk0LTQ2M2YtODUxMy05MzY5ZDhi
+NTY0MmUAAAwBAAcxLjAuMC4wAABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjUBAFQOFEZy
+YW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNQQBAAAACAEAAQAAAAAAGAEACk15
+VGVtcGxhdGUIMTEuMC4wLjAAAGEBADRTeXN0ZW0uV2ViLlNlcnZpY2VzLlByb3RvY29scy5Tb2Fw
+SHR0cENsaWVudFByb3RvY29sEkNyZWF0ZV9fSW5zdGFuY2VfXxNEaXNwb3NlX19JbnN0YW5jZV9f
+AAAAEAEAC015LkNvbXB1dGVyAAATAQAOTXkuQXBwbGljYXRpb24AAAwBAAdNeS5Vc2VyAAATAQAO
+TXkuV2ViU2VydmljZXMAAAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3Vy
+Y2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVi
+bGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNv
+dXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAAD0AAAAAAAAAAAAAGj0AAAAgAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAw9AAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8l
+ACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA
+EAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgAAABY
+QAAA7AMAAAAAAAAAAAAA7AM0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAAAL0E
+7/4AAAEAAAABAAAAAAAAAAEAAAAAAD8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAAAQBW
+AGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAAAAAA
+AACwBEwDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAACgDAAABADAAMAAwADAAMAA0
+AGIAMAAAABoAAQABAEMAbwBtAG0AZQBuAHQAcwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEAbgB5AE4A
+YQBtAGUAAAAAAAAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAAAAAAUwBD
+AF8ANgAxADUANQBlAGYANQBkADMAMABiADYANAAxADcAYQA4ADMAMgAxAGQAOQA3AGMANABhADgA
+ZQAzAGQAMAA0AAAAMAAIAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAuADAALgAw
+AAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABTAEMAXwA2ADEANQA1AGUAZgA1AGQA
+MwAwAGIANgA0ADEANwBhADgAMwAyADEAZAA5ADcAYwA0AGEAOABlADMAZAAwADQALgBkAGwAbAAA
+AEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAA
+QAAgACAAMgAwADIAMAAAACoAAQABAEwAZQBnAGEAbABUAHIAYQBkAGUAbQBhAHIAawBzAAAAAAAA
+AAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBhAG0AZQAAAFMAQwBfADYAMQA1ADUA
+ZQBmADUAZAAzADAAYgA2ADQAMQA3AGEAOAAzADIAMQBkADkANwBjADQAYQA4AGUAMwBkADAANAAu
+AGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBlAAAAAABTAEMAXwA2ADEANQA1AGUA
+ZgA1AGQAMwAwAGIANgA0ADEANwBhADgAMwAyADEAZAA5ADcAYwA0AGEAOABlADMAZAAwADQAAAA0
+AAgAAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAOAAIAAEA
+QQBzAHMAZQBtAGIAbAB5ACAAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAACw9AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_6155ef5d30b6417a8321d97c4a8e3d04</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">VisualBasic</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">EF</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load Templates\Report Failed AOS.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Templates\Report Failed AOS.Inputs[Input 0].Columns[Aandachtsgebied]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Aandachtsgebied"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Aandachtsgebied]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Report Failed AOS.Inputs[Input 0].Columns[Onderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Onderwerp"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Onderwerp]" />
+                    <inputColumn
+                      refId="Package\Load Templates\Report Failed AOS.Inputs[Input 0].Columns[Subonderwerp]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Subonderwerp"
+                      lineageId="Package\Load Templates\Merge Join.Outputs[Merge Join Output].Columns[Subonderwerp]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
             </component>
             <component
               refId="Package\Load Templates\Set Inserts"
@@ -2465,6 +3332,11 @@ WHERE Name = ?</property>
               name="Leeg"
               startId="Package\Load Templates\AOS Exists?.Outputs[Leeg]" />
             <path
+              refId="Package\Load Templates.Paths[Lookup Error Output]"
+              endId="Package\Load Templates\Report Failed AOS.Inputs[Input 0]"
+              name="Lookup Error Output"
+              startId="Package\Load Templates\AOS.Outputs[Lookup Error Output]" />
+            <path
               refId="Package\Load Templates.Paths[Lookup Match Output]"
               endId="Package\Load Templates\Union All.Inputs[Union All Input 1]"
               name="Lookup Match Output"
@@ -2584,7 +3456,7 @@ where [refTable].[Aandachtsgebied] = ? and [refTable].[Onderwerp] = ? and [refTa
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Test Templates\Excel Source.Outputs[Excel Source Output].Columns[Aandachtsgebied]};#{Package\Test Templates\Excel Source.Outputs[Excel Source Output].Columns[Onderwerp]};#{Package\Test Templates\Excel Source.Outputs[Excel Source Output].Columns[SubOnderwerp]};</property>
+                  name="ParameterMap">#{Package\Test Templates\83:invalid};#{Package\Test Templates\84:invalid};#{Package\Test Templates\85:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3053,7 +3925,7 @@ where [refTable].[Aandachtsgebied] = ? and [refTable].[Onderwerp] = ? and [refTa
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        Template, Aandachtsgebied, Onderwerp, SubOnderwerp, Generic
-FROM            [Blad1$]
+FROM            [AOS$]
 WHERE        (Template &lt;&gt; 'Totaal')</property>
                 <property
                   dataType="System.String"
@@ -3382,7 +4254,7 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="57.1666666666667,46.3359073359073,16,16"
+              BoundingBox="57.1666666666665,46.3359073359073,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3421,6 +4293,10 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
           Id="Package\Load Templates\Derived Column"
           TopLeft="353,54" />
         <NodeLayout
+          Size="99,42"
+          Id="Package\Load Templates\Sort"
+          TopLeft="651,55" />
+        <NodeLayout
           Size="125,42"
           Id="Package\Load Templates\Bestaat ?"
           TopLeft="293,417" />
@@ -3433,17 +4309,17 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
           Id="Package\Load Templates\AOS"
           TopLeft="668,412" />
         <NodeLayout
-          Size="124,42"
-          Id="Package\Load Templates\Union All"
-          TopLeft="496,414" />
-        <NodeLayout
           Size="141,42"
           Id="Package\Load Templates\AOS Exists?"
           TopLeft="627,284" />
         <NodeLayout
-          Size="99,42"
-          Id="Package\Load Templates\Sort"
-          TopLeft="651,55" />
+          Size="143,42"
+          Id="Package\Load Templates\Update PDF Templates"
+          TopLeft="77,423" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load Templates\Report Failed AOS"
+          TopLeft="639,557" />
         <NodeLayout
           Size="130,42"
           Id="Package\Load Templates\Set Inserts"
@@ -3453,17 +4329,63 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
           Id="Package\Load Templates\Excel Source"
           TopLeft="93,50" />
         <NodeLayout
-          Size="143,42"
-          Id="Package\Load Templates\Update PDF Templates"
-          TopLeft="77,423" />
-        <NodeLayout
           Size="103,42"
           Id="Package\Load Templates\Alias"
           TopLeft="385,171" />
         <NodeLayout
+          Size="124,42"
+          Id="Package\Load Templates\Union All"
+          TopLeft="496,414" />
+        <NodeLayout
           Size="133,42"
           Id="Package\Load Templates\Merge Join"
           TopLeft="631,169" />
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Update]"
+          TopLeft="293,441">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-73,0"
+              Start="0,0"
+              End="-65.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-65.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-49.03029296875,5,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Union All Output 1]"
+          TopLeft="496,436.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78,0"
+              Start="0,0"
+              End="-70.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-70.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Templates.Paths[Sort Output]"
           TopLeft="699,97">
@@ -3483,9 +4405,7 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3507,9 +4427,7 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3531,9 +4449,7 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3555,8 +4471,30 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Templates.Paths[Lookup Error Output]"
+          TopLeft="721.75,454">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,103"
+              Start="0,0"
+              End="0,95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-45.86638671875,41.9453125,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3639,9 +4577,7 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3663,9 +4599,7 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3687,9 +4621,7 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3716,54 +4648,6 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Templates.Paths[Update]"
-          TopLeft="293,441">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-73,0"
-              Start="0,0"
-              End="-65.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-65.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-49.03029296875,5,32.5605859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Templates.Paths[Union All Output 1]"
-          TopLeft="496,436.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-78,0"
-              Start="0,0"
-              End="-70.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-70.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -3771,6 +4655,19 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
     design-time-name="Package\Load Templates.Paths[Lookup Match Output]">
     <PathAnnotation>Never</PathAnnotation>
   </PipelinePath>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Templates\Aliasses">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load Templates\AOS">
     <Properties>
@@ -3791,19 +4688,6 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Templates\Aliasses">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3834,13 +4718,13 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="102,42"
-          Id="Package\Test Templates\AOS"
-          TopLeft="640,175" />
-        <NodeLayout
           Size="141,42"
           Id="Package\Test Templates\AOS Exists?"
           TopLeft="366,180" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Test Templates\Multicast"
+          TopLeft="632,347" />
         <NodeLayout
           Size="158,42"
           Id="Package\Test Templates\Derived Column"
@@ -3849,20 +4733,24 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
           Size="144,42"
           Id="Package\Test Templates\Excel Source"
           TopLeft="93,50" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Test Templates\AOS"
+          TopLeft="640,175" />
         <EdgeLayout
-          Id="Package\Test Templates.Paths[Excel Source Output]"
-          TopLeft="237,73">
+          Id="Package\Test Templates.Paths[Derived Column Output]"
+          TopLeft="434.25,96">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="116,0"
+              EndConnector="0,84"
               Start="0,0"
-              End="108.5,0">
+              End="0,76.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="108.5,0" />
+                    End="0,76.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3896,32 +4784,6 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Test Templates.Paths[Derived Column Output]"
-          TopLeft="434.25,96">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,84"
-              Start="0,0"
-              End="0,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Test Templates\Multicast"
-          TopLeft="632,347" />
-        <EdgeLayout
           Id="Package\Test Templates.Paths[Lookup Error Output]"
           TopLeft="692.25,217">
           <EdgeLayout.Curve>
@@ -3945,16 +4807,46 @@ WHERE        (Template &lt;&gt; 'Totaal')</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Test Templates.Paths[Excel Source Output]"
+          TopLeft="237,73">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116,0"
+              Start="0,0"
+              End="108.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="108.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Test Templates\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Test Templates\AOS">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

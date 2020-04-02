@@ -11,8 +11,8 @@
   DTS:LocaleID="1043"
   DTS:ObjectName="ProcC - Make Scripts"
   DTS:PackageType="5"
-  DTS:VersionBuild="123"
-  DTS:VersionGUID="{5C5DAE78-F5FE-4713-9F67-2EA19164C9A7}">
+  DTS:VersionBuild="125"
+  DTS:VersionGUID="{2301267D-07CB-4701-9028-C3FF04E7233E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -40,7 +40,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Ext"
-              DTS:DTSID="{C79D8A12-3B4A-4D28-8100-D99211DF5B9A}"
+              DTS:DTSID="{4CEA41E4-576A-4A9C-A05F-DE67AED7C166}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Doc ID"
-              DTS:DTSID="{8B7BC941-3373-4BEE-91A3-BA9DF7AD6DF5}"
+              DTS:DTSID="{0DDAD45C-C614-4ECF-8997-02548FDAA34C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="In"
-              DTS:DTSID="{C2E1F4F4-BA08-4996-ADDA-33ED624A7D28}"
+              DTS:DTSID="{7C566486-5A1D-40AF-B7A2-A3F53E1413AF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +66,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Out"
-              DTS:DTSID="{DB8AC559-845F-47DA-B0E3-E6B50F3FF5E3}"
+              DTS:DTSID="{A9F5F321-C16B-4642-8E7C-4BFC4D526325}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +75,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Log"
-              DTS:DTSID="{5BDFBA85-9255-42E7-8355-241AAB55678A}"
+              DTS:DTSID="{8689B38C-6351-44B8-A1A5-F972B99C0211}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -84,7 +84,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Template"
-              DTS:DTSID="{E726B3F5-57C6-4C83-A811-8B80D7320EAA}"
+              DTS:DTSID="{FDC12BE8-455D-47FE-89E8-2A0E32AA57DD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -93,7 +93,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Onderwerp"
-              DTS:DTSID="{826FB9AD-BAFB-4727-942C-B1FD10B47A7B}"
+              DTS:DTSID="{B9B57018-62ED-40AD-97D2-62D751C0662C}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1897,14 +1897,14 @@ WHERE        (M.DoConvert = 1) AND (D.CurrentStep = 15)
                             <inputColumn
                               refId="Package\Create Batches\C - Generate Scripts\PDF\Cmd File.Inputs[Flat File Destination Input].Columns[Out]"
                               cachedDataType="wstr"
-                              cachedLength="511"
+                              cachedLength="532"
                               cachedName="Out"
                               externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\PDF\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[Out]"
                               lineageId="Package\Create Batches\C - Generate Scripts\PDF\Derived Column.Outputs[Derived Column Output].Columns[Out]" />
                             <inputColumn
                               refId="Package\Create Batches\C - Generate Scripts\PDF\Cmd File.Inputs[Flat File Destination Input].Columns[Log]"
                               cachedDataType="wstr"
-                              cachedLength="511"
+                              cachedLength="532"
                               cachedName="Log"
                               externalMetadataColumnId="Package\Create Batches\C - Generate Scripts\PDF\Cmd File.Inputs[Flat File Destination Input].ExternalColumns[Log]"
                               lineageId="Package\Create Batches\C - Generate Scripts\PDF\Derived Column.Outputs[Derived Column Output].Columns[Log]" />
@@ -6236,7 +6236,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Purge Batch"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -6261,7 +6261,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Set Batch State"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -6286,7 +6286,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Update Batch"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -6311,7 +6311,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Update Documents"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -9629,7 +9629,7 @@ Where ProcStatus= 3 AND CurrentStep &lt; 19</property>
     design-time-name="Package\Create Batches\C - Generate Scripts\PDF">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="118,42"
           Id="Package\Create Batches\C - Generate Scripts\PDF\Doc IDs"
@@ -9669,9 +9669,7 @@ Where ProcStatus= 3 AND CurrentStep &lt; 19</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9693,9 +9691,7 @@ Where ProcStatus= 3 AND CurrentStep &lt; 19</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9717,9 +9713,7 @@ Where ProcStatus= 3 AND CurrentStep &lt; 19</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9753,9 +9747,7 @@ Where ProcStatus= 3 AND CurrentStep &lt; 19</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
